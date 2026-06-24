@@ -40,7 +40,7 @@ export default function Home() {
 						Organize a Sunbeam Social in your city!
 					</h1>
 					<a
-						href="/"
+						href="/apply"
 						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
 					>
 						<img
@@ -137,7 +137,7 @@ export default function Home() {
 						Ready? Let the sun beam in your city!
 					</h2>
 					<a
-						href="/"
+						href="/apply"
 						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
 					>
 						<img
