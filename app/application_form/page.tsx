@@ -2,7 +2,8 @@
 
 import "../globals.css";
 import { useState } from "react";
-import { UltimateOrganizerGuideOnboarding } from "../guides/page";
+import { UltimateOrganizerGuideOnboarding } from "../docs/page";
+import Link from "next/link";
 type StepProps = {
   setStep: React.Dispatch<React.SetStateAction<number>>;
 };
@@ -17,6 +18,11 @@ export default function ApplicationForm() {
       {step === 1 && <ReadGuide setStep={setStep} />}
       {step === 2 && <UltimateOrganizerGuideOnboarding setStep={setStep} />}
       {step === 3 && <PersonalInfo setStep={setStep} />}
+      {step === 4 && <EventDetails setStep={setStep} />}
+      {step === 5 && <TechnicalExperience setStep={setStep} />}
+      {step === 6 && <HackathonExperience setStep={setStep} />}
+      {step === 7 && <Commitment setStep={setStep} />}
+      {step === 8 && <ThankYou />}
     </div>
   );
 }
@@ -79,8 +85,10 @@ export function ReadGuide({ setStep }: StepProps) {
         <h2 className="galindo text-[35px] lg:text-[50px] text-center text-pink-bright">
           Read the ultimate organizer guide!
         </h2>
-        <button onClick={() => setStep(2)} 
-        className="flex mx-auto transform duration-200 hover:scale-105 hover:rotate-2 active:scale-95 active:-rotate-5">
+        <button
+          onClick={() => setStep(2)}
+          className="flex mx-auto transform duration-200 hover:scale-105 hover:rotate-2 active:scale-95 active:-rotate-5"
+        >
           <img src="/imgs/ok.png" alt="ok button"></img>
         </button>
       </div>
@@ -92,30 +100,43 @@ export function PersonalInfo({ setStep }: StepProps) {
   return (
     <div>
       <h2>Personal Information</h2>
+      <button onClick={() => setStep(4)}>Next</button>
     </div>
   );
 }
 
-export function EventDetails() {
+export function EventDetails({ setStep }: StepProps) {
   return (
     <div>
       <h2>Event Details</h2>
+      <button onClick={() => setStep(5)}>Next</button>
     </div>
   );
 }
 
-export function TechnicalExperience() {
+export function TechnicalExperience({ setStep }: StepProps) {
   return (
     <div>
       <h2>Technical Experience</h2>
+      <button onClick={() => setStep(6)}>Next</button>
     </div>
   );
 }
 
-export function HackathonExperience() {
+export function HackathonExperience({ setStep }: StepProps) {
   return (
     <div>
-      <h2>Event Details</h2>
+      <h2>Hackathon Experience</h2>
+      <button onClick={() => setStep(7)}>Next</button>
+    </div>
+  );
+}
+
+export function Commitment({ setStep }: StepProps) {
+  return (
+    <div>
+      <h2>are you committed?</h2>
+      <button onClick={() => setStep(8)}>yeah</button>
     </div>
   );
 }
@@ -123,7 +144,8 @@ export function HackathonExperience() {
 export function ThankYou() {
   return (
     <div>
-      <h2>Event Details</h2>
+      <h2>Thank You</h2>
+      <Link href="/">Home</Link>
     </div>
   );
 }

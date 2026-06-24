@@ -2,7 +2,7 @@ type StepProps = {
   setStep: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export default function Guides() {}
+export default function Docs() {}
 
 export function UltimateOrganizerGuideOnboarding({ setStep }: StepProps) {
   return (
