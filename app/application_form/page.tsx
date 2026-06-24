@@ -2,10 +2,12 @@
 
 import "../globals.css";
 import { useState } from "react";
+import NextButton from "../../components/NextButton";
 import { UltimateOrganizerGuideOnboarding } from "../docs/page";
 import Link from "next/link";
 type StepProps = {
   setStep: React.Dispatch<React.SetStateAction<number>>;
+  step: number;
 };
 
 export default function ApplicationForm() {
@@ -14,15 +16,12 @@ export default function ApplicationForm() {
   return (
     <div>
       {/* so you want to org a sunbeam */}
-      {step === 0 && <Page1 setStep={setStep} />}
-      {step === 1 && <ReadGuide setStep={setStep} />}
-      {step === 2 && <UltimateOrganizerGuideOnboarding setStep={setStep} />}
-      {step === 3 && <PersonalInfo setStep={setStep} />}
-      {step === 4 && <EventDetails setStep={setStep} />}
-      {step === 5 && <TechnicalExperience setStep={setStep} />}
-      {step === 6 && <HackathonExperience setStep={setStep} />}
-      {step === 7 && <Commitment setStep={setStep} />}
-      {step === 8 && <ThankYou />}
+      {step === 0 && <Page1 setStep={setStep} step={step} />}
+      {step === 1 && <ReadGuide setStep={setStep} step={step} />}
+      {step === 2 && (
+        <UltimateOrganizerGuideOnboarding setStep={setStep} step={step} />
+      )}
+      {step >= 3 && <Form setStep={setStep} step={step} />}
     </div>
   );
 }
@@ -60,12 +59,11 @@ export function Page1({ setStep }: StepProps) {
         <h2 className="text-[35px] lg:text-[50px] text-center galindo text-orange-dark">
           So you want to organize a Sunbeam Social in your city...
         </h2>
-        <button
-          onClick={() => setStep(1)}
-          className="flex mx-auto transform scale-80 duration-200 hover:scale-85 hover:rotate-2 active:scale-75 active:-rotate-5"
-        >
-          <img src="/imgs/next.png" alt="Next Button" />
-        </button>
+        <NextButton
+          onclick={() => setStep(1)}
+          surfboard="/imgs/next.png"
+          alt="Next Button"
+        />
       </div>
 
       {/* ray */}
@@ -85,58 +83,102 @@ export function ReadGuide({ setStep }: StepProps) {
         <h2 className="galindo text-[35px] lg:text-[50px] text-center text-pink-bright">
           Read the ultimate organizer guide!
         </h2>
-        <button
-          onClick={() => setStep(2)}
-          className="flex mx-auto transform duration-200 hover:scale-105 hover:rotate-2 active:scale-95 active:-rotate-5"
-        >
-          <img src="/imgs/ok.png" alt="ok button"></img>
-        </button>
+        <NextButton
+          onclick={() => setStep(2)}
+          surfboard="/imgs/ok.png"
+          alt="OK button"
+        />
       </div>
     </div>
   );
 }
 
-export function PersonalInfo({ setStep }: StepProps) {
+export function Form({ setStep, step }: StepProps) {
+  return (
+    <div
+      style={{
+        backgroundImage: 'url("/imgs/sand.png")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        minHeight: "100vh",
+      }}
+      className="flex items-start"
+    >
+      <div
+        className="flex flex-col align-center w-1/2 items-center mx-auto mt-20 p-8 min-h-150"
+        style={{
+          backgroundImage: 'url("/imgs/planks-pink-h.png")',
+          backgroundSize: "repeat",
+          backgroundPosition: "center",
+        }}
+      >
+        <div>
+          {step === 3 && <PersonalInfo />}
+          {step === 4 && <EventDetails />}
+          {step === 5 && <TechnicalExperience />}
+          {step === 6 && <HackathonExperience />}
+          {step === 7 && <Commitment setStep={setStep} step={step} />}
+          {step === 8 && <ThankYou />}
+        </div>
+        {/* button */}
+        <div className="w-50" style={{ display: step < 7 ? "flex" : "none" }}>
+          <NextButton
+            onclick={() => {
+              if (step < 7) setStep(step + 1);
+            }}
+            surfboard={["/imgs/next.png", "/imgs/next-blue.png"][step % 2]}
+            alt="Next Button"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function PersonalInfo() {
   return (
     <div>
       <h2>Personal Information</h2>
-      <button onClick={() => setStep(4)}>Next</button>
     </div>
   );
 }
 
-export function EventDetails({ setStep }: StepProps) {
+export function EventDetails() {
   return (
     <div>
       <h2>Event Details</h2>
-      <button onClick={() => setStep(5)}>Next</button>
     </div>
   );
 }
 
-export function TechnicalExperience({ setStep }: StepProps) {
+export function TechnicalExperience() {
   return (
     <div>
       <h2>Technical Experience</h2>
-      <button onClick={() => setStep(6)}>Next</button>
     </div>
   );
 }
 
-export function HackathonExperience({ setStep }: StepProps) {
+export function HackathonExperience() {
   return (
     <div>
       <h2>Hackathon Experience</h2>
-      <button onClick={() => setStep(7)}>Next</button>
     </div>
   );
 }
 
-export function Commitment({ setStep }: StepProps) {
+export function Commitment({ setStep, step }: StepProps) {
   return (
     <div>
       <h2>are you committed?</h2>
-      <button onClick={() => setStep(8)}>yeah</button>
+      <button
+        onClick={() => {
+          setStep(step + 1);
+        }}
+        className="flex mx-auto w-50 transform duration-200 hover:scale-105 hover:rotate-2 active:scale-95 active:-rotate-5"
+      >
+        <img src="/imgs/submit.png" alt="click to submit form" />
+      </button>
     </div>
   );
 }
@@ -145,7 +187,9 @@ export function ThankYou() {
   return (
     <div>
       <h2>Thank You</h2>
-      <Link href="/">Home</Link>
+      <Link href="/" className="flex mx-auto w-50 transform duration-200 hover:scale-105 hover:rotate-2 active:scale-95 active:-rotate-5">
+      <img src="/imgs/home-btn.png" alt="Home" className="w-50" />
+      </Link>
     </div>
   );
 }
