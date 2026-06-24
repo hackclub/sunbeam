@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "Sunbeam",
+	title: "Sunbeam - Hack Club",
 	description: "Sunbeam - 25 events in 25 cities!",
 };
 
