@@ -39,7 +39,7 @@ export default function Home() {
 					<h1 className="galindo text-[6.5vh] text-center gradient-text mt-[1.5vh]">
 						Organize a Sunbeam Social in your city!
 					</h1>
-					<img src="/imgs/apply.png" className="w-[25vw] mx-auto" alt="" />
+					<a href="/application_form"><img src="/imgs/apply.png" className="w-[25vw] mx-auto" alt="" /></a>
 				</div>
 			</div>
 			<div className="relative min-h-screen w-full pt-[26vh] flex flex-col items-center">

@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+@theme {
+	--color-orange-dark: #D88127;
+	--color-orange-bright: #F9A636;
+	--color-white-pink: #FFF0F3;
+	--color-yellow-light: #FEE48B;
+	--color-pink-bright: #F393B4;
+	--color-blue-dark: #0e387a;
+	--color-blue-bright: #359BBF;
+}
+
 .galindo {
 	font-family: "Galindo", sans-serif;
 }
@@ -18,4 +28,9 @@
 	/* 
 	text-shadow: 1px 1px 0 #0e387a, -1px 1px 0 #0e387a, 1px -1px 0 #0e387a,
 		-1px -1px 0 #0e387a; */
+}
+
+@keyframes waveShift {
+	from {transform: translateY(0);}
+	to {transform: translateY(-50px);}
 }
