@@ -162,7 +162,7 @@ export default function Organizers() {
       </div>
 
       {/* ── MOBILE homepage — hidden on desktop ── */}
-      <div className="lg:hidden flex flex-col gap-4 overflow-y-auto pb-47 px-4 pt-4">
+      <div className="lg:hidden w-full flex flex-col gap-4 overflow-y-auto pb-47 px-8 pt-6">
         <h1 className="mt-2 text-3xl galindo text-transparent bg-clip-text bg-gradient-to-b from-yellow-500 to-orange-dark">
           Welcome, Sunbeamer!
         </h1>
