@@ -201,15 +201,15 @@ export default function Home() {
 						</div>
 					</div>
 
-					{/* Guide surfboard */}
+					{/* Organizers portal surfboard */}
 					<a
-						href="/"
+						href="/organizers"
 						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
 					>
 						<img
-							src="/imgs/read.png"
+							src="/imgs/org-portal.png"
 							className="w-[80vw] md:w-[35vw] mx-auto"
-							alt="Read our ultimate guide to organizing events >>>"
+							alt="Visit the organizer portal for more resources"
 						/>
 					</a>
 
