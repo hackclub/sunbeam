@@ -4,7 +4,7 @@ export default function GuideContent() {
 			className="outfit w-full"
 			style={{
 				backgroundColor: "rgb(250,240,212)",
-				backgroundImage: "url('/imgs/sand.png')",
+				backgroundImage: "url('/imgs/sand4.png')",
 				backgroundSize: "100% auto",
 				backgroundRepeat: "repeat-y",
 			}}
@@ -15,7 +15,7 @@ export default function GuideContent() {
 				<p className="galindo" style={{ fontSize: "3.10vw", color: "#359BBF", lineHeight: 1.2 }}>
 					QUICKSTART GUIDE
 				</p>
-				<p className="galindo" style={{ fontSize: "2.33vw", color: "#F393B4", lineHeight: 1.2 }}>
+				<p className="galindo" style={{ fontSize: "2.33vw", color: "#72BFDA", lineHeight: 1.2 }}>
 					(very important!!)
 				</p>
 			</div>
@@ -50,19 +50,19 @@ export default function GuideContent() {
 
 			<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", padding: "0 9.1%", gap: "4vh 4vw", marginBottom: "4vh" }}>
 				{[
-					{ img: "team-photo.png", caption: "you'll meet so many different people" },
-					{ img: "rewarding-1.png", caption: "you'll enjoy snacks and food that YOU pick (leave some for the attendees tho hahaa)" },
+					{ img: "rewarding-1.png", caption: "you'll meet so many different people" },
+					{ img: "rewarding-3.png", caption: "you'll enjoy snacks and food that YOU pick (leave some for the attendees tho hahaa)" },
 					{ img: "rewarding-2.png", caption: "you'll make new professional connections with venues + sponsors" },
-					{ img: "rewarding-3.png", caption: "you get to hang out with friends !!" },
+					{ img: "rewarding-4.png", caption: "you get to hang out with friends !!" },
 				].map(({ img, caption }, i) => (
 					<div key={i} className="flex flex-col items-center">
 						<img
 							src={`/imgs/guide/${img}`}
 							alt=""
-							className="w-full object-cover"
-							style={{ border: "2px solid #0E387A", aspectRatio: "350/230" }}
+							className="w-full"
+							style={{aspectRatio: "350/230" }}
 						/>
-						<p className="text-center mt-[1.5vh]" style={{ fontSize: "1.55vw", color: "rgb(46,88,155)", lineHeight: 1.4 }}>
+						<p className="text-center mt-[1.5vh]" style={{ fontSize: "1.55vw", color: "rgb(46,88,155)"}}>
 							{caption}
 						</p>
 					</div>
@@ -70,50 +70,51 @@ export default function GuideContent() {
 			</div>
 
 			<div className="text-center pb-[5vh]" style={{ padding: "0 9.1% 5vh" }}>
-				<p style={{ fontSize: "2.33vw", fontWeight: 500, color: "rgb(46,88,155)", lineHeight: 1.4 }}>
+				<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.4 }}>
 					BUT there are things that absolutely must be done before so you can enjoy the event on the day.
 				</p>
 			</div>
 
 			{/* SECTION 4: PART ZERO */}
-			<div className="text-center pt-[5vh] pb-[3vh]">
-				<p style={{ fontSize: "2.91vw", lineHeight: 1.3 }}>
-					<span style={{ color: "#C54390" }}>PART ZERO</span>
-					<span style={{ color: "#359BBF" }}>: WHAT IS A SOCIAL CODING EVENT?!</span>
+			<div className="galindo text-center pt-[5vh] pb-[3vh]">
+				<p style={{ fontSize: "2.91vw", lineHeight: 1.3, marginBottom: "3vh" }}>
+					<span style={{ color: "#C54390" }}>PART ZERO:</span>
+					<span style={{ color: "#359BBF" }}> WHAT IS A SOCIAL CODING EVENT?!</span>
 				</p>
 			</div>
 
-			<div style={{ display: "flex", padding: "0 7.4% 5vh", gap: "3vw", alignItems: "flex-start" }}>
+			<div style={{ display: "flex", padding: "0 7.4% 5vh", gap: "3vw", alignItems: "flex-start"}}>
 				<div style={{ flex: "1 1 0", minWidth: 0 }}>
-					<p style={{ fontSize: "2.33vw", color: "#000000", lineHeight: 1.7, marginBottom: "2.5vh" }}>
+					<p style={{ fontSize: "2.33vw", color: "rgb(46,88,155)", lineHeight: 1.7, marginBottom: "6vh" }}>
 						Now, one big reason that there aren't that many girls doing software or hardware is because it sometimes seems very "nerdy" or "masculine" or intimidating to join. (We know this isn't true 😉) SO we decided to run Sunbeam socials!
 					</p>
-					<p style={{ fontSize: "2.33vw", color: "#000000", lineHeight: 1.7, marginBottom: "2.5vh" }}>
+					<p style={{ fontSize: "2.33vw", color: "rgb(46,88,155)", lineHeight: 1.7, marginBottom: "6vh" }}>
 						<strong>Sunbeam is a social coding event:</strong> a day-long hangout where girls can make projects together, chat with friends and new people, learn to code FROM SCRATCH, and of course enjoy delicious food.
 					</p>
-					<p style={{ fontSize: "2.33vw", color: "#000000", lineHeight: 1.7, marginBottom: "2.5vh" }}>
+					<p style={{ fontSize: "2.33vw", color: "rgb(46,88,155)", lineHeight: 1.7, marginBottom: "5vh" }}>
 						We want every Sunbeam social to have a friendly, chill, and supportive environment that helps even complete beginners make something they're proud of.
 					</p>
-					<p style={{ fontSize: "2.33vw", color: "#000000", lineHeight: 1.7 }}>
+					<p style={{ fontSize: "2.33vw", color: "rgb(46,88,155)", lineHeight: 1.7 }}>
 						This event is more of a <strong>SOCIAL coding get together</strong> than a hackathon!!!
 					</p>
 				</div>
-				<div style={{ flexShrink: 0, width: "23.2vw", background: "rgb(251,240,242)", display: "flex", flexDirection: "column", gap: "1vh", padding: "1vw" }}>
+				<div style={{ flexShrink: 0, width: "19vw", background: "#FBF0F3", display: "flex", flexDirection: "column", gap: "1vh", padding: "1vw", border: "2px solid #0E387A", transform: "rotate(5deg)", transformOrigin: "top center", position: "relative", left: '5vw' }}>
 					{[1, 2, 3, 4, 5].map((n) => (
 						<img
 							key={n}
 							src={`/imgs/guide/sidebar-${n}.png`}
 							alt=""
-							style={{ width: "100%", border: "2px solid #0E387A", display: "block" }}
+							style={{ width: "100%", display: "block", position: "relative", right: '0.4vw', transform: "rotate(-2deg)", transformOrigin: "top center"  }}
 						/>
 					))}
 				</div>
 			</div>
 
 			{/* SECTION 5: PART ONE - SETTING UP */}
-			<div style={{ background: "rgb(249,166,54)", padding: "2vh 5vw", textAlign: "center" }}>
-				<p className="outfit" style={{ fontSize: "2.91vw", fontWeight: 400, color: "white" }}>
-					PART ONE: SETTING UP
+			<div className="galindo text-center pt-[5vh] pb-[3vh]">
+				<p style={{ fontSize: "2.91vw", lineHeight: 1.3 }}>
+					<span style={{ color: "#C54390" }}>PART ONE:</span>
+					<span style={{ color: "#359BBF" }}> SETTING UP</span>
 				</p>
 			</div>
 
