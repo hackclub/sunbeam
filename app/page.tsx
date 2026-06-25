@@ -21,7 +21,7 @@ export default function Home() {
 				{/* Foam wave */}
 				<img
 					src="/imgs/foam.png"
-					className="hidden md:absolute bottom-[-20vh] left-0 z-5 w-full"
+					className="hidden md:block md:absolute bottom-[-20vh] left-0 z-5 w-full"
 					alt=""
 				/>
 
@@ -30,7 +30,7 @@ export default function Home() {
 					<div className="relative w-[80vw] mx-auto flex flex-col md:flex-row mt-[5vh] mb-[9vh]">
 						<img
 							src="/imgs/sunbeam.png"
-							className="w-[80vw] md:w-[49vw] absolute bottom-[-10vh] md:bottom-[-6vh] left-[0vw] md:left-[5vw]"
+							className="w-[80vw] md:w-[49vw] absolute bottom-[-10vh] md:bottom-[-6vh] left-0 md:left-[5vw]"
 							alt="Sunbeam"
 						/>
 						{/* Video placeholder */}
@@ -241,7 +241,7 @@ export default function Home() {
 				</div>
 				<img
 					src="/imgs/foam2.png"
-					className="hidden md:absolute top-[-15vh] left-0 z-5 w-full"
+					className="hidden md:block md:absolute top-[-15vh] left-0 z-5 w-full"
 					alt=""
 				/>
 				<img
@@ -268,7 +268,7 @@ export default function Home() {
 					{/* Nav + description */}
 					<div className="flex flex-col md:flex-row gap-[8vw] mt-[6vh] px-[5.3%]">
 						{/* Left nav */}
-						<div className="flex flex-row md:flex-col gap-[1.2vh] flex-shrink-0">
+						<div className="flex flex-row md:flex-col gap-[1.2vh] shrink-0">
 							{[
 								{ label: "Hack Club", href: "https://hackclub.com" },
 								{ label: "Slack", href: "https://hackclub.com/slack" },
