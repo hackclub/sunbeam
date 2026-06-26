@@ -28,7 +28,13 @@ export default function Step2() {
 						className="hover:scale-105 transition-transform cursor-pointer"
 						style={{ width: "25vw", display: "block" }}
 					>
-						<Image src="/imgs/surfboard_next2.png" width={516} height={191} alt="continue to apply!" className="w-full h-auto" />
+						<Image
+							src="/imgs/surfboard_next2.png"
+							width={516}
+							height={191}
+							alt="continue to apply!"
+							className="w-full h-auto"
+						/>
 					</a>
 				</div>
 			</div>
@@ -54,7 +60,13 @@ export default function Step2() {
 					className="hover:scale-105 transition-transform cursor-pointer bg-transparent border-none p-0"
 					style={{ width: "25vw" }}
 				>
-					<Image src="/imgs/surfboard_ok.png" width={865} height={320} alt="OK!" className="w-full h-auto" />
+					<Image
+						src="/imgs/surfboard_ok.png"
+						width={865}
+						height={320}
+						alt="OK!"
+						className="w-full h-auto"
+					/>
 				</button>
 			</div>
 		</div>

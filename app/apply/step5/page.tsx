@@ -6,7 +6,10 @@ import Image from "next/image";
 export default function Step5() {
 	const router = useRouter();
 	const [form, setForm] = useState({
-		github_repo: "", playable_link: "", project_information: "", github_user: "",
+		github_repo: "",
+		playable_link: "",
+		project_information: "",
+		github_user: "",
 	});
 
 	function set(name: string, val: string) {
@@ -22,7 +25,11 @@ export default function Step5() {
 	return (
 		<div
 			className="relative w-full min-h-screen"
-			style={{ backgroundImage: "url('/imgs/sand.png')", backgroundRepeat: "repeat-y", backgroundSize: "100% auto" }}
+			style={{
+				backgroundImage: "url('/imgs/sand.png')",
+				backgroundRepeat: "repeat-y",
+				backgroundSize: "100% auto",
+			}}
 		>
 			<div className="relative mx-[1.7%] mt-[7vh] mb-[4vh]">
 				<Image
@@ -43,21 +50,34 @@ export default function Step5() {
 							<p className="galindo text-[#2E599C] text-[1.8vw] leading-tight">
 								Link a project that you&apos;ve built that you&apos;re proud of!
 							</p>
-							<div className="flex flex-col gap-[6px]">
-								<label className="outfit text-[#359BBF] text-[1.2vw]">Github Repo *</label>
-								<input type="text" value={form.github_repo} onChange={(e) => set("github_repo", e.target.value)}
-									className="outfit bg-white w-full px-3 py-[7px] text-[1.2vw] text-[#2E599C] border-[3px] border-[#0e387a] rounded-2xl outline-none focus:border-[#0e387a] transition-colors" />
+							<div className="flex flex-col gap-1.5">
+								<label className="outfit text-[#359BBF] text-[1.2vw]">
+									Github Repo *
+								</label>
+								<input
+									type="text"
+									value={form.github_repo}
+									onChange={(e) => set("github_repo", e.target.value)}
+									className="outfit bg-white w-full px-3 py-[7px] text-[1.2vw] text-[#2E599C] border-[3px] border-[#0e387a] rounded-2xl outline-none focus:border-[#0e387a] transition-colors"
+								/>
 							</div>
-							<div className="flex flex-col gap-[6px]">
-								<label className="outfit text-[#359BBF] text-[1.2vw]">Playable Link *</label>
-								<input type="text" value={form.playable_link} onChange={(e) => set("playable_link", e.target.value)}
-									className="outfit bg-white w-full px-3 py-[7px] text-[1.2vw] text-[#2E599C] border-[3px] border-[#0e387a] rounded-2xl outline-none focus:border-[#0e387a] transition-colors" />
+							<div className="flex flex-col gap-1.5">
+								<label className="outfit text-[#359BBF] text-[1.2vw]">
+									Playable Link *
+								</label>
+								<input
+									type="text"
+									value={form.playable_link}
+									onChange={(e) => set("playable_link", e.target.value)}
+									className="outfit bg-white w-full px-3 py-[7px] text-[1.2vw] text-[#2E599C] border-[3px] border-[#0e387a] rounded-2xl outline-none focus:border-[#0e387a] transition-colors"
+								/>
 							</div>
 						</div>
 
 						<div className="flex flex-col gap-[8px]">
 							<p className="galindo text-[#2E599C] text-[1.8vw] leading-tight">
-								Tell us more about your project and how you built it! Feel free to include links
+								Tell us more about your project and how you built it! Feel free
+								to include links
 							</p>
 							<textarea
 								maxLength={500}
@@ -66,15 +86,24 @@ export default function Step5() {
 								onChange={(e) => set("project_information", e.target.value)}
 								className="outfit bg-white w-full px-4 py-3 text-[1.2vw] text-[#2E599C] border-[3px] border-[#0e387a] rounded-2xl outline-none focus:border-[#0e387a] transition-colors resize-none"
 							/>
-							<p className="outfit text-[#359BBF] text-[1.08vw]">*max 500 characters</p>
+							<p className="outfit text-[#359BBF] text-[1.08vw]">
+								*max 500 characters
+							</p>
 						</div>
 
 						<div className="flex flex-col gap-[8px]">
 							<label className="galindo text-[#2E599C] text-[1.8vw] leading-tight">
-								Github Username<span className="outfit text-[#359BBF] text-[1.32vw] ml-1">*</span>
+								Github Username
+								<span className="outfit text-[#359BBF] text-[1.32vw] ml-1">
+									*
+								</span>
 							</label>
-							<input type="text" value={form.github_user} onChange={(e) => set("github_user", e.target.value)}
-								className="outfit bg-white w-[45%] px-3 py-[7px] text-[1.2vw] text-[#2E599C] border-[3px] border-[#0e387a] rounded-2xl outline-none focus:border-[#0e387a] transition-colors" />
+							<input
+								type="text"
+								value={form.github_user}
+								onChange={(e) => set("github_user", e.target.value)}
+								className="outfit bg-white w-[45%] px-3 py-[7px] text-[1.2vw] text-[#2E599C] border-[3px] border-[#0e387a] rounded-2xl outline-none focus:border-[#0e387a] transition-colors"
+							/>
 						</div>
 					</div>
 
@@ -85,7 +114,13 @@ export default function Step5() {
 							className="hover:scale-105 transition-transform cursor-pointer bg-transparent border-none p-0"
 							style={{ width: "22vw" }}
 						>
-							<Image src="/imgs/surfboard_next5.png" width={1031} height={382} alt="next!" className="w-full h-auto" />
+							<Image
+								src="/imgs/surfboard_next5.png"
+								width={1031}
+								height={382}
+								alt="next!"
+								className="w-full h-auto"
+							/>
 						</button>
 					</div>
 				</div>

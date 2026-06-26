@@ -21,7 +21,9 @@ export default function Step7() {
 		});
 
 		if (res.ok) {
-			const name = encodeURIComponent(saved.preferred_name || saved.first_name || "");
+			const name = encodeURIComponent(
+				saved.preferred_name || saved.first_name || ""
+			);
 			localStorage.removeItem("sunbeam_app");
 			router.push(`/apply/submitted?name=${name}`);
 		} else {
@@ -33,7 +35,11 @@ export default function Step7() {
 	return (
 		<div
 			className="relative w-full min-h-screen"
-			style={{ backgroundImage: "url('/imgs/sand.png')", backgroundRepeat: "repeat-y", backgroundSize: "100% auto" }}
+			style={{
+				backgroundImage: "url('/imgs/sand.png')",
+				backgroundRepeat: "repeat-y",
+				backgroundSize: "100% auto",
+			}}
 		>
 			<div className="relative mx-[1.7%] mt-[7vh] mb-[4vh]">
 				<Image
@@ -56,10 +62,20 @@ export default function Step7() {
 					<div className="outfit text-[#359BBF] text-[1.92vw] leading-relaxed mt-[2vh]">
 						<p className="font-semibold mb-[1vh]">Being committed means:</p>
 						<ul className="list-disc list-inside flex flex-col gap-[0.8vh]">
-							<li>attending all check-in calls (as POC it will be required, as org it is highly recommended)</li>
-							<li>checking your email often for question from participants or new info from us</li>
-							<li>getting as many girls interested and participating as possible</li>
-							<li>trying your very best to make your event run as best as possible</li>
+							<li>
+								attending all check-in calls (as POC it will be required, as org
+								it is highly recommended)
+							</li>
+							<li>
+								checking your email often for question from participants or new
+								info from us
+							</li>
+							<li>
+								getting as many girls interested and participating as possible
+							</li>
+							<li>
+								trying your very best to make your event run as best as possible
+							</li>
 						</ul>
 					</div>
 
@@ -68,10 +84,15 @@ export default function Step7() {
 							onClick={() => setCommitted((v) => !v)}
 							className="flex-shrink-0 w-[1.8vw] h-[1.8vw] bg-white border-[3px] border-[#0e387a] rounded-md cursor-pointer mt-[0.3vw] flex items-center justify-center"
 						>
-							{committed && <span className="pink-gradient-text text-[1.44vw] leading-none">✓</span>}
+							{committed && (
+								<span className="pink-gradient-text text-[1.44vw] leading-none">
+									✓
+								</span>
+							)}
 						</div>
 						<span className="galindo pink-outlined-text text-[2.4vw] leading-snug">
-							Check this box if you&apos;re committed to running the best Sunbeam social ever
+							Check this box if you&apos;re committed to running the best
+							Sunbeam social ever
 						</span>
 					</div>
 
@@ -81,16 +102,22 @@ export default function Step7() {
 								onClick={() => setComfortableWithPoc((v) => !v)}
 								className="flex-shrink-0 w-[1.8vw] h-[1.8vw] bg-white border-[3px] border-[#0e387a] rounded-md cursor-pointer mt-[0.3vw] flex items-center justify-center"
 							>
-								{comfortable_with_poc && <span className="pink-gradient-text text-[1.44vw] leading-none">✓</span>}
+								{comfortable_with_poc && (
+									<span className="pink-gradient-text text-[1.44vw] leading-none">
+										✓
+									</span>
+								)}
 							</div>
 							<span className="galindo pink-outlined-text text-[2.4vw] leading-snug">
-								Check this box if you are comfortable being the Point of Contact for your city.
+								Check this box if you are comfortable being the Point of Contact
+								for your city.
 							</span>
 						</div>
 						<p className="outfit font-bold text-[#359BBF] text-[1.92vw] leading-relaxed mt-[1.5vh] ml-[5.3vw]">
-							This would include being the &ldquo;lead organizer&rdquo; of your group, being responsible for
-							completing weekly check-ins, and attending pre-event support calls and being the main
-							point of contact for your city.
+							This would include being the &ldquo;lead organizer&rdquo; of your
+							group, being responsible for completing weekly check-ins, and
+							attending pre-event support calls and being the main point of
+							contact for your city.
 						</p>
 					</div>
 
@@ -102,7 +129,13 @@ export default function Step7() {
 							className="hover:scale-105 transition-transform cursor-pointer bg-transparent border-none p-0 disabled:opacity-60 disabled:cursor-not-allowed"
 							style={{ width: "30vw" }}
 						>
-							<Image src="/imgs/surfboard_submit.png" width={1031} height={382} alt="Submit!" className="w-full h-auto" />
+							<Image
+								src="/imgs/surfboard_submit.png"
+								width={1031}
+								height={382}
+								alt="Submit!"
+								className="w-full h-auto"
+							/>
 						</button>
 					</div>
 				</div>

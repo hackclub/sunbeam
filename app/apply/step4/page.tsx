@@ -20,7 +20,11 @@ export default function Step4() {
 	return (
 		<div
 			className="relative w-full min-h-screen"
-			style={{ backgroundImage: "url('/imgs/sand.png')", backgroundRepeat: "repeat-y", backgroundSize: "100% auto" }}
+			style={{
+				backgroundImage: "url('/imgs/sand.png')",
+				backgroundRepeat: "repeat-y",
+				backgroundSize: "100% auto",
+			}}
 		>
 			<div className="relative mx-[2.5%] mt-[7vh] mb-[4vh]">
 				<Image
@@ -37,31 +41,45 @@ export default function Step4() {
 					</h1>
 
 					<div className="flex flex-col gap-[5vh]">
-						<div className="flex flex-col gap-[6px]">
+						<div className="flex flex-col gap-1.5">
 							<label className="galindo text-[#2E599C] text-[1.8vw] leading-tight">
-								What city or region are you planning to host your Sunbeam Social in?
-								<span className="outfit text-[#359BBF] text-[1.32vw] ml-1">*</span>
+								What city or region are you planning to host your Sunbeam Social
+								in?
+								<span className="outfit text-[#359BBF] text-[1.32vw] ml-1">
+									*
+								</span>
 							</label>
 							<input
 								type="text"
 								value={form.host_city}
-								onChange={(e) => setForm((f) => ({ ...f, host_city: e.target.value }))}
-								className="outfit bg-white w-[45%] px-3 py-[6px] text-[1.2vw] text-[#2E599C] border-[3px] border-[#0e387a] rounded-2xl outline-none focus:border-[#0e387a] transition-colors"
+								onChange={(e) =>
+									setForm((f) => ({ ...f, host_city: e.target.value }))
+								}
+								className="outfit bg-white w-[45%] px-3 py-1.5 text-[1.2vw] text-[#2E599C] border-[3px] border-[#0e387a] rounded-2xl outline-none focus:border-[#0e387a] transition-colors"
 							/>
 						</div>
 
-						<div className="flex flex-col gap-[6px]">
+						<div className="flex flex-col gap-1.5">
 							<label className="galindo text-[#2E599C] text-[1.8vw] leading-tight">
 								How many attendees are you planning on hosting?
-								<span className="outfit text-[#359BBF] text-[1.32vw] ml-1">*</span>
+								<span className="outfit text-[#359BBF] text-[1.32vw] ml-1">
+									*
+								</span>
 							</label>
-							<p className="outfit text-[#359BBF] text-[1.2vw] -mt-1">(be realistic!)</p>
+							<p className="outfit text-[#359BBF] text-[1.2vw] -mt-1">
+								(be realistic!)
+							</p>
 							<input
 								type="number"
 								min="1"
 								value={form.expected_attendee_count}
-								onChange={(e) => setForm((f) => ({ ...f, expected_attendee_count: e.target.value }))}
-								className="outfit bg-white w-[45%] px-3 py-[6px] text-[1.2vw] text-[#2E599C] border-[3px] border-[#0e387a] rounded-2xl outline-none focus:border-[#0e387a] transition-colors"
+								onChange={(e) =>
+									setForm((f) => ({
+										...f,
+										expected_attendee_count: e.target.value,
+									}))
+								}
+								className="outfit bg-white w-[45%] px-3 py-1.5 text-[1.2vw] text-[#2E599C] border-[3px] border-[#0e387a] rounded-2xl outline-none focus:border-[#0e387a] transition-colors"
 							/>
 						</div>
 
@@ -69,11 +87,17 @@ export default function Step4() {
 							<input
 								type="checkbox"
 								checked={form.different_to_home_address}
-								onChange={(e) => setForm((f) => ({ ...f, different_to_home_address: e.target.checked }))}
-								className="mt-1 w-[1.8vw] h-[1.8vw] flex-shrink-0 cursor-pointer accent-[#F393B4]"
+								onChange={(e) =>
+									setForm((f) => ({
+										...f,
+										different_to_home_address: e.target.checked,
+									}))
+								}
+								className="mt-1 w-[1.8vw] h-[1.8vw] shrink-0 cursor-pointer accent-[#F393B4]"
 							/>
 							<span className="galindo pink-outlined-text-sm text-[1.8vw] leading-snug">
-								Is the city/region you&apos;re hosting your Sunbeam Social in different to your home city?
+								Is the city/region you&apos;re hosting your Sunbeam Social in
+								different to your home city?
 							</span>
 						</div>
 					</div>
@@ -85,7 +109,13 @@ export default function Step4() {
 							className="hover:scale-105 transition-transform cursor-pointer bg-transparent border-none p-0"
 							style={{ width: "22vw" }}
 						>
-							<Image src="/imgs/surfboard_next3.png" width={865} height={320} alt="next!" className="w-full h-auto" />
+							<Image
+								src="/imgs/surfboard_next3.png"
+								width={865}
+								height={320}
+								alt="next!"
+								className="w-full h-auto"
+							/>
 						</button>
 					</div>
 				</div>

@@ -1,4 +1,3 @@
-// TemplatePage.tsx
 import React from "react";
 import config from "./config.json";
 
@@ -237,7 +236,7 @@ const TemplatePaage = () => {
 			</div>
 
 			{/* Schedule */}
-			<div className="relative min-h-[130vh] items-center justify-center w-full mt-[5vh] flex flex-col pt-[0vh] z-5">
+			<div className="relative min-h-[130vh] items-center justify-center w-full mt-[5vh] flex flex-col pt-0 z-5">
 				<img
 					src="/imgs/boardwalk2.png"
 					className="z-0 absolute w-full h-[130vh] top-0 left-0"

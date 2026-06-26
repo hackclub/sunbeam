@@ -85,7 +85,11 @@ export default function Home() {
 				{/* sand background — single element, tiled via CSS */}
 				<div
 					className="absolute inset-0 z-0 pointer-events-none"
-					style={{ backgroundImage: "url('/imgs/sand.png')", backgroundRepeat: "repeat-y", backgroundSize: "100% auto" }}
+					style={{
+						backgroundImage: "url('/imgs/sand.png')",
+						backgroundRepeat: "repeat-y",
+						backgroundSize: "100% auto",
+					}}
 				/>
 				<Image
 					src="/imgs/ray1.png"
@@ -136,7 +140,13 @@ export default function Home() {
 					<div className="w-[90vw] md:w-[77.5vw] flex flex-col md:flex-row items-stretch justify-center gap-6 md:gap-[3vw] my-[4vh]">
 						<div className="w-full h-auto md:h-[65vh] rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-2 md:p-[0.75vw]">
 							<div className="border-[1vh] border-[#C54390] w-full h-full rounded-[3vh] flex flex-col items-center justify-start p-4 md:p-[1vw]">
-								<Image src="/imgs/img1.png" width={389} height={415} alt="" className="pb-[2vh] max-h-[25vh] w-auto object-contain" />
+								<Image
+									src="/imgs/img1.png"
+									width={389}
+									height={415}
+									alt=""
+									className="pb-[2vh] max-h-[25vh] w-auto object-contain"
+								/>
 								<h2 className="galindo text-center text-[6vw] md:text-[4vh] text-[#C54390]">
 									APPLY!
 								</h2>
@@ -148,7 +158,13 @@ export default function Home() {
 						</div>
 						<div className="w-full h-auto md:h-[72.5vh] rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-2 md:p-[0.75vw]">
 							<div className="border-[1vh] border-[#2E599C] w-full h-full rounded-[3vh] flex flex-col items-center justify-start p-4 md:p-[1vw]">
-								<Image src="/imgs/img2.png" width={389} height={419} alt="" className="pb-[2vh] max-h-[25vh] w-auto object-contain" />
+								<Image
+									src="/imgs/img2.png"
+									width={389}
+									height={419}
+									alt=""
+									className="pb-[2vh] max-h-[25vh] w-auto object-contain"
+								/>
 								<h2 className="galindo text-center text-[6vw] md:text-[4vh] text-[#2E599C]">
 									PLAN!
 								</h2>
@@ -163,7 +179,13 @@ export default function Home() {
 						</div>
 						<div className="w-full h-auto md:h-[65vh] rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-2 md:p-[0.75vw]">
 							<div className="border-[1vh] border-[#C79713] w-full h-full rounded-[3vh] flex flex-col items-center justify-start p-4 md:p-[1vw]">
-								<Image src="/imgs/img3.png" width={399} height={420} alt="" className="pb-[2vh] max-h-[25vh] w-auto object-contain" />
+								<Image
+									src="/imgs/img3.png"
+									width={399}
+									height={420}
+									alt=""
+									className="pb-[2vh] max-h-[25vh] w-auto object-contain"
+								/>
 								<h2 className="galindo text-center text-[6vw] md:text-[4vh] text-[#C79713]">
 									EVENT!
 								</h2>
