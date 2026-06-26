@@ -9,27 +9,31 @@
 }
 
 .pink-gradient-text {
-	background: linear-gradient(to bottom right, rgb(243,147,180), rgb(255,198,217));
+	background: linear-gradient(
+		to bottom right,
+		rgb(243, 147, 180),
+		rgb(255, 198, 217)
+	);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
 }
 
 .pink-outlined-text {
-	background: linear-gradient(to bottom right, #F393B4, #FFC7DA);
+	background: linear-gradient(to bottom right, #f393b4, #ffc7da);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
-	-webkit-text-stroke: 1.75px #0E387A;
+	-webkit-text-stroke: 1.75px #0e387a;
 	paint-order: stroke fill;
 }
 
 .pink-outlined-text-sm {
-	background: linear-gradient(to bottom right, #F393B4, #FFC7DA);
+	background: linear-gradient(to bottom right, #f393b4, #ffc7da);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
-	-webkit-text-stroke: 1px #0E387A;
+	-webkit-text-stroke: 1px #0e387a;
 	paint-order: stroke fill;
 }
 
@@ -43,4 +47,12 @@
 	/* 
 	text-shadow: 1px 1px 0 #0e387a, -1px 1px 0 #0e387a, 1px -1px 0 #0e387a,
 		-1px -1px 0 #0e387a; */
+}
+
+.stroke-text {
+	-webkit-text-stroke: 2px #0e387a !important;
+}
+
+.stroke-text-idk {
+	-webkit-text-stroke: 0.25px #ffffff !important;
 }
