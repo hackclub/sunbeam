@@ -335,22 +335,23 @@ export default function GuideContent() {
 						</div>
 
 			{/* PART TWO HEADER */}
-			<div style={{ background: "#359BBF", padding: "2vh 5vw", textAlign: "center" }}>
-				<p className="outfit" style={{ fontSize: "2.91vw", fontWeight: 400, color: "white" }}>
-					PART TWO: LOCK IN!!
+			<div className="galindo text-center pt-[5vh] pb-[3vh]">
+				<p style={{ fontSize: "2.91vw", lineHeight: 1.3 }}>
+					<span style={{ color: "#C54390" }}>PART TWO:</span>
+					<span style={{ color: "#359BBF" }}> LOCK IN!!</span>
 				</p>
 			</div>
 
-			<div style={{ padding: "4vh 7.4% 5vh" }}>
+			<div style={{ padding: "4vh 7.4%" }}>
 
 				{/* 1) Venue */}
 				<div style={{ marginBottom: "5vh" }}>
 					<p style={{ fontSize: "2.62vw", fontWeight: 700, color: "rgb(46,88,155)", lineHeight: 1.4, marginBottom: "1.5vh" }}>
 						1) Finding a home... (Venue)
 					</p>
-					<div style={{ display: "flex", gap: "3vw", alignItems: "flex-start", marginBottom: "2vh" }}>
+					<div style={{ display: "flex", alignItems: "flex-start"}}>
 						<div style={{ flex: "1 1 0" }}>
-							<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, marginBottom: "2vh" }}>
+							<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6}}>
 								Your Sunbeam social cannot happen if you don't have a venue. You could have a million dollars in sponsors but none of it matters if you have nowhere to host your participants. Finding a venue is arguably the most important part of hosting a hackathon. Lock in.
 							</p>
 						</div>
@@ -359,33 +360,48 @@ export default function GuideContent() {
 						</div>
 					</div>
 
-					{/* Callout box + shark */}
-					<div style={{ position: "relative", marginBottom: "2vh", minHeight: "12vw" }}>
-						<img
-							src="/imgs/guide/shark.png"
-							alt="Shark"
-							style={{ position: "absolute", left: 0, bottom: 0, width: "33.7vw", zIndex: 0 }}
-						/>
-						<div style={{ display: "flex", justifyContent: "flex-end", position: "relative", zIndex: 1, marginBottom: "2vh" }}>
-							<div
-								style={{ border: "4px solid #0E387A", background: "white", padding: "2.5vh 3vw", width: "59.4vw", display: "flex", alignItems: "center", justifyContent: "center", minHeight: "157px" }}
-							>
-								<p style={{ fontSize: "2.33vw", fontWeight: 800, color: "rgb(216,129,39)", textAlign: "center", lineHeight: 1.4 }}>
-									This should be your first priority!!!
-								</p>
+					{/* Shark + speech bubble row */}
+					<div style={{ display: "flex", alignItems: "flex-end", gap: "2vw", marginBottom: "2vh", marginTop: "1vh" }}>
+
+						{/* Shark */}
+						<img src="/imgs/guide/shark.png" alt="Shark" style={{ width: "28vw", flexShrink: 0 }} />
+
+						{/* Right: speech bubble + reach out text */}
+						<div style={{ flex: "1 1 0", display: "flex", flexDirection: "column", paddingBottom: "2vh" }}>
+
+							{/* Speech bubble with left-pointing arrow */}
+							<div style={{ display: "flex", alignItems: "center" }}>
+								<div style={{ position: "relative", flexShrink: 0, width: "22px", alignSelf: "center" }}>
+									<div style={{ width: 0, height: 0, borderTop: "18px solid transparent", borderBottom: "18px solid transparent", borderRight: "22px solid #0E387A" }} />
+									<div style={{ position: "absolute", top: "50%", left: "4px", transform: "translateY(-50%)", width: 0, height: 0, borderTop: "18px solid transparent", borderBottom: "18px solid transparent", borderRight: "22px solid white" }} />
+								</div>
+								<div style={{ border: "4px solid #0E387A", background: "white", padding: "2.5vh 3vw", flex: "1 1 0", display: "flex", alignItems: "center", justifyContent: "center", minHeight: "100px", borderRadius: "10px", overflow: "hidden" }}>
+									<p style={{ fontSize: "2.33vw", fontWeight: 800, color: "rgb(216,129,39)", textAlign: "center", lineHeight: 1.4 }}>
+										This should be your first priority!!!
+									</p>
+								</div>
 							</div>
+
+							{/* Reach out text */}
+							<p className="text-center" style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, marginTop: "3vh" }}>
+								Reach out to cafes, makerspaces, libraries, and even your school if you're in a pinch.
+							</p>
 						</div>
 					</div>
 
-					<p className="text-center" style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, marginBottom: "2vh" }}>
-						Reach out to cafes, makerspaces, libraries, and even your school if you're in a pinch.
-					</p>
-
 					{/* Blue callout box */}
-					<div style={{ background: "rgba(161,214,233,1)", padding: "2.5vh 3vw", border: "2px solid #0E387A" }}>
+					<div style={{ background: "rgba(161,214,233,1)", padding: "2.5vh 3vw", borderRadius: "10px", marginBottom: "3vh" }}>
 						<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6 }}>
-							<strong>What makes an awesome venue:</strong> It's free!! Don't drop $5000 on a venue that's 2 rooms and a couch. Roomy (Minimum: One main space, small organiser room, washrooms, TV/projector, speakers/PA)
+							What makes an awesome venue: 
 						</p>
+						<ul style={{ listStyleType: "disc", paddingLeft: "3vw", marginTop: "1.5vh" }}>
+							<li style={{ fontSize: "2.33vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6 }}>
+								It's free!! Don't drop $5000 on a venue that's 2 rooms and a couch. 
+							</li>
+							<li style={{ fontSize: "2.33vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6 }}>
+								Roomy (Minimum: One main space, small organiser room, washrooms, TV/projector, speakers/PA)
+							</li>
+						</ul>
 					</div>
 				</div>
 
@@ -400,7 +416,7 @@ export default function GuideContent() {
 								Raising money can be one of the most tricky parts of running a hackathon! You may ask: "But I'm not an English student…I can't write emails!" (don't worry, we have templates!)
 							</p>
 						</div>
-						<div style={{ flexShrink: 0, width: "26vw" }}>
+						<div style={{ flexShrink: 0, width: "26vw", position: "relative", top: "4vw" }}>
 							<img src="/imgs/guide/sponsors-ai.png" alt="Sponsors" style={{ width: "100%", display: "block" }} />
 						</div>
 					</div>
@@ -410,11 +426,11 @@ export default function GuideContent() {
 					</p>
 
 					{/* 3 columns of sponsor list items */}
-					<div style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", gap: "0 2vw", marginBottom: "3vh", alignItems: "start" }}>
+					<div className="text-center" style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", gap: "0 2vw", marginBottom: "3vh", alignItems: "start" }}>
 						<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
 							Compile a list of companies your team have personal connections with. (ex: parents, mentors, club leaders)
 						</p>
-						<p style={{ fontSize: "2.52vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6, width: "21.3vw" }}>
+						<p style={{ fontSize: "2.52vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6, width: "24vw" }}>
 							Make a list of tech companies of all sizes with offices/hq near you.
 						</p>
 						<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
@@ -422,20 +438,26 @@ export default function GuideContent() {
 						</p>
 					</div>
 
-					{/* Surfboard + text — surfboard in flow so parent gets its height */}
-					<div style={{ position: "relative", marginBottom: "3vh" }}>
-						<img
-							src="/imgs/guide/surfboard-yellow.png"
-							alt=""
-							style={{ width: "52.7vw", display: "block" }}
-						/>
-						<div style={{ position: "absolute", left: "5vw", top: "50%", transform: "translateY(-50%)", width: "40vw" }}>
-							<p style={{ fontSize: "2.33vw", fontWeight: 700, color: "#0E387A", lineHeight: 1.5 }}>
-								Everyone on your team can definitely get at least one sponsor!
-							</p>
+					{/* Surfboard + text */}
+					<div style={{ display: "flex", alignItems: "center", gap: "3vw", marginBottom: "3vh" }}>
+
+						{/* Surfboard with rotated text overlay */}
+						<div style={{ position: "relative", flexShrink: 0, width: "52.7vw" }}>
+							<img
+								src="/imgs/guide/surfboard-yellow.png"
+								alt=""
+								style={{ width: "100%", display: "block" }}
+							/>
+							<div style={{ position: "absolute", left: "54%", top: "47%", transform: "translate(-50%, -50%) rotate(-7deg)", width: "37vw", textAlign: "center" }}>
+								<p style={{ fontSize: "2.33vw", fontWeight: 700, color: "#0E387A", lineHeight: 1.5 }}>
+									Everyone on your team can definitely get at least one sponsor!
+								</p>
+							</div>
 						</div>
-						<div style={{ position: "absolute", right: 0, top: "50%", transform: "translateY(-50%)", width: "42.7vw" }}>
-							<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
+
+						{/* Spreadsheets text — right-aligned, no rotation */}
+						<div style={{ flex: "1 1 0" }}>
+							<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, textAlign: "right" }}>
 								Spreadsheets will save you for this, and you can delegate one person to find contacts, one person to email, etc.
 							</p>
 						</div>
@@ -444,24 +466,26 @@ export default function GuideContent() {
 
 				{/* 3) Outreach */}
 				<div>
-					<p style={{ fontSize: "2.62vw", fontWeight: 700, color: "rgb(46,88,155)", lineHeight: 1.4, marginBottom: "1.5vh" }}>
-						3) Outreach
-					</p>
-					<p className="text-center" style={{ fontSize: "2.33vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6, marginBottom: "3vh" }}>
-						Outreach is an ESSENTIAL part of hackathons. No participants → No event. But how do you reach the ✨right people?✨
-					</p>
-
 					<div style={{ display: "flex", gap: "3vw", alignItems: "flex-start", marginBottom: "3vh" }}>
+						<p style={{ fontSize: "2.62vw", fontWeight: 700, color: "rgb(46,88,155)", lineHeight: 1.4, flexShrink: 0 }}>
+							3) Outreach
+						</p>
+						<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6, flex: "1 1 0" }}>
+							Outreach is an ESSENTIAL part of hackathons. No participants → No event. But how do you reach the ✨right people?✨
+						</p>
+					</div>
+
+					<div style={{ display: "flex", gap: "3vw", alignItems: "flex-center", marginBottom: "3vh" }}>
 						<div style={{ flexShrink: 0, width: "21.3vw" }}>
 							<img src="/imgs/guide/outreach-1.png" alt="" style={{ width: "100%", display: "block" }} />
 						</div>
-						<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, flex: "1 1 0" }}>
+						<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, flex: "1 1 0", alignSelf: "center" }}>
 							Email CS teachers: Make a video with your team and ask them to CC their students or post in their announcements app!
 						</p>
 					</div>
 
-					<div style={{ display: "flex", gap: "3vw", alignItems: "flex-start", marginBottom: "3vh" }}>
-						<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, flex: "1 1 0" }}>
+					<div style={{ display: "flex", gap: "3vw", alignItems: "flex-center", marginBottom: "3vh" }}>
+						<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, flex: "1 1 0", alignSelf: "center" }}>
 							Email local organizations and clubs: Robotics teams, your student council, CS clubs, etc
 						</p>
 						<div style={{ flexShrink: 0, width: "21.3vw" }}>
@@ -473,30 +497,36 @@ export default function GuideContent() {
 						<div style={{ flexShrink: 0, width: "21.3vw" }}>
 							<img src="/imgs/guide/outreach-2.png" alt="" style={{ width: "100%", display: "block" }} />
 						</div>
-						<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, flex: "1 1 0" }}>
+						<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, flex: "1 1 0", alignSelf: "center" }}>
 							Print out posters and put them up at schools, libraries, even the gym or your car windows.
 						</p>
 					</div>
 
 					<div style={{ display: "flex", gap: "3vw", alignItems: "flex-start", marginBottom: "3vh" }}>
-						<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, flex: "1 1 0" }}>
+						<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, flex: "1 1 0", alignSelf: "center" }}>
 							Post in parent group chats! Facebook, Whatsapp, WeChat. This is VERY effective in reaching beginners.
 						</p>
 						<div style={{ flexShrink: 0, width: "21.3vw" }}>
 							<img src="/imgs/guide/outreach-5.png" alt="" style={{ width: "100%", display: "block" }} />
 						</div>
 					</div>
-
-					<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
+					
+					<div style={{ display: "flex", gap: "3vw", alignItems: "flex-start", marginBottom: "3vh" }}>
+						<div style={{ flexShrink: 0, width: "21.3vw" }}>
+							<img src="/imgs/guide/outreach-4.png" alt="" style={{ width: "100%", display: "block" }} />
+						</div>
+						<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, alignSelf: "center" }}>
 						Post on Instagram and social media! This is where people can discover your event. AND people will trust your event more if they see it's on instagram and has nice branding.
-					</p>
+						</p>
+					</div>
 				</div>
 			</div>
 
 			{/* PART THREE HEADER */}
-			<div style={{ background: "#C54390", padding: "2vh 5vw", textAlign: "center" }}>
-				<p className="outfit" style={{ fontSize: "2.91vw", fontWeight: 400, color: "white" }}>
-					PART THREE: THE DAY OF 🌟
+			<div className="galindo text-center pt-[5vh] pb-[3vh]">
+				<p style={{ fontSize: "2.91vw", lineHeight: 1.3 }}>
+					<span style={{ color: "#C54390" }}>PART THREE:</span>
+					<span style={{ color: "#359BBF" }}> THE DAY OF 🌟</span>
 				</p>
 			</div>
 
@@ -505,11 +535,11 @@ export default function GuideContent() {
 					<p style={{ fontSize: "2.62vw", fontWeight: 700, color: "rgb(46,88,155)", lineHeight: 1.4, marginBottom: "1.5vh" }}>
 						1) Make a run of show...
 					</p>
-					<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, marginBottom: "1.5vh" }}>
+					<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, marginBottom: "1.5vh", marginLeft: "3vw" }}>
 						Run of show = time block it. You need to know what your organisers are doing and when, which will save time running from room to room to find each other.
 					</p>
-					<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
-						PLEASE leave a 30 minute window after submissions are due for last-minute issues. Trust us. (see a sample run of show here.)
+					<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, marginBottom: "1.5vh", marginLeft: "3vw" }}>
+						PLEASE <span style={{ fontWeight: 500 }}>leave a 30 minute window after submissions are due</span> for last-minute issues. Trust us. (see a sample run of show here.)
 					</p>
 				</div>
 
@@ -517,12 +547,12 @@ export default function GuideContent() {
 					<p style={{ fontSize: "2.62vw", fontWeight: 700, color: "rgb(46,88,155)", lineHeight: 1.4, marginBottom: "1.5vh" }}>
 						2) Run an awesome event!
 					</p>
-					<p className="text-center" style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, marginBottom: "2.5vh" }}>
-						Key rules for organizers (Please read OUT LOUD with your team on a team sync or the morning of the event):
+					<p className="text-center" style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, marginBottom: "2.5vh", marginLeft: "3vw" }}>
+						<span style={{ fontWeight: 500 }}>Key rules for organizers</span> (Please read OUT LOUD with your team on a team sync or the morning of the event):
 					</p>
 
 					{/* Yellow rules box */}
-					<div style={{ background: "rgba(255,226,142,0.7)", padding: "4vh 4vw", margin: "0 auto", maxWidth: "74.8vw" }}>
+					<div style={{ background: "rgba(255,226,142,0.7)", padding: "4vh 4vw", margin: "0 auto", maxWidth: "74.8vw", borderRadius: "10px"}}>
 						<p style={{ fontSize: "2.18vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.8, marginBottom: "2.5vh" }}>
 							<strong>100x your energy:</strong> know that one barista who smiles at you and always looks like they just met Olivia Rodrigo? Be exactly that. Extroverted to the point of too much. You want participants to have an "out of this world" experience 🥹
 						</p>
@@ -552,51 +582,45 @@ export default function GuideContent() {
 				</p>
 
 				{/* Support table */}
-				<div style={{ border: "2px solid #0E387A" }}>
-					<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}>
-						<div style={{ background: "rgb(249,166,54)", padding: "0 2vw", height: "164px", display: "flex", alignItems: "center", justifyContent: "center", borderRight: "2px solid #0E387A", borderBottom: "2px solid #0E387A" }}>
-							<p style={{ fontSize: "2.33vw", fontWeight: 600, color: "#0E387A", textAlign: "center" }}>Contact method</p>
-						</div>
-						<div style={{ background: "rgb(249,166,54)", padding: "0 2vw", height: "164px", display: "flex", alignItems: "center", justifyContent: "center", borderRight: "2px solid #0E387A", borderBottom: "2px solid #0E387A" }}>
-							<p style={{ fontSize: "2.33vw", fontWeight: 600, color: "#0E387A", textAlign: "center" }}>Expected response time</p>
-						</div>
-						<div style={{ background: "rgb(249,166,54)", padding: "0 2vw", height: "164px", display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "2px solid #0E387A" }}>
-							<p style={{ fontSize: "2.33vw", fontWeight: 600, color: "#0E387A", textAlign: "center" }}>When to use</p>
-						</div>
+				<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1.2vw" }}>
+					<div style={{ background: "rgb(249,166,54)", padding: "2.5vh 2vw", minHeight: "164px", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "14px" }}>
+						<p style={{ fontSize: "2.33vw", fontWeight: 600, color: "#0E387A", textAlign: "center" }}>Contact method</p>
 					</div>
-					<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", borderBottom: "2px solid #0E387A" }}>
-						<div style={{ background: "white", padding: "2.5vh 2vw", borderRight: "2px solid #0E387A" }}>
-							<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
-								Asking a question in #sunbeam-help in the Hack Club Slack.
-							</p>
-						</div>
-						<div style={{ background: "white", padding: "2.5vh 2vw", borderRight: "2px solid #0E387A" }}>
-							<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
-								24 hours or less.
-							</p>
-						</div>
-						<div style={{ background: "white", padding: "2.5vh 2vw" }}>
-							<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
-								Any general questions! Especially useful for things that other Subeamers can answer for you.
-							</p>
-						</div>
+					<div style={{ background: "rgb(249,166,54)", padding: "2.5vh 2vw", minHeight: "164px", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "14px" }}>
+						<p style={{ fontSize: "2.33vw", fontWeight: 600, color: "#0E387A", textAlign: "center" }}>Expected response time</p>
 					</div>
-					<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}>
-						<div style={{ background: "white", padding: "2.5vh 2vw", borderRight: "2px solid #0E387A" }}>
-							<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
-								Requesting a 30-minute call with a Sunbeam team member.
-							</p>
-						</div>
-						<div style={{ background: "white", padding: "2.5vh 2vw", borderRight: "2px solid #0E387A" }}>
-							<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
-								You can usually book a call 3-4 days in advance! This will vary for who you need to talk to.
-							</p>
-						</div>
-						<div style={{ background: "white", padding: "2.5vh 2vw" }}>
-							<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
-								For more complicated situations that need context, or when you need to get back on track with the help of someone experienced.
-							</p>
-						</div>
+					<div style={{ background: "rgb(249,166,54)", padding: "2.5vh 2vw", minHeight: "164px", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "14px" }}>
+						<p style={{ fontSize: "2.33vw", fontWeight: 600, color: "#0E387A", textAlign: "center" }}>When to use</p>
+					</div>
+					<div style={{ background: "#FFC7DA", padding: "2.5vh 2vw", borderRadius: "14px" }}>
+						<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
+							Asking a question in #sunbeam-help in the Hack Club Slack.
+						</p>
+					</div>
+					<div style={{ background: "#FFC7DA", padding: "2.5vh 2vw", borderRadius: "14px" }}>
+						<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
+							24 hours or less.
+						</p>
+					</div>
+					<div style={{ background: "#FFC7DA", padding: "2.5vh 2vw", borderRadius: "14px" }}>
+						<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
+							Any general questions! Especially useful for things that other Subeamers can answer for you.
+						</p>
+					</div>
+					<div style={{ background: "#FFC7DA", padding: "2.5vh 2vw", borderRadius: "14px" }}>
+						<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
+							Requesting a 30-minute call with a Sunbeam team member.
+						</p>
+					</div>
+					<div style={{ background: "#FFC7DA", padding: "2.5vh 2vw", borderRadius: "14px" }}>
+						<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
+							You can usually book a call 3-4 days in advance! This will vary for who you need to talk to.
+						</p>
+					</div>
+					<div style={{ background: "#FFC7DA", padding: "2.5vh 2vw", borderRadius: "14px" }}>
+						<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
+							For more complicated situations that need context, or when you need to get back on track with the help of someone experienced.
+						</p>
 					</div>
 				</div>
 			</div>
@@ -607,12 +631,9 @@ export default function GuideContent() {
 					What's next?
 				</p>
 				<p className="text-center" style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.7 }}>
-					Thank you so much for reading this short guide. We would really appreciate any feedback in #sunbeam-organizers, and we're super excited to work with you soon. In the meantime, relax, read the full Ultimate Organizer's Guide, and remember: You're not just building a coding event. You're building a space where girls might code their very first project. Meet their best friend. Find their love ♥️ (for tech). You're building a space where girls will feel welcome. That's our Sunbeam. And we're so, so excited to see what you'll build. Written by: Safia and Yanella, with the help of Deven.
+					Thank you so much for reading this short guide. We would really appreciate any feedback in <span style={{ fontWeight: 600 }}>#sunbeam-organizers</span>, and we're super excited to work with you soon.<br></br><br></br> In the meantime, relax, read the full Ultimate Organizer's Guide, and remember:<br></br><br></br> You're not just building a coding event. You're building a space where girls might code their very first project. Meet their best friend. Find their love ♥️ (for tech). You're building a space where girls will feel welcome. <br></br><br></br>That's our <span style={{ color: "#D88127" }}>Sunbeam</span>. And we're so, so excited to see what you'll build. <br></br><br></br> <span style={{ fontWeight: 600 }}>Written by: Safia and Yanella, with the help of Deven.</span>
 				</p>
 			</div>
-
-			{/* FOOTER */}
-			<img src="/imgs/guide/footer.png" className="w-full block" alt="" />
 
 		</div>
 	);
