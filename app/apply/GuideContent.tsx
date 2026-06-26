@@ -83,32 +83,6 @@ export default function GuideContent() {
 				</p>
 			</div>
 
-			<div style={{ display: "flex", padding: "0 7.4% 5vh", gap: "3vw", alignItems: "flex-start"}}>
-				<div style={{ flex: "1 1 0", minWidth: 0 }}>
-					<p style={{ fontSize: "2.33vw", color: "rgb(46,88,155)", lineHeight: 1.7, marginBottom: "6vh" }}>
-						Now, one big reason that there aren't that many girls doing software or hardware is because it sometimes seems very "nerdy" or "masculine" or intimidating to join. (We know this isn't true 😉) SO we decided to run Sunbeam socials!
-					</p>
-					<p style={{ fontSize: "2.33vw", color: "rgb(46,88,155)", lineHeight: 1.7, marginBottom: "6vh" }}>
-						<strong>Sunbeam is a social coding event:</strong> a day-long hangout where girls can make projects together, chat with friends and new people, learn to code FROM SCRATCH, and of course enjoy delicious food.
-					</p>
-					<p style={{ fontSize: "2.33vw", color: "rgb(46,88,155)", lineHeight: 1.7, marginBottom: "5vh" }}>
-						We want every Sunbeam social to have a friendly, chill, and supportive environment that helps even complete beginners make something they're proud of.
-					</p>
-					<p style={{ fontSize: "2.33vw", color: "rgb(46,88,155)", lineHeight: 1.7 }}>
-						This event is more of a <strong>SOCIAL coding get together</strong> than a hackathon!!!
-					</p>
-				</div>
-				<div style={{ flexShrink: 0, width: "19vw", background: "#FBF0F3", display: "flex", flexDirection: "column", gap: "1vh", padding: "1vw", border: "2px solid #0E387A", transform: "rotate(5deg)", transformOrigin: "top center", position: "relative", left: '5vw' }}>
-					{[1, 2, 3, 4, 5].map((n) => (
-						<img
-							key={n}
-							src={`/imgs/guide/sidebar-${n}.png`}
-							alt=""
-							style={{ width: "100%", display: "block", position: "relative", right: '0.4vw', transform: "rotate(-2deg)", transformOrigin: "top center"  }}
-						/>
-					))}
-				</div>
-			</div>
 
 			{/* SECTION 5: PART ONE - SETTING UP */}
 			<div className="galindo text-center pt-[5vh] pb-[3vh]">
@@ -196,122 +170,169 @@ export default function GuideContent() {
 				</div>
 
 				{/* Step 3: Custom email + HCB */}
-				<div style={{ display: "flex", gap: "3vw", alignItems: "flex-start", marginBottom: "5vh" }}>
-					<div style={{ flex: "1 1 0" }}>
-						<p style={{ fontSize: "2.62vw", fontWeight: 700, color: "rgb(46,88,155)", lineHeight: 1.4, marginBottom: "1.5vh" }}>
-							3) Get a custom email and HCB
-						</p>
-						<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "#2E599C", lineHeight: 1.6, marginBottom: "1.5vh", marginLeft: "3vw" }}>
+				<div style={{ marginBottom: "5vh" }}>
+					<p style={{ fontSize: "2.62vw", fontWeight: 700, color: "rgb(46,88,155)", lineHeight: 1.4, marginBottom: "1.5vh" }}>
+						3) Get a custom email and HCB
+					</p>
+
+					{/* Email row: text left, gmail+seal right */}
+					<div style={{ display: "flex", gap: "3vw", alignItems: "center", marginBottom: "3vh" }}>
+						<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "#2E599C", lineHeight: 1.6, flex: "1 1 0", marginLeft: "3vw" }}>
 							Want a city@sunbeam.hackclub.com email? This will be coming to event PoCs soon! This is a shared Google Workspace account that the team can use to send out mass, personalised communications to attendees, and should be the contact email listed on your website so people can ask you questions.
 						</p>
-						<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "#2E599C", lineHeight: 1.6, marginBottom: "1.5vh", marginLeft: "3vw" }}>
+						<div style={{ flexShrink: 0, width: "18vw", position: "relative" }}>
+							<img src="/imgs/guide/hcb-setup.png" alt="Gmail" style={{ width: "100%", display: "block" }} />
+							<img src="/imgs/sunbeam.png" alt="" style={{ position: "absolute", bottom: "5vw", left: "50%", transform: "translateX(-50%)", width: "10vw" }} />
+						</div>
+					</div>
+
+					{/* HCB row: logo left, text right */}
+					<div style={{ display: "flex", gap: "3vw", alignItems: "center", marginLeft: "3vw" }}>
+						<img src="/imgs/guide/hcb-logo.png" alt="HCB logo" style={{ flexShrink: 0, width: "8vw" }} />
+						<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "#2E599C", lineHeight: 1.6, flex: "1 1 0" }}>
 							You will also receive an email to activate your very own HCB account to manage your Sunbeam event's finances. Make sure to keep an eye on your inbox to receive these important updates!!!
 						</p>
 					</div>
-					<div style={{ flexShrink: 0, width: "18vw", display: "flex", flexDirection: "column", alignItems: "center", gap: "1.5vh" }}>
-						<img src="/imgs/guide/hcb-setup.png" alt="HCB setup" style={{ width: "100%" }} />
-						<img src="/imgs/guide/hcb-logo.png" alt="HCB logo" style={{ width: "8vw" }} />
-					</div>
 				</div>
 
-				{/* Step 4: Website */}
-				<div style={{ display: "flex", gap: "3vw", alignItems: "flex-start", marginBottom: "5vh" }}>
-					<div style={{ flex: "1 1 0" }}>
-						<p style={{ fontSize: "2.62vw", fontWeight: 700, color: "rgb(46,88,155)", lineHeight: 1.4, marginBottom: "1.5vh" }}>
-							4) Setup YOUR Sunbeam website:
-						</p>
-						<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
-							Individual city website templates will be sent out where you can then customize the schedule and sponsor list.
-						</p>
-					</div>
-					<div style={{ flexShrink: 0, width: "30vw" }}>
-						<img src="/imgs/guide/website-template.png" alt="Website template" style={{ width: "100%" }} />
-					</div>
-				</div>
+				{/* Steps 4 + 5 with website template on right */}
+				<div style={{ display: "flex", gap: "3vw", alignItems: "flex-start" }}>
 
-				{/* Step 5: Budget */}
-				<div>
-					<p style={{ fontSize: "2.62vw", fontWeight: 700, color: "rgb(46,88,155)", lineHeight: 1.4, marginBottom: "1.5vh" }}>
-						5) Make a Budget (template here)
-					</p>
-					<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, marginBottom: "2vh" }}>
-						A good Sunbeam social generally only needs three things: Food Food Food (Please buy water if needed) … And maybe supplies. ;)
-					</p>
-					<p style={{ fontSize: "2.62vw", fontWeight: 600, color: "#0E387A", lineHeight: 1.4, marginBottom: "2vh" }}>
-						But a GREAT Sunbeam social needs:
-					</p>
+					{/* Left: steps 4 and 5 */}
+					<div style={{ flex: "1 1 0", minWidth: 0 }}>
 
-					{/* Budget item boxes */}
-					<div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "2vh 2vw", marginBottom: "3vh" }}>
-						{[
-							"GOOD FOOD (Chipotle, CAVA, snacks, drinks...)",
-							"Merch!!",
-							"Supplies (power strips, tablecloths, surprizes, etc.)",
-							"Prizes",
-							"Venue Decorations",
-						].map((item, i) => (
-							<div
-								key={i}
-								style={{ border: "2px solid #0E387A", padding: "2vh 1.5vw", background: "white", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center" }}
-							>
-								<p style={{ fontSize: "1.94vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.5 }}>{item}</p>
-							</div>
-						))}
-					</div>
-
-					{/* Budget photos 3+2 */}
-					<div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5vw", marginBottom: "2vh" }}>
-						{[1, 2, 3].map((n) => (
-							<img key={n} src={`/imgs/guide/budget-${n}.png`} alt="" style={{ width: "100%", display: "block" }} />
-						))}
-					</div>
-					<div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1.5vw", marginBottom: "3vh", padding: "0 16.7%" }}>
-						{[4, 5].map((n) => (
-							<img key={n} src={`/imgs/guide/budget-${n}.png`} alt="" style={{ width: "100%", display: "block" }} />
-						))}
-					</div>
-
-					<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, marginBottom: "3vh" }}>
-						Track your cost PER ATTENDEE. This will help prevent you from spending too much! Well-planned budgets have: "Cost per Attendee" column for each item. Must be done by [DATE TBD]. (but ideally finished AT LEAST two weeks earlier) Estimate your attendees as 50% of total signups. Half of the people who sign up don't show up! (unfortunately ☹️)
-					</p>
-
-					<p style={{ fontSize: "2.62vw", fontWeight: 700, color: "rgb(46,88,155)", lineHeight: 1.4, marginBottom: "1vh" }}>
-						Payouts FROM US!!
-					</p>
-					<p className="text-center" style={{ fontSize: "2.62vw", fontWeight: 700, color: "rgb(46,88,155)", lineHeight: 1.4, marginBottom: "1vh" }}>
-						$/Signup is based on the number of signups you have.
-					</p>
-					<p className="text-center" style={{ fontSize: "1.74vw", fontWeight: 400, color: "#359BBF", lineHeight: 1.4, marginBottom: "3vh" }}>
-						These rates are for North America: more guidance on international payouts coming soon
-					</p>
-
-					{/* Payout table */}
-					<div style={{ border: "2px solid #0E387A", marginBottom: "2vh" }}>
-						<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
-							<div style={{ background: "rgba(243,147,180,1)", padding: "0 2vw", height: "150px", display: "flex", alignItems: "center", justifyContent: "center", borderRight: "2px solid #0E387A", borderBottom: "2px solid #0E387A" }}>
-								<p style={{ fontSize: "2.33vw", fontWeight: 500, color: "rgb(46,88,155)", textAlign: "center" }}># of signups</p>
-							</div>
-							<div style={{ background: "rgba(249,166,54,1)", padding: "0 2vw", height: "150px", display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "2px solid #0E387A" }}>
-								<p style={{ fontSize: "2.33vw", fontWeight: 500, color: "rgb(46,88,155)", textAlign: "center" }}>$/Signup</p>
-							</div>
+						{/* Step 4: Website */}
+						<div style={{ marginBottom: "5vh" }}>
+							<p style={{ fontSize: "2.62vw", fontWeight: 700, color: "rgb(46,88,155)", lineHeight: 1.4, marginBottom: "1.5vh" }}>
+								4) Setup YOUR Sunbeam website:
+							</p>
+							<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, marginLeft: "3vw" }}>
+								Individual city website templates will be sent out where you can then customize the schedule and sponsor list.
+							</p>
 						</div>
-						{[["0-59", "$8.50"], ["60-119", "$10.00"], ["120+", "$12.00"]].map(([range, rate], i) => (
-							<div key={i} style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
-								<div style={{ padding: "2vh 2vw", textAlign: "center", borderRight: "2px solid #0E387A", borderTop: "2px solid #0E387A" }}>
-									<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)" }}>{range}</p>
-								</div>
-								<div style={{ padding: "2vh 2vw", textAlign: "center", borderTop: "2px solid #0E387A" }}>
-									<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)" }}>{rate}</p>
-								</div>
-							</div>
-						))}
+
+						{/* Step 5: Budget */}
+						<div>
+							<p style={{ fontSize: "2.62vw", fontWeight: 700, color: "rgb(46,88,155)", lineHeight: 1.4, marginBottom: "1.5vh" }}>
+								5) Make a Budget (template here)
+							</p>
+							<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, marginBottom: "2vh", marginLeft: "3vw" }}>
+								A <strong>good</strong> Sunbeam social generally only needs three things:
+							</p>
+							<ul style={{ listStyleType: "disc", paddingLeft: "3vw", marginBottom: "2vh", marginLeft: "3vw"  }}>
+								<li style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
+									Food
+								</li>
+								<li style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
+									Food
+								</li>
+								<li style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
+									Food (Please buy water if needed)
+								</li>
+							</ul>
+							<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, marginBottom: "2vh", marginLeft: "3vw" }}>
+								... And maybe supplies. ;)
+							</p>
+							<p style={{ fontSize: "2.62vw", fontWeight: 400, color: "#C54390", lineHeight: 1.4, marginBottom: "8vh", marginLeft: "3vw" }}>
+								But a <strong>GREAT</strong> Sunbeam social needs:
+							</p>
+						</div>
 					</div>
 
-					<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
-						That's a lot of moola! Outreach to your community will be your BFF for this!
-					</p>
+					{/* Right: website template + caption */}
+					<div style={{ flexShrink: 0, width: "30vw", display: "flex", flexDirection: "column", alignItems: "center", gap: "1vh", position: "relative", top: "2vw" }}>
+						<img src="/imgs/guide/website-template.png" alt="Website template" style={{ width: "100%" }} />
+						<p style={{ fontSize: "1.74vw", fontWeight: 600, color: "#0E387A"}}>cool...</p>
+					</div>
 				</div>
+
 			</div>
+
+			{/* Budget photos 3+2 with captions */}
+			<div style={{marginLeft: "7.4%", marginRight: "7.4%", marginBottom: "5vh"}}>
+							<div>
+								<div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "2vw", marginBottom: "2vh" }}>
+									{[
+										{ n: 1, caption: "GOOD FOOD (Chipotle, CAVA, snacks, drinks...)" },
+										{ n: 2, caption: "Supplies (power strips, tablecloths, surprizes, etc.)" },
+										{ n: 3, caption: "Merch!!" },
+									].map(({ n, caption }) => (
+										<div key={n} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1vh" }}>
+											<img src={`/imgs/guide/budget-${n}.png`} alt="" style={{ width: "100%", display: "block" }} />
+											<p style={{ fontSize: "1.74vw", fontWeight: 400, color: "#0E387A", textAlign: "center", lineHeight: 1.5 }}>{caption}</p>
+										</div>
+									))}
+								</div>
+								<div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "2vw", padding: "0 16.7%", marginBottom: "3vh" }}>
+									{[
+										{ n: 4, caption: "Venue Decorations" },
+										{ n: 5, caption: "Prizes" },
+									].map(({ n, caption }) => (
+										<div key={n} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1vh" }}>
+											<img src={`/imgs/guide/budget-${n}.png`} alt="" style={{ width: "100%", display: "block" }} />
+											<p style={{ fontSize: "1.74vw", fontWeight: 400, color: "#0E387A", textAlign: "center", lineHeight: 1.5 }}>{caption}</p>
+										</div>
+									))}
+									</div>
+								</div>
+
+							<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, marginBottom: "3vh" }}>
+								Track your cost <strong>PER ATTENDEE</strong>. This will help prevent you from spending too much!<br></br> Well-planned budgets have: 
+							</p>
+							<ul style={{ listStyleType: "disc", paddingLeft: "3vw", marginBottom: "3vh", fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
+								<li style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
+									<span style={{ textDecoration: "underline" }}>"Cost per attendee"</span> column for each item
+								</li>
+								<li>
+									Must be done by [DATE TBD]. (but ideally finished <span style={{ textDecoration: "underline" }}><strong>AT LEAST</strong> two weeks earlier</span>)
+								</li>
+							</ul>
+
+							<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, marginBottom: "3vh" }}>
+									Estimate your <strong>attendees</strong> as <strong>50%</strong> of total signups. Half of the people who sign up don’t show up! (unfortunately ☹️)
+							</p>
+
+							<p style={{ fontSize: "2.62vw", fontWeight: 700, color: "rgb(46,88,155)", lineHeight: 1.4, marginBottom: "1vh" }}>
+								Payouts FROM US!!
+							</p>
+							
+							<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, marginBottom: "3vh" }}>
+								That’s right - for every signup you get for your Sunbeam Social, we’ll send you $$ to run your event!
+							</p>
+
+							<p className="text-center" style={{ fontSize: "2.62vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.4, marginBottom: "1vh" }}>
+								<strong>$/Signup</strong> is based on the <strong>number of signups you have.</strong>
+							</p>
+							<p className="text-center" style={{ fontSize: "1.74vw", fontWeight: 400, color: "#359BBF", lineHeight: 1.4, marginBottom: "3vh", textDecoration: "underline" }}>
+								These rates are for <strong>North America</strong>: more guidance on international payouts coming soon
+							</p>
+
+							{/* Payout table */}
+							<div style={{ border: "2px solid #0E387A", marginBottom: "2vh", borderRadius: "10px", overflow: "hidden" }}>
+								<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+									<div style={{ background: "rgba(243,147,180,0.65)", padding: "0 2vw", height: "50px", display: "flex", alignItems: "center", justifyContent: "center", borderRight: "2px solid #0E387A", borderBottom: "2px solid #0E387A" }}>
+										<p style={{ fontSize: "1.94vw", fontWeight: 500, color: "#0E387A", textAlign: "center" }}># of signups</p>
+									</div>
+									<div style={{ background: "rgba(249,166,54,0.65)", padding: "0 2vw", height: "50px", display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "2px solid #0E387A" }}>
+										<p style={{ fontSize: "1.94vw", fontWeight: 500, color: "#0E387A", textAlign: "center" }}>$/Signup</p>
+									</div>
+								</div>
+								{[["0-59", "$8.50"], ["60-119", "$10.00"], ["120+", "$12.00"]].map(([range, rate], i) => (
+									<div key={i} style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+										<div style={{ padding: "2vh 2vw", textAlign: "center", borderRight: "2px solid #0E387A", borderTop: "2px solid #0E387A", background: "rgba(255,255,255,0.65)" }}>
+											<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)" }}>{range}</p>
+										</div>
+										<div style={{ padding: "2vh 2vw", textAlign: "center", borderTop: "2px solid #0E387A", background: "rgba(255,255,255,0.65)" }}>
+											<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)" }}>{rate}</p>
+										</div>
+									</div>
+								))}
+							</div>
+
+							<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
+								That's a lot of moola! Outreach to your community will be your BFF for this!
+							</p>
+						</div>
 
 			{/* PART TWO HEADER */}
 			<div style={{ background: "#359BBF", padding: "2vh 5vw", textAlign: "center" }}>
