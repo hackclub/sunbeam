@@ -1,4 +1,5 @@
 import GuideContent from "./GuideContent";
+import Image from "next/image";
 
 export default function Apply() {
 	return (
@@ -24,10 +25,13 @@ export default function Apply() {
 			/>
 
 			{/* Foam wave decoration */}
-			<img
+			<Image
 				src="/imgs/foam.png"
-				className="absolute top-0 left-0 w-full z-10 pointer-events-none"
+				width={1727}
+				height={428}
 				alt=""
+				className="absolute top-0 left-0 w-full h-auto z-10 pointer-events-none"
+				priority
 			/>
 
 			{/* Title */}
@@ -44,31 +48,27 @@ export default function Apply() {
 			</h1>
 
 			{/* Ray image — right side */}
-			<img
+			<Image
 				src="/imgs/ray1.png"
-				className="absolute z-10 pointer-events-none"
-				style={{
-					left: "68%",
-					top: "52%",
-					width: "28vw",
-				}}
+				width={356}
+				height={267}
 				alt=""
+				className="absolute z-10 pointer-events-none h-auto"
+				style={{ left: "68%", top: "52%", width: "28vw" }}
 			/>
 
 			{/* Surfboard "next!" button */}
 			<a
 				href="/apply/step2"
 				className="absolute z-20 hover:scale-105 transition-transform cursor-pointer"
-				style={{
-					left: "32%",
-					top: "50%",
-					width: "30vw",
-				}}
+				style={{ left: "32%", top: "50%", width: "30vw" }}
 			>
-				<img
+				<Image
 					src="/imgs/surfboard_next.png"
-					className="w-full"
+					width={1031}
+					height={382}
 					alt="next!"
+					className="w-full h-auto"
 				/>
 			</a>
 		</div>
