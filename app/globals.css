@@ -1,46 +1,116 @@
 @import "tailwindcss";
 
+@theme {
+  --color-orange-dark: #d88127;
+  --color-orange-bright: #f9a636;
+  --color-white-pink: #fff0f3;
+  --color-yellow-light: #fee48b;
+  --color-pink-bright: #f393b4;
+  --color-pink-dark: #c54390;
+  --color-pink-dropshadow: #f4c2d6;
+  --color-blue-dark: #0e387a;
+  --color-blue-bright: #359bbf;
+}
+
 .galindo {
-	font-family: "Galindo", sans-serif;
+  font-family: "Galindo", sans-serif;
 }
 
 .outfit {
-	font-family: "Outfit", serif;
+  font-family: "Outfit", serif;
 }
 
 .pink-gradient-text {
-	background: linear-gradient(to bottom right, rgb(243,147,180), rgb(255,198,217));
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
+  background: linear-gradient(
+    to bottom right,
+    rgb(243, 147, 180),
+    rgb(255, 198, 217)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .pink-outlined-text {
-	background: linear-gradient(to bottom right, #F393B4, #FFC7DA);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
-	-webkit-text-stroke: 1.75px #0E387A;
-	paint-order: stroke fill;
+  background: linear-gradient(to bottom right, #f393b4, #ffc7da);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-text-stroke: 1.75px #0e387a;
+  paint-order: stroke fill;
 }
 
 .pink-outlined-text-sm {
-	background: linear-gradient(to bottom right, #F393B4, #FFC7DA);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
-	-webkit-text-stroke: 1px #0E387A;
-	paint-order: stroke fill;
+  background: linear-gradient(to bottom right, #f393b4, #ffc7da);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-text-stroke: 1px #0e387a;
+  paint-order: stroke fill;
+}
+
+.pink-outlined-text-drop-shadow {
+  background: linear-gradient(to bottom right, #f393b4, #ffc7da);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-text-stroke: 4px #0e387a;
+  paint-order: stroke fill;
+  text-shadow: 0px 2.5px 2.5px #0e387a;
 }
 
 .gradient-text {
-	background: linear-gradient(to bottom, #ffffff 0%, #f393b4 100%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
+  background: linear-gradient(to bottom, #ffffff 0%, #f393b4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 
-	-webkit-text-stroke: 1.75px #0e387a;
-	/* 
+  -webkit-text-stroke: 1.75px #0e387a;
+  /* 
 	text-shadow: 1px 1px 0 #0e387a, -1px 1px 0 #0e387a, 1px -1px 0 #0e387a,
 		-1px -1px 0 #0e387a; */
+}
+
+.glassbox-white {
+  background: linear-gradient(to bottom, #ffffffbf 0%, #fffaf1bf 100%);
+  box-shadow:
+    0 10px 0px #ebe3d8,
+    0 16px 8px #0e387a80;
+}
+
+.glassbox-clear {
+  background: linear-gradient(to bottom, #ffffff66 0%, #fffaf166 100%);
+  outline: 2px solid #0e387a28;
+}
+
+.boardwalk {
+    background-image:
+    linear-gradient(
+      color-mix(in srgb, #FFE4E9 60%, transparent),
+      color-mix(in srgb, var(--color-pink-bright) 30%, transparent)
+    ),
+    url("/imgs/planks-pink-h.png");
+  background-size: 150%;
+  background-position: center;
+  outline: 1px solid var(--color-pink-dropshadow);
+  box-shadow: 0 -16px 0px var(--color-pink-dropshadow);
+}
+
+.boardwalk-mobile {
+    background-image:
+    linear-gradient(
+      color-mix(in srgb, #FFE4E9 60%, transparent),
+      color-mix(in srgb, var(--color-pink-bright) 30%, transparent)
+    ),
+    url("/imgs/planks-pink-h.png");
+  background-size: 150%;
+  background-position: center;
+  outline: 2px solid #0e387a4F;
+  box-shadow: 0 -16px 0px var(--color-pink-dropshadow);
+}
+
+@media (max-width: 1280px) {
+  .pink-outlined-text-drop-shadow {
+    -webkit-text-stroke: 2px #0e387a;
+  }
 }
