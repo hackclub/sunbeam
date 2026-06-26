@@ -81,7 +81,7 @@ export default function Home() {
 			</div>
 
 			{/* ── HOW-TO ── */}
-			<div className="relative min-h-screen w-full pt-[26vh] flex flex-col items-center">
+			<div className="relative min-h-screen w-full pt-[26vh] pb-[20vh] flex flex-col items-center">
 				{/* sand background — single element, tiled via CSS */}
 				<div
 					className="absolute inset-0 z-0 pointer-events-none"
@@ -209,7 +209,7 @@ export default function Home() {
 			</div>
 
 			{/* ── FOOTER ── */}
-			<div className="relative min-h-[80vh] w-full mt-[17.5vh] flex flex-col pt-[23vh]">
+			<div className="relative min-h-[80vh] w-full flex flex-col pt-[23vh]">
 				<div className="absolute inset-0 h-[80vh] overflow-hidden">
 					<Image
 						src="/imgs/water.png"
