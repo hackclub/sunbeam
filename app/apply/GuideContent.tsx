@@ -123,15 +123,12 @@ export default function GuideContent() {
 				{/* Step 1: Slack */}
 				<div style={{ display: "flex", gap: "3vw", alignItems: "flex-start", marginBottom: "5vh" }}>
 					<div style={{ flex: "1 1 0" }}>
-						<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "#000000", lineHeight: 1.4, marginBottom: "1.5vh" }}>
+						<p style={{ fontSize: "2.33vw", fontWeight: 700, color: "#2E599C", lineHeight: 1.4, marginBottom: "1.5vh" }}>
 							1) JOIN HACK CLUB SLACK!! And the #sunbeam channels:
 						</p>
-						<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
-							<strong>SUPER IMPORTANT!!</strong> Slack is how we communicate with organisers. If your city doesn't have a Sunbeam channel yet, make one (in the format: #sunbeam-city, e.g. #sunbeam-london).
+						<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "#2E599C", lineHeight: 1.6, marginLeft: "3vw"}}>
+							SUPER IMPORTANT!! Slack is how we communicate with organisers. If your city doesn't have a Sunbeam channel yet, make one (in the format: #sunbeam-city, e.g. #sunbeam-london).
 						</p>
-					</div>
-					<div style={{ flexShrink: 0, width: "12vw" }}>
-						<img src="/imgs/guide/hcflag.png" alt="Hack Club flag" style={{ width: "100%" }} />
 					</div>
 				</div>
 
@@ -139,48 +136,56 @@ export default function GuideContent() {
 				<div style={{ marginBottom: "5vh" }}>
 					<div style={{ display: "flex", gap: "3vw", alignItems: "flex-start", marginBottom: "3vh" }}>
 						<div style={{ flex: "1 1 0" }}>
-							<p style={{ fontSize: "2.62vw", fontWeight: 700, color: "rgb(46,88,155)", lineHeight: 1.4, marginBottom: "1.5vh" }}>
+							<p style={{ fontSize: "2.62vw", fontWeight: 700, color: "#2E599C", lineHeight: 1.4, marginBottom: "1.5vh" }}>
 								2) (avengers) Assemble a team of 3-6 organisers!
 							</p>
-							<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, marginBottom: "1.5vh" }}>
+							<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "#2E599C", lineHeight: 1.6, marginBottom: "1.5vh", marginLeft: "3vw" }}>
 								Reach out to people you enjoy working with! Start with a slack channel and a shared to-do list (including steps in this guide!) Delegate tasks based on what people want to do.
 							</p>
 						</div>
-						<div style={{ flexShrink: 0, width: "40.5vw" }}>
+					</div>
+
+					<div style={{ display: "flex"}}>
+						<p style={{ fontSize: "2.04vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6, marginBottom: "3vh", marginRight: "2vw"}}>
+							Just remember - other people will be filling this form out too, so if you don't know that many girls in your area yet, we'll help you find them! <br></br><br></br> And one more thing: if your friends aren't very technical or coding-oriented, they can volunteer on the day to help the event run smoothly.
+						</p>
+					
+						<div style={{ flexShrink: 0, width: "40.5vw", position: "relative", top: "-1vw" }}>
 							<img src="/imgs/guide/team-photo.png" alt="Team photo" style={{ width: "100%", display: "block" }} />
 						</div>
 					</div>
-					<p style={{ fontSize: "2.04vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6, marginBottom: "3vh" }}>
-						Just remember - other people will be filling this form out too, so if you don't know that many girls in your area yet, we'll help you find them! And one more thing: if your friends aren't very technical or coding-oriented, they can volunteer on the day to help the event run smoothly.
-					</p>
 
 					{/* YUP/NOPE table */}
-					<div style={{ border: "2px solid #0E387A", marginBottom: "3vh" }}>
+					<div style={{ border: "2px solid #0E387A", marginBottom: "3vh", borderRadius: "10px", overflow: "hidden" }}>
 						<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
-							<div style={{ background: "rgba(243,147,180,1)", padding: "0 2vw", height: "150px", display: "flex", alignItems: "center", borderRight: "2px solid #0E387A", borderBottom: "2px solid #0E387A" }}>
-								<p style={{ fontSize: "1.94vw", fontWeight: 400, color: "#0E387A" }}>YUP ✅</p>
+							<div style={{ backgroundColor: "rgba(243,147,180,1)", padding: "0 2vw", height: "50px", width:"100%", display: "flex", alignItems: "center", justifyContent: "center", borderRight: "2px solid #0E387A", borderBottom: "2px solid #0E387A" }}>
+								<p style={{ fontSize: "1.94vw", fontWeight: 500, color: "#0E387A", textAlign: "center" }}>YUP ✅</p>
 							</div>
-							<div style={{ background: "rgba(249,166,54,1)", padding: "0 2vw", height: "150px", display: "flex", alignItems: "center", borderBottom: "2px solid #0E387A" }}>
-								<p style={{ fontSize: "1.94vw", fontWeight: 400, color: "#0E387A" }}>NOPE ❌</p>
+							<div style={{ backgroundColor: "rgba(249,166,54,1)", padding: "0 2vw", height: "50px", width:"100%", display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "2px solid #0E387A" }}>
+								<p style={{ fontSize: "1.94vw", fontWeight: 500, color: "#0E387A", textAlign: "center" }}>NOPE ❌</p>
 							</div>
-							<div style={{ background: "white", padding: "2vh 2vw", borderRight: "2px solid #0E387A" }}>
-								<p style={{ fontSize: "1.94vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6 }}>
-									Diverse set of skills (ex: Sponsorship, Web Dev, Marketing, Web Dev for workshops)
-								</p>
-								<p style={{ fontSize: "1.94vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6, marginTop: "1.5vh" }}>
-									Good vibes and willing to put 100x enthusiasm for the day-of
-								</p>
+							<div style={{ backgroundColor: "white", padding: "2vh 2vw", borderRight: "2px solid #0E387A" }}>
+								<ul style={{ listStyleType: "disc", paddingLeft: "1.5vw" }}>
+									<li style={{ fontSize: "1.94vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6 }}>
+										Diverse set of skills (ex: Sponsorship, Web Dev, Marketing, Web Dev for workshops)
+									</li>
+									<li style={{ fontSize: "1.94vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6, marginTop: "1.5vh" }}>
+										Good vibes and willing to put 100x enthusiasm for the day-of
+									</li>
+								</ul>
 							</div>
-							<div style={{ background: "white", padding: "2vh 2vw" }}>
-								<p style={{ fontSize: "1.94vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6 }}>
-									Creating a huge team (inefficient)
-								</p>
-								<p style={{ fontSize: "1.94vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6, marginTop: "1.5vh" }}>
-									Too small of a team (NOT 1 person)
-								</p>
-								<p style={{ fontSize: "1.94vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6, marginTop: "1.5vh" }}>
-									Trying to organise everything with fancy project management tools
-								</p>
+							<div style={{ backgroundColor: "white", padding: "2vh 2vw" }}>
+								<ul style={{ listStyleType: "disc", paddingLeft: "1.5vw" }}>
+									<li style={{ fontSize: "1.94vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6 }}>
+										Creating a huge team (inefficient)
+									</li>
+									<li style={{ fontSize: "1.94vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6, marginTop: "1.5vh" }}>
+										Too small of a team (NOT 1 person)
+									</li>
+									<li style={{ fontSize: "1.94vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6, marginTop: "1.5vh" }}>
+										Trying to organise everything with fancy project management tools
+									</li>
+								</ul>
 							</div>
 						</div>
 					</div>
@@ -196,10 +201,10 @@ export default function GuideContent() {
 						<p style={{ fontSize: "2.62vw", fontWeight: 700, color: "rgb(46,88,155)", lineHeight: 1.4, marginBottom: "1.5vh" }}>
 							3) Get a custom email and HCB
 						</p>
-						<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "#000000", lineHeight: 1.6, marginBottom: "1.5vh" }}>
+						<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "#2E599C", lineHeight: 1.6, marginBottom: "1.5vh", marginLeft: "3vw" }}>
 							Want a city@sunbeam.hackclub.com email? This will be coming to event PoCs soon! This is a shared Google Workspace account that the team can use to send out mass, personalised communications to attendees, and should be the contact email listed on your website so people can ask you questions.
 						</p>
-						<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "#000000", lineHeight: 1.6 }}>
+						<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "#2E599C", lineHeight: 1.6, marginBottom: "1.5vh", marginLeft: "3vw" }}>
 							You will also receive an email to activate your very own HCB account to manage your Sunbeam event's finances. Make sure to keep an eye on your inbox to receive these important updates!!!
 						</p>
 					</div>
