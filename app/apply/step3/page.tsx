@@ -34,6 +34,7 @@ function Field({
 				type={type}
 				name={name}
 				value={value}
+				required={required}
 				onChange={(e) => onChange(name, e.target.value)}
 				className="outfit bg-white w-full px-3 py-[6px] text-[1.2vw] text-[#2E599C] border-[3px] border-[#0e387a] rounded-2xl outline-none focus:border-[#0e387a] transition-colors placeholder:text-[#b0c4de]"
 			/>
@@ -79,7 +80,7 @@ export default function Step3() {
 						Sign-up to organize a Sunbeam Social now!
 					</h1>
 
-					<form className="flex flex-col gap-[2.5vh]" onSubmit={(e) => e.preventDefault()}>
+					<form className="flex flex-col gap-[2.5vh]" onSubmit={(e) => { e.preventDefault(); handleNext(); }}>
 						<Field label="Email" required type="email" name="email" value={form.email} onChange={set} />
 						<div className="grid grid-cols-2 gap-[8%]">
 							<Field label="First Name" required name="first_name" value={form.first_name} onChange={set} />
@@ -109,6 +110,7 @@ export default function Step3() {
 							<input
 								type="checkbox"
 								checked={form.certified}
+								required
 								onChange={(e) => setForm((f) => ({ ...f, certified: e.target.checked }))}
 								className="w-[1.8vw] h-[1.8vw] flex-shrink-0 cursor-pointer accent-[#F393B4]"
 							/>
@@ -119,8 +121,7 @@ export default function Step3() {
 
 						<div className="flex justify-center mt-[2vh]">
 							<button
-								type="button"
-								onClick={handleNext}
+								type="submit"
 								className="hover:scale-105 transition-transform cursor-pointer bg-transparent border-none p-0"
 								style={{ width: "22vw" }}
 							>

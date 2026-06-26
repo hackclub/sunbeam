@@ -10,6 +10,10 @@ export default function Step7() {
 	const [submitting, setSubmitting] = useState(false);
 
 	async function handleSubmit() {
+		if (!committed) {
+			alert("Please confirm you're committed before submitting.");
+			return;
+		}
 		setSubmitting(true);
 		const saved = JSON.parse(localStorage.getItem("sunbeam_app") || "{}");
 		const payload = { ...saved, comfortable_with_poc };

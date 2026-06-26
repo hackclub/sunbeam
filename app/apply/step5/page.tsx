@@ -38,19 +38,19 @@ export default function Step5() {
 						Tell us more about your technical experience!
 					</h1>
 
-					<div className="flex flex-col gap-[3.5vh]">
+					<form className="flex flex-col gap-[3.5vh]" onSubmit={(e) => { e.preventDefault(); handleNext(); }}>
 						<div className="flex flex-col gap-[2vh]">
 							<p className="galindo text-[#2E599C] text-[1.8vw] leading-tight">
 								Link a project that you&apos;ve built that you&apos;re proud of!
 							</p>
 							<div className="flex flex-col gap-[6px]">
 								<label className="outfit text-[#359BBF] text-[1.2vw]">Github Repo *</label>
-								<input type="text" value={form.github_repo} onChange={(e) => set("github_repo", e.target.value)}
+								<input type="text" required value={form.github_repo} onChange={(e) => set("github_repo", e.target.value)}
 									className="outfit bg-white w-full px-3 py-[7px] text-[1.2vw] text-[#2E599C] border-[3px] border-[#0e387a] rounded-2xl outline-none focus:border-[#0e387a] transition-colors" />
 							</div>
 							<div className="flex flex-col gap-[6px]">
 								<label className="outfit text-[#359BBF] text-[1.2vw]">Playable Link *</label>
-								<input type="text" value={form.playable_link} onChange={(e) => set("playable_link", e.target.value)}
+								<input type="text" required value={form.playable_link} onChange={(e) => set("playable_link", e.target.value)}
 									className="outfit bg-white w-full px-3 py-[7px] text-[1.2vw] text-[#2E599C] border-[3px] border-[#0e387a] rounded-2xl outline-none focus:border-[#0e387a] transition-colors" />
 							</div>
 						</div>
@@ -62,6 +62,7 @@ export default function Step5() {
 							<textarea
 								maxLength={500}
 								rows={6}
+								required
 								value={form.project_information}
 								onChange={(e) => set("project_information", e.target.value)}
 								className="outfit bg-white w-full px-4 py-3 text-[1.2vw] text-[#2E599C] border-[3px] border-[#0e387a] rounded-2xl outline-none focus:border-[#0e387a] transition-colors resize-none"
@@ -73,21 +74,20 @@ export default function Step5() {
 							<label className="galindo text-[#2E599C] text-[1.8vw] leading-tight">
 								Github Username<span className="outfit text-[#359BBF] text-[1.32vw] ml-1">*</span>
 							</label>
-							<input type="text" value={form.github_user} onChange={(e) => set("github_user", e.target.value)}
+							<input type="text" required value={form.github_user} onChange={(e) => set("github_user", e.target.value)}
 								className="outfit bg-white w-[45%] px-3 py-[7px] text-[1.2vw] text-[#2E599C] border-[3px] border-[#0e387a] rounded-2xl outline-none focus:border-[#0e387a] transition-colors" />
 						</div>
-					</div>
 
-					<div className="flex justify-center mt-[6vh]">
-						<button
-							type="button"
-							onClick={handleNext}
-							className="hover:scale-105 transition-transform cursor-pointer bg-transparent border-none p-0"
-							style={{ width: "22vw" }}
-						>
-							<Image src="/imgs/surfboard_next5.png" width={1031} height={382} alt="next!" className="w-full h-auto" />
-						</button>
-					</div>
+						<div className="flex justify-center mt-[6vh]">
+							<button
+								type="submit"
+								className="hover:scale-105 transition-transform cursor-pointer bg-transparent border-none p-0"
+								style={{ width: "22vw" }}
+							>
+								<Image src="/imgs/surfboard_next5.png" width={1031} height={382} alt="next!" className="w-full h-auto" />
+							</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>

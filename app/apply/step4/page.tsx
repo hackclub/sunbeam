@@ -36,7 +36,7 @@ export default function Step4() {
 						Thanks! Now tell us a little bit more about your event.
 					</h1>
 
-					<div className="flex flex-col gap-[5vh]">
+					<form className="flex flex-col gap-[5vh]" onSubmit={(e) => { e.preventDefault(); handleNext(); }}>
 						<div className="flex flex-col gap-[6px]">
 							<label className="galindo text-[#2E599C] text-[1.8vw] leading-tight">
 								What city or region are you planning to host your Sunbeam Social in?
@@ -44,6 +44,7 @@ export default function Step4() {
 							</label>
 							<input
 								type="text"
+								required
 								value={form.host_city}
 								onChange={(e) => setForm((f) => ({ ...f, host_city: e.target.value }))}
 								className="outfit bg-white w-[45%] px-3 py-[6px] text-[1.2vw] text-[#2E599C] border-[3px] border-[#0e387a] rounded-2xl outline-none focus:border-[#0e387a] transition-colors"
@@ -59,6 +60,7 @@ export default function Step4() {
 							<input
 								type="number"
 								min="1"
+								required
 								value={form.expected_attendee_count}
 								onChange={(e) => setForm((f) => ({ ...f, expected_attendee_count: e.target.value }))}
 								className="outfit bg-white w-[45%] px-3 py-[6px] text-[1.2vw] text-[#2E599C] border-[3px] border-[#0e387a] rounded-2xl outline-none focus:border-[#0e387a] transition-colors"
@@ -76,18 +78,17 @@ export default function Step4() {
 								Is the city/region you&apos;re hosting your Sunbeam Social in different to your home city?
 							</span>
 						</div>
-					</div>
 
-					<div className="flex justify-center mt-[6vh]">
-						<button
-							type="button"
-							onClick={handleNext}
-							className="hover:scale-105 transition-transform cursor-pointer bg-transparent border-none p-0"
-							style={{ width: "22vw" }}
-						>
-							<Image src="/imgs/surfboard_next3.png" width={865} height={320} alt="next!" className="w-full h-auto" />
-						</button>
-					</div>
+						<div className="flex justify-center mt-[6vh]">
+							<button
+								type="submit"
+								className="hover:scale-105 transition-transform cursor-pointer bg-transparent border-none p-0"
+								style={{ width: "22vw" }}
+							>
+								<Image src="/imgs/surfboard_next3.png" width={865} height={320} alt="next!" className="w-full h-auto" />
+							</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
