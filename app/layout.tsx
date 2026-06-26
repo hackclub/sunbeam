@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Galindo, Outfit } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -9,6 +9,17 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
 	variable: "--font-geist-mono",
+	subsets: ["latin"],
+});
+
+const galindo = Galindo({
+	variable: "--font-galindo",
+	weight: "400",
+	subsets: ["latin"],
+});
+
+const outfit = Outfit({
+	variable: "--font-outfit",
 	subsets: ["latin"],
 });
 
@@ -25,22 +36,8 @@ export default function RootLayout({
 	return (
 		<html
 			lang="en"
-			className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+			className={`${geistSans.variable} ${geistMono.variable} ${galindo.variable} ${outfit.variable} h-full antialiased`}
 		>
-			<head>
-				<link rel="preconnect" href="https://fonts.googleapis.com" />
-				<link rel="preconnect" href="https://fonts.gstatic.com" />
-				<link
-					href="https://fonts.googleapis.com/css2?family=Galindo&display=swap"
-					rel="stylesheet"
-				></link>
-				<link rel="preconnect" href="https://fonts.googleapis.com" />
-				<link rel="preconnect" href="https://fonts.gstatic.com" />
-				<link
-					href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
-					rel="stylesheet"
-				></link>
-			</head>
 			<body className="min-h-full flex flex-col" suppressHydrationWarning>{children}</body>
 		</html>
 	);

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 function Field({
 	label,
@@ -61,13 +62,17 @@ export default function Step3() {
 	}
 
 	return (
-		<div className="relative w-full min-h-screen">
-			<img src="/imgs/sand.png" className="absolute inset-0 w-full h-full object-cover z-0" alt="" />
-			<div className="relative mx-[2.5%] mt-[7vh] mb-[4vh] z-[1]">
-				<img
+		<div
+			className="relative w-full min-h-screen"
+			style={{ backgroundImage: "url('/imgs/sand.png')", backgroundRepeat: "repeat-y", backgroundSize: "100% auto" }}
+		>
+			<div className="relative mx-[2.5%] mt-[7vh] mb-[4vh]">
+				<Image
 					src="/imgs/boardwalk.png"
-					className="absolute inset-0 w-full h-full object-fill pointer-events-none rounded-sm"
+					fill
 					alt=""
+					className="pointer-events-none rounded-sm object-fill"
+					sizes="95vw"
 				/>
 				<div className="relative z-10 w-[82%] mx-auto pt-[5vh] pb-[6vh]">
 					<h1 className="galindo pink-outlined-text text-center text-[3.36vw] mb-[4vh] whitespace-nowrap">
@@ -119,7 +124,7 @@ export default function Step3() {
 								className="hover:scale-105 transition-transform cursor-pointer bg-transparent border-none p-0"
 								style={{ width: "22vw" }}
 							>
-								<img src="/imgs/surfboard_next2.png" className="w-full" alt="next!" />
+								<Image src="/imgs/surfboard_next2.png" width={516} height={191} alt="next!" className="w-full h-auto" />
 							</button>
 						</div>
 					</form>

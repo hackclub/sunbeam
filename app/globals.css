@@ -13,11 +13,11 @@
 }
 
 .galindo {
-	font-family: "Galindo", sans-serif;
+	font-family: var(--font-galindo), sans-serif;
 }
 
 .outfit {
-	font-family: "Outfit", serif;
+	font-family: var(--font-outfit), serif;
 }
 
 .pink-gradient-text {

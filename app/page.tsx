@@ -1,37 +1,51 @@
+import Image from "next/image";
+
 export default function Home() {
 	return (
 		<div className="relative">
 			{/* ── HERO ── */}
 			<div className="relative min-h-[110vh] w-full">
 				<div className="absolute inset-0 h-[110vh] overflow-hidden">
-					<img
+					<Image
 						src="/imgs/water.png"
-						className="w-full h-full object-cover object-bottom"
+						fill
 						alt=""
+						className="object-cover object-bottom"
+						priority
+						sizes="100vw"
 					/>
 				</div>
 
 				{/* Shark */}
-				<img
+				<Image
 					src="/imgs/shark1.png"
-					className="absolute top-[-2vh] left-[2.5vw] z-10 w-[30vw] md:w-[17.5vw]"
+					width={359}
+					height={442}
 					alt=""
+					className="absolute top-[-2vh] left-[2.5vw] z-10 w-[30vw] md:w-[17.5vw] h-auto"
+					priority
 				/>
 
 				{/* Foam wave */}
-				<img
+				<Image
 					src="/imgs/foam.png"
-					className="hidden md:block md:absolute bottom-[-20vh] left-0 z-5 w-full"
+					width={1727}
+					height={428}
 					alt=""
+					className="hidden md:block md:absolute bottom-[-20vh] left-0 z-5 w-full h-auto"
+					priority
 				/>
 
 				<div className="flex flex-col relative z-5">
 					{/* Logo + video */}
 					<div className="relative w-[80vw] mx-auto flex flex-col md:flex-row mt-[5vh] mb-[9vh]">
-						<img
+						<Image
 							src="/imgs/sunbeam.png"
-							className="w-[80vw] md:w-[49vw] absolute bottom-[-10vh] md:bottom-[-6vh] left-0 md:left-[5vw]"
+							width={858}
+							height={308}
 							alt="Sunbeam"
+							className="w-[80vw] md:w-[49vw] absolute bottom-[-10vh] md:bottom-[-6vh] left-0 md:left-[5vw] h-auto"
+							priority
 						/>
 						{/* Video placeholder */}
 						<div className="w-[70vw] md:w-[45vw] h-[30vh] md:h-[40vh] bg-neutral-200/80 ml-auto flex items-center justify-center rounded-sm">
@@ -54,10 +68,13 @@ export default function Home() {
 						href="/apply"
 						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
 					>
-						<img
+						<Image
 							src="/imgs/apply.png"
-							className="w-[65vw] md:w-[25vw] mx-auto"
+							width={523}
+							height={210}
 							alt="apply!"
+							className="w-[65vw] md:w-[25vw] h-auto mx-auto"
+							priority
 						/>
 					</a>
 				</div>
@@ -65,65 +82,20 @@ export default function Home() {
 
 			{/* ── HOW-TO ── */}
 			<div className="relative min-h-screen w-full pt-[26vh] flex flex-col items-center">
-				{/* sand on a laptop */}
-				<img
-					src="/imgs/sand.png"
-					className="w-full absolute top-0 z-0"
-					alt=""
+				{/* sand background — single element, tiled via CSS */}
+				<div
+					className="absolute inset-0 z-0 pointer-events-none"
+					style={{ backgroundImage: "url('/imgs/sand.png')", backgroundRepeat: "repeat-y", backgroundSize: "100% auto" }}
 				/>
-				<img
-					src="/imgs/sand.png"
-					className="w-full absolute top-[100vh] z-0"
-					alt=""
-				/>
-				{/* sand on a phone */}
-				<img
-					src="/imgs/sand.png"
-					className="w-full absolute md:hidden top-0 z-0"
-					alt=""
-				/>
-				<img
-					src="/imgs/sand.png"
-					className="w-full absolute md:hidden top-[60vh] z-0"
-					alt=""
-				/>
-				<img
-					src="/imgs/sand.png"
-					className="w-full absolute md:hidden top-[120vh] z-0"
-					alt=""
-				/>
-				<img
-					src="/imgs/sand.png"
-					className="w-full absolute md:hidden top-[180vh] z-0"
-					alt=""
-				/>
-				<img
-					src="/imgs/sand.png"
-					className="w-full absolute md:hidden top-[240vh] z-0"
-					alt=""
-				/>
-				<img
-					src="/imgs/sand.png"
-					className="w-full absolute md:hidden top-[300vh] z-0"
-					alt=""
-				/>
-				<img
-					src="/imgs/sand.png"
-					className="w-full absolute md:hidden top-[360vh] z-0"
-					alt=""
-				/>
-				<img
-					src="/imgs/sand.png"
-					className="w-full absolute md:hidden top-[420vh] z-0"
-					alt=""
-				/>
-				<img
+				<Image
 					src="/imgs/ray1.png"
-					className="absolute top-[20vh] right-[6vw] z-5 w-[17.5vw]"
+					width={356}
+					height={267}
 					alt=""
+					className="absolute top-[20vh] right-[6vw] z-5 w-[17.5vw] h-auto hidden md:block"
 				/>
 
-				{/* WHat is Sunbeam Social */}
+				{/* What is Sunbeam Social */}
 				<div className="flex flex-col relative z-5 items-center justify-center">
 					<h2 className="galindo text-[6.5vh] text-[#D88127] text-center w-[80vw] md:w-[50vw] leading-[7.5vh] mb-[1vh]">
 						What is a Sunbeam Social?
@@ -138,17 +110,19 @@ export default function Home() {
 							<p className="z-5 relative text-[2.15vh] md:text-[3.5vh] outfit text-[#0E387A] font-semibold">
 								We want every Sunbeam social to have a friendly, chill, and
 								supportive environment that helps even complete beginners make
-								something they're proud of.
+								something they&apos;re proud of.
 							</p>
 							<p className="z-5 relative text-[2.15vh] md:text-[3.5vh] outfit text-[#0E387A] font-semibold">
 								This event is more of a SOCIAL coding get together than a
 								hackathon!!!
 							</p>
 						</div>
-						<img
+						<Image
 							src="/imgs/what-is-sunbeam.png"
-							className="w-[90vw] md:w-[80vw] h-[70vh]  absolute top-0 left-0 z-1"
+							fill
 							alt=""
+							className="object-fill absolute top-0 left-0 z-1"
+							sizes="(max-width: 768px) 90vw, 80vw"
 						/>
 					</div>
 				</div>
@@ -159,11 +133,11 @@ export default function Home() {
 					</h2>
 
 					{/* Three cards */}
-					<div className="w-[77.5vw] flex flex-col md:flex-row items-center justify-center gap-[3vw] my-[4vh]">
-						<div className="w-full h-[65vh] rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-[0.75vw]">
-							<div className="border-[1vh] border-[#C54390] w-full h-full rounded-[3vh] flex flex-col items-center justify-start p-[1vw]">
-								<img src="/imgs/img1.png" className="pb-[2vh]" alt="" />
-								<h2 className="galindo text-center text-[4vh] text-[#C54390]">
+					<div className="w-[90vw] md:w-[77.5vw] flex flex-col md:flex-row items-stretch justify-center gap-6 md:gap-[3vw] my-[4vh]">
+						<div className="w-full h-auto md:h-[65vh] rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-2 md:p-[0.75vw]">
+							<div className="border-[1vh] border-[#C54390] w-full h-full rounded-[3vh] flex flex-col items-center justify-start p-4 md:p-[1vw]">
+								<Image src="/imgs/img1.png" width={389} height={415} alt="" className="pb-[2vh] max-h-[25vh] w-auto object-contain" />
+								<h2 className="galindo text-center text-[6vw] md:text-[4vh] text-[#C54390]">
 									APPLY!
 								</h2>
 								<p className="outfit text-[2.25vh] text-center text-[#C54390]">
@@ -172,10 +146,10 @@ export default function Home() {
 								</p>
 							</div>
 						</div>
-						<div className="w-full h-[72.5vh] rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-[0.75vw]">
-							<div className="border-[1vh] border-[#2E599C] w-full h-full rounded-[3vh] flex flex-col items-center justify-start p-[1vw]">
-								<img src="/imgs/img2.png" className="pb-[2vh]" alt="" />
-								<h2 className="galindo text-center text-[4vh] text-[#2E599C]">
+						<div className="w-full h-auto md:h-[72.5vh] rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-2 md:p-[0.75vw]">
+							<div className="border-[1vh] border-[#2E599C] w-full h-full rounded-[3vh] flex flex-col items-center justify-start p-4 md:p-[1vw]">
+								<Image src="/imgs/img2.png" width={389} height={419} alt="" className="pb-[2vh] max-h-[25vh] w-auto object-contain" />
+								<h2 className="galindo text-center text-[6vw] md:text-[4vh] text-[#2E599C]">
 									PLAN!
 								</h2>
 								<p className="outfit text-[2.25vh] text-center text-[#2E599C]">
@@ -187,10 +161,10 @@ export default function Home() {
 								</p>
 							</div>
 						</div>
-						<div className="w-full h-[65vh] rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-[0.75vw]">
-							<div className="border-[1vh] border-[#C79713] w-full h-full rounded-[3vh] flex flex-col items-center justify-start p-[1vw]">
-								<img src="/imgs/img3.png" className="pb-[2vh]" alt="" />
-								<h2 className="galindo text-center text-[4vh] text-[#C79713]">
+						<div className="w-full h-auto md:h-[65vh] rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-2 md:p-[0.75vw]">
+							<div className="border-[1vh] border-[#C79713] w-full h-full rounded-[3vh] flex flex-col items-center justify-start p-4 md:p-[1vw]">
+								<Image src="/imgs/img3.png" width={399} height={420} alt="" className="pb-[2vh] max-h-[25vh] w-auto object-contain" />
+								<h2 className="galindo text-center text-[6vw] md:text-[4vh] text-[#C79713]">
 									EVENT!
 								</h2>
 								<p className="outfit text-[2.25vh] text-center text-[#C79713]">
@@ -206,10 +180,12 @@ export default function Home() {
 						href="/"
 						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
 					>
-						<img
+						<Image
 							src="/imgs/read.png"
-							className="w-[80vw] md:w-[35vw] mx-auto"
+							width={795}
+							height={291}
 							alt="Read our ultimate guide to organizing events >>>"
+							className="w-[80vw] md:w-[35vw] h-auto mx-auto"
 						/>
 					</a>
 
@@ -221,10 +197,12 @@ export default function Home() {
 						href="/apply"
 						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
 					>
-						<img
+						<Image
 							src="/imgs/apply.png"
-							className="w-[50vw] md:w-[25vw] mx-auto"
+							width={523}
+							height={210}
 							alt="apply!"
+							className="w-[50vw] md:w-[25vw] h-auto mx-auto"
 						/>
 					</a>
 				</div>
@@ -233,21 +211,27 @@ export default function Home() {
 			{/* ── FOOTER ── */}
 			<div className="relative min-h-[80vh] w-full mt-[17.5vh] flex flex-col pt-[23vh]">
 				<div className="absolute inset-0 h-[80vh] overflow-hidden">
-					<img
+					<Image
 						src="/imgs/water.png"
-						className="w-full h-full object-cover object-bottom rotate-180"
+						fill
 						alt=""
+						className="object-cover object-bottom rotate-180"
+						sizes="100vw"
 					/>
 				</div>
-				<img
+				<Image
 					src="/imgs/foam2.png"
-					className="hidden md:block md:absolute top-[-15vh] left-0 z-5 w-full"
+					width={1727}
+					height={428}
 					alt=""
+					className="hidden md:block md:absolute top-[-15vh] left-0 z-5 w-full h-auto"
 				/>
-				<img
+				<Image
 					src="/imgs/ray2.png"
-					className="hidden md:absolute bottom-[2vh] right-0 z-5 w-[20vw]"
+					width={376}
+					height={297}
 					alt=""
+					className="absolute bottom-[2vh] right-0 z-5 w-[20vw] h-auto hidden md:block"
 				/>
 
 				<div className="relative z-5 flex flex-col">

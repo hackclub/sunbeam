@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function Step4() {
 	const router = useRouter();
@@ -17,13 +18,17 @@ export default function Step4() {
 	}
 
 	return (
-		<div className="relative w-full min-h-screen">
-			<img src="/imgs/sand.png" className="absolute inset-0 w-full h-full object-cover z-0" alt="" />
-			<div className="relative mx-[2.5%] mt-[7vh] mb-[4vh] z-[1]">
-				<img
+		<div
+			className="relative w-full min-h-screen"
+			style={{ backgroundImage: "url('/imgs/sand.png')", backgroundRepeat: "repeat-y", backgroundSize: "100% auto" }}
+		>
+			<div className="relative mx-[2.5%] mt-[7vh] mb-[4vh]">
+				<Image
 					src="/imgs/boardwalk.png"
-					className="absolute inset-0 w-full h-full object-fill pointer-events-none rounded-sm"
+					fill
 					alt=""
+					className="pointer-events-none rounded-sm object-fill"
+					sizes="95vw"
 				/>
 
 				<div className="relative z-10 w-[86%] mx-auto pt-[5vh] pb-[8vh]">
@@ -80,7 +85,7 @@ export default function Step4() {
 							className="hover:scale-105 transition-transform cursor-pointer bg-transparent border-none p-0"
 							style={{ width: "22vw" }}
 						>
-							<img src="/imgs/surfboard_next3.png" className="w-full" alt="next!" />
+							<Image src="/imgs/surfboard_next3.png" width={865} height={320} alt="next!" className="w-full h-auto" />
 						</button>
 					</div>
 				</div>

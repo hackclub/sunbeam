@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import GuideContent from "../GuideContent";
 
 export default function Step2() {
@@ -27,7 +28,7 @@ export default function Step2() {
 						className="hover:scale-105 transition-transform cursor-pointer"
 						style={{ width: "25vw", display: "block" }}
 					>
-						<img src="/imgs/surfboard_next2.png" className="w-full" alt="continue to apply!" />
+						<Image src="/imgs/surfboard_next2.png" width={516} height={191} alt="continue to apply!" className="w-full h-auto" />
 					</a>
 				</div>
 			</div>
@@ -53,7 +54,7 @@ export default function Step2() {
 					className="hover:scale-105 transition-transform cursor-pointer bg-transparent border-none p-0"
 					style={{ width: "25vw" }}
 				>
-					<img src="/imgs/surfboard_ok.png" className="w-full" alt="OK!" />
+					<Image src="/imgs/surfboard_ok.png" width={865} height={320} alt="OK!" className="w-full h-auto" />
 				</button>
 			</div>
 		</div>
