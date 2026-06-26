@@ -1,0 +1,35 @@
+{
+	"cityName": "For Example City",
+	"schedule": [
+		{ "time": "10:00", "event": "Opening Ceremony" },
+		{ "time": "10:30", "event": "Team Formation & Icebreakers" },
+		{ "time": "11:00", "event": "Workshop: Introduction to Coding" },
+		{ "time": "12:30", "event": "Lunch Break Blah blha blha" },
+		{ "time": "13:30", "event": "Project Planning Session" },
+		{ "time": "14:30", "event": "Hands-on Coding Time" },
+		{ "time": "16:00", "event": "Workshop: Web Development Basics" },
+		{ "time": "17:30", "event": "Project Showcase & Closing Ceremony" }
+	],
+	"sponsors": [
+		{
+			"name": "GitHub Education",
+			"logo": "https://cdn.iconscout.com/icon/free/png-256/free-github-logo-icon-svg-download-png-8630395.png?f=webp"
+		},
+		{
+			"name": "Tech Company",
+			"logo": "https://cdn.iconscout.com/icon/free/png-256/free-github-logo-icon-svg-download-png-8630395.png?f=webp"
+		},
+		{
+			"name": "Sponsor Name",
+			"logo": "https://cdn.iconscout.com/icon/free/png-256/free-github-logo-icon-svg-download-png-8630395.png?f=webp"
+		},
+		{
+			"name": "Another Sponsor",
+			"logo": "https://cdn.iconscout.com/icon/free/png-256/free-github-logo-icon-svg-download-png-8630395.png?f=webp"
+		},
+		{
+			"name": "Partner Company",
+			"logo": "https://cdn.iconscout.com/icon/free/png-256/free-github-logo-icon-svg-download-png-8630395.png?f=webp"
+		}
+	]
+}

@@ -1,6 +1,10 @@
+// TemplatePage.tsx
 import React from "react";
+import config from "./config.json";
 
 const TemplatePaage = () => {
+	const { cityName, schedule, sponsors } = config;
+
 	return (
 		<div className="relative">
 			{/* ── HERO ── */}
@@ -29,7 +33,7 @@ const TemplatePaage = () => {
 
 				<div className="flex flex-col relative z-5">
 					{/* Logo + video */}
-					<div className="relative w-[80vw] mx-auto flex flex-col md:flex-row mt-[5vh] mb-[9vh]">
+					<div className="relative w-[80vw] mx-auto flex flex-col md:flex-row mt-[5vh] mb-[1vh]">
 						<img
 							src="/imgs/sunbeam.png"
 							className="w-[80vw] md:w-[49vw] absolute bottom-[-10vh] md:bottom-[-6vh] left-0 md:left-[5vw]"
@@ -42,22 +46,25 @@ const TemplatePaage = () => {
 							</span>
 						</div>
 					</div>
+					<h1 className="galindo text-[5vh] leading-[5vh] md:leading-[8vh] text-center gradient-text mt-[1vh]">
+						{cityName}
+					</h1>
 
 					<h2 className="galindo text-[3vh] px-[5vw] md:px-0 md:text-[4.5vh] text-[#2E599C] text-center">
 						A social coding event for girls 13-18 around the world
 					</h2>
-					<h3 className="outfit text-[#0E387A] text-center text-[1.75vh] md:text-[3vh]">
+					<h3 className="outfit text-[#0E387A] text-center text-[1.5vh] md:text-[3vh]">
 						August 29th, 2026 || 20+ cities worldwide
 					</h3>
 					<h1 className="galindo text-[6.5vh] leading-[6.5vh] md:leading-[8vh] text-center gradient-text mt-[1.5vh]">
-						Organize a Sunbeam Social in your city!
+						No experience necessary - join today!
 					</h1>
 					<a
-						href="/apply"
+						href="/sign-up"
 						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
 					>
 						<img
-							src="/imgs/apply.png"
+							src="/imgs/sign-up.png"
 							className="w-[65vw] md:w-[25vw] mx-auto"
 							alt="apply!"
 						/>
@@ -125,44 +132,14 @@ const TemplatePaage = () => {
 					alt=""
 				/>
 
-				{/* WHat is Sunbeam Social */}
 				<div className="flex flex-col relative z-5 items-center justify-center">
 					<h2 className="galindo text-[6.5vh] text-[#D88127] text-center w-[80vw] md:w-[50vw] leading-[7.5vh] mb-[1vh]">
-						What is a Sunbeam Social?
-					</h2>
-					<div className="w-[90vw] md:w-[80vw] h-[70vh] relative bg-blue-400 my-[7vh]">
-						<div className="flex flex-col z-5 relative px-[20vw] md:px-[18vw] text-center items-center justify-center gap-[1vh] md:gap-[3vh] h-[70vh]">
-							<p className="z-5 relative text-[2.15vh] md:text-[3.5vh] outfit text-[#0E387A] font-semibold">
-								Sunbeam is a day-long hangout where girls can make projects
-								together, chat with other girls, learn to code from scratch, and
-								enjoy delicious food.
-							</p>
-							<p className="z-5 relative text-[2.15vh] md:text-[3.5vh] outfit text-[#0E387A] font-semibold">
-								We want every Sunbeam social to have a friendly, chill, and
-								supportive environment that helps even complete beginners make
-								something they're proud of.
-							</p>
-							<p className="z-5 relative text-[2.15vh] md:text-[3.5vh] outfit text-[#0E387A] font-semibold">
-								This event is more of a SOCIAL coding get together than a
-								hackathon!!!
-							</p>
-						</div>
-						<img
-							src="/imgs/what-is-sunbeam.png"
-							className="w-[90vw] md:w-[80vw] h-[70vh]  absolute top-0 left-0 z-1"
-							alt=""
-						/>
-					</div>
-				</div>
-
-				<div className="flex flex-col relative z-5 items-center justify-center">
-					<h2 className="galindo text-[6.5vh] text-[#D88127] text-center w-[80vw] md:w-[50vw] leading-[7.5vh] mb-[1vh]">
-						How do you organize a Sunbeam Social?
+						What do you do at a Sunbeam Social?
 					</h2>
 
 					{/* Three cards */}
 					<div className="w-[77.5vw] flex flex-col md:flex-row items-center justify-center gap-[3vw] my-[4vh]">
-						<div className="w-full h-[65vh] rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-[0.75vw]">
+						<div className="w-full h-[67.5vh] rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-[0.75vw]">
 							<div className="border-[1vh] border-[#C54390] w-full h-full rounded-[3vh] flex flex-col items-center justify-start p-[1vw]">
 								<img src="/imgs/img1.png" className="pb-[2vh]" alt="" />
 								<h2 className="galindo text-center text-[4vh] text-[#C54390]">
@@ -173,66 +150,227 @@ const TemplatePaage = () => {
 								</p>
 							</div>
 						</div>
-						<div className="w-full h-[72.5vh] rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-[0.75vw]">
+						<div className="w-full h-[75vh] rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-[0.75vw]">
 							<div className="border-[1vh] border-[#2E599C] w-full h-full rounded-[3vh] flex flex-col items-center justify-start p-[1vw]">
 								<img src="/imgs/img2.png" className="pb-[2vh]" alt="" />
 								<h2 className="galindo text-center text-[4vh] text-[#2E599C]">
-									PLAN!
+									Team!
 								</h2>
 								<p className="outfit text-[2.25vh] text-center text-[#2E599C]">
-									Plan your event: secure a{" "}
-									<span className="underline">venue</span>, plan your{" "}
-									<span className="underline">budget</span>, advertise, and{" "}
-									<span className="underline">get participants</span> to sign
-									up! Shop for food, drinks, &amp; prizes for your participants.
+									Join a team of 1-3 people. Come in with your friends or meet
+									new friends at the social! No experience is needed - everyone
+									is welcome!
 								</p>
 							</div>
 						</div>
-						<div className="w-full h-[65vh] rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-[0.75vw]">
+						<div className="w-full h-[67.5vh] rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-[0.75vw]">
 							<div className="border-[1vh] border-[#C79713] w-full h-full rounded-[3vh] flex flex-col items-center justify-start p-[1vw]">
 								<img src="/imgs/img3.png" className="pb-[2vh]" alt="" />
 								<h2 className="galindo text-center text-[4vh] text-[#C79713]">
-									EVENT!
+									Fun!
 								</h2>
 								<p className="outfit text-[2.25vh] text-center text-[#C79713]">
-									August 29!! Have fun during your event and make friends with
-									fellow organizers &amp; participants.
+									August 29!! Have fun during the event: make friends, enjoy the
+									food/drinks, and learn from workshops!
 								</p>
 							</div>
 						</div>
 					</div>
 
-					{/* Guide surfboard */}
-					<a
-						href="/"
-						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
-					>
-						<img
-							src="/imgs/read.png"
-							className="w-[80vw] md:w-[35vw] mx-auto"
-							alt="Read our ultimate guide to organizing events >>>"
-						/>
-					</a>
+					{/* The License Plates */}
+					<div className="w-[77.5vw] my-[4vh] flex flex-col gap-[2vh]">
+						<div className="grid grid-cols-[6fr_4fr] gap-[3vw]">
+							<img
+								src="/imgs/plate1.png"
+								alt=""
+								className="w-full h-full object-cover"
+							/>
+
+							<img
+								src="/imgs/img4.png"
+								alt=""
+								className="w-full h-full object-cover pb-[1vh]"
+							/>
+						</div>
+						<div className="grid grid-cols-[4fr_6fr] gap-[3vw]">
+							<img
+								src="/imgs/img5.png"
+								alt=""
+								className="w-full h-full object-cover pb-[1vh]"
+							/>
+							<img
+								src="/imgs/plate1.png"
+								alt=""
+								className="w-full h-full object-cover"
+							/>
+						</div>
+						<div className="grid grid-cols-[6fr_4fr] gap-[3vw]">
+							<img
+								src="/imgs/plate1.png"
+								alt=""
+								className="w-full h-full object-cover"
+							/>
+
+							<img
+								src="/imgs/img6.png"
+								alt=""
+								className="w-full h-full object-cover pb-[1vh]"
+							/>
+						</div>
+					</div>
 
 					{/* CTA */}
 					<h2 className="outfit text-[6vh] text-[#C54390] text-center w-[70vw] md:w-[60vw] leading-[7.5vh] my-[4vh] drop-shadow-sm">
-						Ready? Let the sun beam in your city!
+						Ready? Come enjoy the sunshine!
 					</h2>
 					<a
 						href="/apply"
 						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
 					>
 						<img
-							src="/imgs/apply.png"
-							className="w-[50vw] md:w-[25vw] mx-auto"
+							src="/imgs/sign-up2.png"
+							className="w-[50vw] md:w-[30vw] mx-auto"
 							alt="apply!"
 						/>
 					</a>
 				</div>
 			</div>
 
+			{/* Schedule */}
+			<div className="relative min-h-[130vh] items-center justify-center w-full mt-[5vh] flex flex-col pt-[0vh] z-5">
+				<img
+					src="/imgs/boardwalk2.png"
+					className="z-0 absolute w-full h-[130vh] top-0 left-0"
+					alt=""
+				/>
+				<div className="z-5 relative">
+					<h1 className="galindo text-[9vh] leading-[9vh] md:leading-[8vh] text-center text-[#72BFDA] stroke-text mb-[1vh]">
+						Schedule
+					</h1>
+				</div>
+				<div className="flex flex-col items-center justify-center w-[80vw] mx-auto mt-[2vh] gap-[1vh] relative z-5">
+					{schedule.map((item: any, index: any) => (
+						<div
+							className={`flex gap-[1vh] items-center justify-center w-full`}
+							key={index}
+						>
+							<div
+								className={`bg-[#c0e5f2] border-[0.2vh] border-[#0e387a] rounded-[0.75vh] w-1/5 items-center justify-center flex py-[2.5vh] ${
+									index === 0 ? "rounded-tl-[5vh]" : ""
+								}
+                ${index === schedule.length - 1 ? "rounded-bl-[5vh]" : ""}
+                `}
+							>
+								<p className="text-[#0e387a] text-[3.5vh] font-semibold">
+									{item.time}
+								</p>
+							</div>
+							<div
+								className={`bg-[#c0e5f2] border-[0.2vh] border-[#0e387a] rounded-[0.75vh] w-4/5 items-center justify-center flex py-[2.5vh] ${
+									index === 0 ? "rounded-tr-[5vh]" : ""
+								}
+                ${index === schedule.length - 1 ? "rounded-br-[5vh]" : ""}
+                `}
+							>
+								<p className="text-[#0e387a] text-[3.5vh] font-semibold">
+									{item.event}
+								</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+
+			{/* ── SPONSOR ── */}
+			<div className="relative min-h-screen w-full pt-[5vh] flex flex-col items-center z-3">
+				{/* sand on a laptop */}
+				<img
+					src="/imgs/sand.png"
+					className="w-full absolute top-[-10vh] z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sand.png"
+					className="w-full absolute top-[100vh] z-0"
+					alt=""
+				/>
+				{/* sand on a phone */}
+				<img
+					src="/imgs/sand.png"
+					className="w-full absolute md:hidden top-0 z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sand.png"
+					className="w-full absolute md:hidden top-[60vh] z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sand.png"
+					className="w-full absolute md:hidden top-[120vh] z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sand.png"
+					className="w-full absolute md:hidden top-[180vh] z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sand.png"
+					className="w-full absolute md:hidden top-[240vh] z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sand.png"
+					className="w-full absolute md:hidden top-[300vh] z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sand.png"
+					className="w-full absolute md:hidden top-[360vh] z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sand.png"
+					className="w-full absolute md:hidden top-[420vh] z-0"
+					alt=""
+				/>
+
+				<div className="flex flex-col relative z-5 items-center justify-center">
+					<h2 className="galindo text-[6.5vh] text-[#D88127] text-center w-[80vw] md:w-[80vw] leading-[7.5vh] mb-[1vh]">
+						Thank you to our Sponsors!
+					</h2>
+					<div className="grid grid-cols-4 w-[90vw] gap-[3vw] mt-[3vh]">
+						{sponsors.map((sponsor, index) => (
+							<div
+								className="aspect-[1] w-full relative flex flex-col items-center justify-center"
+								key={index}
+							>
+								<img
+									src={`/imgs/${index % 2 === 0 ? "star1" : "star2"}.png`}
+									className="w-full absolute top-0 left-0 z-0"
+									alt=""
+								/>
+								<div className="flex flex-col relative z-5 items-center justify-center w-[80%] mx-auto">
+									<img
+										src={sponsor.logo}
+										alt={sponsor.name}
+										className="w-[45%]"
+									/>
+									<p className="text-[#0E387A] stroke-text-idk font-semibold galindo text-[3vh] leading-[3vh] text-center w-[80%] mx-auto">
+										{sponsor.name}
+									</p>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+
+			<div className="relative min-h-[120vh] w-full mt-[17.5vh] flex flex-col pt-[0vh]"></div>
+
 			{/* ── FOOTER ── */}
-			<div className="relative min-h-[80vh] w-full mt-[17.5vh] flex flex-col pt-[23vh]">
+			<div className="relative min-h-[80vh] w-full mt-[17.5vh] flex flex-col pt-[23vh] z-10">
 				<div className="absolute inset-0 h-[80vh] overflow-hidden">
 					<img
 						src="/imgs/water.png"
