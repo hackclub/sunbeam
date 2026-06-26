@@ -6,11 +6,14 @@ import { useState } from "react";
 
 export default function Organizers() {
   const daysUntilEvent = dayjs("2026-08-29").diff(dayjs(), "day");
-  const checkInCallDates = ["2026-06-07", "2026-06-14"];
-  const soonestCheckIn = checkInCallDates.reduce((a: string, b: string) =>
-    dayjs(a).isBefore(dayjs(b)) ? a : b,
-  );
+  const checkInCallDates = ["2026-07-07T09:00:00", "2026-07-14T09:00:00"];
+  const soonestCheckIn = checkInCallDates
+    .filter((d) => dayjs(d).isAfter(dayjs()))
+    .reduce((a: string, b: string) => (dayjs(a).isBefore(dayjs(b)) ? a : b));
   const daysUntilNextCheckIn = dayjs(soonestCheckIn).diff(dayjs(), "day");
+  const soonestCheckInMonth = dayjs(soonestCheckIn).format("MM");
+  const soonestCheckInDay = dayjs(soonestCheckIn).format("DD");
+  const soonestCheckInTime = dayjs(soonestCheckIn).format("h:mm A");
   const [sidebarClosed, setSidebarClosed] = useState(false);
 
   return (
@@ -71,7 +74,7 @@ export default function Organizers() {
       </div>
 
       {/* ── DESKTOP homepage — hidden on mobile ── */}
-      <div className="max-lg:hidden h-screen lg:p-9 justify-center align-middle">
+      <div className="max-lg:hidden h-screen lg:p-9 flex-1 justify-center align-middle">
         <h1 className="lg:text-5xl galindo text-transparent bg-clip-text bg-gradient-to-b from-yellow-500 to-orange-dark">
           Welcome, Sunbeamer!
         </h1>
@@ -107,7 +110,8 @@ export default function Organizers() {
               <div className="h-[60vh] boardwalk lg:p-6 lg:mx-6 flex flex-col">
                 <p className="text-blue-dark outfit lg:text-2xl text-pretty lg:leading-9">
                   <strong>1.</strong> Sign up to be an organizer in your city!
-                  (wait for approval - you&apos;ll receive an email from us soon)
+                  (wait for approval - you&apos;ll receive an email from us
+                  soon)
                   <br /> <strong>2.</strong> once approved, join
                   <a
                     href="https://hackclub.enterprise.slack.com/archives/C0BCUSTJQTG"
@@ -150,7 +154,7 @@ export default function Organizers() {
                   meeting platform (zoom?)
                 </h3>
                 <h3 className="text-pink-dark outfit lg:text-lg">
-                  00:00 EST - MM/DD
+                  {soonestCheckInTime} EST - {soonestCheckInMonth}/{soonestCheckInDay}
                 </h3>
                 <h3 className="text-blue-bright outfit lg:text-lg">
                   more details &#8680;
@@ -174,8 +178,8 @@ export default function Organizers() {
           </h3>
           <div className="boardwalk-mobile p-4 flex flex-col rounded-lg">
             <p className="text-blue-dark outfit text-base text-pretty">
-              <strong>1.</strong> Sign up to be an organizer in your city!
-              (wait for approval - you&apos;ll receive an email from us soon)
+              <strong>1.</strong> Sign up to be an organizer in your city! (wait
+              for approval - you&apos;ll receive an email from us soon)
               <br /> <strong>2.</strong> once approved, join
               <a
                 href="https://hackclub.enterprise.slack.com/archives/C0BCUSTJQTG"
@@ -235,7 +239,7 @@ export default function Organizers() {
               meeting platform (zoom?)
             </h3>
             <h3 className="text-pink-dark outfit text-base">
-              00:00 EST - MM/DD
+              {soonestCheckInTime} EST - {soonestCheckInDay}
             </h3>
             <h3 className="text-blue-bright outfit text-base">
               more details &#8680;
