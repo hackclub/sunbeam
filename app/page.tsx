@@ -85,7 +85,7 @@ export default function Home() {
 				{/* sand background — single element, tiled via CSS */}
 				<div
 					className="absolute inset-0 z-0 pointer-events-none"
-					style={{ backgroundImage: "url('/imgs/sand.png')", backgroundRepeat: "repeat-y", backgroundSize: "100% auto" }}
+					style={{ backgroundImage: "url('/imgs/sand.png')", backgroundSize: "cover" }}
 				/>
 				<Image
 					src="/imgs/ray1.png"
@@ -177,14 +177,14 @@ export default function Home() {
 
 					{/* Guide surfboard */}
 					<a
-						href="/"
+						href="/organizers"
 						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
 					>
 						<Image
-							src="/imgs/read.png"
+							src="/imgs/org-portal.png"
 							width={795}
 							height={291}
-							alt="Read our ultimate guide to organizing events >>>"
+							alt="Visit the organizer portal for more resources >>>"
 							className="w-[80vw] md:w-[35vw] h-auto mx-auto"
 						/>
 					</a>
@@ -212,10 +212,10 @@ export default function Home() {
 			<div className="relative min-h-[80vh] w-full flex flex-col pt-[23vh]">
 				<div className="absolute inset-0 h-[80vh] overflow-hidden">
 					<Image
-						src="/imgs/water.png"
+						src="/imgs/water3.png"
 						fill
 						alt=""
-						className="object-cover object-bottom rotate-180"
+						className="object-cover object-bottom"
 						sizes="100vw"
 					/>
 				</div>
@@ -237,7 +237,7 @@ export default function Home() {
 				<div className="relative z-5 flex flex-col">
 					{/* Footer headline */}
 					<h3 className="outfit text-[#FBF6E7]/90 font-semibold text-[5.5vh] text-center">
-						made with ♡ by{" "}
+						made with <b className="text-[#eeb3c8]">♡</b> by{" "}
 						<a
 							href="https://athena.hackclub.com"
 							target="_blank"
