@@ -4,6 +4,115 @@ import Link from "next/link";
 import dayjs from "dayjs";
 import { useState } from "react";
 
+export function DesktopSidebar() {
+  const [sidebarClosed, setSidebarClosed] = useState(false);
+
+  return (
+    <div
+      className={
+        sidebarClosed
+          ? "max-lg:hidden w-1/12 transition-all duration-500 ease-in-out"
+          : "max-lg:hidden w-1/3 h-screen flex flex-col lg:px-4 2xl:px-9 lg:py-8 2xl:py-12 gap-8 2xl:gap-10 transition-all duration-500 ease-in-out"
+      }
+      style={{
+        backgroundImage: "url('/imgs/sidebar-water-desktop.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "right",
+      }}
+    >
+      <div
+        className={
+          sidebarClosed
+            ? "opacity-0 hidden"
+            : "opacity-100 transition-all duration-500 ease-in-out flex flex-col gap-8 2xl:gap-10"
+        }
+      >
+        <Link href="/">
+          <img
+            src="/imgs/logo_orgportal.png"
+            className="w-3/4 hover:scale-105 duration-200"
+          ></img>
+        </Link>
+        <SidebarItem href="/organizers" text="Home" />
+        <SidebarItem href="/organizers/docs" text="Docs" />
+        <SidebarItem href="/organizers/resources" text="More Resources" />
+        <SidebarItem
+          href="/organizers/branding"
+          text="Branding & Social Media"
+        />
+        <SidebarItem href="/organizers/contact-hq" text="Contact HQ" />
+      </div>
+      <button
+        onClick={() => setSidebarClosed(!sidebarClosed)}
+        className={
+          sidebarClosed
+            ? "absolute bottom-12 w-1/5 transition-all duration-500 ease-in-out focus:outline-none"
+            : "absolute focus:outline-none bottom-12 w-5/16 transition-all duration-500 ease-in-out"
+        }
+      >
+        <img
+          src={sidebarClosed ? "/imgs/ray_open.png" : "/imgs/ray_back.png"}
+          alt=""
+          className="w-5/8 -m-6 hover:translate-x-5 duration-200"
+        ></img>
+      </button>
+    </div>
+  );
+}
+
+export function MobileNavbar() {
+  return (
+    <div>
+      <nav
+        className="fixed pt-24 bottom-0 left-0 right-0 lg:hidden z-50"
+        style={{
+          backgroundImage: "url('/imgs/sidebar-water-mobile.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "top",
+        }}
+      >
+        <div className="flex items-center justify-around py-3 px-4">
+          <Link href="/organizers/docs">
+            <img
+              src="/imgs/mobile-icon-docs.png"
+              alt="Docs"
+              className="h-12 hover:scale-110 duration-200"
+            />
+          </Link>
+          <Link href="/organizers/resources">
+            <img
+              src="/imgs/mobile-icon-resources.png"
+              alt="More Resources"
+              className="h-12 hover:scale-110 duration-200"
+            />
+          </Link>
+          <Link href="/organizers">
+            <img
+              src="/imgs/mobile-icon-logo.png"
+              alt="Home"
+              className="h-20 -mt-4 hover:scale-110 duration-200"
+            />
+          </Link>
+          <Link href="/organizers/branding">
+            <img
+              src="/imgs/mobile-icon-branding.png"
+              alt="Branding & Social Media"
+              className="h-12 hover:scale-110 duration-200"
+            />
+          </Link>
+          <Link href="/organizers/contact-hq">
+            <img
+              src="/imgs/mobile-icon-contact.png"
+              alt="Contact HQ"
+              className="h-12 hover:scale-110 duration-200"
+            />
+          </Link>
+        </div>
+      </nav>
+    </div>
+  );
+}
+
 export default function Organizers() {
   const daysUntilEvent = dayjs("2026-08-29").diff(dayjs(), "day");
   const checkInCallDates = ["2026-07-07T09:00:00", "2026-07-14T09:00:00"];
@@ -14,7 +123,6 @@ export default function Organizers() {
   const soonestCheckInMonth = dayjs(soonestCheckIn).format("MM");
   const soonestCheckInDay = dayjs(soonestCheckIn).format("DD");
   const soonestCheckInTime = dayjs(soonestCheckIn).format("h:mm A");
-  const [sidebarClosed, setSidebarClosed] = useState(false);
 
   return (
     <div
@@ -25,53 +133,7 @@ export default function Organizers() {
         backgroundPosition: "center",
       }}
     >
-      {/* sidebar — hidden on mobile */}
-      <div
-        className={
-          sidebarClosed
-            ? "max-lg:hidden w-1/12 transition-all duration-500 ease-in-out"
-            : "max-lg:hidden w-1/3 h-screen flex flex-col lg:px-4 2xl:px-9 lg:py-8 2xl:py-12 gap-8 2xl:gap-10 transition-all duration-500 ease-in-out"
-        }
-        style={{
-          backgroundImage: "url('/imgs/sidebar-water-desktop.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "right",
-        }}
-      >
-        <div
-          className={
-            sidebarClosed
-              ? "opacity-0 hidden"
-              : "opacity-100 transition-all duration-500 ease-in-out flex flex-col gap-8 2xl:gap-10"
-          }
-        >
-          <Link href="/">
-            <img
-              src="/imgs/logo_orgportal.png"
-              className="w-3/4 hover:scale-105 duration-200"
-            ></img>
-          </Link>
-          <SidebarItem href="/organizers" text="Home" />
-          <SidebarItem href="/organizers/docs" text="Docs" />
-          <SidebarItem href="/organizers/docs" text="More Resources" />
-          <SidebarItem href="/organizers/docs" text="Branding & Social Media" />
-          <SidebarItem href="/organizers/docs" text="Contact HQ" />
-        </div>
-        <button
-          onClick={() => setSidebarClosed(!sidebarClosed)}
-          className={
-            sidebarClosed
-              ? "absolute bottom-12 w-1/5 transition-all duration-500 ease-in-out focus:outline-none"
-              : "absolute focus:outline-none bottom-12 w-5/16 transition-all duration-500 ease-in-out"
-          }
-        >
-          <img
-            src={sidebarClosed ? "/imgs/ray_open.png" : "/imgs/ray_back.png"}
-            alt=""
-            className="w-5/8 -m-6 hover:translate-x-5 duration-200"
-          ></img>
-        </button>
-      </div>
+      <DesktopSidebar />
 
       {/* ── DESKTOP homepage — hidden on mobile ── */}
       <div className="max-lg:hidden h-screen lg:p-9 flex-1 justify-center align-middle">
@@ -154,7 +216,8 @@ export default function Organizers() {
                   meeting platform (zoom?)
                 </h3>
                 <h3 className="text-pink-dark outfit lg:text-lg">
-                  {soonestCheckInTime} EST - {soonestCheckInMonth}/{soonestCheckInDay}
+                  {soonestCheckInTime} EST - {soonestCheckInMonth}/
+                  {soonestCheckInDay}
                 </h3>
                 <h3 className="text-blue-bright outfit lg:text-lg">
                   more details &#8680;
@@ -248,53 +311,7 @@ export default function Organizers() {
         </div>
       </div>
 
-      {/* Mobile bottom navbar — hidden on desktop */}
-      <nav
-        className="fixed pt-24 bottom-0 left-0 right-0 lg:hidden"
-        style={{
-          backgroundImage: "url('/imgs/sidebar-water-mobile.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "top",
-        }}
-      >
-        <div className="flex items-center justify-around py-3 px-4">
-          <Link href="/organizers/docs">
-            <img
-              src="/imgs/mobile-icon-docs.png"
-              alt="Docs"
-              className="h-12 hover:scale-110 duration-200"
-            />
-          </Link>
-          <Link href="/organizers/docs">
-            <img
-              src="/imgs/mobile-icon-resources.png"
-              alt="More Resources"
-              className="h-12 hover:scale-110 duration-200"
-            />
-          </Link>
-          <Link href="/organizers">
-            <img
-              src="/imgs/mobile-icon-logo.png"
-              alt="Home"
-              className="h-20 -mt-4 hover:scale-110 duration-200"
-            />
-          </Link>
-          <Link href="/organizers/docs">
-            <img
-              src="/imgs/mobile-icon-branding.png"
-              alt="Branding & Social Media"
-              className="h-12 hover:scale-110 duration-200"
-            />
-          </Link>
-          <Link href="/organizers/docs">
-            <img
-              src="/imgs/mobile-icon-contact.png"
-              alt="Contact HQ"
-              className="h-12 hover:scale-110 duration-200"
-            />
-          </Link>
-        </div>
-      </nav>
+     <MobileNavbar />
     </div>
   );
 }
