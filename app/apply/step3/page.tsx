@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
@@ -51,6 +51,23 @@ export default function Step3() {
 		postal_code: "", country: "", slack_id: "", date_of_birth: "",
 		certified: false,
 	});
+
+	useEffect(() => {
+		fetch("/api/hca-me")
+			.then((r) => (r.ok ? r.json() : null))
+			.then((user) => {
+				if (!user) return;
+				console.log("[step3] hca-me data:", user);
+				setForm((f) => ({
+					...f,
+					email: user.identity.primary_email || f.email,
+					first_name: user.identity.first_name || f.first_name,
+					last_name: user.identity.last_name || f.last_name,
+					preferred_name:  f.preferred_name,
+					slack_id: user.identity.slack_id || f.slack_id,
+				}));
+			});
+	}, []);
 
 	function set(name: string, val: string) {
 		setForm((f) => ({ ...f, [name]: val }));
