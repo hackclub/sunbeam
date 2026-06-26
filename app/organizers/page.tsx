@@ -152,7 +152,7 @@ export default function Organizers() {
               [date]
             </p>
             <a
-              href="placeholder"
+              href="/organizers/weeklyplan"
               className="text-blue-dark outfit text-base text-pretty font-bold mt-6"
             >
               Click here to see the full 9-week plan &#8680;

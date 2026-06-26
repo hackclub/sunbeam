@@ -1,11 +1,6 @@
-"use client";
+import DocsSidebar from "../../../../components/DocsSidebar"
 
-import MobileNavbar from "../../../components/MobileNavbar";
-// import Link from "next/link";
-// import { useState } from "react";
-import DocsSidebar from "../../../components/DocsSidebar"
-
-export default function OrganizerDocs() {
+export default function DocsOutreach() {
   return (
     <div
       className="flex min-h-screen lg:overflow-hidden"
@@ -21,8 +16,7 @@ export default function OrganizerDocs() {
         <div className="flex flex-1 flex-col h-full"></div>
       </div>
       {/* mobile content */}
-      <div className="lg:hidden">hi</div>
-      <MobileNavbar />
+      <div className="lg:hidden">outreach</div>
     </div>
   );
 }
