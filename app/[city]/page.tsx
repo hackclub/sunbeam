@@ -17,7 +17,7 @@ const { records } = await res.json();
 console.log(records)
 const record = records[0].fields
 const schedule = JSON.parse(record["schedule"])
-const sponsors = JSON.parse(record["sponsors"])
+const sponsors: { logo: string; name: string }[] = JSON.parse(record["sponsors"])
 const cityName = record["City"]
   return (
 		<div className="relative">
