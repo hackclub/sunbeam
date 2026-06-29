@@ -86,7 +86,7 @@
 			color-mix(in srgb, #ffe4e9 60%, transparent),
 			color-mix(in srgb, var(--color-pink-bright) 30%, transparent)
 		),
-		url("/imgs/planks-pink-h.png");
+		url("/imgs/planks-pink-h.webp");
 	background-size: 150%;
 	background-position: center;
 	outline: 1px solid var(--color-pink-dropshadow);
@@ -98,7 +98,7 @@
 			color-mix(in srgb, #ffe4e9 60%, transparent),
 			color-mix(in srgb, var(--color-pink-bright) 30%, transparent)
 		),
-		url("/imgs/planks-pink-h.png");
+		url("/imgs/planks-pink-h.webp");
 	background-size: 150%;
 	background-position: center;
 	outline: 2px solid #0e387a4f;

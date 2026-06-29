@@ -15,7 +15,7 @@ export default function DesktopSidebar() {
           : "max-lg:hidden w-56 h-screen flex flex-col lg:px-4 2xl:px-6 lg:py-6 2xl:py-10 gap-4 2xl:gap-5 transition-all duration-500 ease-in-out"
       }
       style={{
-        backgroundImage: "url('/imgs/sidebar-water-desktop.png')",
+        backgroundImage: "url('/imgs/sidebar-water-desktop.webp')",
         backgroundSize: "cover",
         backgroundPosition: "right",
       }}
@@ -29,7 +29,7 @@ export default function DesktopSidebar() {
       >
         <Link href="/">
           <img
-            src="/imgs/logo_orgportal.png"
+            src="/imgs/logo_orgportal.webp"
             className="w-3/4 hover:scale-105 duration-200"
           ></img>
         </Link>
@@ -51,7 +51,7 @@ export default function DesktopSidebar() {
         }
       >
         <img
-          src={sidebarClosed ? "/imgs/ray_open.png" : "/imgs/ray_back.png"}
+          src={sidebarClosed ? "/imgs/ray_open.webp" : "/imgs/ray_back.webp"}
           alt=""
           className="w-5/8 -m-6 hover:translate-x-5 duration-200"
         ></img>

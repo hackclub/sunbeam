@@ -6,7 +6,7 @@ export default function Faq() {
             className="outfit w-full"
 			style={{
             backgroundColor: "rgb(250,240,212)",
-            backgroundImage: "url('/imgs/sandNoFade.png')",
+            backgroundImage: "url('/imgs/sandNoFade.webp')",
             backgroundSize: "100% auto",
             backgroundRepeat: "repeat-y",
 			}}
@@ -43,7 +43,7 @@ export default function Faq() {
 
             {/* ray */}
             <div className="flex justify-center pt-[7vh] pb-[3vh]">
-                <img src="/imgs/guide/ray.png" alt="Ray" style={{ width: "22vw" }} className="object-contain" />
+                <img src="/imgs/guide/ray.webp" alt="Ray" style={{ width: "22vw" }} className="object-contain" />
             </div>
 
             {/* questions */}
@@ -159,7 +159,7 @@ export default function Faq() {
             {/* footer */}
             <div>
                 <div className="flex justify-center pt-[7vh] pb-[3vh]">
-                <img src="/imgs/faq/footer.png" alt="pics" style={{ width: "100%" }} className="object-contain" />
+                <img src="/imgs/faq/footer.webp" alt="pics" style={{ width: "100%" }} className="object-contain" />
             </div>
             </div>
 

@@ -15,7 +15,7 @@ export default function DocsSidebar() {
           : "max-lg:hidden w-56 h-screen flex flex-col lg:px-4 2xl:px-6 lg:py-6 2xl:py-10 gap-4 2xl:gap-5 transition-all duration-500 ease-in-out"
       }
       style={{
-        backgroundImage: "url('/imgs/sidebar-water-desktop.png')",
+        backgroundImage: "url('/imgs/sidebar-water-desktop.webp')",
         backgroundSize: "cover",
         backgroundPosition: "right",
       }}
@@ -38,7 +38,7 @@ export default function DocsSidebar() {
 
         <Link href="/">
           <img
-            src="/imgs/logo_orgportal.png"
+            src="/imgs/logo_orgportal.webp"
             className="w-3/4 hover:scale-105 duration-200"
             alt="go to landing page"
           ></img>
@@ -66,7 +66,7 @@ export default function DocsSidebar() {
         }
       >
         <img
-          src={sidebarClosed ? "/imgs/ray_open.png" : "/imgs/ray_back.png"}
+          src={sidebarClosed ? "/imgs/ray_open.webp" : "/imgs/ray_back.webp"}
           alt=""
           className="w-5/12 -m-6 hover:translate-x-5 duration-200"
         ></img>

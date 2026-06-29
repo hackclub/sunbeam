@@ -22,11 +22,11 @@ export default function Step5() {
 	return (
 		<div
 			className="relative w-full min-h-screen"
-			style={{ backgroundImage: "url('/imgs/sand.png')", backgroundRepeat: "repeat-y", backgroundSize: "100% auto" }}
+			style={{ backgroundImage: "url('/imgs/sand.webp')", backgroundRepeat: "repeat-y", backgroundSize: "100% auto" }}
 		>
 			<div className="relative mx-[1.7%] mt-[7vh] mb-[4vh]">
 				<Image
-					src="/imgs/boardwalk.png"
+					src="/imgs/boardwalk.webp"
 					fill
 					alt=""
 					priority
@@ -85,7 +85,7 @@ export default function Step5() {
 								className="hover:scale-105 transition-transform cursor-pointer bg-transparent border-none p-0"
 								style={{ width: "22vw" }}
 							>
-								<Image src="/imgs/surfboard_next5.png" width={1031} height={382} alt="next!" className="w-full h-auto" />
+								<Image src="/imgs/surfboard_next5.webp" width={1031} height={382} alt="next!" className="w-full h-auto" />
 							</button>
 						</div>
 					</form>

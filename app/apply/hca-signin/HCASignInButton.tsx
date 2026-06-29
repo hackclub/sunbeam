@@ -6,14 +6,14 @@ export default function HCASignInButton({ authUrl }: { authUrl: string }) {
 		<div
 			className="relative w-full min-h-screen"
 			style={{
-				backgroundImage: "url('/imgs/sand.png')",
+				backgroundImage: "url('/imgs/sand.webp')",
 				backgroundRepeat: "repeat-y",
 				backgroundSize: "100% auto",
 			}}
 		>
 			<div className="relative mx-[2.5%] mt-[7vh] mb-[4vh]">
 				<Image
-					src="/imgs/boardwalk.png"
+					src="/imgs/boardwalk.webp"
 					fill
 					alt=""
 					priority
@@ -32,7 +32,7 @@ export default function HCASignInButton({ authUrl }: { authUrl: string }) {
 						style={{ width: "28vw", display: "block" }}
 					>
 						<Image
-							src="/imgs/surfboard_next2.png"
+							src="/imgs/surfboard_next2.webp"
 							width={516}
 							height={191}
 							alt="Sign in with Hack Club"

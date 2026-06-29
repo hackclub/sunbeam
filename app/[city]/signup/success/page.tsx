@@ -12,13 +12,13 @@ export default async function SuccessPage({
 		<div
 			className="relative w-full min-h-screen flex flex-col items-center justify-center"
 			style={{
-				backgroundImage: "url('/imgs/sand.png')",
+				backgroundImage: "url('/imgs/sand.webp')",
 				backgroundRepeat: "repeat-y",
 				backgroundSize: "100% auto",
 			}}
 		>
 			<Image
-				src="/imgs/shark1.png"
+				src="/imgs/shark1.webp"
 				width={400}
 				height={300}
 				alt=""
@@ -37,7 +37,7 @@ export default async function SuccessPage({
 				style={{ width: "18vw", display: "block" }}
 			>
 				<Image
-					src="/imgs/surfboard_next2.png"
+					src="/imgs/surfboard_next2.webp"
 					width={516}
 					height={191}
 					alt="back to home"

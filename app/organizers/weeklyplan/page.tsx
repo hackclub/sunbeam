@@ -7,7 +7,7 @@ export default function Weeklyplan() {
             className="outfit w-full"
 			style={{
             backgroundColor: "rgb(250,240,212)",
-            backgroundImage: "url('/imgs/sandNoFade.png')",
+            backgroundImage: "url('/imgs/sandNoFade.webp')",
             backgroundSize: "100% auto",
             backgroundRepeat: "repeat-y",
 			}}
@@ -43,7 +43,7 @@ export default function Weeklyplan() {
 
             {/* ray */}
             <div className="flex justify-center pt-[7vh] pb-[3vh]">
-                <img src="/imgs/guide/ray.png" alt="Ray" style={{ width: "22vw" }} className="object-contain" />
+                <img src="/imgs/guide/ray.webp" alt="Ray" style={{ width: "22vw" }} className="object-contain" />
             </div>
 
             <div style= {{ margin: "8rem"}}>
@@ -276,7 +276,7 @@ export default function Weeklyplan() {
             {/* footer */}
             <div>
                 <div className="flex justify-center pt-[7vh] pb-[3vh]">
-                    <img src="/imgs/weeklyplan/footer.png" alt="pics" style={{ width: "100%" }} className="object-contain" />
+                    <img src="/imgs/weeklyplan/footer.webp" alt="pics" style={{ width: "100%" }} className="object-contain" />
                 </div>
                 <p style={{ fontSize: "1.94vw", color: "#0E387A", lineHeight: 1.6, marginBottom: "2vh", textAlign: "center" }}>
                     Written by: Yanella and Safia ♡

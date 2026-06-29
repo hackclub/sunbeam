@@ -5,7 +5,7 @@ export default function DocsSponsorship() {
     <div
       className="flex min-h-screen lg:overflow-hidden"
       style={{
-        backgroundImage: "url('/imgs/sand.png')",
+        backgroundImage: "url('/imgs/sand.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

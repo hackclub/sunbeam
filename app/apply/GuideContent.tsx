@@ -4,7 +4,7 @@ export default function GuideContent() {
 			className="outfit w-full"
 			style={{
 				backgroundColor: "rgb(250,240,212)",
-				backgroundImage: "url('/imgs/sand4.png')",
+				backgroundImage: "url('/imgs/sand4.webp')",
 				backgroundSize: "100% auto",
 				backgroundRepeat: "repeat-y",
 			}}
@@ -39,7 +39,7 @@ export default function GuideContent() {
 
 			{/* SECTION 3: RAY + REWARDING */}
 			<div className="flex justify-center pt-[7vh] pb-[3vh]">
-				<img src="/imgs/guide/ray.png" alt="Ray" style={{ width: "22vw" }} className="object-contain" />
+				<img src="/imgs/guide/ray.webp" alt="Ray" style={{ width: "22vw" }} className="object-contain" />
 			</div>
 
 			<div className="text-center pb-[3vh]" style={{ padding: "0 9.1% 3vh" }}>
@@ -50,10 +50,10 @@ export default function GuideContent() {
 
 			<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", padding: "0 9.1%", gap: "4vh 4vw", marginBottom: "4vh" }}>
 				{[
-					{ img: "rewarding-1.png", caption: "you'll meet so many different people" },
-					{ img: "rewarding-3.png", caption: "you'll enjoy snacks and food that YOU pick (leave some for the attendees tho hahaa)" },
-					{ img: "rewarding-2.png", caption: "you'll make new professional connections with venues + sponsors" },
-					{ img: "rewarding-4.png", caption: "you get to hang out with friends !!" },
+					{ img: "rewarding-1.webp", caption: "you'll meet so many different people" },
+					{ img: "rewarding-3.webp", caption: "you'll enjoy snacks and food that YOU pick (leave some for the attendees tho hahaa)" },
+					{ img: "rewarding-2.webp", caption: "you'll make new professional connections with venues + sponsors" },
+					{ img: "rewarding-4.webp", caption: "you get to hang out with friends !!" },
 				].map(({ img, caption }, i) => (
 					<div key={i} className="flex flex-col items-center">
 						<img
@@ -125,7 +125,7 @@ export default function GuideContent() {
 						</p>
 					
 						<div style={{ flexShrink: 0, width: "40.5vw", position: "relative", top: "-1vw" }}>
-							<img src="/imgs/guide/team-photo.png" alt="Team photo" style={{ width: "100%", display: "block" }} />
+							<img src="/imgs/guide/team-photo.webp" alt="Team photo" style={{ width: "100%", display: "block" }} />
 						</div>
 					</div>
 
@@ -181,14 +181,14 @@ export default function GuideContent() {
 							Want a city@sunbeam.hackclub.com email? This will be coming to event PoCs soon! This is a shared Google Workspace account that the team can use to send out mass, personalised communications to attendees, and should be the contact email listed on your website so people can ask you questions.
 						</p>
 						<div style={{ flexShrink: 0, width: "18vw", position: "relative" }}>
-							<img src="/imgs/guide/hcb-setup.png" alt="Gmail" style={{ width: "100%", display: "block" }} />
-							<img src="/imgs/sunbeam.png" alt="" style={{ position: "absolute", bottom: "5vw", left: "50%", transform: "translateX(-50%)", width: "10vw" }} />
+							<img src="/imgs/guide/hcb-setup.webp" alt="Gmail" style={{ width: "100%", display: "block" }} />
+							<img src="/imgs/sunbeam.webp" alt="" style={{ position: "absolute", bottom: "5vw", left: "50%", transform: "translateX(-50%)", width: "10vw" }} />
 						</div>
 					</div>
 
 					{/* HCB row: logo left, text right */}
 					<div style={{ display: "flex", gap: "3vw", alignItems: "center", marginLeft: "3vw" }}>
-						<img src="/imgs/guide/hcb-logo.png" alt="HCB logo" style={{ flexShrink: 0, width: "8vw" }} />
+						<img src="/imgs/guide/hcb-logo.webp" alt="HCB logo" style={{ flexShrink: 0, width: "8vw" }} />
 						<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "#2E599C", lineHeight: 1.6, flex: "1 1 0" }}>
 							You will also receive an email to activate your very own HCB account to manage your Sunbeam event's finances. Make sure to keep an eye on your inbox to receive these important updates!!!
 						</p>
@@ -241,7 +241,7 @@ export default function GuideContent() {
 
 					{/* Right: website template + caption */}
 					<div style={{ flexShrink: 0, width: "30vw", display: "flex", flexDirection: "column", alignItems: "center", gap: "1vh", position: "relative", top: "2vw" }}>
-						<img src="/imgs/guide/website-template.png" alt="Website template" style={{ width: "100%" }} />
+						<img src="/imgs/guide/website-template.webp" alt="Website template" style={{ width: "100%" }} />
 						<p style={{ fontSize: "1.74vw", fontWeight: 600, color: "#0E387A"}}>cool...</p>
 					</div>
 				</div>
@@ -258,7 +258,7 @@ export default function GuideContent() {
 										{ n: 3, caption: "Merch!!" },
 									].map(({ n, caption }) => (
 										<div key={n} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1vh" }}>
-											<img src={`/imgs/guide/budget-${n}.png`} alt="" style={{ width: "100%", display: "block" }} />
+											<img src={`/imgs/guide/budget-${n}.webp`} alt="" style={{ width: "100%", display: "block" }} />
 											<p style={{ fontSize: "1.74vw", fontWeight: 400, color: "#0E387A", textAlign: "center", lineHeight: 1.5 }}>{caption}</p>
 										</div>
 									))}
@@ -269,7 +269,7 @@ export default function GuideContent() {
 										{ n: 5, caption: "Prizes" },
 									].map(({ n, caption }) => (
 										<div key={n} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1vh" }}>
-											<img src={`/imgs/guide/budget-${n}.png`} alt="" style={{ width: "100%", display: "block" }} />
+											<img src={`/imgs/guide/budget-${n}.webp`} alt="" style={{ width: "100%", display: "block" }} />
 											<p style={{ fontSize: "1.74vw", fontWeight: 400, color: "#0E387A", textAlign: "center", lineHeight: 1.5 }}>{caption}</p>
 										</div>
 									))}
@@ -356,7 +356,7 @@ export default function GuideContent() {
 							</p>
 						</div>
 						<div style={{ flexShrink: 0, width: "18.1vw" }}>
-							<img src="/imgs/guide/venue.png" alt="Venue" style={{ width: "100%", display: "block" }} />
+							<img src="/imgs/guide/venue.webp" alt="Venue" style={{ width: "100%", display: "block" }} />
 						</div>
 					</div>
 
@@ -364,7 +364,7 @@ export default function GuideContent() {
 					<div style={{ display: "flex", alignItems: "flex-end", gap: "2vw", marginBottom: "2vh", marginTop: "1vh" }}>
 
 						{/* Shark */}
-						<img src="/imgs/guide/shark.png" alt="Shark" style={{ width: "28vw", flexShrink: 0 }} />
+						<img src="/imgs/guide/shark.webp" alt="Shark" style={{ width: "28vw", flexShrink: 0 }} />
 
 						{/* Right: speech bubble + reach out text */}
 						<div style={{ flex: "1 1 0", display: "flex", flexDirection: "column", paddingBottom: "2vh" }}>
@@ -417,7 +417,7 @@ export default function GuideContent() {
 							</p>
 						</div>
 						<div style={{ flexShrink: 0, width: "26vw", position: "relative", top: "4vw" }}>
-							<img src="/imgs/guide/sponsors-ai.png" alt="Sponsors" style={{ width: "100%", display: "block" }} />
+							<img src="/imgs/guide/sponsors-ai.webp" alt="Sponsors" style={{ width: "100%", display: "block" }} />
 						</div>
 					</div>
 
@@ -444,7 +444,7 @@ export default function GuideContent() {
 						{/* Surfboard with rotated text overlay */}
 						<div style={{ position: "relative", flexShrink: 0, width: "52.7vw" }}>
 							<img
-								src="/imgs/guide/surfboard-yellow.png"
+								src="/imgs/guide/surfboard-yellow.webp"
 								alt=""
 								style={{ width: "100%", display: "block" }}
 							/>
@@ -477,7 +477,7 @@ export default function GuideContent() {
 
 					<div style={{ display: "flex", gap: "3vw", alignItems: "flex-center", marginBottom: "3vh" }}>
 						<div style={{ flexShrink: 0, width: "21.3vw" }}>
-							<img src="/imgs/guide/outreach-1.png" alt="" style={{ width: "100%", display: "block" }} />
+							<img src="/imgs/guide/outreach-1.webp" alt="" style={{ width: "100%", display: "block" }} />
 						</div>
 						<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, flex: "1 1 0", alignSelf: "center" }}>
 							Email CS teachers: Make a video with your team and ask them to CC their students or post in their announcements app!
@@ -489,13 +489,13 @@ export default function GuideContent() {
 							Email local organizations and clubs: Robotics teams, your student council, CS clubs, etc
 						</p>
 						<div style={{ flexShrink: 0, width: "21.3vw" }}>
-							<img src="/imgs/guide/outreach-3.png" alt="" style={{ width: "100%", display: "block" }} />
+							<img src="/imgs/guide/outreach-3.webp" alt="" style={{ width: "100%", display: "block" }} />
 						</div>
 					</div>
 
 					<div style={{ display: "flex", gap: "3vw", alignItems: "flex-start", marginBottom: "3vh" }}>
 						<div style={{ flexShrink: 0, width: "21.3vw" }}>
-							<img src="/imgs/guide/outreach-2.png" alt="" style={{ width: "100%", display: "block" }} />
+							<img src="/imgs/guide/outreach-2.webp" alt="" style={{ width: "100%", display: "block" }} />
 						</div>
 						<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, flex: "1 1 0", alignSelf: "center" }}>
 							Print out posters and put them up at schools, libraries, even the gym or your car windows.
@@ -507,13 +507,13 @@ export default function GuideContent() {
 							Post in parent group chats! Facebook, Whatsapp, WeChat. This is VERY effective in reaching beginners.
 						</p>
 						<div style={{ flexShrink: 0, width: "21.3vw" }}>
-							<img src="/imgs/guide/outreach-5.png" alt="" style={{ width: "100%", display: "block" }} />
+							<img src="/imgs/guide/outreach-5.webp" alt="" style={{ width: "100%", display: "block" }} />
 						</div>
 					</div>
 					
 					<div style={{ display: "flex", gap: "3vw", alignItems: "flex-start", marginBottom: "3vh" }}>
 						<div style={{ flexShrink: 0, width: "21.3vw" }}>
-							<img src="/imgs/guide/outreach-4.png" alt="" style={{ width: "100%", display: "block" }} />
+							<img src="/imgs/guide/outreach-4.webp" alt="" style={{ width: "100%", display: "block" }} />
 						</div>
 						<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, alignSelf: "center" }}>
 						Post on Instagram and social media! This is where people can discover your event. AND people will trust your event more if they see it's on instagram and has nice branding.

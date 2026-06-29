@@ -25,7 +25,7 @@ const cityName = record["City"]
 			<div className="relative min-h-[110vh] w-full">
 				<div className="absolute inset-0 h-[110vh] overflow-hidden">
 					<img
-						src="/imgs/water.png"
+						src="/imgs/water.webp"
 						className="w-full h-full object-cover object-bottom"
 						alt=""
 					/>
@@ -33,14 +33,14 @@ const cityName = record["City"]
 
 				{/* Shark */}
 				<img
-					src="/imgs/shark1.png"
+					src="/imgs/shark1.webp"
 					className="absolute top-[-2vh] left-[2.5vw] z-10 w-[30vw] md:w-[17.5vw]"
 					alt=""
 				/>
 
 				{/* Foam wave */}
 				<img
-					src="/imgs/foam.png"
+					src="/imgs/foam.webp"
 					className="hidden md:block md:absolute bottom-[-20vh] left-0 z-5 w-full"
 					alt=""
 				/>
@@ -49,7 +49,7 @@ const cityName = record["City"]
 					{/* Logo + video */}
 					<div className="relative w-[80vw] mx-auto flex flex-col md:flex-row mt-[5vh] mb-[1vh]">
 						<img
-							src="/imgs/sunbeam.png"
+							src="/imgs/sunbeam.webp"
 							className="w-[80vw] md:w-[49vw] absolute bottom-[-10vh] md:bottom-[-6vh] left-0 md:left-[5vw]"
 							alt="Sunbeam"
 						/>
@@ -81,58 +81,58 @@ const cityName = record["City"]
 			<div className="relative min-h-screen w-full pt-[26vh] flex flex-col items-center">
 				{/* sand on a laptop */}
 				<img
-					src="/imgs/sand.png"
+					src="/imgs/sand.webp"
 					className="w-full absolute top-0 z-0"
 					alt=""
 				/>
 				<img
-					src="/imgs/sand.png"
+					src="/imgs/sand.webp"
 					className="w-full absolute top-[100vh] z-0"
 					alt=""
 				/>
 				{/* sand on a phone */}
 				<img
-					src="/imgs/sand.png"
+					src="/imgs/sand.webp"
 					className="w-full absolute md:hidden top-0 z-0"
 					alt=""
 				/>
 				<img
-					src="/imgs/sand.png"
+					src="/imgs/sand.webp"
 					className="w-full absolute md:hidden top-[60vh] z-0"
 					alt=""
 				/>
 				<img
-					src="/imgs/sand.png"
+					src="/imgs/sand.webp"
 					className="w-full absolute md:hidden top-[120vh] z-0"
 					alt=""
 				/>
 				<img
-					src="/imgs/sand.png"
+					src="/imgs/sand.webp"
 					className="w-full absolute md:hidden top-[180vh] z-0"
 					alt=""
 				/>
 				<img
-					src="/imgs/sand.png"
+					src="/imgs/sand.webp"
 					className="w-full absolute md:hidden top-[240vh] z-0"
 					alt=""
 				/>
 				<img
-					src="/imgs/sand.png"
+					src="/imgs/sand.webp"
 					className="w-full absolute md:hidden top-[300vh] z-0"
 					alt=""
 				/>
 				<img
-					src="/imgs/sand.png"
+					src="/imgs/sand.webp"
 					className="w-full absolute md:hidden top-[360vh] z-0"
 					alt=""
 				/>
 				<img
-					src="/imgs/sand.png"
+					src="/imgs/sand.webp"
 					className="w-full absolute md:hidden top-[420vh] z-0"
 					alt=""
 				/>
 				<img
-					src="/imgs/ray1.png"
+					src="/imgs/ray1.webp"
 					className="absolute top-[20vh] right-[6vw] z-5 w-[17.5vw]"
 					alt=""
 				/>
@@ -146,7 +146,7 @@ const cityName = record["City"]
 					<div className="w-[77.5vw] flex flex-col md:flex-row items-center justify-center gap-[3vw] my-[4vh]">
 						<div className="w-full h-[67.5vh] rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-[0.75vw]">
 							<div className="border-[1vh] border-[#C54390] w-full h-full rounded-[3vh] flex flex-col items-center justify-start p-[1vw]">
-								<img src="/imgs/img1.png" className="pb-[2vh]" alt="" />
+								<img src="/imgs/img1.webp" className="pb-[2vh]" alt="" />
 								<h2 className="galindo text-center text-[4vh] text-[#C54390]">
 									Sign Up!
 								</h2>
@@ -157,7 +157,7 @@ const cityName = record["City"]
 						</div>
 						<div className="w-full h-[75vh] rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-[0.75vw]">
 							<div className="border-[1vh] border-[#2E599C] w-full h-full rounded-[3vh] flex flex-col items-center justify-start p-[1vw]">
-								<img src="/imgs/img2.png" className="pb-[2vh]" alt="" />
+								<img src="/imgs/img2.webp" className="pb-[2vh]" alt="" />
 								<h2 className="galindo text-center text-[4vh] text-[#2E599C]">
 									Team!
 								</h2>
@@ -170,7 +170,7 @@ const cityName = record["City"]
 						</div>
 						<div className="w-full h-[67.5vh] rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-[0.75vw]">
 							<div className="border-[1vh] border-[#C79713] w-full h-full rounded-[3vh] flex flex-col items-center justify-start p-[1vw]">
-								<img src="/imgs/img3.png" className="pb-[2vh]" alt="" />
+								<img src="/imgs/img3.webp" className="pb-[2vh]" alt="" />
 								<h2 className="galindo text-center text-[4vh] text-[#C79713]">
 									Fun!
 								</h2>
@@ -186,38 +186,38 @@ const cityName = record["City"]
 					<div className="w-[77.5vw] my-[4vh] flex flex-col gap-[2vh]">
 						<div className="grid grid-cols-[6fr_4fr] gap-[3vw]">
 							<img
-								src="/imgs/plate1.png"
+								src="/imgs/plate1.webp"
 								alt=""
 								className="w-full h-full object-cover"
 							/>
 
 							<img
-								src="/imgs/img4.png"
+								src="/imgs/img4.webp"
 								alt=""
 								className="w-full h-full object-cover pb-[1vh]"
 							/>
 						</div>
 						<div className="grid grid-cols-[4fr_6fr] gap-[3vw]">
 							<img
-								src="/imgs/img5.png"
+								src="/imgs/img5.webp"
 								alt=""
 								className="w-full h-full object-cover pb-[1vh]"
 							/>
 							<img
-								src="/imgs/plate1.png"
+								src="/imgs/plate1.webp"
 								alt=""
 								className="w-full h-full object-cover"
 							/>
 						</div>
 						<div className="grid grid-cols-[6fr_4fr] gap-[3vw]">
 							<img
-								src="/imgs/plate1.png"
+								src="/imgs/plate1.webp"
 								alt=""
 								className="w-full h-full object-cover"
 							/>
 
 							<img
-								src="/imgs/img6.png"
+								src="/imgs/img6.webp"
 								alt=""
 								className="w-full h-full object-cover pb-[1vh]"
 							/>
@@ -233,7 +233,7 @@ const cityName = record["City"]
 						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
 					>
 						<img
-							src="/imgs/sign-up2.png"
+							src="/imgs/sign-up2.webp"
 							className="w-[50vw] md:w-[30vw] mx-auto"
 							alt="apply!"
 						/>
@@ -244,7 +244,7 @@ const cityName = record["City"]
 			{/* Schedule */}
 			<div className="relative min-h-[130vh] items-center justify-center w-full mt-[5vh] flex flex-col pt-[0vh] z-5">
 				<img
-					src="/imgs/boardwalk2.png"
+					src="/imgs/boardwalk2.webp"
 					className="z-0 absolute w-full h-[130vh] top-0 left-0"
 					alt=""
 				/>
@@ -290,53 +290,53 @@ const cityName = record["City"]
 			<div className="relative min-h-screen w-full pt-[5vh] flex flex-col items-center z-3">
 				{/* sand on a laptop */}
 				<img
-					src="/imgs/sand.png"
+					src="/imgs/sand.webp"
 					className="w-full absolute top-[-10vh] z-0"
 					alt=""
 				/>
 				<img
-					src="/imgs/sand.png"
+					src="/imgs/sand.webp"
 					className="w-full absolute top-[100vh] z-0"
 					alt=""
 				/>
 				{/* sand on a phone */}
 				<img
-					src="/imgs/sand.png"
+					src="/imgs/sand.webp"
 					className="w-full absolute md:hidden top-0 z-0"
 					alt=""
 				/>
 				<img
-					src="/imgs/sand.png"
+					src="/imgs/sand.webp"
 					className="w-full absolute md:hidden top-[60vh] z-0"
 					alt=""
 				/>
 				<img
-					src="/imgs/sand.png"
+					src="/imgs/sand.webp"
 					className="w-full absolute md:hidden top-[120vh] z-0"
 					alt=""
 				/>
 				<img
-					src="/imgs/sand.png"
+					src="/imgs/sand.webp"
 					className="w-full absolute md:hidden top-[180vh] z-0"
 					alt=""
 				/>
 				<img
-					src="/imgs/sand.png"
+					src="/imgs/sand.webp"
 					className="w-full absolute md:hidden top-[240vh] z-0"
 					alt=""
 				/>
 				<img
-					src="/imgs/sand.png"
+					src="/imgs/sand.webp"
 					className="w-full absolute md:hidden top-[300vh] z-0"
 					alt=""
 				/>
 				<img
-					src="/imgs/sand.png"
+					src="/imgs/sand.webp"
 					className="w-full absolute md:hidden top-[360vh] z-0"
 					alt=""
 				/>
 				<img
-					src="/imgs/sand.png"
+					src="/imgs/sand.webp"
 					className="w-full absolute md:hidden top-[420vh] z-0"
 					alt=""
 				/>
@@ -352,7 +352,7 @@ const cityName = record["City"]
 								key={index}
 							>
 								<img
-									src={`/imgs/${index % 2 === 0 ? "star1" : "star2"}.png`}
+									src={`/imgs/${index % 2 === 0 ? "star1" : "star2"}.webp`}
 									className="w-full absolute top-0 left-0 z-0"
 									alt=""
 								/>
@@ -378,18 +378,18 @@ const cityName = record["City"]
 			<div className="relative min-h-[80vh] w-full mt-[17.5vh] flex flex-col pt-[23vh] z-10">
 				<div className="absolute inset-0 h-[80vh] overflow-hidden">
 					<img
-						src="/imgs/water.png"
+						src="/imgs/water.webp"
 						className="w-full h-full object-cover object-bottom rotate-180"
 						alt=""
 					/>
 				</div>
 				<img
-					src="/imgs/foam2.png"
+					src="/imgs/foam2.webp"
 					alt=""
 					className="hidden md:block md:absolute top-[-15vh] left-0 z-10 w-full"
 				/>
 				<img
-					src="/imgs/ray2.png"
+					src="/imgs/ray2.webp"
 					className="hidden md:absolute bottom-[2vh] right-0 z-5 w-[20vw]"
 					alt=""
 				/>

@@ -41,14 +41,14 @@ export default function Step7() {
 		<div
 			className="relative w-full min-h-screen"
 			style={{
-				backgroundImage: "url('/imgs/sand.png')",
+				backgroundImage: "url('/imgs/sand.webp')",
 				backgroundRepeat: "repeat-y",
 				backgroundSize: "100% auto",
 			}}
 		>
 			<div className="relative mx-[1.7%] mt-[7vh] mb-[4vh]">
 				<Image
-					src="/imgs/boardwalk.png"
+					src="/imgs/boardwalk.webp"
 					fill
 					alt=""
 					priority
@@ -138,7 +138,7 @@ export default function Step7() {
 							style={{ width: "30vw" }}
 						>
 							<Image
-								src="/imgs/surfboard_submit.png"
+								src="/imgs/surfboard_submit.webp"
 								width={1031}
 								height={382}
 								alt="Submit!"

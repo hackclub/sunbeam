@@ -7,7 +7,7 @@ export default function Home() {
 			<div className="relative min-h-[110vh] w-full">
 				<div className="absolute inset-0 h-[110vh] overflow-hidden">
 					<Image
-						src="/imgs/water.png"
+						src="/imgs/water.webp"
 						fill
 						alt=""
 						className="object-cover object-bottom"
@@ -18,7 +18,7 @@ export default function Home() {
 
 				{/* Shark */}
 				<Image
-					src="/imgs/shark1.png"
+					src="/imgs/shark1.webp"
 					width={359}
 					height={442}
 					alt=""
@@ -28,7 +28,7 @@ export default function Home() {
 
 				{/* Foam wave */}
 				<Image
-					src="/imgs/foam.png"
+					src="/imgs/foam.webp"
 					width={1727}
 					height={428}
 					alt=""
@@ -40,7 +40,7 @@ export default function Home() {
 					{/* Logo + video */}
 					<div className="relative w-[80vw] mx-auto flex flex-col md:flex-row mt-[5vh] mb-[9vh]">
 						<Image
-							src="/imgs/sunbeam.png"
+							src="/imgs/sunbeam.webp"
 							width={858}
 							height={308}
 							alt="Sunbeam"
@@ -69,7 +69,7 @@ export default function Home() {
 						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
 					>
 						<Image
-							src="/imgs/apply.png"
+							src="/imgs/apply.webp"
 							width={523}
 							height={210}
 							alt="apply!"
@@ -86,14 +86,14 @@ export default function Home() {
 				<div
 					className="absolute inset-0 z-0 pointer-events-none"
 					style={{
-						backgroundImage: "url('/imgs/sand.png')",
+						backgroundImage: "url('/imgs/sand.webp')",
 						backgroundRepeat: "no-repeat",
 						backgroundSize: "cover",
 						backgroundPosition: "center top",
 					}}
 				/>
 				<Image
-					src="/imgs/ray1.png"
+					src="/imgs/ray1.webp"
 					width={356}
 					height={267}
 					alt=""
@@ -107,7 +107,7 @@ export default function Home() {
 					</h2>
 					<div className="relative w-[95vw] md:w-[62vw] my-[3vh] md:my-[4vh] flex flex-col items-center justify-center">
 						<Image
-							src="/imgs/sunbeam-photo.png"
+							src="/imgs/sunbeam-photo.webp"
 							width={1434}
 							height={1172}
 							alt=""
@@ -155,7 +155,7 @@ export default function Home() {
 							<div className="border-[1vh] border-[#C54390] w-full h-auto rounded-[3vh] flex flex-col items-center justify-start p-4 md:p-[1vw]">
 								<div className="w-full aspect-[1/1] relative mb-[2vh]">
 									<Image
-										src="/imgs/img1.png"
+										src="/imgs/img1.webp"
 										fill
 										alt=""
 										sizes="(max-width: 768px) 90vw, 23vw"
@@ -175,7 +175,7 @@ export default function Home() {
 							<div className="border-[1vh] border-[#2E599C] w-full h-auto rounded-[3vh] flex flex-col items-center justify-start p-4 md:p-[1vw]">
 								<div className="w-full aspect-[1/1] relative mb-[2vh]">
 									<Image
-										src="/imgs/img2.png"
+										src="/imgs/img2.webp"
 										fill
 										alt=""
 										sizes="(max-width: 768px) 90vw, 23vw"
@@ -198,7 +198,7 @@ export default function Home() {
 							<div className="border-[1vh] border-[#C79713] w-full h-auto rounded-[3vh] flex flex-col items-center justify-start p-4 md:p-[1vw]">
 								<div className="w-full aspect-[1/1] relative mb-[2vh]">
 									<Image
-										src="/imgs/img3.png"
+										src="/imgs/img3.webp"
 										fill
 										alt=""
 										sizes="(max-width: 768px) 90vw, 23vw"
@@ -222,7 +222,7 @@ export default function Home() {
 						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
 					>
 						<Image
-							src="/imgs/org-portal.png"
+							src="/imgs/org-portal.webp"
 							width={795}
 							height={291}
 							alt="Visit the organizer portal for more resources >>>"
@@ -239,7 +239,7 @@ export default function Home() {
 						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
 					>
 						<Image
-							src="/imgs/apply.png"
+							src="/imgs/apply.webp"
 							width={523}
 							height={210}
 							alt="apply!"
@@ -253,7 +253,7 @@ export default function Home() {
 			<div className="relative min-h-[80vh] w-full flex flex-col pt-[23vh]">
 				<div className="absolute inset-0 h-[80vh] overflow-hidden">
 					<Image
-						src="/imgs/water2.png"
+						src="/imgs/water2.webp"
 						fill
 						alt=""
 						className="object-cover object-top"
@@ -261,14 +261,14 @@ export default function Home() {
 					/>
 				</div>
 				<Image
-					src="/imgs/foam2.png"
+					src="/imgs/foam2.webp"
 					width={376}
 					height={297}
 					className="hidden md:block md:absolute top-[-15vh] left-0 z-5 w-full"
 					alt=""
 				/>
 				<Image
-					src="/imgs/ray2.png"
+					src="/imgs/ray2.webp"
 					width={376}
 					height={297}
 					alt=""

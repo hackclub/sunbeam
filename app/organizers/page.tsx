@@ -22,7 +22,7 @@ export default function Organizers() {
     <div
       className="flex min-h-screen lg:overflow-hidden"
       style={{
-        backgroundImage: "url('/imgs/sand.png')",
+        backgroundImage: "url('/imgs/sand.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -94,7 +94,7 @@ export default function Organizers() {
             <div className="w-1/2 lg:m-6 duration-200 hover:scale-102">
               <div className="glassbox-clear lg:p-6 h-1/2 flex justify-items-center rounded-t-2xl ">
                 <img
-                  src="/imgs/ray1.png"
+                  src="/imgs/ray1.webp"
                   alt=""
                   className="mx-auto lg:p-3"
                 ></img>
@@ -183,7 +183,7 @@ export default function Organizers() {
         {/* check-in call link */}
         <div className="my-3 duration-200">
           <div className="glassbox-clear p-4 flex justify-items-center rounded-t-2xl">
-            <img src="/imgs/ray1.png" alt="" className="mx-auto max-h-52"></img>
+            <img src="/imgs/ray1.webp" alt="" className="mx-auto max-h-52"></img>
           </div>
           <div className="glassbox-white flex flex-col p-8 rounded-b-2xl text-center">
             <a

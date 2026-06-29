@@ -26,7 +26,7 @@ export default function Apply() {
 
 			{/* Foam wave decoration */}
 			<Image
-				src="/imgs/foam.png"
+				src="/imgs/foam.webp"
 				width={1727}
 				height={428}
 				alt=""
@@ -49,7 +49,7 @@ export default function Apply() {
 
 			{/* Ray image — right side */}
 			<Image
-				src="/imgs/ray1.png"
+				src="/imgs/ray1.webp"
 				width={356}
 				height={267}
 				alt=""
@@ -64,7 +64,7 @@ export default function Apply() {
 				style={{ left: "32%", top: "50%", width: "30vw" }}
 			>
 				<Image
-					src="/imgs/surfboard_next.png"
+					src="/imgs/surfboard_next.webp"
 					width={1031}
 					height={382}
 					alt="next!"

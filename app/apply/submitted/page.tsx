@@ -10,7 +10,7 @@ function SubmittedContent() {
 		<div className="relative z-20 flex flex-col items-center min-h-screen pt-[14vh] pb-[6vh]">
 			{/* Sunbeam logo */}
 			<img
-				src="/imgs/hcflag_logo.png"
+				src="/imgs/hcflag_logo.webp"
 				style={{ width: "30%" }}
 				alt="Sunbeam"
 			/>
@@ -34,7 +34,7 @@ function SubmittedContent() {
 				className="hover:scale-105 transition-transform cursor-pointer mt-[6vh]"
 				style={{ width: "22vw" }}
 			>
-				<img src="/imgs/surfboard_home.png" className="w-full" alt="home" />
+				<img src="/imgs/surfboard_home.webp" className="w-full" alt="home" />
 			</a>
 		</div>
 	);
@@ -66,14 +66,14 @@ export default function Submitted() {
 
 			{/* Foam wave */}
 			<img
-				src="/imgs/foam.png"
+				src="/imgs/foam.webp"
 				className="absolute top-0 left-0 w-full z-10 pointer-events-none"
 				alt=""
 			/>
 
 			{/* Ray — bottom right decorative */}
 			<img
-				src="/imgs/ray1.png"
+				src="/imgs/ray1.webp"
 				className="absolute z-10 pointer-events-none"
 				style={{ right: 0, bottom: "2vh", width: "28vw" }}
 				alt=""
