@@ -9,7 +9,8 @@ export async function GET(request: NextRequest) {
 		return NextResponse.redirect(step3);
 	}
 
-	const redirectUri = `${request.nextUrl.origin}/api/hca-callback`;
+	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3000";
+	const redirectUri = `${baseUrl}/api/hca-callback`;
 
 	const tokenRes = await fetch("https://auth.hackclub.com/oauth/token", {
 		method: "POST",
