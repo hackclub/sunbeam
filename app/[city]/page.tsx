@@ -7,15 +7,15 @@ export default async function Page({
 }) {
   const { city } = await params;
 
-console.log("city ", city)
-let cityParam = city.replace("-", " ")
-const res = await fetch(
-  `${process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3000"}/api/get-by-city?city=${encodeURIComponent(cityParam)}`
-);
+  const cityParam = city.replace(/-/g, " ");
+  const airtableUrl = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/${process.env.AIRTABLE_EVENT_TABLE_ID}?filterByFormula=${encodeURIComponent(`{city} = "${cityParam}"`)}`;
+  const res = await fetch(airtableUrl, {
+    headers: { Authorization: `Bearer ${process.env.AIRTABLE_PAT}` },
+    next: { revalidate: 300 },
+  });
 
-const { records } = await res.json();
-console.log(records)
-const record = records[0].fields
+  const data = await res.json();
+  const record = data.records[0].fields
 const schedule = JSON.parse(record["schedule"])
 const sponsors: { logo: string; name: string }[] = JSON.parse(record["sponsors"])
 const cityName = record["City"]

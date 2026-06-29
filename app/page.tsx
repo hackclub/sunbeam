@@ -23,7 +23,7 @@ export default function Home() {
 					height={442}
 					alt=""
 					className="absolute top-[-2vh] left-[2.5vw] z-10 w-[30vw] md:w-[17.5vw] h-auto"
-					priority
+					sizes="(max-width: 768px) 30vw, 17.5vw"
 				/>
 
 				{/* Foam wave */}
@@ -33,7 +33,7 @@ export default function Home() {
 					height={428}
 					alt=""
 					className="hidden md:block md:absolute bottom-[-20vh] left-0 z-5 w-full h-auto"
-					priority
+					sizes="100vw"
 				/>
 
 				<div className="flex flex-col relative z-5">
@@ -45,7 +45,7 @@ export default function Home() {
 							height={308}
 							alt="Sunbeam"
 							className="w-[80vw] md:w-[49vw] absolute bottom-[-10vh] md:bottom-[-6vh] left-0 md:left-[5vw] h-auto"
-							priority
+							sizes="(max-width: 768px) 80vw, 49vw"
 						/>
 						{/* Video placeholder */}
 						<div className="w-[70vw] md:w-[45vw] h-[30vh] md:h-[40vh] bg-neutral-200/80 ml-auto flex items-center justify-center rounded-sm">
@@ -74,7 +74,7 @@ export default function Home() {
 							height={210}
 							alt="apply!"
 							className="w-[65vw] md:w-[25vw] h-auto mx-auto"
-							priority
+							sizes="(max-width: 768px) 65vw, 25vw"
 						/>
 					</a>
 				</div>
