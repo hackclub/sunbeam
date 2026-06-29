@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import GuideContent from "../GuideContent";
+import ShorterGuideContent from "../ShorterGuideContent";
 
 export default function Step2() {
 	const [revealed, setRevealed] = useState(false);
@@ -16,7 +17,7 @@ export default function Step2() {
 					pointerEvents: revealed ? "auto" : "none",
 				}}
 			>
-				<GuideContent />
+				<ShorterGuideContent />
 
 				{/* Continue button at bottom */}
 				<div
@@ -47,7 +48,7 @@ export default function Step2() {
 					className="galindo pink-outlined-text text-center mb-[4vh]"
 					style={{ fontSize: "3.5vw" }}
 				>
-					Read the ultimate organizer guide!
+					Here's what you need to know!
 				</h1>
 				<button
 					onClick={() => setRevealed(true)}
