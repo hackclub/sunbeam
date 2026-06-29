@@ -604,7 +604,7 @@ export default function GuideContent() {
 					</div>
 					<div style={{ background: "#FFC7DA", padding: "2.5vh 2vw", borderRadius: "14px" }}>
 						<p style={{ fontSize: "2.13vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
-							Any general questions! Especially useful for things that other Subeamers can answer for you.
+							Any general questions! Especially useful for things that other Sunbeamers can answer for you.
 						</p>
 					</div>
 					<div style={{ background: "#FFC7DA", padding: "2.5vh 2vw", borderRadius: "14px" }}>
