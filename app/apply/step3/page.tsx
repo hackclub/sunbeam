@@ -47,6 +47,7 @@ export default function Step3() {
 	const [form, setForm] = useState({
 		email: "", first_name: "", last_name: "", preferred_name: "", phone_number: "",
 		pronouns: "",
+		hca_identity: "",
 		address_line_1: "", address_line_2: "", city: "", state_province: "",
 		postal_code: "", country: "", slack_id: "", date_of_birth: "",
 		certified: false,
@@ -64,6 +65,7 @@ export default function Step3() {
 					last_name: user.identity.last_name || f.last_name,
 					preferred_name:  f.preferred_name,
 					slack_id: user.identity.slack_id || f.slack_id,
+					hca_identity: user.identity.id
 				}));
 			});
 	}, []);

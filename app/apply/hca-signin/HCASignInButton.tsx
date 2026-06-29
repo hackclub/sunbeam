@@ -45,12 +45,7 @@ export default function HCASignInButton({ authUrl }: { authUrl: string }) {
 						Sign in with Hack Club Auth
 					</p>
 
-					<a
-						href="/apply/step3"
-						className="outfit text-[#359BBF] text-[1.1vw] underline hover:text-[#2E599C] mt-[1vh]"
-					>
-						Skip for now →
-					</a>
+					
 				</div>
 			</div>
 		</div>
