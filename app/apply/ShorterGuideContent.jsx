@@ -4,7 +4,7 @@ export default function ShorterGuideContent() {
 			className="outfit w-full"
 			style={{
 				backgroundColor: "rgb(250,240,212)",
-				backgroundImage: "url('/imgs/sand4.png')",
+				backgroundImage: "url('/imgs/sand4.webp')",
 				backgroundSize: "100% auto",
 				backgroundRepeat: "repeat-y",
 			}}
@@ -39,7 +39,7 @@ export default function ShorterGuideContent() {
 
 			{/* SECTION 3: RAY + REWARDING */}
 			<div className="flex justify-center pt-[7vh] pb-[3vh]">
-				<img src="/imgs/guide/ray.png" alt="Ray" style={{ width: "10vw" }} className="object-contain" />
+				<img src="/imgs/guide/ray.webp" alt="Ray" style={{ width: "10vw" }} className="object-contain" />
 			</div>
 
 			<div className="text-center pb-[3vh]" style={{ padding: "0 9.1% 3vh" }}>
@@ -50,10 +50,10 @@ export default function ShorterGuideContent() {
 
 			<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", padding: "0 9.1%", gap: "2vw", marginBottom: "4vh" }}>
 				{[
-					{ img: "rewarding-1.png", caption: "you'll meet so many different people" },
-					{ img: "rewarding-3.png", caption: "you'll enjoy snacks and food that YOU pick (leave some for the attendees tho hahaa)" },
-					{ img: "rewarding-2.png", caption: "you'll make new professional connections with venues + sponsors" },
-					{ img: "rewarding-4.png", caption: "you get to hang out with friends !!" },
+					{ img: "rewarding-1.webp", caption: "you'll meet so many different people" },
+					{ img: "rewarding-3.webp", caption: "you'll enjoy snacks and food that YOU pick (leave some for the attendees tho hahaa)" },
+					{ img: "rewarding-2.webp", caption: "you'll make new professional connections with venues + sponsors" },
+					{ img: "rewarding-4.webp", caption: "you get to hang out with friends !!" },
 				].map(({ img, caption }, i) => (
 					<div key={i} className="flex flex-col items-center">
 						<img
@@ -101,7 +101,7 @@ export default function ShorterGuideContent() {
 					{[1, 2, 3, 4, 5].map((n) => (
 						<img
 							key={n}
-							src={`/imgs/guide/sidebar-${n}.png`}
+							src={`/imgs/guide/sidebar-${n}.webp`}
 							alt=""
 							style={{ width: "100%", display: "block", position: "relative", right: '0.1vw', transform: "rotate(-2deg)", transformOrigin: "top center"  }}
 						/>
@@ -202,7 +202,7 @@ export default function ShorterGuideContent() {
 						<span style={{fontWeight: 600}}>3) Outreach </span> to girls in your area to get more signups.
 					</p>
 				</div>
-				<img src="/imgs/guide/shark.png" alt="" style={{ width: "18vw", flexShrink: 0 }} />
+				<img src="/imgs/guide/shark.webp" alt="" style={{ width: "18vw", flexShrink: 0 }} />
 			</div>
 
 			{/* PART THREE HEADER */}
