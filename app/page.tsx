@@ -81,11 +81,16 @@ export default function Home() {
 			</div>
 
 			{/* ── HOW-TO ── */}
-			<div className="relative min-h-screen w-full pt-[26vh] pb-[6vh] flex flex-col items-center">
+			<div className="relative min-h-screen w-full pt-[26vh] pb-[18vh] flex flex-col items-center">
 				{/* sand background — single element, tiled via CSS */}
 				<div
 					className="absolute inset-0 z-0 pointer-events-none"
-					style={{ backgroundImage: "url('/imgs/sand.png')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center top" }}
+					style={{
+						backgroundImage: "url('/imgs/sand.png')",
+						backgroundRepeat: "no-repeat",
+						backgroundSize: "cover",
+						backgroundPosition: "center top",
+					}}
 				/>
 				<Image
 					src="/imgs/ray1.png"
@@ -100,35 +105,37 @@ export default function Home() {
 					<h2 className="galindo text-[5.5vh] md:text-[6.5vh] text-[#D77393] text-center leading-tight mb-[3vh]">
 						What is a Sunbeam Social?
 					</h2>
-					<div className="relative w-[75vw] md:w-[62vw] my-[3vh] md:my-[4vh]">
+					<div className="relative w-[95vw] md:w-[62vw] my-[3vh] md:my-[4vh] flex flex-col items-center justify-center">
 						<Image
 							src="/imgs/sunbeam-photo.png"
 							width={1434}
 							height={1172}
 							alt=""
-							className="w-full h-auto rounded-2xl"
+							className="w-full h-[60vh] md:h-auto rounded-2xl"
 							style={{ transform: "rotate(-1.57deg)" }}
 							sizes="(max-width: 768px) 92vw, 82vw"
 						/>
 						<div
-							className="absolute rounded-[32px] backdrop-blur-md bg-white/25 flex items-center justify-center"
+							className="absolute rounded-[32px] backdrop-blur-md bg-white/25 flex items-center justify-center top-[50%] -translate-y-[50%] left-[6vw] w-[82vw] md:w-[50vw] mx-auto"
 							style={{
-								top: "18.7%",
+								/* 	top: "18.7%",
 								left: "14%",
 								right: "13.3%",
-								bottom: "12.2%",
+								bottom: "12.2%", */
 								boxShadow: "0 8px 16px rgba(14, 56, 122, 0.5)",
 							}}
 						>
-							<p className="outfit font-semibold text-[#0E387A] text-center text-[3vw] md:text-[1.6vw] leading-snug px-[8%] py-[3%]">
+							<p className="outfit font-semibold text-[#0E387A] text-center text-[3.5vw] md:text-[1.8vw] leading-snug px-[8%] py-[3%]">
 								Sunbeam is a day-long hangout where girls can make projects
 								together, chat with other girls, learn to code from scratch, and
 								enjoy delicious food.
-								<br /><br />
+								<br />
+								<br />
 								We want every Sunbeam Social to have a friendly, chill, and
 								supportive environment that helps even complete beginners make
 								something they&apos;re proud of.&nbsp;
-								<br /><br />
+								<br />
+								<br />
 								This event is more of a SOCIAL coding get together than a
 								hackathon!!!
 							</p>
@@ -142,37 +149,59 @@ export default function Home() {
 					</h2>
 
 					{/* Three cards */}
+					{/* Three cards */}
 					<div className="w-[90vw] md:w-[77.5vw] flex flex-col md:flex-row items-start justify-center gap-6 md:gap-[3vw] my-[4vh]">
 						<div className="w-full h-auto rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-2 md:p-[0.75vw]">
 							<div className="border-[1vh] border-[#C54390] w-full h-auto rounded-[3vh] flex flex-col items-center justify-start p-4 md:p-[1vw]">
-								<Image src="/imgs/img1.png" width={389} height={415} alt="" className="pb-[2vh] max-h-[25vh] w-auto object-contain" />
+								<div className="w-full aspect-[1/1] relative mb-[2vh]">
+									<Image
+										src="/imgs/img1.png"
+										fill
+										alt=""
+										className="object-cover rounded-lg"
+									/>
+								</div>
 								<h2 className="galindo text-center text-[6vw] md:text-[4vh] text-[#C54390]">
 									APPLY!
 								</h2>
 								<p className="outfit text-[2.25vh] text-center text-[#C54390]">
-									Apply to <span className="underline">organize</span>{" "}a Sunbeam
+									Apply to <span className="underline">organize</span> a Sunbeam
 									using our form. Experience helps but isn&apos;t necessary!
 								</p>
 							</div>
 						</div>
 						<div className="w-full h-auto rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-2 md:p-[0.75vw]">
 							<div className="border-[1vh] border-[#2E599C] w-full h-auto rounded-[3vh] flex flex-col items-center justify-start p-4 md:p-[1vw]">
-								<Image src="/imgs/img2.png" width={389} height={419} alt="" className="pb-[2vh] max-h-[25vh] w-auto object-contain" />
+								<div className="w-full aspect-[1/1] relative mb-[2vh]">
+									<Image
+										src="/imgs/img2.png"
+										fill
+										alt=""
+										className="object-cover rounded-lg"
+									/>
+								</div>
 								<h2 className="galindo text-center text-[6vw] md:text-[4vh] text-[#2E599C]">
 									PLAN!
 								</h2>
 								<p className="outfit text-[2.25vh] text-center text-[#2E599C]">
 									Plan your event: secure a{" "}
-									<span className="underline">venue</span>{" "}, plan your{" "}
-									<span className="underline">budget</span>{" "}, advertise, and{" "}
-									<span className="underline">get participants</span>{" "}to sign
+									<span className="underline">venue</span> , plan your{" "}
+									<span className="underline">budget</span> , advertise, and{" "}
+									<span className="underline">get participants</span> to sign
 									up! Shop for food, drinks, &amp; prizes for your participants.
 								</p>
 							</div>
 						</div>
 						<div className="w-full h-auto rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-2 md:p-[0.75vw]">
 							<div className="border-[1vh] border-[#C79713] w-full h-auto rounded-[3vh] flex flex-col items-center justify-start p-4 md:p-[1vw]">
-								<Image src="/imgs/img3.png" width={399} height={420} alt="" className="pb-[2vh] max-h-[25vh] w-auto object-contain" />
+								<div className="w-full aspect-[1/1] relative mb-[2vh]">
+									<Image
+										src="/imgs/img3.png"
+										fill
+										alt=""
+										className="object-cover rounded-lg"
+									/>
+								</div>
 								<h2 className="galindo text-center text-[6vw] md:text-[4vh] text-[#C79713]">
 									EVENT!
 								</h2>
@@ -211,7 +240,7 @@ export default function Home() {
 							width={523}
 							height={210}
 							alt="apply!"
-							className="w-[50vw] md:w-[25vw] h-auto mx-auto"
+							className="w-[60vw] md:w-[25vw] h-auto mx-auto"
 						/>
 					</a>
 				</div>
@@ -221,19 +250,19 @@ export default function Home() {
 			<div className="relative min-h-[80vh] w-full flex flex-col pt-[23vh]">
 				<div className="absolute inset-0 h-[80vh] overflow-hidden">
 					<Image
-						src="/imgs/water3.png"
+						src="/imgs/water2.png"
 						fill
 						alt=""
-						className="object-cover object-bottom"
+						className="object-cover object-top"
 						sizes="100vw"
 					/>
 				</div>
 				<Image
 					src="/imgs/foam2.png"
-					width={1727}
-					height={428}
+					width={376}
+					height={297}
+					className="hidden md:block md:absolute top-[-15vh] left-0 z-5 w-full"
 					alt=""
-					className="hidden md:block md:absolute top-[-15vh] left-0 z-5 w-full h-auto"
 				/>
 				<Image
 					src="/imgs/ray2.png"
