@@ -46,3 +46,30 @@ export async function POST(request: Request) {
 
 	return Response.json({ ok: true });
 }
+
+
+
+export async function GET(request: Request) {
+	const { searchParams } = new URL(request.url);
+
+	const url = new URL(
+		`https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/${process.env.AIRTABLE_TABLE_ID}`
+	);
+
+	// forward all search params directly to Airtable
+	searchParams.forEach((value, key) => {
+		url.searchParams.set(key, value);
+	});
+
+	const res = await fetch(url.toString(), {
+		headers: { Authorization: `Bearer ${process.env.AIRTABLE_PAT}` },
+	});
+
+	if (!res.ok) {
+		const err = await res.text();
+		return Response.json({ error: err }, { status: 500 });
+	}
+
+	const data = await res.json();
+	return Response.json({ records: data.records });
+}

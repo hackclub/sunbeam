@@ -24,7 +24,7 @@ export default function Step2() {
 					style={{ background: "rgb(250,240,212)" }}
 				>
 					<a
-						href="/apply/step3"
+						href="/apply/hca-signin"
 						className="hover:scale-105 transition-transform cursor-pointer"
 						style={{ width: "25vw", display: "block" }}
 					>
