@@ -1,6 +1,5 @@
 "use client";
 
-import GuideContent from "./GuideContent";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
