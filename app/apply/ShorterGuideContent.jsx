@@ -286,10 +286,10 @@ export default function ShorterGuideContent() {
 					What's next?
 				</p>
 				<p className="text-center" style={{ fontSize: "1.8vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.7 }}>
-					Thank you so much for reading this short guide. We would really appreciate any feedback in <a href="https://hackclub.enterprise.slack.com/archives/C0BCUSTJQTG" target="_blank" className="p-1 px-2 m-1 bg-blue-bright/20 outline-blue-dark/65 hover:bg-blue-bright/25 hover:outline-2 hover:m-2 duration-200 rounded-xl text-nowrap">#sunbeam-organizers</a>{" "}, and we're super excited to work with you soon.<br></br><br></br> Let the sun beam in your city!<br></br><br></br> 
+					Thank you so much for reading this short guide. We would really appreciate any feedback in <a href="https://hackclub.enterprise.slack.com/archives/C0BCUSTJQTG" target="_blank" className="p-1 px-2 m-1 bg-blue-bright/20 outline-blue-dark/65 hover:bg-blue-bright/25 hover:outline-2 hover:m-2 duration-200 rounded-xl text-nowrap">#sunbeam-organizers</a>{" "}, and we're super excited to work with you soon.<br></br><br></br> Let the sun beam in your city!<br></br><br></br>
 					<span style={{ fontWeight: 600 }}>Written by: Safia and Yanella, with the help of Deven. ♥️</span>
 					<br></br><br></br>
-					<span style={{ fontSize: "1.74vw", fontWeight: 400, color: "#C54390", fontStyle: "italic" }}>To continue, you'll need to sign in with Hack Club, so we can keep track of your application!</span>
+					<span style={{ fontSize: "1.74vw", fontWeight: 700, color: "#C54390", fontStyle: "italic" }}>To continue, you'll need to sign in with Hack Club, so we can keep track of your application!</span>
 				</p>
 			</div>
 

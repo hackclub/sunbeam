@@ -19,7 +19,7 @@ export default function Step2Client({ authUrl }: { authUrl: string }) {
 			{/* Guide content — blurred until revealed */}
 			<div
 				style={{
-					filter: revealed ? "none" : "blur(8px)",
+					filter: revealed ? "none" : "blur(3px)",
 					transition: "filter 0.7s ease",
 					pointerEvents: revealed ? "auto" : "none",
 				}}

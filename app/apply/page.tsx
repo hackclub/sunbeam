@@ -28,8 +28,10 @@ export default function Apply() {
 				style={{
 					top: "26vh",
 					bottom: 0,
-					background:
-						"linear-gradient(to bottom, rgb(234,242,233) 0%, rgb(251,247,232) 3%, rgb(250,240,212) 100%)",
+					backgroundColor: "rgb(250,240,212)",
+					backgroundImage: "url('/imgs/sand4.webp')",
+					backgroundSize: "100% auto",
+					backgroundRepeat: "repeat-y",
 				}}
 			/>
 
