@@ -120,7 +120,7 @@ export default function Step3() {
 							<Field label="Preferred Name" optional name="preferred_name" value={form.preferred_name} onChange={set} />
 							<Field label="Phone Number" required name="phone_number" value={form.phone_number} onChange={set} />
 						</div>
-						<Field label="Pronouns" required hint="You must be a girl or girl identifying to organize a Sunbeam!" name="pronouns" value={form.pronouns} onChange={set} />
+						<Field label="Pronouns" required hint="You must identify as a girl to organize a Sunbeam!" name="pronouns" value={form.pronouns} onChange={set} />
 						<Field label="Your Address" required name="address_line_1" value={form.address_line_1} onChange={set} />
 						<Field label="Address #2" optional name="address_line_2" value={form.address_line_2} onChange={set} />
 						<div className="grid grid-cols-2 gap-[8%]">
