@@ -30,7 +30,7 @@ export type AppRecord = {
     attended_or_organized_hackathon?: boolean;
     which_hackathons?: string;
     comfortable_with_poc?: boolean;
-    status?: string;
+    approve_as_org?: string;
     [key: string]: unknown;
   };
 };
@@ -38,6 +38,7 @@ export type AppRecord = {
 function statusColors(status: string) {
   if (status === "Approved") return { border: "border-green-400 bg-green-50", badge: "bg-green-200 text-green-800" };
   if (status === "Rejected") return { border: "border-red-400 bg-red-50", badge: "bg-red-200 text-red-800" };
+  if (status === "needs_follow_up") return { border: "border-orange-400 bg-orange-50", badge: "bg-orange-200 text-orange-800" };
   return { border: "border-blue-dark bg-white", badge: "bg-yellow-light text-orange-dark" };
 }
 
@@ -54,9 +55,10 @@ function StatCard({ label, value, sub }: { label: string; value: string | number
 function StatsView({ apps, onClose }: { apps: AppRecord[]; onClose: () => void }) {
   const stats = useMemo(() => {
     const total = apps.length;
-    const approved = apps.filter(a => (a.fields.status ?? "Pending") === "Approved").length;
-    const rejected = apps.filter(a => (a.fields.status ?? "Pending") === "Rejected").length;
-    const pending = total - approved - rejected;
+    const approved = apps.filter(a => a.fields.approve_as_org === "Approved").length;
+    const rejected = apps.filter(a => a.fields.approve_as_org === "Rejected").length;
+    const needsFollowUp = apps.filter(a => a.fields.approve_as_org === "needs_follow_up").length;
+    const pending = total - approved - rejected - needsFollowUp;
     const withPoc = apps.filter(a => a.fields.comfortable_with_poc).length;
     const withHackathon = apps.filter(a => a.fields.attended_or_organized_hackathon).length;
     const withGithub = apps.filter(a => a.fields.github_repo).length;
@@ -80,7 +82,7 @@ function StatsView({ apps, onClose }: { apps: AppRecord[]; onClose: () => void }
     const topCountries = Object.entries(countryCounts).sort((a, b) => b[1] - a[1]).slice(0, 5);
     const topCities = Object.entries(cityCounts).sort((a, b) => b[1] - a[1]).slice(0, 5);
 
-    return { total, approved, rejected, pending, withPoc, withHackathon, withGithub, totalAttendees, avgAttendees, topCountries, topCities };
+    return { total, approved, rejected, needsFollowUp, pending, withPoc, withHackathon, withGithub, totalAttendees, avgAttendees, topCountries, topCities };
   }, [apps]);
 
   const pct = (n: number) => stats.total ? `${Math.round((n / stats.total) * 100)}%` : "—";
@@ -101,8 +103,9 @@ function StatsView({ apps, onClose }: { apps: AppRecord[]; onClose: () => void }
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <StatCard label="Total" value={stats.total} />
             <StatCard label="Approved" value={stats.approved} sub={pct(stats.approved)} />
-            <StatCard label="Pending" value={stats.pending} sub={pct(stats.pending)} />
+            <StatCard label="Unreviewed" value={stats.pending} sub={pct(stats.pending)} />
             <StatCard label="Rejected" value={stats.rejected} sub={pct(stats.rejected)} />
+            <StatCard label="Follow Up" value={stats.needsFollowUp} sub={pct(stats.needsFollowUp)} />
           </div>
         </section>
 
@@ -184,7 +187,7 @@ function DetailRow({ label, value }: { label: string; value?: string | boolean |
 
 function AppDetail({ app, onClose }: { app: AppRecord; onClose: () => void }) {
   const f = app.fields;
-  const status = f.status ?? "Pending";
+  const status = f.approve_as_org ?? "unreviewed";
   const { badge } = statusColors(status);
   const displayName = [f.preferred_name ?? f.first_name, f.last_name].filter(Boolean).join(" ") || "—";
   const fullName = [f.first_name, f.last_name].filter(Boolean).join(" ");
@@ -314,6 +317,51 @@ function AppDetail({ app, onClose }: { app: AppRecord; onClose: () => void }) {
   );
 }
 
+const STATUS_OPTIONS = [
+  { value: "Approved",        label: "Approve",     active: "bg-green-500 text-white border-green-500",   inactive: "border-green-400 text-green-700 hover:bg-green-50" },
+  { value: "needs_follow_up", label: "Follow Up",   active: "bg-orange-400 text-white border-orange-400", inactive: "border-orange-400 text-orange-700 hover:bg-orange-50" },
+  { value: "unreviewed",      label: "Pending",     active: "bg-yellow-400 text-yellow-900 border-yellow-400", inactive: "border-yellow-400 text-yellow-700 hover:bg-yellow-50" },
+  { value: "Rejected",        label: "Deny",        active: "bg-red-500 text-white border-red-500",       inactive: "border-red-400 text-red-700 hover:bg-red-50" },
+] as const;
+
+function StatusButtons({ appId, current, onUpdate }: { appId: string; current: string; onUpdate: (id: string, status: string) => void }) {
+  const [saving, setSaving] = useState<string | null>(null);
+
+  async function handleClick(e: React.MouseEvent, status: string) {
+    e.stopPropagation();
+    if (saving || status === current) return;
+    setSaving(status);
+    onUpdate(appId, status);
+    try {
+      const res = await fetch("/api/update-status", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: appId, status }),
+      });
+      if (!res.ok) onUpdate(appId, current);
+    } catch {
+      onUpdate(appId, current);
+    } finally {
+      setSaving(null);
+    }
+  }
+
+  return (
+    <div className="flex gap-1 mt-2" onClick={(e) => e.stopPropagation()}>
+      {STATUS_OPTIONS.map(({ value, label, active, inactive }) => (
+        <button
+          key={value}
+          onClick={(e) => handleClick(e, value)}
+          disabled={!!saving}
+          className={`text-[10px] font-bold px-2 py-0.5 rounded-full border transition-colors disabled:opacity-60 ${current === value ? active : inactive}`}
+        >
+          {saving === value ? "..." : label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 export default function AdminDashboard() {
   const router = useRouter();
   const [allApps, setAllApps] = useState<AppRecord[]>([]);
@@ -329,13 +377,19 @@ export default function AdminDashboard() {
       .then(({ records }) => setAllApps(records ?? []));
   }, []);
 
+  function updateStatus(id: string, approve_as_org: string) {
+    setAllApps((apps) =>
+      apps.map((a) => a.id === id ? { ...a, fields: { ...a.fields, approve_as_org } } : a)
+    );
+  }
+
   const filtered = allApps.filter((app) => {
     const f = app.fields;
     const name = `${f.preferred_name ?? f.first_name ?? ""} ${f.last_name ?? ""}`.toLowerCase();
     const city = `${f.host_city ?? ""} ${f.state_province ?? ""} ${f.country ?? ""}`.toLowerCase();
     const haystack = searchMode === "city" ? city : name;
     const matchesSearch = !search || haystack.includes(search.toLowerCase());
-    const status = f.status ?? "Pending";
+    const status = f.approve_as_org ?? "unreviewed";
     const matchesFilter = filter === "All" || status === filter;
     return matchesSearch && matchesFilter;
   });
@@ -383,7 +437,7 @@ export default function AdminDashboard() {
 
         {/* Filters */}
         <div className="flex gap-2 mb-6">
-          {["All", "Pending", "Approved", "Rejected"].map((f) => (
+          {["All", "unreviewed", "Approved", "needs_follow_up", "Rejected"].map((f) => (
             <button
               key={f}
               onClick={() => setFilter(f)}
@@ -402,13 +456,13 @@ export default function AdminDashboard() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {filtered.map((app) => {
             const f = app.fields;
-            const status = f.status ?? "Pending";
+            const status = f.approve_as_org ?? "unreviewed";
             const displayName = f.preferred_name ?? f.first_name ?? "—";
             const location = [f.host_city, f.state_province, f.country].filter(Boolean).join(", ");
             const { border, badge } = statusColors(status);
 
             return (
-              <button
+              <div
                 key={app.id}
                 onClick={() => setSelected(app)}
                 className={`rounded-2xl border-2 p-4 shadow-sm flex flex-col gap-1 text-left cursor-pointer hover:shadow-md transition-shadow ${border}`}
@@ -427,10 +481,8 @@ export default function AdminDashboard() {
                 <p className="text-xs text-blue-dark">
                   poc: {f.comfortable_with_poc ? "yes" : "no"}
                 </p>
-                <span className={`mt-2 self-start text-[10px] font-bold px-2 py-0.5 rounded-full ${badge}`}>
-                  {status}
-                </span>
-              </button>
+                <StatusButtons appId={app.id} current={status} onUpdate={updateStatus} />
+              </div>
             );
           })}
           {filtered.length === 0 && (
