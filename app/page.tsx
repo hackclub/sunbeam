@@ -105,10 +105,10 @@ export default function Home() {
 
 				{/* What is Sunbeam Social */}
 				<div className="flex flex-col relative z-5 items-center justify-center w-full">
-					<h2 className="galindo text-[5.5vh] md:text-[6.5vh] text-[#D77393] text-center leading-tight mb-[3vh]">
+					<h2 className="galindo text-[5.5vh] md:text-[6.5vh] text-[#D77393] text-center leading-tight mb-0">
 						What is a Sunbeam Social?
 					</h2>
-					<div className="relative w-[95vw] md:w-[62vw] my-[3vh] md:my-[4vh] flex flex-col items-center justify-center">
+					<div className="relative w-[95vw] md:w-[62vw] mt-0 mb-[1vh] md:mb-[1.5vh] flex flex-col items-center justify-center">
 						<Image
 							src="/imgs/sunbeam-photo.webp"
 							width={1434}

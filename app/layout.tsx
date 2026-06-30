@@ -25,7 +25,7 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
 	title: "Sunbeam - Hack Club",
-	description: "Sunbeam - 25 events in 25 cities!",
+	description: "Sunbeam - 20 events in 20 cities!",
 	icons: {
 		icon: '/favicon.svg',
 	}
