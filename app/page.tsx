@@ -3,6 +3,7 @@ import Image from "next/image";
 export default function Home() {
 	return (
 		<div className="relative">
+
 			{/* ── HERO ── */}
 			<div className="relative min-h-[110vh] w-full">
 				<div className="absolute inset-0 h-[110vh] overflow-hidden">
@@ -77,6 +78,9 @@ export default function Home() {
 							priority
 						/>
 					</a>
+					<p className="outfit text-[#2E599C]/70 text-center text-[1.4vh] md:text-[1.75vh] italic mt-[1.5vh] tracking-wide">
+						by reem, lola, jenny, afia, yanella, safia, and kat
+					</p>
 				</div>
 			</div>
 
@@ -248,7 +252,6 @@ export default function Home() {
 						</a>{" "}
 						Team
 					</h3>
-
 					{/* Nav + description */}
 					<div className="flex flex-col md:flex-row gap-[8vw] mt-[6vh] px-[5.3%]">
 						{/* Left nav */}
