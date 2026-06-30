@@ -25,7 +25,8 @@ export async function GET(request: Request) {
 
   if (!res.ok) {
     const err = await res.text();
-    return Response.json({ error: err }, { status: res.status });
+    console.error("[get-by-city] Airtable error:", err);
+    return Response.json({ error: "Failed to fetch events" }, { status: res.status });
   }
 
   const data = await res.json();

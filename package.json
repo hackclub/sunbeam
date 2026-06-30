@@ -27,5 +27,8 @@
   },
   "allowScripts": {
     "dayjs@1.11.21": true
+  },
+  "overrides": {
+    "postcss": "^8.5.10"
   }
 }

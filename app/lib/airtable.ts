@@ -1,8 +1,9 @@
 import "server-only";
 
 export async function getRecordsByCity(city: string) {
+  const escapedCity = city.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
   const params = new URLSearchParams({
-    filterByFormula: `{city} = "${city}"`,
+    filterByFormula: `{city} = "${escapedCity}"`,
   });
 
   const res = await fetch(

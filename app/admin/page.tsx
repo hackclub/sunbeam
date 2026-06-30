@@ -58,7 +58,6 @@ export default async function AdminPage() {
 		getCurrentUserEmail(token),
 		getAdminEmails(),
 	]);
-    console.log(email)
 	if (!email || !adminEmails.includes(email)) {
 		return <AccessDenied email={email} />;
 	}

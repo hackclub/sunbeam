@@ -58,7 +58,6 @@ export default function Step3() {
 			.then((r) => (r.ok ? r.json() : null))
 			.then((user) => {
 				if (!user) return;
-				console.log("[hca-me full response]", JSON.stringify(user));
 				const id = user.identity ?? {};
 				const addr = id.addresses ? id.addresses[0] : {};
 				setForm((f) => ({
