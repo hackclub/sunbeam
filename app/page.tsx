@@ -3,7 +3,6 @@ import Image from "next/image";
 export default function Home() {
 	return (
 		<div className="relative">
-
 			{/* ── HERO ── */}
 			<div className="relative min-h-[110vh] w-full">
 				<div className="absolute inset-0 h-[110vh] overflow-hidden">
@@ -29,7 +28,7 @@ export default function Home() {
 
 				{/* Foam wave */}
 				<Image
-					src="/imgs/foam.webp"
+					src="/imgs/foam-fixed.png"
 					width={1727}
 					height={428}
 					alt=""
@@ -170,7 +169,7 @@ export default function Home() {
 									APPLY!
 								</h2>
 								<p className="outfit text-[2.25vh] text-center text-[#C54390]">
-									Apply to <span className="underline">organize</span>{" "}a Sunbeam
+									Apply to <span className="underline">organize</span> a Sunbeam
 									using our form. Experience helps but isn&apos;t necessary!
 								</p>
 							</div>
@@ -193,8 +192,8 @@ export default function Home() {
 									Plan your event: secure a{" "}
 									<span className="underline">venue</span>, plan your{" "}
 									<span className="underline">budget</span>, advertise, and get{" "}
-									<span className="underline">participants </span> to sign
-									up! Shop for food, drinks, &amp; prizes for your participants.
+									<span className="underline">participants </span> to sign up!
+									Shop for food, drinks, &amp; prizes for your participants.
 								</p>
 							</div>
 						</div>
@@ -265,7 +264,7 @@ export default function Home() {
 					/>
 				</div>
 				<Image
-					src="/imgs/foam2.webp"
+					src="/imgs/foam-fixed2.png"
 					width={376}
 					height={297}
 					className="hidden md:block md:absolute top-[-15vh] left-0 z-5 w-full"
