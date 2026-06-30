@@ -13,6 +13,8 @@ export async function POST(request: Request) {
 		state_province: body.state_province || "",
 		postal_code: body.postal_code || "",
 		country: body.country || "",
+		pronouns: body.pronouns || "",
+		hca_identity: body.hca_identity || "",
 		slack_id: body.slack_id || "",
 		date_of_birth: body.date_of_birth || "",
 		host_city: body.host_city || "",
