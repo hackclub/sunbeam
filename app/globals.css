@@ -60,7 +60,7 @@
 }
 
 .blue-outlined-text {
-	background: linear-gradient(to bottom right, #2E599C, #359BBF);
+	background: linear-gradient(to bottom right, #2e599c, #359bbf);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
@@ -122,4 +122,39 @@
 
 .stroke-text-idk {
 	-webkit-text-stroke: 0.25px #ffffff !important;
+}
+
+@keyframes waveFloat {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(1.2vh);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes foamFloat {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(1.6vh);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.wave-float {
+	animation: waveFloat 5s ease-in-out infinite;
+	will-change: transform;
+}
+
+.foam-float {
+	animation: foamFloat 5s ease-in-out infinite;
+	animation-delay: 0.15s;
+	will-change: transform;
 }

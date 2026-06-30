@@ -267,7 +267,7 @@ export default function Home() {
 					src="/imgs/foam-fixed2.png"
 					width={376}
 					height={297}
-					className="hidden md:block md:absolute top-[-15vh] left-0 z-5 w-full"
+					className="hidden md:block md:absolute top-[-19vh] left-0 z-5 w-full"
 					alt=""
 				/>
 				<Image

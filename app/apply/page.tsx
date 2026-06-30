@@ -1,15 +1,24 @@
+"use client";
+
 import GuideContent from "./GuideContent";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Apply() {
 	return (
 		<div className="relative w-full h-screen overflow-hidden">
-			<div
+			<motion.div
 				className="absolute top-0 left-0 w-full"
 				style={{
 					height: "26vh",
 					background:
 						"linear-gradient(to bottom, rgb(213,240,249) 0%, rgb(114,191,218) 60%, rgb(251,245,226) 100%)",
+				}}
+				animate={{ scaleY: [1, 1.07, 1] }}
+				transition={{
+					duration: 3,
+					ease: "easeInOut",
+					repeat: Infinity,
 				}}
 			/>
 
@@ -25,14 +34,24 @@ export default function Apply() {
 			/>
 
 			{/* Foam wave decoration */}
-			<Image
-				src="/imgs/foam-fixed.png"
-				width={1727}
-				height={428}
-				alt=""
-				className="absolute top-0 left-0 w-full h-auto z-10 pointer-events-none"
-				priority
-			/>
+			<motion.div
+				className="absolute top-0 left-0 w-full z-10 pointer-events-none"
+				animate={{ y: ["0vh", "1.6vh", "0vh"] }}
+				transition={{
+					duration: 3,
+					ease: "easeInOut",
+					repeat: Infinity,
+				}}
+			>
+				<Image
+					src="/imgs/foam-fixed.png"
+					width={1727}
+					height={428}
+					alt=""
+					className="w-full h-auto"
+					priority
+				/>
+			</motion.div>
 
 			{/* Title */}
 			<h1
