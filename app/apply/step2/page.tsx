@@ -1,71 +1,26 @@
-"use client";
-import { useState } from "react";
-import Image from "next/image";
-import GuideContent from "../GuideContent";
-import ShorterGuideContent from "../ShorterGuideContent";
+import { headers } from "next/headers";
+import Step2Client from "./Step2Client";
 
-export default function Step2() {
-	const [revealed, setRevealed] = useState(false);
+export default async function Step2() {
+	const h = await headers();
+	const forwardedHost = h.get("x-forwarded-host");
+	const forwardedProto = h.get("x-forwarded-proto") ?? "https";
+	const host = h.get("host") ?? "localhost:3000";
+	const baseUrl = forwardedHost
+		? `${forwardedProto}://${forwardedHost}`
+		: host.startsWith("localhost")
+		? `http://${host}`
+		: `https://${host}`;
 
-	return (
-		<div
-			className="relative"
-			style={{
-				backgroundColor: "rgb(250,240,212)",
-				backgroundImage: "url('/imgs/sand4.webp')",
-				backgroundSize: "100% auto",
-				backgroundRepeat: "repeat-y",
-			}}
-		>
-			{/* Guide content — blurred until revealed */}
-			<div
-				style={{
-					filter: revealed ? "none" : "blur(8px)",
-					transition: "filter 0.7s ease",
-					pointerEvents: revealed ? "auto" : "none",
-				}}
-			>
-				<ShorterGuideContent />
+	const clientId = process.env.HCA_CLIENT_ID ?? "";
+	const redirectUri = `${baseUrl}/api/hca-callback`;
+	const scopes = "openid email name profile phone birthdate address verification_status slack_id basic_info";
+	const authUrl =
+		`https://auth.hackclub.com/oauth/authorize` +
+		`?client_id=${encodeURIComponent(clientId)}` +
+		`&redirect_uri=${encodeURIComponent(redirectUri)}` +
+		`&response_type=code` +
+		`&scope=${encodeURIComponent(scopes)}`;
 
-				{/* Continue button at bottom */}
-				<div
-					className="flex justify-center py-[8vh]"
-					style={{ background: "transparent" }}
-				>
-					<a
-						href="/apply/hca-signin"
-						className="hover:scale-105 transition-transform cursor-pointer"
-						style={{ width: "25vw", display: "block" }}
-					>
-						<Image src="/imgs/surfboard_next2.webp" width={516} height={191} alt="continue to apply!" className="w-full h-auto" />
-					</a>
-				</div>
-			</div>
-
-			{/* Overlay — fades out on reveal */}
-			<div
-				className="fixed inset-0 z-10 flex flex-col items-center justify-center"
-				style={{
-					background: "rgba(250,240,212,0.9)",
-					opacity: revealed ? 0 : 1,
-					pointerEvents: revealed ? "none" : "auto",
-					transition: "opacity 0.7s ease",
-				}}
-			>
-				<h1
-					className="galindo pink-outlined-text text-center mb-[4vh]"
-					style={{ fontSize: "3.5vw" }}
-				>
-					Here's what you need to know!
-				</h1>
-				<button
-					onClick={() => setRevealed(true)}
-					className="hover:scale-105 transition-transform cursor-pointer bg-transparent border-none p-0"
-					style={{ width: "25vw" }}
-				>
-					<Image src="/imgs/surfboard_ok.webp" width={865} height={320} alt="OK!" className="w-full h-auto" />
-				</button>
-			</div>
-		</div>
-	);
+	return <Step2Client authUrl={authUrl} />;
 }

@@ -287,6 +287,8 @@ export default function ShorterGuideContent() {
 				</p>
 				<p className="text-center" style={{ fontSize: "1.8vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.7 }}>
 					Thank you so much for reading this short guide. We would really appreciate any feedback in <span style={{ fontWeight: 600 }}>#sunbeam-organizers</span>, and we're super excited to work with you soon.<br></br><br></br> In the meantime, relax, read the full Ultimate Organizer's Guide, and remember:<br></br><br></br> You're not just building a coding event. You're building a space where girls might code their very first project. Meet their best friend. Find their love ♥️ (for tech). You're building a space where girls will feel welcome. <br></br><br></br>That's our <span style={{ color: "#D88127" }}>Sunbeam</span>. And we're so, so excited to see what you'll build. <br></br><br></br> <span style={{ fontWeight: 600 }}>Written by: Safia and Yanella, with the help of Deven.</span>
+					<br /><br />
+					<span style={{ fontSize: "1.74vw", fontWeight: 400, color: "#C54390", fontStyle: "italic" }}>To continue, you'll need to sign in with Hack Club, so we can keep track of your application!</span>
 				</p>
 			</div>
 
