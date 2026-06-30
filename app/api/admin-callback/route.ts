@@ -3,9 +3,13 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(request: NextRequest) {
 	const code = request.nextUrl.searchParams.get("code");
 	const error = request.nextUrl.searchParams.get("error");
-	const adminUrl = new URL("/admin", request.url);
-	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3000";
-	const redirectUri = `${baseUrl}/api/admin-callback`;
+	const forwardedHost = request.headers.get("x-forwarded-host");
+	const forwardedProto = request.headers.get("x-forwarded-proto") ?? "https";
+	const base = forwardedHost
+		? `${forwardedProto}://${forwardedHost}`
+		: request.nextUrl.origin;
+	const adminUrl = new URL("/admin", base);
+	const redirectUri = `${base}/api/admin-callback`;
 
 	if (error || !code) {
 		return NextResponse.redirect(adminUrl);
