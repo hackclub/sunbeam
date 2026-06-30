@@ -7,9 +7,8 @@ export default function Apply() {
 	return (
 		<div className="relative w-full h-screen overflow-hidden">
 			<motion.div
-				className="absolute top-0 left-0 w-full"
+				className="absolute top-0 left-0 w-full h-[24vh] md:h-[20vh] z-2"
 				style={{
-					height: "26vh",
 					background:
 						"linear-gradient(to bottom, rgb(213,240,249) 0%, rgb(114,191,218) 60%, rgb(251,245,226) 100%)",
 				}}
@@ -25,7 +24,7 @@ export default function Apply() {
 			<div
 				className="absolute left-0 w-full"
 				style={{
-					top: "26vh",
+					top: "10vh",
 					bottom: 0,
 					backgroundColor: "rgb(250,240,212)",
 					backgroundImage: "url('/imgs/sand4.webp')",
@@ -36,7 +35,7 @@ export default function Apply() {
 
 			{/* Foam wave decoration */}
 			<motion.div
-				className="absolute top-0 left-0 w-full z-10 pointer-events-none"
+				className="absolute top-[15vh] md:top-0 left-0 w-full z-10 pointer-events-none"
 				animate={{ y: ["0vh", "1.6vh", "0vh"] }}
 				transition={{
 					duration: 3,
@@ -56,13 +55,13 @@ export default function Apply() {
 
 			{/* Title */}
 			<h1
-				className="galindo absolute z-20 text-center text-[#D88127] whitespace-nowrap"
-				style={{
-					top: "38%",
-					left: "50%",
-					transform: "translateX(-50%)",
-					fontSize: "2.9vw",
-				}}
+				className="
+		galindo absolute z-20 left-1/2 -translate-x-1/2
+		text-center text-[#D88127]
+		top-[28%] w-[90vw] text-[8vw] leading-tight
+		whitespace-normal
+		md:top-[40%] md:w-auto md:text-[6vh] md:whitespace-nowrap
+	"
 			>
 				So you want to organize a Sunbeam in your city...
 			</h1>
@@ -73,15 +72,13 @@ export default function Apply() {
 				width={356}
 				height={267}
 				alt=""
-				className="absolute z-10 pointer-events-none h-auto"
-				style={{ left: "68%", top: "52%", width: "28vw" }}
+				className="absolute z-10 pointer-events-none h-auto left-[68%] top-[57.5%] md:top-[52%] w-[28vw]"
 			/>
 
 			{/* Surfboard "next!" button */}
 			<a
 				href="/apply/step2"
-				className="absolute z-20 hover:scale-105 transition-transform cursor-pointer"
-				style={{ left: "32%", top: "50%", width: "30vw" }}
+				className="absolute z-20 hover:scale-105 transition-transform cursor-pointer top-[45%] md:top-[45%] -translate-y-[-50%] left-[50%] -translate-x-[50%]"
 			>
 				<Image
 					src="/imgs/surfboard_next.webp"
