@@ -26,7 +26,7 @@ export default function Apply() {
 
 			{/* Foam wave decoration */}
 			<Image
-				src="/imgs/foam.webp"
+				src="/imgs/foam-fixed.webp"
 				width={1727}
 				height={428}
 				alt=""

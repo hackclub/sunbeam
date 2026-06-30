@@ -21,10 +21,12 @@ function SubmittedContent() {
 					Thanks {firstName} for applying to organize a Sunbeam Social!
 				</p>
 				<p className="galindo text-[#2E599C] text-[1.7vw] leading-snug mt-[4vh]">
-					We&apos;ll review applications and send you an email within the next two weeks.
+					We&apos;ll review applications and send you an email within the next
+					two weeks.
 				</p>
 				<p className="galindo text-[#2E599C] text-[1.7vw] leading-snug mt-[4vh]">
-					In the meantime, encourage your friends to check out the Sunbeam website!
+					In the meantime, encourage your friends to check out the Sunbeam
+					website!
 				</p>
 			</div>
 
@@ -66,7 +68,7 @@ export default function Submitted() {
 
 			{/* Foam wave */}
 			<img
-				src="/imgs/foam.webp"
+				src="/imgs/foam-fixed.webp"
 				className="absolute top-0 left-0 w-full z-10 pointer-events-none"
 				alt=""
 			/>

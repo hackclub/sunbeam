@@ -26,7 +26,7 @@ const TemplatePage = () => {
 
 				{/* Foam wave */}
 				<img
-					src="/imgs/foam.webp"
+					src="/imgs/foam-fixed.webp"
 					className="hidden md:block md:absolute bottom-[-20vh] left-0 z-5 w-full"
 					alt=""
 				/>
@@ -379,7 +379,7 @@ const TemplatePage = () => {
 					/>
 				</div>
 				<img
-					src="/imgs/foam2.webp"
+					src="/imgs/foam-fixed2.webp"
 					alt=""
 					className="hidden md:block md:absolute top-[-15vh] left-0 z-10 w-full"
 				/>
