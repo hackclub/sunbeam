@@ -221,14 +221,14 @@ export default function Home() {
 
 					{/* Guide surfboard */}
 					<a
-						href="/organizers"
+						href="./ultimateguide"
 						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
 					>
 						<Image
-							src="/imgs/org-portal.webp"
+							src="/imgs/ultOrgGuide.png"
 							width={795}
 							height={291}
-							alt="Visit the organizer portal for more resources >>>"
+							alt="Checkout the Ultimate Organizer Guide >>>"
 							className="w-[80vw] md:w-[35vw] h-auto mx-auto"
 						/>
 					</a>

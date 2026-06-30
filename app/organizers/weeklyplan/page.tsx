@@ -15,7 +15,7 @@ export default function Weeklyplan() {
             {/* back btn */}
             <div style={{ position: "relative", }}>
                 <p className="galindo" style={{ position: "absolute", top:10, left:20, fontSize: "2.5vw", color: "#D88127", lineHeight: 1.2 }}>
-					<Link href="/organizers">Back</Link>
+					<Link href="/organizers"> ←Back</Link>
 				</p>
             </div>
 

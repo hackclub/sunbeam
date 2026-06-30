@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function GuideContent() {
 	return (
 		<div
@@ -9,6 +11,13 @@ export default function GuideContent() {
 				backgroundRepeat: "repeat-y",
 			}}
 		>
+
+			{/* back btn */}
+			<div style={{ position: "relative", }}>
+				<p className="galindo" style={{ position: "absolute", top:10, left:20, fontSize: "2.5vw", color: "#D88127", lineHeight: 1.2 }}>
+					<Link href="/"> ←Back</Link>
+				</p>
+			</div>
 
 			{/* SECTION 1: HEADER */}
 			<div className="text-center pt-[6vh] pb-[4vh]">
