@@ -239,8 +239,8 @@ export default function Home() {
 					<h2 className="outfit text-[6vh] text-[#C54390] text-center w-[70vw] md:w-[60vw] leading-[7.5vh] my-[4vh] drop-shadow-sm">
 						Ready? Let the sun beam in your city!
 					</h2>
-					<p style={{ fontStyle: "outfit", fontSize: "2.0vw", fontWeight: 540, color: "rgb(46,88,155)", lineHeight: 1.4 }}>
-						Deadline to apply as an organizer is July 13th.
+					<p className="outfit text-[#2E599C]" style={{ fontSize: "2.0vw", fontWeight: 540, lineHeight: 1.4 }}>
+						Deadline to apply to be an organizer is July 13th.
 					</p>
 					<a
 						href="/apply"
