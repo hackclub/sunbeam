@@ -12,6 +12,7 @@ export async function getRecordsByCity(city: string) {
       headers: {
         Authorization: `Bearer ${process.env.AIRTABLE_PAT}`,
       },
+      next: { revalidate: 3600 },
     }
   );
 
