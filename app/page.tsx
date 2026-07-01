@@ -239,7 +239,7 @@ export default function Home() {
 					<h2 className="outfit text-[6vh] text-[#C54390] text-center w-[70vw] md:w-[60vw] leading-[7.5vh] my-[4vh] drop-shadow-sm">
 						Ready? Let the sun beam in your city!
 					</h2>
-					<p className="outfit text-[#2E599C]" style={{ fontSize: "20px", fontWeight: 540, lineHeight: 1.4 }}>
+					<p className="outfit text-[#2E599C] text-[4vh] text-center" style={{ fontWeight: 540, lineHeight: 1.4 }}>
 						Deadline to apply to be an organizer is July 13th.
 					</p>
 					<a
@@ -255,7 +255,7 @@ export default function Home() {
 						/>
 					</a>
 
-					<p className="outfit text-[#2E599C]/70 text-center text-[15px] italic mt-[1.5vh] tracking-wide">
+					<p className="outfit text-[#2E599C]/70 text-center text-[15px] italic mt-[1.5vh] tracking-wide px-6">
 						Organizers can get service hours for organizing a Sunbeam social. Read the Ultimate Guide for more information. 
 					</p>
 				</div>
