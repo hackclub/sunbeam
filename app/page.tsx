@@ -320,17 +320,9 @@ export default function Home() {
 
 						{/* Right description */}
 						<p className="outfit text-black/60 md:text-[#FAF0D3] text-[2.75vw] md:text-[1.5vw] leading-relaxed max-w-[80vw] md:max-w-[60vw]">
-							Hack Club is a 501(c)(3) nonprofit and network of 60k+ technical
-							high schoolers. We believe you learn best by building, so
-							we&apos;re creating community and providing grants so you can make
-							awesome projects. In the past few years, we&apos;ve partnered with
-							GitHub to run&nbsp;Summer of Making, hosted the&nbsp;world&apos;s
-							longest hackathon on land, and ran&nbsp;Canada&apos;s largest high
-							school hackathon.
+							Hack Club is a 501(c)(3) nonprofit and network of 130k+ technical teenagers. We believe you learn best by building, so we&apos;re creating community and providing grants so you can make awesome projects.
 							<br />
-							<br />
-							At Hack Club, students are building real projects every single
-							day.
+							Previously, we&apos;ve organized the largest all-girls high school hackathon <a href="https://parthenon.hackclub.com/" target="_blank" rel="noopener noreferrer" className="underline">Parthenon</a>, game-jam simultaneously in 200+ cities called <a href="https://campfire.hackclub.com/" target="_blank" rel="noopener noreferrer" className="underline">Campfire</a>, and many more.
 						</p>
 					</div>
 
