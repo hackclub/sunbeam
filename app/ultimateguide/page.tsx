@@ -54,7 +54,7 @@ export default function GuideContent() {
 
 			<div className="text-center pb-[3vh]" style={{ padding: "0 9.1% 3vh" }}>
 				<p style={{ fontSize: "2.33vw", fontWeight: 700, color: "rgb(46,88,155)", lineHeight: 1.4 }}>
-					Organising a Sunbeam is gonna be very rewarding because:
+					Organizing a Sunbeam is gonna be very rewarding because:
 				</p>
 			</div>
 
@@ -141,7 +141,7 @@ export default function GuideContent() {
 							1) JOIN HACK CLUB SLACK!! And the #sunbeam channels:
 						</p>
 						<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "#2E599C", lineHeight: 1.6, marginLeft: "3vw"}}>
-							SUPER IMPORTANT!! Slack is how we communicate with organisers. If your city doesn't have a Sunbeam channel yet, make one (in the format: #sunbeam-city, e.g. #sunbeam-london).
+							SUPER IMPORTANT!! Slack is how we communicate with organizers. If your city doesn't have a Sunbeam channel yet, make one (in the format: #sunbeam-city, e.g. #sunbeam-london).
 						</p>
 					</div>
 				</div>
@@ -151,7 +151,7 @@ export default function GuideContent() {
 					<div style={{ display: "flex", gap: "3vw", alignItems: "flex-start", marginBottom: "3vh" }}>
 						<div style={{ flex: "1 1 0" }}>
 							<p style={{ fontSize: "2.62vw", fontWeight: 700, color: "#2E599C", lineHeight: 1.4, marginBottom: "1.5vh" }}>
-								2) (avengers) Assemble a team of 3-6 organisers!
+								2) (avengers) Assemble a team of 3-6 organizers!
 							</p>
 							<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "#2E599C", lineHeight: 1.6, marginBottom: "1.5vh", marginLeft: "3vw" }}>
 								Reach out to people you enjoy working with! Start with a slack channel and a shared to-do list (including steps in this guide!) Delegate tasks based on what people want to do.
@@ -197,7 +197,7 @@ export default function GuideContent() {
 										Too small of a team (NOT 1 person)
 									</li>
 									<li style={{ fontSize: "1.94vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6, marginTop: "1.5vh" }}>
-										Trying to organise everything with fancy project management tools
+										Trying to organize everything with fancy project management tools
 									</li>
 								</ul>
 							</div>
@@ -205,7 +205,7 @@ export default function GuideContent() {
 					</div>
 
 					<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6 }}>
-						I'd HIGHLY suggest meeting your team in-person or doing calls often to get to know everyone. Good vibes = happy team = fun organising.
+						I'd HIGHLY suggest meeting your team in-person or doing calls often to get to know everyone. Good vibes = happy team = fun organizing.
 					</p>
 				</div>
 
@@ -439,7 +439,7 @@ export default function GuideContent() {
 								It's free!! Don't drop $5000 on a venue that's 2 rooms and a couch. 
 							</li>
 							<li style={{ fontSize: "2.33vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6 }}>
-								Roomy (Minimum: One main space, small organiser room, washrooms, TV/projector, speakers/PA)
+								Roomy (Minimum: One main space, small organizer room, washrooms, TV/projector, speakers/PA)
 							</li>
 						</ul>
 					</div>
@@ -576,7 +576,7 @@ export default function GuideContent() {
 						1) Make a run of show...
 					</p>
 					<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, marginBottom: "1.5vh", marginLeft: "3vw" }}>
-						Run of show = time block it. You need to know what your organisers are doing and when, which will save time running from room to room to find each other.
+						Run of show = time block it. You need to know what your organizers are doing and when, which will save time running from room to room to find each other.
 					</p>
 					<p style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, marginBottom: "1.5vh", marginLeft: "3vw" }}>
 						PLEASE <span style={{ fontWeight: 500 }}>leave a 30 minute window after submissions are due</span> for last-minute issues. Trust us. (see a sample run of show here.)
@@ -663,6 +663,17 @@ export default function GuideContent() {
 						</p>
 					</div>
 				</div>
+
+				{/* service hours */}
+				<div>
+					<p style={{ fontSize: "2.62vw", fontWeight: 800, color: "rgb(46,88,155)", lineHeight: 1.4, marginBottom: "2vh" }}>
+						Service Hours
+					</p>
+					<p className="text-center" style={{ fontSize: "2.33vw", fontWeight: 400, color: "rgb(46,88,155)", lineHeight: 1.6, marginBottom: "1.5vh" }}>
+						Organizing a Sunbeam is going to take a lot of your time, so if you document how many hours you worked in a neat spreadsheet, Hack Club can sign off on them for you to use. 
+					</p>
+				</div>
+				
 			</div>
 
 			{/* WHAT'S NEXT */}

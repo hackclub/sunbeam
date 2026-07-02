@@ -44,7 +44,7 @@ export default function ShorterGuideContent() {
 
 			<div className="text-center pb-[3vh]" style={{ padding: "0 9.1% 3vh" }}>
 				<p style={{ fontSize: "2.1vw", fontWeight: 700, color: "rgb(46,88,155)", lineHeight: 1.4 }}>
-					Organising a Sunbeam is gonna be very rewarding because:
+					Organizing a Sunbeam is gonna be very rewarding because:
 				</p>
 			</div>
 
@@ -140,6 +140,9 @@ export default function ShorterGuideContent() {
 						</p>
                         <p style={{ padding: "0.5vw 0" }}>
 							<span style={{fontWeight: 600}}>6) Payouts FROM US!!</span> That’s right - for every signup you get for your Sunbeam Social, we’ll send you $$ to run your event!
+						</p>
+						<p style={{ padding: "0.5vw 0" }}>
+							<span style={{fontWeight: 600}}>7) Service Hours!</span> Track how many hours you organize on a neat spreadsheet and we'll sign off on them for you to use
 						</p>
 				</div>
             </div>

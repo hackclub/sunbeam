@@ -108,7 +108,7 @@ export default function Home() {
 				{/* What is Sunbeam Social */}
 				<div className="flex flex-col relative z-5 items-center justify-center w-full">
 					<h2 className="galindo text-[5.5vh] md:text-[6.5vh] text-[#D77393] text-center leading-tight mb-0">
-						What is a Sunbeam Social?
+						How would you lead a Sunbeam Social?
 					</h2>
 					<div className="relative w-[95vw] md:w-[62vw] mt-0 mb-[1vh] md:mb-[1.5vh] flex flex-col items-center justify-center">
 						<Image
@@ -150,7 +150,7 @@ export default function Home() {
 
 				<div className="flex flex-col relative z-5 items-center justify-center">
 					<h2 className="galindo text-[6.5vh] text-[#D88127] text-center w-[80vw] md:w-[50vw] leading-[7.5vh] mb-[1vh]">
-						How do you organize a Sunbeam Social?
+						How to get started:
 					</h2>
 
 					{/* Three cards */}
@@ -235,7 +235,7 @@ export default function Home() {
 					<h2 className="outfit text-[6vh] text-[#C54390] text-center w-[70vw] md:w-[60vw] leading-[7.5vh] my-[4vh] drop-shadow-sm">
 						Ready? Let the sun beam in your city!
 					</h2>
-					<p className="outfit text-[#2E599C]" style={{ fontSize: "2.0vw", fontWeight: 540, lineHeight: 1.4 }}>
+					<p className="outfit text-[#2E599C] text-[4vh] text-center" style={{ fontWeight: 540, lineHeight: 1.4 }}>
 						Deadline to apply to be an organizer is July 13th.
 					</p>
 					<a
@@ -246,10 +246,14 @@ export default function Home() {
 							src="/imgs/apply.webp"
 							width={523}
 							height={210}
-							alt="apply!"
+							alt="sign up!"
 							className="w-[60vw] md:w-[25vw] h-auto mx-auto"
 						/>
 					</a>
+
+					<p className="outfit text-[#2E599C]/70 text-center text-[15px] italic mt-[1.5vh] tracking-wide px-6">
+						Organizers can get service hours for organizing a Sunbeam social. Read the Ultimate Guide for more information. 
+					</p>
 				</div>
 			</div>
 
