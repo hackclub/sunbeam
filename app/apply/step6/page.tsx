@@ -25,8 +25,18 @@ export default function Step6() {
 	return (
 		<div
 			className="relative w-full min-h-screen"
-			style={{ backgroundImage: "url('/imgs/sand.webp')", backgroundRepeat: "repeat-y", backgroundSize: "100% auto" }}
+			style={{
+				backgroundImage: "url('/imgs/sand.webp')",
+				backgroundRepeat: "repeat-y",
+				backgroundSize: "100% auto",
+			}}
 		>
+			<a
+				href="/apply/step5"
+				className="fixed z-10 backdrop-blur-sm top-0 left-0 bg-white/70 border-[0.2vh] border-white py-[1vh] px-[2vw] rounded-br-[3vh]"
+			>
+				<span className="text-[2vh] outfit">{"<-"} Back</span>
+			</a>
 			<div className="relative mx-[1.7%] mt-[4vh] mb-[2vh]">
 				<Image
 					src="/imgs/boardwalk.webp"
@@ -44,12 +54,22 @@ export default function Step6() {
 
 					<div className="flex items-start gap-[1.5vw] mt-[3vh]">
 						<div
-							onClick={() => setForm((f) => ({ ...f, attended_or_organized_hackathon: !f.attended_or_organized_hackathon }))}
-							className={`flex-shrink-0 w-[1.4vw] h-[1.4vw] border-[3px] border-[#0e387a] rounded-md cursor-pointer mt-[0.3vw] transition-colors ${form.attended_or_organized_hackathon ? "bg-[#F393B4]" : "bg-white"}`}
-						>
-						</div>
+							onClick={() =>
+								setForm((f) => ({
+									...f,
+									attended_or_organized_hackathon:
+										!f.attended_or_organized_hackathon,
+								}))
+							}
+							className={`flex-shrink-0 w-[1.4vw] h-[1.4vw] border-[3px] border-[#0e387a] rounded-md cursor-pointer mt-[0.3vw] transition-colors ${
+								form.attended_or_organized_hackathon
+									? "bg-[#F393B4]"
+									: "bg-white"
+							}`}
+						></div>
 						<span className="galindo text-[#2E599C] text-[1.5vw] leading-snug">
-							Check this box if you&apos;ve attended or organized a hackathon before!
+							Check this box if you&apos;ve attended or organized a hackathon
+							before!
 						</span>
 					</div>
 
@@ -60,11 +80,15 @@ export default function Step6() {
 						<textarea
 							maxLength={500}
 							value={form.which_hackathons}
-							onChange={(e) => setForm((f) => ({ ...f, which_hackathons: e.target.value }))}
+							onChange={(e) =>
+								setForm((f) => ({ ...f, which_hackathons: e.target.value }))
+							}
 							className="outfit bg-white w-full px-4 py-3 text-[1vw] text-[#2E599C] border-[3px] border-[#0e387a] rounded-2xl outline-none focus:border-[#0e387a] transition-colors resize-none"
 							style={{ height: "14vh" }}
 						/>
-						<p className="outfit text-[#359BBF] text-[1vw]">*max 500 characters</p>
+						<p className="outfit text-[#359BBF] text-[1vw]">
+							*max 500 characters
+						</p>
 					</div>
 
 					<div className="flex justify-center mt-[4vh]">
@@ -74,7 +98,13 @@ export default function Step6() {
 							className="hover:scale-105 transition-transform cursor-pointer bg-transparent border-none p-0"
 							style={{ width: "20vw" }}
 						>
-							<Image src="/imgs/surfboard_next4.webp" width={865} height={320} alt="next!" className="w-full h-auto" />
+							<Image
+								src="/imgs/surfboard_next4.webp"
+								width={865}
+								height={320}
+								alt="next!"
+								className="w-full h-auto"
+							/>
 						</button>
 					</div>
 				</div>

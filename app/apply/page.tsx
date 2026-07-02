@@ -6,6 +6,13 @@ import { motion } from "framer-motion";
 export default function Apply() {
 	return (
 		<div className="relative w-full h-screen overflow-hidden">
+			<a
+				href="/"
+				className="fixed z-10 top-0 left-0 bg-white/70 border-[0.2vh] border-white py-[1vh] px-[2vw] rounded-br-[3vh]"
+			>
+				<span className="text-[2vh] outfit">{"<-"} Back</span>
+			</a>
+
 			<motion.div
 				className="absolute top-0 left-0 w-full h-[24vh] md:h-[20vh] z-2"
 				style={{

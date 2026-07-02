@@ -26,10 +26,20 @@ function Field({
 		<div className="flex flex-col gap-[3px]">
 			<label className="galindo text-[#2E599C] text-[1.2vw] leading-none">
 				{label}
-				{required && <span className="outfit text-[#359BBF] text-[1vw] ml-1">*</span>}
-				{optional && <span className="outfit text-[#359BBF] text-[0.9vw] ml-2">(optional)</span>}
+				{required && (
+					<span className="outfit text-[#359BBF] text-[1vw] ml-1">*</span>
+				)}
+				{optional && (
+					<span className="outfit text-[#359BBF] text-[0.9vw] ml-2">
+						(optional)
+					</span>
+				)}
 			</label>
-			{hint && <p className="outfit text-[#359BBF] text-[0.82vw] leading-snug">{hint}</p>}
+			{hint && (
+				<p className="outfit text-[#359BBF] text-[0.82vw] leading-snug">
+					{hint}
+				</p>
+			)}
 			<input
 				type={type}
 				name={name}
@@ -45,11 +55,21 @@ function Field({
 export default function Step3() {
 	const router = useRouter();
 	const [form, setForm] = useState({
-		email: "", first_name: "", last_name: "", preferred_name: "", phone_number: "",
+		email: "",
+		first_name: "",
+		last_name: "",
+		preferred_name: "",
+		phone_number: "",
 		pronouns: "",
 		hca_identity: "",
-		address_line_1: "", address_line_2: "", city: "", state_province: "",
-		postal_code: "", country: "", slack_id: "", date_of_birth: "",
+		address_line_1: "",
+		address_line_2: "",
+		city: "",
+		state_province: "",
+		postal_code: "",
+		country: "",
+		slack_id: "",
+		date_of_birth: "",
 		certified: false,
 	});
 
@@ -62,20 +82,20 @@ export default function Step3() {
 				const addr = id.addresses ? id.addresses[0] : {};
 				setForm((f) => ({
 					...f,
-					email:         id.primary_email   || f.email,
-					first_name:    id.first_name       || f.first_name,
-					last_name:     id.last_name        || f.last_name,
-					slack_id:      id.slack_id         || f.slack_id,
-					phone_number:  id.phone_number     || f.phone_number,
-					date_of_birth: id.birthday         || id.date_of_birth || f.date_of_birth,
+					email: id.primary_email || f.email,
+					first_name: id.first_name || f.first_name,
+					last_name: id.last_name || f.last_name,
+					slack_id: id.slack_id || f.slack_id,
+					phone_number: id.phone_number || f.phone_number,
+					date_of_birth: id.birthday || id.date_of_birth || f.date_of_birth,
 					address_line_1: addr.line_1 || f.address_line_1,
-					address_line_2: addr.line_2          || f.address_line_2,
-					city:           addr.city        || f.city,
-					state_province: addr.state         || f.state_province,
-					postal_code:    addr.postal_code    || f.postal_code,
-					country:        addr.country        || f.country,
-					hca_identity:  id.id,
-					preferred_name: f.preferred_name
+					address_line_2: addr.line_2 || f.address_line_2,
+					city: addr.city || f.city,
+					state_province: addr.state || f.state_province,
+					postal_code: addr.postal_code || f.postal_code,
+					country: addr.country || f.country,
+					hca_identity: id.id,
+					preferred_name: f.preferred_name,
 				}));
 			});
 	}, []);
@@ -93,8 +113,18 @@ export default function Step3() {
 	return (
 		<div
 			className="relative w-full min-h-screen"
-			style={{ backgroundImage: "url('/imgs/sand.webp')", backgroundRepeat: "repeat-y", backgroundSize: "100% auto" }}
+			style={{
+				backgroundImage: "url('/imgs/sand.webp')",
+				backgroundRepeat: "repeat-y",
+				backgroundSize: "100% auto",
+			}}
 		>
+			<a
+				href="/apply/step2"
+				className="fixed z-10 backdrop-blur-sm top-0 left-0 bg-white/70 border-[0.2vh] border-white py-[1vh] px-[2vw] rounded-br-[3vh]"
+			>
+				<span className="text-[2vh] outfit">{"<-"} Back</span>
+			</a>
 			<div className="relative mx-[2.5%] mt-[4vh] mb-[2vh]">
 				<Image
 					src="/imgs/boardwalk.webp"
@@ -109,36 +139,134 @@ export default function Step3() {
 						Sign-up to organize a Sunbeam Social now!
 					</h1>
 
-					<form className="flex flex-col gap-[1.5vh]" onSubmit={(e) => { e.preventDefault(); handleNext(); }}>
-						<Field label="Email" required type="email" name="email" value={form.email} onChange={set} />
+					<form
+						className="flex flex-col gap-[1.5vh]"
+						onSubmit={(e) => {
+							e.preventDefault();
+							handleNext();
+						}}
+					>
+						<Field
+							label="Email"
+							required
+							type="email"
+							name="email"
+							value={form.email}
+							onChange={set}
+						/>
 						<div className="grid grid-cols-2 gap-[8%]">
-							<Field label="First Name" required name="first_name" value={form.first_name} onChange={set} />
-							<Field label="Last Name" required name="last_name" value={form.last_name} onChange={set} />
+							<Field
+								label="First Name"
+								required
+								name="first_name"
+								value={form.first_name}
+								onChange={set}
+							/>
+							<Field
+								label="Last Name"
+								required
+								name="last_name"
+								value={form.last_name}
+								onChange={set}
+							/>
 						</div>
 						<div className="grid grid-cols-2 gap-[8%]">
-							<Field label="Preferred Name" optional name="preferred_name" value={form.preferred_name} onChange={set} />
-							<Field label="Phone Number" required name="phone_number" value={form.phone_number} onChange={set} />
+							<Field
+								label="Preferred Name"
+								optional
+								name="preferred_name"
+								value={form.preferred_name}
+								onChange={set}
+							/>
+							<Field
+								label="Phone Number"
+								required
+								name="phone_number"
+								value={form.phone_number}
+								onChange={set}
+							/>
 						</div>
-						<Field label="Pronouns" required hint="You must identify as a girl to organize a Sunbeam!" name="pronouns" value={form.pronouns} onChange={set} />
-						<Field label="Your Address" required name="address_line_1" value={form.address_line_1} onChange={set} />
-						<Field label="Address #2" optional name="address_line_2" value={form.address_line_2} onChange={set} />
+						<Field
+							label="Pronouns"
+							required
+							hint="You must identify as a girl to organize a Sunbeam!"
+							name="pronouns"
+							value={form.pronouns}
+							onChange={set}
+						/>
+						<Field
+							label="Your Address"
+							required
+							name="address_line_1"
+							value={form.address_line_1}
+							onChange={set}
+						/>
+						<Field
+							label="Address #2"
+							optional
+							name="address_line_2"
+							value={form.address_line_2}
+							onChange={set}
+						/>
 						<div className="grid grid-cols-2 gap-[8%]">
-							<Field label="City" required name="city" value={form.city} onChange={set} />
-							<Field label="State / Province" required name="state_province" value={form.state_province} onChange={set} />
+							<Field
+								label="City"
+								required
+								name="city"
+								value={form.city}
+								onChange={set}
+							/>
+							<Field
+								label="State / Province"
+								required
+								name="state_province"
+								value={form.state_province}
+								onChange={set}
+							/>
 						</div>
 						<div className="grid grid-cols-2 gap-[8%]">
-							<Field label="ZIP / Postal Code" required name="postal_code" value={form.postal_code} onChange={set} />
-							<Field label="Country" required name="country" value={form.country} onChange={set} />
+							<Field
+								label="ZIP / Postal Code"
+								required
+								name="postal_code"
+								value={form.postal_code}
+								onChange={set}
+							/>
+							<Field
+								label="Country"
+								required
+								name="country"
+								value={form.country}
+								onChange={set}
+							/>
 						</div>
 						<div className="grid grid-cols-2 gap-[8%]">
-							<Field label="Slack ID" required hint="* get this from #what-is-my-slack-id" name="slack_id" value={form.slack_id} onChange={set} />
-							<Field label="Date of Birth" required type="date" name="date_of_birth" value={form.date_of_birth} onChange={set} />
+							<Field
+								label="Slack ID"
+								required
+								hint="* get this from #what-is-my-slack-id"
+								name="slack_id"
+								value={form.slack_id}
+								onChange={set}
+							/>
+							<Field
+								label="Date of Birth"
+								required
+								type="date"
+								name="date_of_birth"
+								value={form.date_of_birth}
+								onChange={set}
+							/>
 						</div>
 
 						<div className="flex items-center gap-[1.5vw] mt-[1vh]">
 							<div
-								onClick={() => setForm((f) => ({ ...f, certified: !f.certified }))}
-								className={`flex-shrink-0 w-[1.4vw] h-[1.4vw] border-[3px] border-[#0e387a] rounded-md cursor-pointer transition-colors ${form.certified ? "bg-[#F393B4]" : "bg-white"}`}
+								onClick={() =>
+									setForm((f) => ({ ...f, certified: !f.certified }))
+								}
+								className={`flex-shrink-0 w-[1.4vw] h-[1.4vw] border-[3px] border-[#0e387a] rounded-md cursor-pointer transition-colors ${
+									form.certified ? "bg-[#F393B4]" : "bg-white"
+								}`}
 							/>
 							<span className="galindo text-[#2E599C] text-[1.2vw]">
 								I certify that I will be 18 or under on August 29th
@@ -151,7 +279,13 @@ export default function Step3() {
 								className="hover:scale-105 transition-transform cursor-pointer bg-transparent border-none p-0"
 								style={{ width: "18vw" }}
 							>
-								<Image src="/imgs/surfboard_next2.webp" width={516} height={191} alt="next!" className="w-full h-auto" />
+								<Image
+									src="/imgs/surfboard_next2.webp"
+									width={516}
+									height={191}
+									alt="next!"
+									className="w-full h-auto"
+								/>
 							</button>
 						</div>
 					</form>

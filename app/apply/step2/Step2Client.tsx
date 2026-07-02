@@ -16,6 +16,12 @@ export default function Step2Client({ authUrl }: { authUrl: string }) {
 				backgroundRepeat: "repeat-y",
 			}}
 		>
+			<a
+				href="/apply"
+				className="fixed z-20 backdrop-blur-sm top-0 left-0 bg-white/70 border-[0.2vh] border-white py-[1vh] px-[2vw] rounded-br-[3vh]"
+			>
+				<span className="text-[2vh] outfit">{"<-"} Back</span>
+			</a>
 			{/* Guide content — blurred until revealed */}
 			<div
 				style={{
@@ -33,7 +39,13 @@ export default function Step2Client({ authUrl }: { authUrl: string }) {
 						className="hover:scale-105 transition-transform cursor-pointer"
 						style={{ width: "25vw", display: "block" }}
 					>
-						<Image src="/imgs/surfboard_next2.webp" width={516} height={191} alt="Sign in with Hack Club" className="w-full h-auto" />
+						<Image
+							src="/imgs/surfboard_next2.webp"
+							width={516}
+							height={191}
+							alt="Sign in with Hack Club"
+							className="w-full h-auto"
+						/>
 					</a>
 				</div>
 			</div>
@@ -59,7 +71,13 @@ export default function Step2Client({ authUrl }: { authUrl: string }) {
 					className="hover:scale-105 transition-transform cursor-pointer bg-transparent border-none p-0"
 					style={{ width: "25vw" }}
 				>
-					<Image src="/imgs/surfboard_ok.webp" width={865} height={320} alt="OK!" className="w-full h-auto" />
+					<Image
+						src="/imgs/surfboard_ok.webp"
+						width={865}
+						height={320}
+						alt="OK!"
+						className="w-full h-auto"
+					/>
 				</button>
 			</div>
 		</div>
