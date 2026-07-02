@@ -44,19 +44,19 @@ export default function Home() {
 
 				<div className="flex flex-col relative z-5">
 					{/* Logo + video */}
-					<div className="relative w-[80vw] mx-auto flex flex-col md:flex-row mt-[5vh] mb-[9vh]">
+					<div className="relative w-[80vw] mx-auto flex flex-col md:flex-row mt-[5vh] mb-[4vh] md:mb-[9vh]">
 						<Image
 							src="/imgs/logo.svg"
 							width={858}
 							height={308}
 							alt="Sunbeam"
-							className="w-[80vw] md:w-[44vw] absolute bottom-[-10vh] md:bottom-[-6vh] left-0 h-auto"
+							className="w-[80vw] md:w-[44vw] mx-auto md:mx-0 md:absolute md:bottom-[-6vh] md:left-0 h-auto mb-[3vh] md:mb-0"
 							sizes="(max-width: 768px) 80vw, 44vw"
 						/>
-						{/* Spacer so video sits fully to the right of the logo */}
+						{/* Spacer so video sits fully to the right of the logo (desktop only) */}
 						<div className="hidden md:block md:w-[44vw] shrink-0" />
 						{/* Launch video */}
-						<div className="w-[70vw] md:w-[36vw] h-[30vh] md:h-[40vh] ml-auto rounded-sm overflow-hidden">
+						<div className="w-full md:w-[36vw] h-[25vh] md:h-[40vh] md:ml-auto rounded-sm overflow-hidden">
 							<iframe
 								src="https://www.youtube.com/embed/Ufmk9QW-XAs"
 								title="Sunbeam Social launch video"

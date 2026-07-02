@@ -36,13 +36,13 @@ const TemplatePage = () => {
 					<div className="relative w-[80vw] mx-auto flex flex-col md:flex-row mt-[5vh] mb-[1vh]">
 						<img
 							src="/imgs/logo.svg"
-							className="w-[80vw] md:w-[44vw] absolute bottom-[-10vh] md:bottom-[-6vh] left-0"
+							className="w-[80vw] md:w-[44vw] mx-auto md:mx-0 md:absolute md:bottom-[-6vh] md:left-0 mb-[3vh] md:mb-0"
 							alt="Sunbeam"
 						/>
-						{/* Spacer so video sits fully to the right of the logo */}
+						{/* Spacer so video sits fully to the right of the logo (desktop only) */}
 						<div className="hidden md:block md:w-[44vw] shrink-0" />
 						{/* Launch video */}
-						<div className="w-[70vw] md:w-[36vw] h-[30vh] md:h-[40vh] ml-auto rounded-sm overflow-hidden">
+						<div className="w-full md:w-[36vw] h-[25vh] md:h-[40vh] md:ml-auto rounded-sm overflow-hidden">
 							<iframe
 								src="https://www.youtube.com/embed/Ufmk9QW-XAs"
 								title="Sunbeam Social launch video"
