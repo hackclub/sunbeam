@@ -304,12 +304,15 @@ function Card({ id, title, children, wide = false, short = false }: { id: string
       style={{
         background: "rgba(255,255,255,0.72)",
         backdropFilter: "blur(14px)",
+        WebkitBackdropFilter: "blur(14px)",
         borderRadius: "1.25rem",
         boxShadow: "0 4px 32px rgba(14,56,122,0.10)",
         overflow: "hidden",
         gridColumn: wide ? "1 / -1" : undefined,
         display: "flex",
         flexDirection: "column",
+        transform: "translateZ(0)",
+        isolation: "isolate",
       }}
     >
       {/* Card header — always visible, acts as toggle */}
@@ -373,7 +376,7 @@ function Card({ id, title, children, wide = false, short = false }: { id: string
 export default function OrganizerDocs() {
   return (
     <div
-      className="flex min-h-screen overflow-hidden"
+      className="flex min-h-screen"
       style={{
         backgroundImage: "url('/imgs/sand.webp')",
         backgroundSize: "cover",
@@ -387,7 +390,6 @@ export default function OrganizerDocs() {
       <div
         style={{
           flex: 1,
-          overflowY: "auto",
           padding: "2rem 2.5rem",
           display: "flex",
           flexDirection: "column",

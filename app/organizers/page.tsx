@@ -30,93 +30,98 @@ export default function Organizers() {
       <DesktopSidebar />
 
       {/* ── DESKTOP homepage — hidden on mobile ── */}
-      <div className="max-lg:hidden h-screen lg:p-9 flex-1 justify-center align-middle">
-        <h1 className="lg:text-5xl galindo text-transparent bg-clip-text bg-gradient-to-b from-yellow-500 to-orange-dark">
+      <div className="max-lg:hidden h-screen lg:p-9 flex-1 flex flex-col gap-3 2xl:gap-5 overflow-y-auto">
+        <h1 className="shrink-0 text-3xl 2xl:text-5xl galindo text-transparent bg-clip-text bg-gradient-to-b from-yellow-500 to-orange-dark">
           Welcome, Sunbeamer!
         </h1>
-        <div>
-          {/* 2 boxes row */}
-          <div className="flex justify-between">
-            {/* event countdown */}
-            <div className="glassbox-white w-1/2 lg:p-12 lg:m-6 lg:rounded-2xl text-center duration-200 hover:scale-102">
-              <h1 className="galindo lg:text-[112px] text-blue-bright">
-                {daysUntilEvent}
-              </h1>
-              <h3 className="galindo text-[32px] -mt-10 text-pink-dark">
-                days until the event!!!
-              </h3>
-            </div>
-            {/* check-in call countdown */}
-            <div className="glassbox-white w-1/2 lg:p-12 lg:m-6 lg:rounded-2xl text-center duration-200 hover:scale-102">
-              <h1 className="galindo lg:text-[112px] text-pink-dark">
-                {daysUntilNextCheckIn}
-              </h1>
-              <h3 className="galindo text-[32px] -mt-10 text-orange-dark leading-9">
-                days until the next check-in call
-              </h3>
+
+        {/* 2 boxes row */}
+        <div className="flex justify-between gap-4 2xl:gap-6 shrink-0 mb-8">
+          {/* event countdown */}
+          <div className="glassbox-white w-1/2 lg:p-6 2xl:p-10 lg:rounded-2xl text-center duration-200 hover:scale-102">
+            <h1
+              className="galindo text-blue-bright leading-none"
+              style={{ fontSize: "clamp(2.5rem, 8vh, 7rem)" }}
+            >
+              {daysUntilEvent}
+            </h1>
+            <h3 className="galindo text-base 2xl:text-2xl mt-1 text-pink-dark">
+              days until the event!!!
+            </h3>
+          </div>
+          {/* check-in call countdown */}
+          <div className="glassbox-white w-1/2 lg:p-6 2xl:p-10 lg:rounded-2xl text-center duration-200 hover:scale-102">
+            <h1
+              className="galindo text-pink-dark leading-none"
+              style={{ fontSize: "clamp(2.5rem, 8vh, 7rem)" }}
+            >
+              {daysUntilNextCheckIn}
+            </h1>
+            <h3 className="galindo text-base 2xl:text-2xl mt-1 text-orange-dark leading-tight">
+              days until the next check-in call
+            </h3>
+          </div>
+        </div>
+        {/* 2 boxes row */}
+        <div className="flex gap-4 2xl:gap-6 flex-1 min-h-0">
+          {/* weekly to-do */}
+          <div className="w-1/2 flex flex-col min-h-0">
+            <h3 className="galindo text-lg 2xl:text-3xl mb-2 shrink-0 text-blue-bright">
+              Week X To-Do
+            </h3>
+            <div className="flex-1 min-h-0 overflow-y-auto boardwalk lg:p-6 flex flex-col">
+              <p className="text-blue-dark outfit lg:text-lg 2xl:text-2xl text-pretty leading-relaxed">
+                <strong>1.</strong> Sign up to be an organizer in your city!
+                (wait for approval - you&apos;ll receive an email from us
+                soon)
+                <br /> <strong>2.</strong> once approved, join
+                <a
+                  href="https://hackclub.enterprise.slack.com/archives/C0BCUSTJQTG"
+                  target="_blank"
+                  className="p-1 px-2 m-1 bg-blue-bright/20  outline-blue-dark/65 hover:bg-blue-bright/25 hover:outline-2 hover:m-2 duration-200 rounded-xl text-nowrap "
+                >
+                  #sunbeam-organizers
+                </a>{" "}
+                on Slack!
+                <br /> <strong>3.</strong> share feedback on our ULTIMATE
+                ORGANIZER GUIDE
+                <br /> <strong>4.</strong> join the very first check in call
+                [date]
+              </p>
+              <a
+                href="/organizers/weeklyplan"
+                className="text-blue-dark outfit lg:text-lg 2xl:text-2xl text-pretty font-bold mt-4 shrink-0"
+              >
+                Click here to see the full 9-week plan &#8680;
+              </a>
             </div>
           </div>
-          {/* 2 boxes row */}
-          <div className="flex">
-            {/* weekly to-do */}
-            <div className="w-1/2 lg:mx-6">
-              <h3 className="galindo lg:text-3xl lg:m-6 text-blue-bright">
-                Week X To-Do
-              </h3>
-              <div className="h-[60vh] boardwalk lg:p-6 lg:mx-6 flex flex-col">
-                <p className="text-blue-dark outfit lg:text-2xl text-pretty lg:leading-9">
-                  <strong>1.</strong> Sign up to be an organizer in your city!
-                  (wait for approval - you&apos;ll receive an email from us
-                  soon)
-                  <br /> <strong>2.</strong> once approved, join
-                  <a
-                    href="https://hackclub.enterprise.slack.com/archives/C0BCUSTJQTG"
-                    target="_blank"
-                    className="p-1 px-2 m-1 bg-blue-bright/20  outline-blue-dark/65 hover:bg-blue-bright/25 hover:outline-2 hover:m-2 duration-200 rounded-xl text-nowrap "
-                  >
-                    #sunbeam-organizers
-                  </a>{" "}
-                  on Slack!
-                  <br /> <strong>3.</strong> share feedback on our ULTIMATE
-                  ORGANIZER GUIDE
-                  <br /> <strong>4.</strong> join the very first check in call
-                  [date]
-                </p>
-                <a
-                  href="/organizers/weeklyplan"
-                  className="text-blue-dark outfit lg:text-2xl text-pretty font-bold mt-30"
-                >
-                  Click here to see the full 9-week plan &#8680;
-                </a>
-              </div>
+          {/* check-in call link */}
+          <div className="w-1/2 flex flex-col duration-200 hover:scale-102 min-h-0">
+            <div className="glassbox-clear lg:p-6 flex-1 min-h-0 flex justify-items-center rounded-t-2xl ">
+              <img
+                src="/imgs/ray1.webp"
+                alt=""
+                className="mx-auto lg:p-3 max-h-full object-contain"
+              ></img>
             </div>
-            {/* check-in call link */}
-            <div className="w-1/2 lg:m-6 duration-200 hover:scale-102">
-              <div className="glassbox-clear lg:p-6 h-1/2 flex justify-items-center rounded-t-2xl ">
-                <img
-                  src="/imgs/ray1.webp"
-                  alt=""
-                  className="mx-auto lg:p-3"
-                ></img>
-              </div>
-              <div className="glassbox-white flex flex-col p-8 rounded-b-2xl text-center">
-                <a
-                  href="placeholder"
-                  className="galindo lg:text-3xl text-orange-dark underline hover:decoration-wavy"
-                >
-                  Check-in Call Link
-                </a>
-                <h3 className="text-pink-dark outfit lg:text-lg">
-                  meeting platform (zoom?)
-                </h3>
-                <h3 className="text-pink-dark outfit lg:text-lg">
-                  {soonestCheckInTime} EST - {soonestCheckInMonth}/
-                  {soonestCheckInDay}
-                </h3>
-                <h3 className="text-blue-bright outfit lg:text-lg">
-                  more details &#8680;
-                </h3>
-              </div>
+            <div className="glassbox-white flex flex-col p-6 rounded-b-2xl text-center shrink-0">
+              <a
+                href="placeholder"
+                className="galindo text-xl 2xl:text-3xl text-orange-dark underline hover:decoration-wavy"
+              >
+                Check-in Call Link
+              </a>
+              <h3 className="text-pink-dark outfit lg:text-lg">
+                meeting platform (zoom?)
+              </h3>
+              <h3 className="text-pink-dark outfit lg:text-lg">
+                {soonestCheckInTime} EST - {soonestCheckInMonth}/
+                {soonestCheckInDay}
+              </h3>
+              <h3 className="text-blue-bright outfit lg:text-lg">
+                more details &#8680;
+              </h3>
             </div>
           </div>
         </div>
