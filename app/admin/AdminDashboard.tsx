@@ -30,6 +30,8 @@ export type AppRecord = {
     attended_or_organized_hackathon?: boolean;
     which_hackathons?: string;
     comfortable_with_poc?: boolean;
+    approved_as_poc?: boolean;
+    approved_city?: string;
     approve_as_org?: string;
     [key: string]: unknown;
   };
@@ -333,14 +335,19 @@ function AppDetail({ app, onClose, onUpdate }: { app: AppRecord; onClose: () => 
         {/* Status */}
         <section className="flex flex-col gap-3">
           <h2 className="galindo text-blue-dark text-base border-b border-blue-dark/20 pb-1">Status</h2>
-          <StatusButtons appId={app.id} current={status} currentPoc={!!f.comfortable_with_poc} onUpdate={onUpdate} />
+          <StatusButtons appId={app.id} current={status} currentPoc={!!f.approved_as_poc} currentCity={f.approved_city} onUpdate={onUpdate} />
         </section>
 
         {/* Follow up */}
         {status !== "Approved" && status !== "Rejected" && (
           <section className="flex flex-col gap-3">
             <h2 className="galindo text-blue-dark text-base border-b border-blue-dark/20 pb-1">Follow Up</h2>
-            <FollowUpEmail appId={app.id} email={f.email} status={status} onSent={(id) => onUpdate(id, { approve_as_org: "needs_follow_up" })} />
+            <FollowUpEmail
+              appId={app.id}
+              email={f.email}
+              status={status}
+              onSent={(id) => onUpdate(id, { approve_as_org: "needs_follow_up" })}
+            />
           </section>
         )}
       </div>
@@ -361,8 +368,9 @@ function optionKey(o: StatusOption) {
   return `${o.value}:${o.poc ?? ""}`;
 }
 
-function StatusButtons({ appId, current, currentPoc, onUpdate }: { appId: string; current: string; currentPoc: boolean; onUpdate: (id: string, fields: Partial<AppRecord["fields"]>) => void }) {
+function StatusButtons({ appId, current, currentPoc, currentCity, onUpdate }: { appId: string; current: string; currentPoc: boolean; currentCity?: string; onUpdate: (id: string, fields: Partial<AppRecord["fields"]>) => void }) {
   const [saving, setSaving] = useState<string | null>(null);
+  const [approvedCity, setApprovedCity] = useState(currentCity ?? "");
 
   function isActive(o: StatusOption) {
     return o.value === current && (o.poc === undefined || o.poc === currentPoc);
@@ -370,41 +378,58 @@ function StatusButtons({ appId, current, currentPoc, onUpdate }: { appId: string
 
   async function handleClick(e: React.MouseEvent, option: StatusOption) {
     e.stopPropagation();
-    if (saving || isActive(option)) return;
+    const isApprove = option.poc !== undefined;
+    if (saving || isActive(option) || (isApprove && !approvedCity.trim())) return;
     const key = optionKey(option);
     setSaving(key);
     const fields: Partial<AppRecord["fields"]> = { approve_as_org: option.value };
-    if (option.poc !== undefined) fields.comfortable_with_poc = option.poc;
+    if (option.poc !== undefined) fields.approved_as_poc = option.poc;
+    if (isApprove) fields.approved_city = approvedCity.trim();
     onUpdate(appId, fields);
     try {
       const res = await fetch("/api/update-status", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: appId, status: option.value, ...(option.poc !== undefined ? { comfortable_with_poc: option.poc } : {}) }),
+        body: JSON.stringify({
+          id: appId,
+          status: option.value,
+          ...(option.poc !== undefined ? { approved_as_poc: option.poc } : {}),
+          ...(isApprove ? { approved_city: approvedCity.trim() } : {}),
+        }),
       });
-      if (!res.ok) onUpdate(appId, { approve_as_org: current, comfortable_with_poc: currentPoc });
+      if (!res.ok) onUpdate(appId, { approve_as_org: current, approved_as_poc: currentPoc, approved_city: currentCity });
     } catch {
-      onUpdate(appId, { approve_as_org: current, comfortable_with_poc: currentPoc });
+      onUpdate(appId, { approve_as_org: current, approved_as_poc: currentPoc, approved_city: currentCity });
     } finally {
       setSaving(null);
     }
   }
 
   return (
-    <div className="flex gap-1 mt-2 flex-wrap" onClick={(e) => e.stopPropagation()}>
+    <div className="flex flex-col gap-2" onClick={(e) => e.stopPropagation()}>
+      <input
+        type="text"
+        value={approvedCity}
+        onChange={(e) => setApprovedCity(e.target.value)}
+        placeholder="Approved city..."
+        className="border border-blue-dark rounded-full px-3 py-1 text-xs bg-white outline-none"
+      />
+      <div className="flex gap-1 flex-wrap">
       {STATUS_OPTIONS.map((option) => {
         const key = optionKey(option);
+        const disabled = !!saving || (option.poc !== undefined && !approvedCity.trim());
         return (
           <button
             key={key}
             onClick={(e) => handleClick(e, option)}
-            disabled={!!saving}
+            disabled={disabled}
             className={`text-[10px] font-bold px-2 py-0.5 rounded-full border transition-colors disabled:opacity-60 ${isActive(option) ? option.active : option.inactive}`}
           >
             {saving === key ? "..." : option.label}
           </button>
         );
       })}
+      </div>
     </div>
   );
 }
