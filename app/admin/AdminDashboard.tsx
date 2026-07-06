@@ -384,7 +384,7 @@ export default function AdminDashboard() {
   const [allApps, setAllApps] = useState<AppRecord[]>([]);
   const [search, setSearch] = useState("");
   const [searchMode, setSearchMode] = useState<"name" | "city">("name");
-  const [filter, setFilter] = useState("All");
+  const [filter, setFilter] = useState("unreviewed");
   const [selected, setSelected] = useState<AppRecord | null>(null);
   const [showStats, setShowStats] = useState(false);
 
