@@ -123,16 +123,6 @@ const TemplatePage = () => {
 					alt=""
 				/>
 				<img
-					src="/imgs/sand.webp"
-					className="w-full absolute md:hidden top-[360vh] z-0"
-					alt=""
-				/>
-				<img
-					src="/imgs/sand.webp"
-					className="w-full absolute md:hidden top-[420vh] z-0"
-					alt=""
-				/>
-				<img
 					src="/imgs/ray1.webp"
 					className="absolute top-[20vh] right-[6vw] z-5 w-[17.5vw]"
 					alt=""
@@ -288,18 +278,14 @@ const TemplatePage = () => {
 			</div>
 
 			{/* ── SPONSOR ── */}
-			<div className="relative min-h-screen w-full pt-[5vh] flex flex-col items-center z-3">
+			<div className="relative min-h-screen w-full pt-[10vh] pb-[8vh] flex flex-col items-center z-3">
 				{/* sand on a laptop */}
 				<img
 					src="/imgs/sand.webp"
 					className="w-full absolute top-[-10vh] z-0"
 					alt=""
 				/>
-				<img
-					src="/imgs/sand.webp"
-					className="w-full absolute top-[100vh] z-0"
-					alt=""
-				/>
+
 				{/* sand on a phone */}
 				<img
 					src="/imgs/sand.webp"
@@ -372,8 +358,6 @@ const TemplatePage = () => {
 					</div>
 				</div>
 			</div>
-
-			<div className="relative min-h-[120vh] w-full mt-[17.5vh] flex flex-col pt-[0vh]"></div>
 
 			{/* ── FOOTER ── */}
 			<div className="relative min-h-[80vh] w-full mt-[17.5vh] flex flex-col pt-[23vh] z-10">
