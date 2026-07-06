@@ -16,12 +16,12 @@ export default function OrganizerDocs() {
       <DesktopSidebar />
       <MobileNavbar />
 
-      <div className="flex flex-col flex-1 gap-4 p-4">
+      <div className="flex flex-col flex-1 gap-4 p-4 pb-48 lg:pb-4">
         <div className="flex flex-col lg:flex-row gap-4">
           {/* slack */}
-          <div className="w-full lg:w-1/2 flex flex-col min-h-0">
+          <div className="w-full lg:w-1/2 flex flex-col lg:min-h-0">
             <br />
-            <div className="flex-1 min-h-0 overflow-y-auto boardwalk lg:p-6 flex flex-col">
+            <div className="lg:flex-1 lg:min-h-0 lg:overflow-y-auto boardwalk lg:p-6 flex flex-col">
               <h1 className="shrink-0 text-3xl 2xl:text-5xl galindo text-transparent bg-clip-text bg-gradient-to-b from-yellow-500 to-orange-dark">
                 1. Slack
               </h1>
@@ -42,9 +42,9 @@ export default function OrganizerDocs() {
           </div>
 
           {/* email */}
-          <div className="w-full lg:w-1/2 flex flex-col min-h-0">
+          <div className="w-full lg:w-1/2 flex flex-col lg:min-h-0">
             <br />
-            <div className="flex-1 min-h-0 overflow-y-auto boardwalk lg:p-6 flex flex-col">
+            <div className="lg:flex-1 lg:min-h-0 lg:overflow-y-auto boardwalk lg:p-6 flex flex-col">
               <h1 className="shrink-0 text-3xl 2xl:text-5xl galindo text-transparent bg-clip-text bg-gradient-to-b from-yellow-500 to-orange-dark">
                 2. Email
               </h1>
