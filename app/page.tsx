@@ -5,7 +5,7 @@ export default function Home() {
 		<div className="relative">
 			{/* ── HERO ── */}
 			<div className="relative min-h-[110vh] w-full">
-				<div className="absolute inset-0 h-[110vh] overflow-hidden">
+				<div className="absolute inset-0 h-[120vh] overflow-hidden">
 					<Image
 						src="/imgs/water.webp"
 						fill
@@ -34,69 +34,73 @@ export default function Home() {
 					sizes="100vw"
 				/>
 				{/* Foam Mobile */}
-				<Image
-					src="/imgs/foam-fixed.png"
-					width={1727}
-					height={428}
-					alt="foam"
-					className="absolute md:hidden bottom-[0] left-0 z-50 w-full h-auto"
-				/>
-
-				<div className="flex flex-col relative z-5">
-					{/* Logo + video */}
-					<div className="relative w-[80vw] mx-auto flex flex-col md:flex-row mt-[5vh] mb-[4vh] md:mb-[9vh]">
+				<div className="relative">
+					<div className="md:hidden absolute inset-0 z-1 overflow-hidden pointer-events-none translate-y-[10vh]">
 						<Image
-							src="/imgs/logo.svg"
-							width={858}
-							height={308}
-							alt="Sunbeam"
-							className="w-[80vw] md:w-[44vw] mx-auto md:mx-0 md:absolute md:bottom-[-6vh] md:left-0 h-auto mb-[3vh] md:mb-0"
-							sizes="(max-width: 768px) 80vw, 44vw"
+							src="/imgs/foam-fixed.png"
+							width={1727}
+							height={428}
+							alt="foam"
+							className="absolute md:hidden bottom-[0] left-0 z-50 w-full h-auto"
 						/>
-						{/* Spacer so video sits fully to the right of the logo (desktop only) */}
-						<div className="hidden md:block md:w-[44vw] shrink-0" />
-						{/* Launch video */}
-						<div className="w-full md:w-[36vw] h-[25vh] md:h-[40vh] md:ml-auto rounded-sm overflow-hidden">
-							<iframe
-								src="https://www.youtube.com/embed/Ufmk9QW-XAs"
-								title="Sunbeam Social launch video"
-								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-								allowFullScreen
-								className="w-full h-full"
-							/>
-						</div>
 					</div>
 
-					<h2 className="galindo text-[3vh] px-[5vw] md:px-0 md:text-[4.5vh] text-[#2E599C] text-center">
-						A social coding event for girls 13-18 around the world
-					</h2>
-					<h3 className="outfit text-[#0E387A] text-center text-[1.75vh] md:text-[3vh]">
-						August 29th, 2026 || 20+ cities worldwide
-					</h3>
-					<h1 className="galindo text-[6.5vh] leading-[6.5vh] md:leading-[8vh] text-center gradient-text mt-[1.5vh]">
-						Organize a Sunbeam Social in your city!
-					</h1>
-					<a
-						href="/apply"
-						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
-					>
-						<Image
-							src="/imgs/apply.webp"
-							width={523}
-							height={210}
-							alt="apply!"
-							className="w-[65vw] md:w-[25vw] h-auto mx-auto"
-							sizes="(max-width: 768px) 65vw, 25vw"
-						/>
-					</a>
-					<p className="outfit text-[#2E599C]/70 text-center text-[1.4vh] md:text-[1.75vh] italic mt-[1.5vh] tracking-wide">
-						by reem, lola, jenny, afia, yanella, safia, and kat
-					</p>
+					<div className="flex flex-col relative z-10">
+						{/* Logo + video */}
+						<div className="relative w-[80vw] mx-auto flex flex-col md:flex-row mt-[5vh] mb-[4vh] md:mb-[9vh]">
+							<Image
+								src="/imgs/logo.svg"
+								width={858}
+								height={308}
+								alt="Sunbeam"
+								className="w-[80vw] md:w-[44vw] mx-auto md:mx-0 md:absolute md:bottom-[-6vh] md:left-0 h-auto mb-[3vh] md:mb-0"
+								sizes="(max-width: 768px) 80vw, 44vw"
+							/>
+							{/* Spacer so video sits fully to the right of the logo (desktop only) */}
+							<div className="hidden md:block md:w-[44vw] shrink-0" />
+							{/* Launch video */}
+							<div className="w-full md:w-[36vw] h-[25vh] md:h-[40vh] md:ml-auto rounded-sm overflow-hidden">
+								<iframe
+									src="https://www.youtube.com/embed/Ufmk9QW-XAs"
+									title="Sunbeam Social launch video"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowFullScreen
+									className="w-full h-full"
+								/>
+							</div>
+						</div>
+
+						<h2 className="galindo text-[3vh] px-[5vw] md:px-0 md:text-[4.5vh] text-[#2E599C] text-center">
+							A social coding event for girls 13-18 around the world
+						</h2>
+						<h3 className="outfit text-[#0E387A] text-center text-[1.75vh] md:text-[3vh]">
+							August 29th, 2026 || 20+ cities worldwide
+						</h3>
+						<h1 className="galindo text-[6.5vh] leading-[6.5vh] md:leading-[8vh] text-center gradient-text mt-[1.5vh]">
+							Organize a Sunbeam Social in your city!
+						</h1>
+						<a
+							href="/apply"
+							className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
+						>
+							<Image
+								src="/imgs/apply.webp"
+								width={523}
+								height={210}
+								alt="apply!"
+								className="w-[65vw] md:w-[25vw] h-auto mx-auto"
+								sizes="(max-width: 768px) 65vw, 25vw"
+							/>
+						</a>
+						<p className="outfit text-[#2E599C]/70 text-center text-[16px] md:text-[1.75vh] italic mt-[1.5vh] tracking-wide">
+							by reem, lola, jenny, afia, yanella, safia, and kat
+						</p>
+					</div>
 				</div>
 			</div>
 
 			{/* ── HOW-TO ── */}
-			<div className="relative min-h-screen w-full pt-[26vh] pb-[18vh] flex flex-col items-center">
+			<div className="relative min-h-screen w-full pt-[26vh] pb-[18vh] flex flex-col items-center z-0">
 				{/* sand background — single element, tiled via CSS */}
 				<div
 					className="absolute inset-0 z-0 pointer-events-none"
