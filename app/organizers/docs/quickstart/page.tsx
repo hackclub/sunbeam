@@ -1,6 +1,6 @@
 import DocsSidebar from "../../../../components/DocsSidebar"
 import MobileNavbar from "../../../../components/MobileNavbar"
-// import GuideContent from "../../../apply/GuideContent"
+import GuideContent from "../../../ultimateguide/GuideContent"
 
 export default function DocsQuickstart() {
   return (
@@ -12,14 +12,14 @@ export default function DocsQuickstart() {
         backgroundPosition: "center",
       }}
     >
-      <DocsSidebar />
-      {/* desktop content */}
-      <div className="max-lg:hidden flex-1 h-screen overflow-y-auto">
-        {/* <GuideContent /> */}
+      <div style={{position: "fixed", zIndex: 100}}>
+        <DocsSidebar />
+        <MobileNavbar />
       </div>
-      {/* mobile content */}
-      {/* <div className="lg:hidden"><GuideContent /></div> */}
-      <MobileNavbar />
+
+      <div className="lg:ml-[15vw]">
+        <GuideContent />
+      </div>
     </div>
   );
 }
