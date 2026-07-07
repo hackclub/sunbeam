@@ -6,11 +6,11 @@ export async function PATCH(request: Request) {
 
 	const { id, status, approved_as_poc, approved_city } = await request.json();
 
-	if (!id || !["Approved", "Rejected", "unreviewed", "needs_follow_up"].includes(status)) {
+	if (!id || !["approved", "rejected", "unreviewed", "needs_follow_up"].includes(status)) {
 		return Response.json({ error: "invalid request" }, { status: 400 });
 	}
 
-	const fields: Record<string, unknown> = { "approve_as_org": status.toLowerCase() };
+	const fields: Record<string, unknown> = { "approve_as_org": status};
 	if (typeof approved_as_poc === "boolean") {
 		fields.approved_as_poc = approved_as_poc;
 	}
