@@ -3,6 +3,8 @@
 import { useState } from "react";
 import DesktopSidebar from "../../../components/DesktopSidebar";
 import MobileNavbar from "../../../components/MobileNavbar";
+import { trackDynamicHoleInRuntimeShell } from "next/dist/server/app-render/dynamic-rendering";
+import { transformAxis } from "framer-motion";
 
 const CARDS = {
   venue: {
@@ -294,6 +296,81 @@ const CARDS = {
       </div>
     ),
   },
+  hours: {
+    title: "Service Hours",
+    content: (
+      <div>
+        <p style={{ marginBottom: "1rem" }}>
+          If your school requires you to have Service Hours, use this template to track the hours you've worked on Sunbeam to submit.
+        </p>
+        <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+          <a
+            href="https://docs.google.com/document/d/1MfQ4bqYCNcKnGB3jdcIbYycGV8VErmcMNZKYAY9wXdI/edit?usp=sharing"
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              display: "inline-block",
+              padding: "0.5rem 1.25rem",
+              background: "#d88127",
+              color: "white",
+              borderRadius: "999px",
+              fontWeight: "bold",
+              textDecoration: "none",
+              fontSize: "0.9rem",
+            }}
+          >
+            Log Sheet Template →
+          </a>
+        </div>
+      </div>
+    ),
+  },
+  hq: {
+    title: "HQ Forms",
+    content: (
+      <div>
+        <p style={{ marginBottom: "1rem" }}>
+          Use these with CAUTION. Only share them when necessary.
+        </p>
+        <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+          <a
+            href="placeholder"
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              display: "inline-block",
+              padding: "0.5rem 1.25rem",
+              background: "#d88127",
+              color: "white",
+              borderRadius: "999px",
+              fontWeight: "bold",
+              textDecoration: "none",
+              fontSize: "0.9rem",
+            }}
+          >
+            Donor Receipt →
+          </a>
+          <a
+            href="placeholder"
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              display: "inline-block",
+              padding: "0.5rem 1.25rem",
+              background: "#d88127",
+              color: "white",
+              borderRadius: "999px",
+              fontWeight: "bold",
+              textDecoration: "none",
+              fontSize: "0.9rem",
+            }}
+          >
+            Verification Letter →
+          </a>
+        </div>
+      </div>
+    ),
+  },
 };
 
 function Card({ id, title, children, wide = false, short = false }: { id: string; title: string; children: React.ReactNode; wide?: boolean; short?: boolean }) {
@@ -438,6 +515,22 @@ export default function OrganizerDocs() {
           </Card>
           <Card id="prospectus" title="📄 Prospectus Template" short>
             {CARDS.prospectus.content}
+          </Card>
+        </div>
+
+        {/* Row 4: service hours + hq side by side */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "1.25rem",
+          }}
+        >
+          <Card id="hours" title="🏫 Service Hours" short>
+            {CARDS.hours.content}
+          </Card>
+          <Card id="hq" title="💵 HQ Forms" short>
+            {CARDS.hq.content}
           </Card>
         </div>
       </div>
