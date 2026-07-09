@@ -2,7 +2,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import OrganizersDashboard from "./OrganizersDashboard";
 
-async function getApprovedOrganizerEmails(): Promise<string[]> {
+async function getApprovedOrganizers(): Promise<{ email: string; city: string | null }[]> {
 	const url = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/${process.env.AIRTABLE_ORG_SIGNUP_TABLE_ID}`;
 	const res = await fetch(url, {
 		headers: { Authorization: `Bearer ${process.env.AIRTABLE_PAT}` },
@@ -12,17 +12,23 @@ async function getApprovedOrganizerEmails(): Promise<string[]> {
 	const data = await res.json();
 	return (data.records ?? [])
 		.filter((r: { fields: { approve_as_org?: string } }) => r.fields.approve_as_org === "approved")
-		.map((r: { fields: { email?: string } }) => r.fields.email?.toLowerCase())
-		.filter(Boolean);
+		.map((r: { fields: { email?: string; approved_city?: string } }) => ({
+			email: r.fields.email?.toLowerCase() ?? "",
+			city: r.fields.approved_city ?? null,
+		}))
+		.filter((r: { email: string }) => r.email);
 }
 
-async function getCurrentUserEmail(token: string): Promise<string | null> {
+async function getCurrentUser(token: string): Promise<{ email: string | null; name: string | null }> {
 	const res = await fetch("https://auth.hackclub.com/api/v1/me", {
 		headers: { Authorization: `Bearer ${token}` },
 	});
-	if (!res.ok) return null;
+	if (!res.ok) return { email: null, name: null };
 	const user = await res.json();
-	return user.identity?.primary_email?.toLowerCase() ?? null;
+	return {
+		email: user.identity?.primary_email?.toLowerCase() ?? null,
+		name: user.identity?.preferred_name || user.identity?.first_name || null,
+	};
 }
 
 export default async function OrganizersPage() {
@@ -33,16 +39,18 @@ export default async function OrganizersPage() {
 		redirect("/organizer-auth");
 	}
 
-	const [email, organizerEmails] = await Promise.all([
-		getCurrentUserEmail(token),
-		getApprovedOrganizerEmails(),
+	const [user, organizers] = await Promise.all([
+		getCurrentUser(token),
+		getApprovedOrganizers(),
 	]);
 
-	if (!email || !organizerEmails.includes(email)) {
-		return <AccessDenied email={email} />;
+	const organizer = organizers.find((o) => o.email === user.email);
+
+	if (!user.email || !organizer) {
+		return <AccessDenied email={user.email} />;
 	}
 
-	return <OrganizersDashboard />;
+	return <OrganizersDashboard name={user.name} city={organizer.city} />;
 }
 
 function AccessDenied({ email }: { email: string | null }) {

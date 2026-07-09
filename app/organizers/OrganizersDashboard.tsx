@@ -7,7 +7,7 @@ import DesktopSidebar from "../../components/DesktopSidebar";
 import MobileNavbar from "../../components/MobileNavbar";
 
 
-export default function OrganizersDashboard() {
+export default function OrganizersDashboard({ name, city }: { name?: string | null; city?: string | null }) {
   const daysUntilEvent = dayjs("2026-08-29").diff(dayjs(), "day");
   const checkInCallDates = ["2026-07-07T09:00:00", "2026-07-14T09:00:00"];
   const soonestCheckIn = checkInCallDates
@@ -31,9 +31,12 @@ export default function OrganizersDashboard() {
 
       {/* ── DESKTOP homepage — hidden on mobile ── */}
       <div className="max-lg:hidden h-screen lg:p-9 flex-1 flex flex-col gap-3 2xl:gap-5 overflow-y-auto">
-        <h1 className="shrink-0 text-3xl 2xl:text-5xl galindo text-transparent bg-clip-text bg-gradient-to-b from-yellow-500 to-orange-dark">
-          Welcome, Sunbeamer!
-        </h1>
+        <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+          <h1 className="shrink-0 text-3xl 2xl:text-5xl galindo text-transparent bg-clip-text bg-gradient-to-b from-yellow-500 to-orange-dark">
+            Welcome, {name ?? "Sunbeamer"}!
+          </h1>
+          <p className="text-blue-dark outfit font-bold">Sunbeam {city ?? "City"}</p>
+        </div>
 
         {/* 2 boxes row */}
         <div className="flex justify-between gap-4 2xl:gap-6 shrink-0 mb-8">
@@ -137,8 +140,9 @@ export default function OrganizersDashboard() {
       {/* ── MOBILE homepage — hidden on desktop ── */}
       <div className="lg:hidden w-full flex flex-col gap-4 overflow-y-auto pb-47 px-8 pt-6">
         <h1 className="mt-2 text-3xl galindo text-transparent bg-clip-text bg-gradient-to-b from-yellow-500 to-orange-dark">
-          Welcome, Sunbeamer!
+          Welcome, {name ?? "Sunbeamer"}!
         </h1>
+        <p className="text-blue-dark outfit font-bold" style={{textAlign: "right"}}>Sunbeam {city ?? "City"}</p>
 
         {/* weekly to-do */}
         <div className="flex flex-col gap-2">
