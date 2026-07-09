@@ -52,7 +52,6 @@ export default function DocsSidebar() {
           href="/organizers/docs/sponsorship"
           text="Sponsorship Guide"
         />
-        <SidebarItem href="/organizers/docs/budget" text="Budget" />
         <SidebarItem href="/organizers/docs/outreach" text="Outreach Guide" />
         <SidebarItem href="/organizers/docs/logistics" text="Logistics" />
         <SidebarItem href="/organizers/docs/day-of" text="Day Of" />
