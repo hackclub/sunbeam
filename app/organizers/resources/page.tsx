@@ -334,7 +334,7 @@ const CARDS = {
         </p>
         <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
           <a
-            href="placeholder"
+            href="https://docs.google.com/document/d/1tVdW5eC9mxGofrEDQ1xDiW1ui96ZBwPu/edit?usp=sharing&ouid=116778640831191755827&rtpof=true&sd=true"
             target="_blank"
             rel="noreferrer"
             style={{
@@ -351,7 +351,7 @@ const CARDS = {
             Donor Receipt →
           </a>
           <a
-            href="placeholder"
+            href="https://hcb.hackclub.com/sunbeam-athena/fiscal_sponsorship_letter.pdf"
             target="_blank"
             rel="noreferrer"
             style={{
@@ -365,7 +365,7 @@ const CARDS = {
               fontSize: "0.9rem",
             }}
           >
-            Verification Letter →
+            Fiscal Sponsorship Letter →
           </a>
         </div>
       </div>
