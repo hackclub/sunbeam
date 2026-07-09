@@ -76,7 +76,7 @@ export default function Organizers() {
                 soon)
                 <br /> <strong>2.</strong> once approved, join
                 <a
-                  href="https://hackclub.enterprise.slack.com/archives/C0BCUSTJQTG"
+                  href="https://auth.hackclub.com/join/sunbeam"
                   target="_blank"
                   className="p-1 px-2 m-1 bg-blue-bright/20  outline-blue-dark/65 hover:bg-blue-bright/25 hover:outline-2 hover:m-2 duration-200 rounded-xl text-nowrap "
                 >
@@ -144,7 +144,7 @@ export default function Organizers() {
               for approval - you&apos;ll receive an email from us soon)
               <br /> <strong>2.</strong> once approved, join
               <a
-                href="https://hackclub.enterprise.slack.com/archives/C0BCUSTJQTG"
+                href="https://auth.hackclub.com/join/sunbeam"
                 target="_blank"
                 className="p-1 px-2 m-1 bg-blue-bright/20 outline-blue-dark/65 hover:bg-blue-bright/25 hover:outline-2 hover:m-2 duration-200 rounded-xl text-nowrap"
               >
