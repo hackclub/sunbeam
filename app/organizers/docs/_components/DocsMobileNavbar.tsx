@@ -32,7 +32,11 @@ export default function DocsMobileNavbar() {
             __html: `
               (function() {
                 const navbar = document.getElementById("docs-mobile-navbar");
-                navbar.scrollLeft = sessionStorage.getItem("docsMobileNavbarScroll") || 0;
+                if (document.referrer && new URL(document.referrer).pathname.startsWith("/organizers/docs/")) {
+                  navbar.scrollLeft = sessionStorage.getItem("docsMobileNavbarScroll") || 0;
+                } else {
+                  sessionStorage.removeItem("docsMobileNavbarScroll");
+                }
                 navbar.addEventListener("scroll", function() {
                   sessionStorage.setItem("docsMobileNavbarScroll", navbar.scrollLeft);
                 });
