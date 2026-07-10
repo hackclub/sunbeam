@@ -3,7 +3,6 @@ import { redirect } from "next/navigation";
 import { fetchAllAirtableRecords } from "@/app/lib/airtable";
 import { getAdminEmails } from "@/app/lib/admin-auth";
 import OrganizersDashboard from "./OrganizersDashboard";
-import { getAdminEmails } from "@/app/lib/admin-auth";
 
 async function getApprovedOrganizers(): Promise<{ email: string; name: string | null; city: string | null }[]> {
 	const records = await fetchAllAirtableRecords(process.env.AIRTABLE_ORG_SIGNUP_TABLE_ID!).catch(() => []);
