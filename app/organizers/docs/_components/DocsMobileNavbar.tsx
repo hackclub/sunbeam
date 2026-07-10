@@ -1,8 +1,18 @@
+"use client";
+
 import Link from "next/link";
-//import { useState } from "react";
-import SidebarItem from "../components/SidebarItem";
+import SidebarItem from "../../../../components/SidebarItem";
+import { docsDirectory } from "../_lib/DocsDirectory";
 
 export default function DocsMobileNavbar() {
+  const scrollToCurrentPage = (el: HTMLDivElement) => {
+    el?.querySelector('a[href="#"]')?.scrollIntoView({
+      behavior: "auto",
+      block: "center",
+      inline: "center",
+    });
+  };
+
   return (
     <div>
       <nav
@@ -13,42 +23,22 @@ export default function DocsMobileNavbar() {
           backgroundPosition: "top",
         }}
       >
-        <div className="flex items-center justify-around py-3 px-4">
-          <Link href="/organizers/docs">
-            <img
-              src="/imgs/mobile-icon-docs.webp"
-              alt="Docs"
-              className="h-9 sm:h-12 hover:scale-110 duration-200"
-            />
-          </Link>
-          <Link href="/organizers/resources">
-            <img
-              src="/imgs/mobile-icon-resources.webp"
-              alt="More Resources"
-              className="h-9 sm:h-12 hover:scale-110 duration-200"
-            />
-          </Link>
-          <Link href="/organizers">
+        <div className="flex gap-4 items-center justify-around py-3 px-4">
+          <Link href="/organizers" style={{ flexShrink: 0}}>
             <img
               src="/imgs/mobile-icon-logo.webp"
               alt="Home"
               className="h-15 sm:h-20 -mt-4 hover:scale-110 duration-200"
             />
           </Link>
-          <Link href="/organizers/branding">
-            <img
-              src="/imgs/mobile-icon-branding.webp"
-              alt="Branding & Social Media"
-              className="h-9 sm:h-12 hover:scale-110 duration-200"
-            />
-          </Link>
-          <Link href="/organizers/contact-hq">
-            <img
-              src="/imgs/mobile-icon-contact.webp"
-              alt="Contact HQ"
-              className="h-9 sm:h-12 hover:scale-110 duration-200"
-            />
-          </Link>
+          <div
+            className="flex gap-10 overflow-x-auto overflow-y-hidden"
+            ref={scrollToCurrentPage}
+          >
+            {docsDirectory.map((item) => (
+              <SidebarItem href={item.href} text={item.text} key={item.href} />
+            ))}
+          </div>
         </div>
       </nav>
     </div>
