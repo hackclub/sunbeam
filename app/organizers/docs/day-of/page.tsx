@@ -56,11 +56,11 @@ export default function DocsVenue() {
               <p style={{ fontSize: "2.33vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6, marginBottom: "2.4vh" }}>
                 We all know that one barista or server. Or ridiculously extroverted person. Today, YOU are <span style={{fontStyle: "italic"}}>them.</span><br></br>
                 <br></br>
-                There are two ways to maximise your driendliness: <br/>
+                There are two ways to maximise your friendliness: <br/>
                 Either (1) talk to as many people as you can <br/>
                 Or (2) talk to the same people as often as possible<br></br>
                 <br/>
-                The best organisers do a combination of both, checking in with every single team every 2 hours or so. You should feel like your running laps at your event!<br/>
+                The best organisers do a combination of both, checking in with every single team every 2 hours or so. You should feel like you're running laps at your event!<br/>
                 <br/>
                 You may ask: “How would I start a convo without being weird?” Don’t worry, I gotchu. Here are some ideas:
               </p>

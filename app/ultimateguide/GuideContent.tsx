@@ -287,7 +287,7 @@ export default function GuideContent() {
 								<div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "2vw", marginBottom: "2vh" }}>
 									{[
 										{ n: 1, caption: "GOOD FOOD (Chipotle, CAVA, snacks, drinks...)" },
-										{ n: 2, caption: "Supplies (power strips, tablecloths, surprizes, etc.)" },
+										{ n: 2, caption: "Supplies (power strips, tablecloths, surprises, etc.)" },
 										{ n: 3, caption: "Merch!!" },
 									].map(({ n, caption }) => (
 										<div key={n} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1vh" }}>

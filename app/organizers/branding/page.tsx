@@ -50,7 +50,7 @@ export default function OrganizerDocs() {
               href="placeholder"
               className="galindo text-xl 2xl:text-3xl text-orange-dark underline hover:decoration-wavy"
             >
-              Instragram Post Templates Link
+              Instagram Post Templates Link
             </a>
           </div>
         </div>

@@ -36,7 +36,7 @@ export default function DocsVenue() {
               <img src="/imgs/guide/ray.webp" alt="Ray" style={{ width: "22vw" }} className="object-contain" />
             </div>
             <p style={{ fontSize: "1.94vw", color: "#D88127", lineHeight: 1.6, marginBottom: "2vh" }}>
-              Note: only ~50% of sign-ups show up. Try to aim for sign ups to be 2x the amount of people you want to attend. The more the marrier! 
+              Note: only ~50% of sign-ups show up. Try to aim for sign ups to be 2x the amount of people you want to attend. The more the merrier! 
             </p>
 
             {/* schools */}
@@ -50,7 +50,7 @@ export default function DocsVenue() {
               <p style={{ fontSize: "2.33vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6, marginBottom: "2.4vh" }}>
                 1) Find schools within a 30 mile radius (through Google Maps) and visit their websites. <br></br>
                 2) Search for the staff/faculty directory and email all STEM teachers / homerooms. <br></br>
-                3) Make the email applicable to them. (TIP: If your Director of Education has an email blast, ask them to include yout event in the newsletter.) <br></br>
+                3) Make the email applicable to them. (TIP: If your Director of Education has an email blast, ask them to include your event in the newsletter.) <br></br>
                 <br/>
                 Checkout the 
                 <a
@@ -131,7 +131,7 @@ export default function DocsVenue() {
               </p>
               <ul style={{ listStyleType: "disc", paddingLeft: "3vw", marginTop: "1.5vh" }}>
                 <li style={{ fontSize: "2.13vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6 }}>
-                  Post small tibits of info (what to bring, faw, beginner-friendly, how fun it'll be, etc)
+                  Post small tidbits of info (what to bring, faq, beginner-friendly, how fun it'll be, etc)
                 </li>
                 <li style={{ fontSize: "2.13vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6, marginTop: "1vh" }}>
                   Add visuals (maybe even do a video!) 

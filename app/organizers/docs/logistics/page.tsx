@@ -45,7 +45,7 @@ export default function DocsVenue() {
             </div>
             <div style={{ padding: "0 7.4% 4vh" }}>
               <p style={{ fontSize: "2.33vw", fontWeight: 400, color: "#0E387A", lineHeight: 1.6, marginBottom: "2.4vh" }}>
-                A run of show is a fleshed-out schedule <span style={{ fontStyle: "italic" }}>for organizers</span> that detail everything that’s happening before, during, and after the social coding event in each room and what each organiser is doing.
+                A run of show is a fleshed-out schedule <span style={{ fontStyle: "italic" }}>for organizers</span> that details everything that’s happening before, during, and after the social coding event in each room and what each organiser is doing.
               </p>
               <div style={{ background: "#9CD4E7", padding: "2.5vh 3vw", borderRadius: "10px", marginBottom: "2.5vh" }}>
                 <p style={{ fontSize: "2.33vw", fontWeight: 800, color: "#D88127", lineHeight: 1.6 }}>
