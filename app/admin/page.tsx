@@ -1,18 +1,6 @@
 import { cookies, headers } from "next/headers";
+import { getAdminEmails } from "@/app/lib/admin-auth";
 import AdminDashboard from "./AdminDashboard";
-
-async function getAdminEmails(): Promise<string[]> {
-	const url = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/${process.env.AIRTABLE_ADMIN_TABLE_ID}`;
-	const res = await fetch(url, {
-		headers: { Authorization: `Bearer ${process.env.AIRTABLE_PAT}` },
-		cache: "no-store",
-	});
-	if (!res.ok) return [];
-	const data = await res.json();
-	return (data.records ?? [])
-		.map((r: { fields: { email?: string } }) => r.fields.email?.toLowerCase())
-		.filter(Boolean);
-}
 
 async function getCurrentUserEmail(token: string): Promise<string | null> {
 	const res = await fetch("https://auth.hackclub.com/api/v1/me", {

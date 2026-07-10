@@ -1,23 +1,22 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { fetchAllAirtableRecords } from "@/app/lib/airtable";
+import { getAdminEmails } from "@/app/lib/admin-auth";
 import OrganizersDashboard from "./OrganizersDashboard";
 
 async function getApprovedOrganizers(): Promise<{ email: string; name: string | null; city: string | null }[]> {
-	const url = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/${process.env.AIRTABLE_ORG_SIGNUP_TABLE_ID}`;
-	const res = await fetch(url, {
-		headers: { Authorization: `Bearer ${process.env.AIRTABLE_PAT}` },
-		cache: "no-store",
-	});
-	if (!res.ok) return [];
-	const data = await res.json();
-	return (data.records ?? [])
-		.filter((r: { fields: { approve_as_org?: string } }) => r.fields.approve_as_org === "approved")
-		.map((r: { fields: { email?: string; preferred_name?: string; first_name?: string; approved_city?: string } }) => ({
-			email: r.fields.email?.toLowerCase() ?? "",
-			name: r.fields.preferred_name || r.fields.first_name || null,
-			city: r.fields.approved_city ?? null,
-		}))
-		.filter((r: { email: string }) => r.email);
+	const records = await fetchAllAirtableRecords(process.env.AIRTABLE_ORG_SIGNUP_TABLE_ID!).catch(() => []);
+	return records
+		.filter((r) => r.fields.approve_as_org === "approved")
+		.map((r) => {
+			const f = r.fields as { email?: string; preferred_name?: string; first_name?: string; approved_city?: string };
+			return {
+				email: f.email?.toLowerCase() ?? "",
+				name: f.preferred_name || f.first_name || null,
+				city: f.approved_city ?? null,
+			};
+		})
+		.filter((r) => r.email);
 }
 
 async function getCurrentUserEmail(token: string): Promise<string | null> {
@@ -37,18 +36,20 @@ export default async function OrganizersPage() {
 		redirect("/organizer-auth");
 	}
 
-	const [email, organizers] = await Promise.all([
+	const [email, organizers, adminEmails] = await Promise.all([
 		getCurrentUserEmail(token),
 		getApprovedOrganizers(),
+		getAdminEmails(),
 	]);
 
 	const organizer = organizers.find((o) => o.email === email);
+	const isAdmin = !!email && adminEmails.includes(email);
 
-	if (!email || !organizer) {
+	if (!email || (!organizer && !isAdmin)) {
 		return <AccessDenied email={email} />;
 	}
 
-	return <OrganizersDashboard name={organizer.name} city={organizer.city} />;
+	return <OrganizersDashboard name={organizer?.name ?? null} city={organizer?.city ?? null} />;
 }
 
 function AccessDenied({ email }: { email: string | null }) {
