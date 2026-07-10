@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import OrganizersDashboard from "./OrganizersDashboard";
+import { getAdminEmails } from "@/app/lib/admin-auth";
 
 async function getApprovedOrganizers(): Promise<{ email: string; name: string | null; city: string | null }[]> {
 	const url = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/${process.env.AIRTABLE_ORG_SIGNUP_TABLE_ID}`;
@@ -37,18 +38,20 @@ export default async function OrganizersPage() {
 		redirect("/organizer-auth");
 	}
 
-	const [email, organizers] = await Promise.all([
+	const [email, organizers, adminEmails] = await Promise.all([
 		getCurrentUserEmail(token),
 		getApprovedOrganizers(),
+		getAdminEmails(),
 	]);
 
 	const organizer = organizers.find((o) => o.email === email);
+	const isAdmin = !!email && adminEmails.includes(email);
 
-	if (!email || !organizer) {
+	if (!email || (!organizer && !isAdmin)) {
 		return <AccessDenied email={email} />;
 	}
 
-	return <OrganizersDashboard name={organizer.name} city={organizer.city} />;
+	return <OrganizersDashboard name={organizer?.name ?? null} city={organizer?.city ?? null} />;
 }
 
 function AccessDenied({ email }: { email: string | null }) {

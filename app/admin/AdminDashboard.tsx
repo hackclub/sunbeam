@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
+import CityPicker, { type VerifiedCity } from "./CityPicker";
 
 export type AppRecord = {
   id: string;
@@ -32,6 +33,8 @@ export type AppRecord = {
     comfortable_with_poc?: boolean;
     approved_as_poc?: boolean;
     approved_city?: string;
+    approved_latitude?: number;
+    approved_longitude?: number;
     approve_as_org?: string;
     [key: string]: unknown;
   };
@@ -335,7 +338,16 @@ function AppDetail({ app, onClose, onUpdate }: { app: AppRecord; onClose: () => 
         {/* Status */}
         <section className="flex flex-col gap-3">
           <h2 className="galindo text-blue-dark text-base border-b border-blue-dark/20 pb-1">Status</h2>
-          <StatusButtons appId={app.id} current={status} currentPoc={!!f.approved_as_poc} currentCity={f.approved_city} onUpdate={onUpdate} />
+          <StatusButtons
+            appId={app.id}
+            current={status}
+            currentPoc={!!f.approved_as_poc}
+            currentCity={f.approved_city}
+            currentLatitude={f.approved_latitude}
+            currentLongitude={f.approved_longitude}
+            hostCity={location || f.host_city}
+            onUpdate={onUpdate}
+          />
         </section>
 
         {/* Follow up */}
@@ -368,9 +380,13 @@ function optionKey(o: StatusOption) {
   return `${o.value}:${o.poc ?? ""}`;
 }
 
-function StatusButtons({ appId, current, currentPoc, currentCity, onUpdate }: { appId: string; current: string; currentPoc: boolean; currentCity?: string; onUpdate: (id: string, fields: Partial<AppRecord["fields"]>) => void }) {
+function StatusButtons({ appId, current, currentPoc, currentCity, currentLatitude, currentLongitude, hostCity, onUpdate }: { appId: string; current: string; currentPoc: boolean; currentCity?: string; currentLatitude?: number; currentLongitude?: number; hostCity?: string; onUpdate: (id: string, fields: Partial<AppRecord["fields"]>) => void }) {
   const [saving, setSaving] = useState<string | null>(null);
-  const [approvedCity, setApprovedCity] = useState(currentCity ?? "");
+  const [verifiedCity, setVerifiedCity] = useState<VerifiedCity | null>(
+    currentCity && currentLatitude !== undefined && currentLongitude !== undefined
+      ? { city: currentCity, state: null, country: null, displayName: currentCity, latitude: currentLatitude, longitude: currentLongitude }
+      : null
+  );
 
   function isActive(o: StatusOption) {
     return o.value === current && (o.poc === undefined || o.poc === currentPoc);
@@ -379,12 +395,16 @@ function StatusButtons({ appId, current, currentPoc, currentCity, onUpdate }: { 
   async function handleClick(e: React.MouseEvent, option: StatusOption) {
     e.stopPropagation();
     const isApprove = option.poc !== undefined;
-    if (saving || isActive(option) || (isApprove && !approvedCity.trim())) return;
+    if (saving || isActive(option) || (isApprove && !verifiedCity)) return;
     const key = optionKey(option);
     setSaving(key);
     const fields: Partial<AppRecord["fields"]> = { approve_as_org: option.value };
     if (option.poc !== undefined) fields.approved_as_poc = option.poc;
-    if (isApprove) fields.approved_city = approvedCity.trim();
+    if (isApprove && verifiedCity) {
+      fields.approved_city = verifiedCity.city;
+      fields.approved_latitude = verifiedCity.latitude;
+      fields.approved_longitude = verifiedCity.longitude;
+    }
     onUpdate(appId, fields);
     try {
       const res = await fetch("/api/update-status", {
@@ -394,12 +414,18 @@ function StatusButtons({ appId, current, currentPoc, currentCity, onUpdate }: { 
           id: appId,
           status: option.value,
           ...(option.poc !== undefined ? { approved_as_poc: option.poc } : {}),
-          ...(isApprove ? { approved_city: approvedCity.trim() } : {}),
+          ...(isApprove && verifiedCity
+            ? {
+                approved_city: verifiedCity.city,
+                approved_latitude: verifiedCity.latitude,
+                approved_longitude: verifiedCity.longitude,
+              }
+            : {}),
         }),
       });
-      if (!res.ok) onUpdate(appId, { approve_as_org: current, approved_as_poc: currentPoc, approved_city: currentCity });
+      if (!res.ok) onUpdate(appId, { approve_as_org: current, approved_as_poc: currentPoc, approved_city: currentCity, approved_latitude: currentLatitude, approved_longitude: currentLongitude });
     } catch {
-      onUpdate(appId, { approve_as_org: current, approved_as_poc: currentPoc, approved_city: currentCity });
+      onUpdate(appId, { approve_as_org: current, approved_as_poc: currentPoc, approved_city: currentCity, approved_latitude: currentLatitude, approved_longitude: currentLongitude });
     } finally {
       setSaving(null);
     }
@@ -407,17 +433,15 @@ function StatusButtons({ appId, current, currentPoc, currentCity, onUpdate }: { 
 
   return (
     <div className="flex flex-col gap-2" onClick={(e) => e.stopPropagation()}>
-      <input
-        type="text"
-        value={approvedCity}
-        onChange={(e) => setApprovedCity(e.target.value)}
-        placeholder="Approved city..."
-        className="border border-blue-dark rounded-full px-3 py-1 text-xs bg-white outline-none"
+      <CityPicker
+        value={verifiedCity}
+        onChange={setVerifiedCity}
+        initialQuery={currentCity ?? hostCity ?? ""}
       />
       <div className="flex gap-1 flex-wrap">
       {STATUS_OPTIONS.map((option) => {
         const key = optionKey(option);
-        const disabled = !!saving || (option.poc !== undefined && !approvedCity.trim());
+        const disabled = !!saving || (option.poc !== undefined && !verifiedCity);
         return (
           <button
             key={key}

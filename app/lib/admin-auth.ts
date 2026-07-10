@@ -1,7 +1,7 @@
 import "server-only";
 import { cookies } from "next/headers";
 
-async function getAdminEmails(): Promise<string[]> {
+export async function getAdminEmails(): Promise<string[]> {
   const url = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/${process.env.AIRTABLE_ADMIN_TABLE_ID}`;
   const res = await fetch(url, {
     headers: { Authorization: `Bearer ${process.env.AIRTABLE_PAT}` },
