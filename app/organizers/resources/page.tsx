@@ -131,7 +131,10 @@ const CARDS = {
   outreach: {
     title: "Outreach Email Templates",
     content: (
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
+      <div
+        className="grid-cols-1 md:grid-cols-2"
+        style={{ display: "grid", gap: "2rem" }}
+      >
         {/* Participants */}
         <div>
           <p style={{ fontSize: "1.7rem", fontWeight: "bold", marginBottom: "0.75rem", color: "#d88127" }}>
@@ -390,6 +393,7 @@ function Card({ id, title, children, wide = false, short = false }: { id: string
         flexDirection: "column",
         transform: "translateZ(0)",
         isolation: "isolate",
+        height: "max-content",
       }}
     >
       {/* Card header — always visible, acts as toggle */}
