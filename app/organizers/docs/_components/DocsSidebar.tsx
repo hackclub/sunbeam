@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import SidebarItem from "./SidebarItem";
+import SidebarItem from "../../../../components/SidebarItem";
+import { docsDirectory } from "../_lib/DocsDirectory";
 
 export default function DocsSidebar() {
   const [sidebarClosed, setSidebarClosed] = useState(false);
@@ -43,18 +44,9 @@ export default function DocsSidebar() {
             alt="go to landing page"
           ></img>
         </Link>
-        <SidebarItem
-          href="/organizers/docs/quickstart"
-          text="Quickstart Guide"
-        />
-        <SidebarItem href="/organizers/docs/venue" text="Venue Guide" />
-        <SidebarItem
-          href="/organizers/docs/sponsorship"
-          text="Sponsorship Guide"
-        />
-        <SidebarItem href="/organizers/docs/outreach" text="Outreach Guide" />
-        <SidebarItem href="/organizers/docs/logistics" text="Logistics" />
-        <SidebarItem href="/organizers/docs/day-of" text="Day Of" />
+        {docsDirectory.map((item) => (
+          <SidebarItem href={item.href} text={item.text} key={item.href} />
+        ))}
       </div>
       <button
         onClick={() => setSidebarClosed(!sidebarClosed)}

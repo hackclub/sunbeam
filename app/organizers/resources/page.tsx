@@ -131,7 +131,10 @@ const CARDS = {
   outreach: {
     title: "Outreach Email Templates",
     content: (
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
+      <div
+        className="grid-cols-1 md:grid-cols-2"
+        style={{ display: "grid", gap: "2rem" }}
+      >
         {/* Participants */}
         <div>
           <p style={{ fontSize: "1.7rem", fontWeight: "bold", marginBottom: "0.75rem", color: "#d88127" }}>
@@ -390,6 +393,7 @@ function Card({ id, title, children, wide = false, short = false }: { id: string
         flexDirection: "column",
         transform: "translateZ(0)",
         isolation: "isolate",
+        height: "max-content",
       }}
     >
       {/* Card header — always visible, acts as toggle */}
@@ -465,9 +469,9 @@ export default function OrganizerDocs() {
 
       {/* Main scrollable area */}
       <div
+        className="p-4 pb-33 sm:p-8 sm:pb-46 lg:pb-8"
         style={{
           flex: 1,
-          padding: "2rem 2.5rem",
           display: "flex",
           flexDirection: "column",
           gap: "1.25rem",
@@ -483,11 +487,7 @@ export default function OrganizerDocs() {
 
         {/* Row 1: Venue + Sponsor side by side */}
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "1.25rem",
-          }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-5"
         >
           <Card id="venue" title="📍 Venue Email Template">
             {CARDS.venue.content}
@@ -504,11 +504,7 @@ export default function OrganizerDocs() {
 
         {/* Row 3: Budget + Prospectus side by side */}
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "1.25rem",
-          }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-5"
         >
           <Card id="budget" title="💰 Budget Template" short>
             {CARDS.budget.content}
@@ -520,11 +516,7 @@ export default function OrganizerDocs() {
 
         {/* Row 4: service hours + hq side by side */}
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "1.25rem",
-          }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-5"
         >
           <Card id="hours" title="🏫 Service Hours" short>
             {CARDS.hours.content}

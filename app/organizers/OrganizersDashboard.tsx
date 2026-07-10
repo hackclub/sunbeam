@@ -77,7 +77,7 @@ export default function OrganizersDashboard({ name, city }: { name?: string | nu
                 <strong>1.</strong> Sign up to be an organizer in your city!
                 (wait for approval - you&apos;ll receive an email from us
                 soon)
-                <br /> <strong>2.</strong> once approved, join
+                <br /> <strong>2.</strong> once approved, join{" "}
                 <a
                   href="https://auth.hackclub.com/join/sunbeam"
                   target="_blank"
@@ -153,7 +153,7 @@ export default function OrganizersDashboard({ name, city }: { name?: string | nu
             <p className="text-blue-dark outfit text-base text-pretty">
               <strong>1.</strong> Sign up to be an organizer in your city! (wait
               for approval - you&apos;ll receive an email from us soon)
-              <br /> <strong>2.</strong> once approved, join
+              <br /> <strong>2.</strong> once approved, join{" "}
               <a
                 href="https://auth.hackclub.com/join/sunbeam"
                 target="_blank"

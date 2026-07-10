@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Galindo, Outfit } from "next/font/google";
+import RouteTracker from "../components/RouteTracker";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -41,7 +42,10 @@ export default function RootLayout({
 			lang="en"
 			className={`${geistSans.variable} ${geistMono.variable} ${galindo.variable} ${outfit.variable} h-full antialiased`}
 		>
-			<body className="min-h-full flex flex-col" suppressHydrationWarning>{children}</body>
+			<body className="min-h-full flex flex-col" suppressHydrationWarning>
+				<RouteTracker />
+				{children}
+			</body>
 		</html>
 	);
 }
