@@ -51,14 +51,20 @@ const socialHighlights = [
 	{
 		title: "Build",
 		description: "Turn an idea into something you’re proud of.",
+		image: "/imgs/img4.webp",
+		accentClasses: "border-[#C54390] text-[#C54390]",
 	},
 	{
 		title: "Have Fun",
 		description: "Enjoy snacks, laughs, and a great day together.",
+		image: "/imgs/img5.webp",
+		accentClasses: "border-[#2E599C] text-[#2E599C]",
 	},
 	{
 		title: "Make Friends",
 		description: "Meet other girls who love creating and coding.",
+		image: "/imgs/img6.webp",
+		accentClasses: "border-[#C79713] text-[#C79713]",
 	},
 ];
 
@@ -231,64 +237,46 @@ const TemplatePage = () => {
 						</div>
 					</div>
 
-					{/* The License Plates */}
-					<div className="w-[77.5vw] my-[8vh] flex flex-col gap-[2vh]">
-						<div className="grid grid-cols-[6fr_4fr] gap-[2vw]">
-							<div className="w-full h-full rounded-[1vh] border-[0.5vh] border-[#2E599C] bg-[#FBF6E7] px-[2vw] py-[3vh] text-center flex flex-col items-center justify-center">
-								<h3 className="galindo text-[4.5vh] text-[#2E599C] leading-tight">
-									{socialHighlights[0].title}
-								</h3>
-								<p className="outfit text-[2.3vh] text-[#0E387A] mt-[1vh]">
-									{socialHighlights[0].description}
-								</p>
+					{/* Highlight cards */}
+					<div className="w-[85vw] md:w-[77.5vw] my-[8vh] flex flex-col gap-[3vh]">
+						{socialHighlights.map((highlight, index) => (
+							<div
+								key={highlight.title}
+								className={`grid grid-cols-1 md:grid-cols-2 gap-[2vh] md:gap-[2vw] ${
+									index % 2 === 1 ? "md:[&>div:first-child]:order-2" : ""
+								}`}
+							>
+								<div
+									className={`w-full rounded-[2vh] border-[0.5vh] bg-[#FBF6E7] px-[6vw] md:px-[2.5vw] py-[3.5vh] text-center flex flex-col items-center justify-center shadow-[0_10px_24px_rgba(14,56,122,0.12)] ${highlight.accentClasses}`}
+								>
+									<p className="outfit text-[1.9vh] md:text-[2vh] uppercase tracking-[0.18em] text-[#0E387A]">
+										Why you'll love it
+									</p>
+									<h3 className="galindo text-[4vh] md:text-[4.5vh] leading-tight mt-[1vh]">
+										{highlight.title}
+									</h3>
+									<p className="outfit text-[2.2vh] md:text-[2.35vh] text-[#0E387A] mt-[1.5vh] leading-[1.3]">
+										{highlight.description}
+									</p>
+								</div>
+								<div className="w-full rounded-[2vh] border-[0.5vh] border-[#2E599C] overflow-hidden shadow-[0_10px_24px_rgba(14,56,122,0.15)]">
+									<img
+										src={highlight.image}
+										alt={`${highlight.title} at Sunbeam Social`}
+										className="w-full h-full object-cover min-h-[20vh] md:min-h-[26vh]"
+									/>
+								</div>
 							</div>
-
-							<img
-								src="/imgs/img4.webp"
-								alt=""
-								className="w-full h-full object-cover pb-[0vh] rounded-[1vh] rounded-b-[1vh]"
-							/>
-						</div>
-						<div className="grid grid-cols-[4fr_6fr] gap-[2vw]">
-							<img
-								src="/imgs/img5.webp"
-								alt=""
-								className="w-full h-full object-cover pb-[0vh] rounded-[1vh] rounded-b-[1vh]"
-							/>
-							<div className="w-full h-full rounded-[1vh] border-[0.5vh] border-[#2E599C] bg-[#FBF6E7] px-[2vw] py-[3vh] text-center flex flex-col items-center justify-center">
-								<h3 className="galindo text-[4.5vh] text-[#2E599C] leading-tight">
-									{socialHighlights[1].title}
-								</h3>
-								<p className="outfit text-[2.3vh] text-[#0E387A] mt-[1vh]">
-									{socialHighlights[1].description}
-								</p>
-							</div>
-						</div>
-						<div className="grid grid-cols-[6fr_4fr] gap-[2vw]">
-							<div className="w-full h-full rounded-[1vh] border-[0.5vh] border-[#2E599C] bg-[#FBF6E7] px-[2vw] py-[3vh] text-center flex flex-col items-center justify-center">
-								<h3 className="galindo text-[4.5vh] text-[#2E599C] leading-tight">
-									{socialHighlights[2].title}
-								</h3>
-								<p className="outfit text-[2.3vh] text-[#0E387A] mt-[1vh]">
-									{socialHighlights[2].description}
-								</p>
-							</div>
-
-							<img
-								src="/imgs/img6.webp"
-								alt=""
-								className="w-full h-full object-cover pb-[0vh] rounded-[1vh] rounded-b-[1vh]"
-							/>
-						</div>
+						))}
 					</div>
 
 					{/* CTA */}
-					<h2 className="outfit text-[6vh] text-[#C54390] text-center w-[70vw] md:w-[60vw] leading-[7.5vh] my-[4vh] drop-shadow-sm">
+					<h2 className="outfit text-[6vh] text-[#C54390] text-center w-[70vw] md:w-[60vw] leading-[7.5vh] my-[2vh] drop-shadow-sm">
 						Ready? Come enjoy the sunshine!
 					</h2>
 					<a
 						href="/apply"
-						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
+						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto mb-[5vh]"
 					>
 						<img
 							src="/imgs/sign-up2.webp"
@@ -300,47 +288,55 @@ const TemplatePage = () => {
 			</div>
 
 			{/* Schedule */}
-			<div className="relative min-h-[130vh] items-center justify-center w-full mt-[5vh] flex flex-col pt-[0vh] z-5">
+			<div className="relative min-h-[130vh] items-center justify-center w-full flex flex-col pt-[0vh] z-5">
 				<img
 					src="/imgs/boardwalk2.webp"
 					className="z-0 absolute w-full h-[130vh] top-0 left-0"
 					alt=""
 				/>
 				<div className="z-5 relative">
-					<h1 className="galindo text-[9vh] leading-[9vh] md:leading-[8vh] text-center text-[#72BFDA] stroke-text blue-outlined-text mb-[1vh]">
+					<h1 className="galindo text-[9vh] text-center text-[#72BFDA] stroke-text blue-outlined-text mb-[1vh]">
 						Schedule
 					</h1>
 				</div>
-				<div className="flex flex-col items-center justify-center w-[80vw] mx-auto mt-[2vh] gap-[1vh] relative z-5">
-					{schedule.map((item: any, index: any) => (
-						<div
-							className={`flex gap-[1vh] items-center justify-center w-full`}
-							key={index}
-						>
-							<div
-								className={`bg-[#c0e5f2] border-[0.2vh] border-[#0e387a] rounded-[0.75vh] w-1/5 items-center justify-center flex py-[2.5vh] ${
-									index === 0 ? "rounded-tl-[5vh]" : ""
-								}
-                ${index === schedule.length - 1 ? "rounded-bl-[5vh]" : ""}
-                `}
-							>
-								<p className="text-[#0e387a] text-[3.5vh] font-semibold">
-									{item.time}
-								</p>
-							</div>
-							<div
-								className={`bg-[#c0e5f2] border-[0.2vh] border-[#0e387a] rounded-[0.75vh] w-4/5 items-center justify-center flex py-[2.5vh] ${
-									index === 0 ? "rounded-tr-[5vh]" : ""
-								}
-                ${index === schedule.length - 1 ? "rounded-br-[5vh]" : ""}
-                `}
-							>
-								<p className="text-[#0e387a] text-[3.5vh] font-semibold">
-									{item.event}
-								</p>
-							</div>
+				<div className="flex flex-col items-center justify-center w-[86vw] md:w-[80vw] max-w-[1100px] mx-auto mt-[1vh] relative z-5">
+					<div className="w-full rounded-[3vh] border-[0.5vh] border-[#0e387a] bg-[#f1fbff89] p-[2vh] md:p-[2.5vh] shadow-[0_12px_28px_rgba(14,56,122,0.2)]">
+						<div className="flex items-center justify-between mb-[1.5vh] px-[1vw]">
+							<p className="outfit text-[#0e387a] text-[2.1vh] md:text-[2.3vh] font-semibold">
+								Event timeline
+							</p>
+							<p className="outfit text-[#2E599C] text-[1.8vh] md:text-[2vh]">
+								Subject to local updates
+							</p>
 						</div>
-					))}
+						<div className="flex flex-col gap-[1vh]">
+							{schedule.map((item, index) => (
+								<div
+									className="flex flex-col md:flex-row gap-[1vh] items-stretch justify-center w-full"
+									key={index}
+								>
+									<div
+										className={`bg-[#c0e5f2] border-[0.25vh] border-[#0e387a] rounded-[1.25vh] md:rounded-[1.5vh] md:w-[22%] items-center justify-center flex px-[2vw] py-[1.75vh] md:py-[2.2vh] ${
+											index === 0 ? "md:rounded-tl-[3vh]" : ""
+										} ${index === schedule.length - 1 ? "md:rounded-bl-[3vh]" : ""}`}
+									>
+										<p className="text-[#0e387a] text-[2.7vh] md:text-[3.2vh] font-semibold">
+											{item.time}
+										</p>
+									</div>
+									<div
+										className={`bg-[#e2f5fb] border-[0.25vh] border-[#0e387a] rounded-[1.25vh] md:rounded-[1.5vh] md:w-[78%] items-center justify-center flex px-[5vw] md:px-[2vw] py-[1.75vh] md:py-[2.2vh] ${
+											index === 0 ? "md:rounded-tr-[3vh]" : ""
+										} ${index === schedule.length - 1 ? "md:rounded-br-[3vh]" : ""}`}
+									>
+										<p className="text-[#0e387a] text-[2.35vh] md:text-[2.8vh] font-semibold text-center md:text-left leading-[1.2]">
+											{item.event}
+										</p>
+									</div>
+								</div>
+							))}
+						</div>
+					</div>
 				</div>
 			</div>
 
