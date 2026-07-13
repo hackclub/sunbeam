@@ -1,4 +1,13 @@
 export async function POST(request: Request) {
+
+		const now = new Date();
+	const endDate = new Date("July 14, 2026 05:00:00");
+	if (now.getTime() > endDate.getTime()) {
+		return Response.json({ error: "Applications are closed" }, { status: 403 });
+	}
+
+
+
 	const body = await request.json();
 
 	const fields: Record<string, unknown> = {
