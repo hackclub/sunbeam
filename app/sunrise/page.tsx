@@ -38,7 +38,7 @@ export default function SunriseGuideHome() {
 						sizes="95vw"
 					/>
 					<div className="relative h-full flex flex-col items-center justify-center text-center px-[8%]">
-						<h1 className="galindo text-[clamp(2.3rem,4.8vw,4rem)] text-[#d88127] leading-tight">
+						<h1 className="galindo text-[clamp(2.3rem,4.8vw,4rem)] gradient-text leading-tight">
 							Basic Website Creation Guide
 						</h1>
 						<p className="outfit text-[clamp(1.2rem,1.9vw,1.7rem)] text-[#2e599c] mt-[2vh] max-w-[720px] leading-tight">

@@ -185,7 +185,7 @@ export default function Home() {
 									APPLY!
 								</h2>
 								<p className="outfit text-[2.25vh] text-center text-[#C54390]">
-									Apply to <span className="underline">organize</span>{" "}a Sunbeam
+									Apply to <span className="underline">organize</span> a Sunbeam
 									using our form. Experience helps but isn&apos;t necessary!
 								</p>
 							</div>
@@ -205,7 +205,10 @@ export default function Home() {
 									PLAN!
 								</h2>
 								<p className="outfit text-[2.25vh] text-center text-[#2E599C]">
-									Plan for <span className="underline">venue</span>, <span className="underline">budget</span> and <span className="underline">get</span> girls to sign up! Stock up on food, drinks, and prizes.
+									Plan for <span className="underline">venue</span>,{" "}
+									<span className="underline">budget</span> and{" "}
+									<span className="underline">get</span> girls to sign up! Stock
+									up on food, drinks, and prizes.
 								</p>
 							</div>
 						</div>
@@ -249,7 +252,10 @@ export default function Home() {
 					<h2 className="outfit text-[6vh] text-[#C54390] text-center w-[70vw] md:w-[60vw] leading-[7.5vh] my-[4vh] drop-shadow-sm">
 						Ready? Let the sun beam in your city!
 					</h2>
-					<p className="outfit text-[#2E599C]" style={{ fontSize: "2.0vw", fontWeight: 540, lineHeight: 1.4 }}>
+					<p
+						className="outfit text-[#2E599C]"
+						style={{ fontSize: "2.0vw", fontWeight: 540, lineHeight: 1.4 }}
+					>
 						Deadline to apply to be an organizer is July 13th.
 					</p>
 					<a
@@ -345,9 +351,31 @@ export default function Home() {
 
 						{/* Right description */}
 						<p className="outfit text-black/60 md:text-[#FAF0D3] text-[2.75vw] md:text-[1.5vw] leading-relaxed max-w-[80vw] md:max-w-[60vw]">
-							Hack Club is a 501(c)(3) nonprofit and network of 130k+ technical teenagers. We believe you learn best by building, so we&apos;re creating community and providing grants so you can make awesome projects.
+							Hack Club is a 501(c)(3) nonprofit and network of 130k+ technical
+							teenagers. We believe you learn best by building, so we&apos;re
+							creating community and providing grants so you can make awesome
+							projects.
 							<br />
-							Previously, we&apos;ve organized the largest all-girls high school hackathon <a href="https://parthenon.hackclub.com/" target="_blank" rel="noopener noreferrer" className="underline">Parthenon</a>, game-jam simultaneously in 200+ cities called <a href="https://campfire.hackclub.com/" target="_blank" rel="noopener noreferrer" className="underline">Campfire</a>, and many more.
+							Previously, we&apos;ve organized the largest all-girls high school
+							hackathon{" "}
+							<a
+								href="https://parthenon.hackclub.com/"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="underline"
+							>
+								Parthenon
+							</a>
+							, game-jam simultaneously in 200+ cities called{" "}
+							<a
+								href="https://campfire.hackclub.com/"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="underline"
+							>
+								Campfire
+							</a>
+							, and many more.
 						</p>
 					</div>
 

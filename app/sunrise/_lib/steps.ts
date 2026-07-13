@@ -1,11 +1,5 @@
 export type SunriseMilestone = "html" | "css" | "js" | null;
 
-export type SunriseCodeBlock = {
-	filename: string;
-	language: "html" | "css" | "js";
-	code: string;
-};
-
 export type SunriseStep = {
 	id: number;
 	slug: `step${number}`;
@@ -15,7 +9,7 @@ export type SunriseStep = {
 	congratsMessage?: string;
 	milestoneComplete: SunriseMilestone;
 	checklist: string[];
-	codeBlocks: SunriseCodeBlock[];
+	screenshot?: string;
 };
 
 export const sunriseSteps: SunriseStep[] = [
@@ -31,7 +25,7 @@ export const sunriseSteps: SunriseStep[] = [
 			"Open index.html first.",
 			"Keep filenames exact.",
 		],
-		codeBlocks: [{ filename: "index.html", language: "html", code: "" }],
+		screenshot: "/imgs/step1.png",
 	},
 	{
 		id: 2,
@@ -42,25 +36,10 @@ export const sunriseSteps: SunriseStep[] = [
 		milestoneComplete: null,
 		checklist: [
 			"Use <!doctype html>.",
-			"Set <html lang=\"en\">.",
+			'Set <html lang="en">.',
 			"Add title and CSS link.",
 		],
-		codeBlocks: [
-			{
-				filename: "index.html",
-				language: "html",
-				code: `<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Basic Website</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body></body>
-</html>`,
-			},
-		],
+		screenshot: "/imgs/step2.png",
 	},
 	{
 		id: 3,
@@ -73,17 +52,6 @@ export const sunriseSteps: SunriseStep[] = [
 			"Add <header> for top content.",
 			"Add <main> for core content.",
 			"Add <footer> for closing text.",
-		],
-		codeBlocks: [
-			{
-				filename: "index.html",
-				language: "html",
-				code: `<body>
-  <header></header>
-  <main></main>
-  <footer></footer>
-</body>`,
-			},
 		],
 	},
 	{
@@ -98,22 +66,6 @@ export const sunriseSteps: SunriseStep[] = [
 			"Use h2 for section title.",
 			"Use h3 for subsection title.",
 		],
-		codeBlocks: [
-			{
-				filename: "index.html",
-				language: "html",
-				code: `<header>
-  <h1>My Basic Website</h1>
-  <p>Built from scratch with HTML, CSS, and JS.</p>
-</header>
-<main>
-  <section>
-    <h2>About</h2>
-    <h3>Who made this?</h3>
-  </section>
-</main>`,
-			},
-		],
 	},
 	{
 		id: 5,
@@ -126,15 +78,6 @@ export const sunriseSteps: SunriseStep[] = [
 			"Add a paragraph under h2.",
 			"Use strong for important words.",
 			"Use em for emphasis.",
-		],
-		codeBlocks: [
-			{
-				filename: "index.html",
-				language: "html",
-				code: `<p>I am learning to build websites.</p>
-<p><strong>Goal:</strong> finish a full basic website today.</p>
-<p>This project is <em>beginner-friendly</em>.</p>`,
-			},
 		],
 	},
 	{
@@ -149,15 +92,6 @@ export const sunriseSteps: SunriseStep[] = [
 			"Use clear link text.",
 			"Keep it inside your main section.",
 		],
-		codeBlocks: [
-			{
-				filename: "index.html",
-				language: "html",
-				code: `<a href="https://hackclub.com" target="_blank" rel="noopener noreferrer">
-  Visit Hack Club
-</a>`,
-			},
-		],
 	},
 	{
 		id: 7,
@@ -170,13 +104,6 @@ export const sunriseSteps: SunriseStep[] = [
 			"Create imgs/ folder.",
 			"Add one image file.",
 			"Write descriptive alt text.",
-		],
-		codeBlocks: [
-			{
-				filename: "index.html",
-				language: "html",
-				code: `<img src="./imgs/profile.jpg" alt="Portrait of the site creator" />`,
-			},
 		],
 	},
 	{
@@ -191,18 +118,6 @@ export const sunriseSteps: SunriseStep[] = [
 			"Wrap about in .card div.",
 			"Use class names for styling.",
 		],
-		codeBlocks: [
-			{
-				filename: "index.html",
-				language: "html",
-				code: `<header class="hero">
-  <div class="hero-inner">
-    <h1>My Basic Website</h1>
-    <p>Built from scratch with HTML, CSS, and JS.</p>
-  </div>
-</header>`,
-			},
-		],
 	},
 	{
 		id: 9,
@@ -215,20 +130,6 @@ export const sunriseSteps: SunriseStep[] = [
 			"Add h2 section title.",
 			"Add unordered list.",
 			"Use 3 list items.",
-		],
-		codeBlocks: [
-			{
-				filename: "index.html",
-				language: "html",
-				code: `<section class="card">
-  <h2>Skills I practiced</h2>
-  <ul>
-    <li>HTML structure</li>
-    <li>CSS styling</li>
-    <li>JavaScript interaction</li>
-  </ul>
-</section>`,
-			},
 		],
 	},
 	{
@@ -245,16 +146,6 @@ export const sunriseSteps: SunriseStep[] = [
 			"Headings are in good order.",
 			"Link and image are visible.",
 		],
-		codeBlocks: [
-			{
-				filename: "index.html",
-				language: "html",
-				code: `<footer>
-  <p>Made with love by me.</p>
-</footer>
-<script src="script.js"></script>`,
-			},
-		],
 	},
 	{
 		id: 11,
@@ -268,18 +159,6 @@ export const sunriseSteps: SunriseStep[] = [
 			"Set text color.",
 			"Set soft background color.",
 		],
-		codeBlocks: [
-			{
-				filename: "style.css",
-				language: "css",
-				code: `body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: #1f2a44;
-  background: #eef8ff;
-}`,
-			},
-		],
 	},
 	{
 		id: 12,
@@ -288,20 +167,7 @@ export const sunriseSteps: SunriseStep[] = [
 		goal: "Make text hierarchy clear and readable.",
 		estimatedTime: "5 min",
 		milestoneComplete: null,
-		checklist: [
-			"Increase h1 size.",
-			"Set h2 color.",
-			"Use line-height on p.",
-		],
-		codeBlocks: [
-			{
-				filename: "style.css",
-				language: "css",
-				code: `h1 { font-size: 2.4rem; color: #2e599c; }
-h2 { color: #d88127; }
-p { line-height: 1.6; }`,
-			},
-		],
+		checklist: ["Increase h1 size.", "Set h2 color.", "Use line-height on p."],
 	},
 	{
 		id: 13,
@@ -314,19 +180,6 @@ p { line-height: 1.6; }`,
 			"Add spacing to .card.",
 			"Round corners.",
 			"Add a subtle border.",
-		],
-		codeBlocks: [
-			{
-				filename: "style.css",
-				language: "css",
-				code: `.card {
-  margin: 20px 0;
-  padding: 20px;
-  border: 2px solid #0e387a22;
-  border-radius: 16px;
-  background: #ffffff;
-}`,
-			},
 		],
 	},
 	{
@@ -341,17 +194,6 @@ p { line-height: 1.6; }`,
 			"Add top/bottom padding.",
 			"Add gradient background.",
 		],
-		codeBlocks: [
-			{
-				filename: "style.css",
-				language: "css",
-				code: `.hero {
-  text-align: center;
-  padding: 48px 20px;
-  background: linear-gradient(to right, #d7ecff, #ffe9dc);
-}`,
-			},
-		],
 	},
 	{
 		id: 15,
@@ -365,17 +207,6 @@ p { line-height: 1.6; }`,
 			"Center with margin auto.",
 			"Add side padding.",
 		],
-		codeBlocks: [
-			{
-				filename: "style.css",
-				language: "css",
-				code: `main {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 20px;
-}`,
-			},
-		],
 	},
 	{
 		id: 16,
@@ -388,15 +219,6 @@ p { line-height: 1.6; }`,
 			"Color your links.",
 			"Add hover underline.",
 			"Set image width and radius.",
-		],
-		codeBlocks: [
-			{
-				filename: "style.css",
-				language: "css",
-				code: `a { color: #2e599c; font-weight: 700; }
-a:hover { text-decoration: underline; }
-img { width: 140px; border-radius: 999px; }`,
-			},
 		],
 	},
 	{
@@ -413,20 +235,6 @@ img { width: 140px; border-radius: 999px; }`,
 			"Add border-radius and padding.",
 			"Add hover transform.",
 		],
-		codeBlocks: [
-			{
-				filename: "style.css",
-				language: "css",
-				code: `button {
-  background: #2a66ff;
-  color: white;
-  border: 0;
-  border-radius: 999px;
-  padding: 12px 22px;
-}
-button:hover { transform: translateY(-1px); }`,
-			},
-		],
 	},
 	{
 		id: 18,
@@ -440,17 +248,6 @@ button:hover { transform: translateY(-1px); }`,
 			"Reduce hero padding.",
 			"Keep card spacing balanced.",
 		],
-		codeBlocks: [
-			{
-				filename: "style.css",
-				language: "css",
-				code: `@media (max-width: 700px) {
-  h1 { font-size: 1.8rem; }
-  .hero { padding: 32px 16px; }
-  main { padding: 14px; }
-}`,
-			},
-		],
 	},
 	{
 		id: 19,
@@ -463,17 +260,6 @@ button:hover { transform: translateY(-1px); }`,
 			"Add button id in HTML.",
 			"Read it in script.js.",
 			"Change text on click.",
-		],
-		codeBlocks: [
-			{
-				filename: "script.js",
-				language: "js",
-				code: `const button = document.getElementById("cheer-button");
-if (!button) throw new Error("Missing #cheer-button");
-button.addEventListener("click", () => {
-  button.textContent = "Thanks for visiting my site!";
-});`,
-			},
 		],
 	},
 	{
@@ -489,13 +275,6 @@ button.addEventListener("click", () => {
 			"Test heading, links, image, and button.",
 			"Fix any spacing issues you notice.",
 			"Publish with Netlify or GitHub Pages.",
-		],
-		codeBlocks: [
-			{
-				filename: "result",
-				language: "html",
-				code: "Your website is complete and ready to share.",
-			},
 		],
 	},
 ];
