@@ -691,7 +691,7 @@ export default function GuideContent() {
 						/>
 					</a>
 					<br></br>
-					<span style={{ fontWeight: 600 }}>Written by: Safia and Yanella, with the help of Deven. ♥️</span>
+					<span style={{ fontWeight: 600 }}>Written by: Safia and Yanella, with the help of RenRan. ♥️</span>
 				</p>
 			</div>
 

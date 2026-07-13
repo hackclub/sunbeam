@@ -9,14 +9,14 @@ import MobileNavbar from "../../components/MobileNavbar";
 
 export default function Organizers() {
   const daysUntilEvent = dayjs("2026-08-29").diff(dayjs(), "day");
-  const checkInCallDates = ["2026-07-07T09:00:00", "2026-07-14T09:00:00"];
+  const checkInCallDates = ["2026-07-18T20:00:00", "2026-07-19T08:00:00"];
   const soonestCheckIn = checkInCallDates
     .filter((d) => dayjs(d).isAfter(dayjs()))
     .reduce((a: string, b: string) => (dayjs(a).isBefore(dayjs(b)) ? a : b));
   const daysUntilNextCheckIn = dayjs(soonestCheckIn).diff(dayjs(), "day");
-  const soonestCheckInMonth = dayjs(soonestCheckIn).format("MM");
-  const soonestCheckInDay = dayjs(soonestCheckIn).format("DD");
-  const soonestCheckInTime = dayjs(soonestCheckIn).format("h:mm A");
+  const checkInCallLabels = checkInCallDates.map((d) =>
+    dayjs(d).format("M/D h:mm A")
+  );
 
   return (
     <div
@@ -115,10 +115,11 @@ export default function Organizers() {
               <h3 className="text-pink-dark outfit lg:text-lg">
                 meeting platform (zoom?)
               </h3>
-              <h3 className="text-pink-dark outfit lg:text-lg">
-                {soonestCheckInTime} EST - {soonestCheckInMonth}/
-                {soonestCheckInDay}
-              </h3>
+              {checkInCallLabels.map((label) => (
+                <h3 key={label} className="text-pink-dark outfit lg:text-lg">
+                  {label} EST
+                </h3>
+              ))}
               <h3 className="text-blue-bright outfit lg:text-lg">
                 more details &#8680;
               </h3>
@@ -200,9 +201,11 @@ export default function Organizers() {
             <h3 className="text-pink-dark outfit text-base">
               meeting platform (zoom?)
             </h3>
-            <h3 className="text-pink-dark outfit text-base">
-              {soonestCheckInTime} EST - {soonestCheckInDay}
-            </h3>
+            {checkInCallLabels.map((label) => (
+              <h3 key={label} className="text-pink-dark outfit text-base">
+                {label} EST
+              </h3>
+            ))}
             <h3 className="text-blue-bright outfit text-base">
               more details &#8680;
             </h3>
