@@ -52,19 +52,25 @@ const socialHighlights = [
 		title: "Build",
 		description: "Turn an idea into something you’re proud of.",
 		image: "/imgs/img4.webp",
-		accentClasses: "border-[#C54390] text-[#C54390]",
+		textClass: "text-[#C54390]",
+		tapeClass: "bg-[#C54390]",
+		rotateClass: "-rotate-3 hover:rotate-0",
 	},
 	{
 		title: "Have Fun",
 		description: "Enjoy snacks, laughs, and a great day together.",
 		image: "/imgs/img5.webp",
-		accentClasses: "border-[#2E599C] text-[#2E599C]",
+		textClass: "text-[#2E599C]",
+		tapeClass: "bg-[#2E599C]",
+		rotateClass: "rotate-2 hover:rotate-0",
 	},
 	{
 		title: "Make Friends",
 		description: "Meet other girls who love creating and coding.",
 		image: "/imgs/img6.webp",
-		accentClasses: "border-[#C79713] text-[#C79713]",
+		textClass: "text-[#C79713]",
+		tapeClass: "bg-[#C79713]",
+		rotateClass: "-rotate-2 hover:rotate-0",
 	},
 ];
 
@@ -130,7 +136,9 @@ const TemplatePage = () => {
 						No experience necessary - join today!
 					</h1>
 					<a
-						href="forms.hackclub.com/sunbeam-signup"
+						href="https://forms.hackclub.com/sunbeam-signup"
+						target="_blank"
+						rel="noopener noreferrer"
 						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
 					>
 						<img
@@ -214,7 +222,7 @@ const TemplatePage = () => {
 							<div className="border-[1vh] border-[#2E599C] w-full h-full rounded-[3vh] flex flex-col items-center justify-start p-[1vw]">
 								<img src="/imgs/img2.webp" className="pb-[2vh]" alt="" />
 								<h2 className="galindo text-center text-[4vh] text-[#2E599C]">
-									Team!
+									Team Up!
 								</h2>
 								<p className="outfit text-[2.25vh] text-center text-[#2E599C]">
 									Join a team of 1-3 people. Come in with your friends or meet
@@ -227,7 +235,7 @@ const TemplatePage = () => {
 							<div className="border-[1vh] border-[#C79713] w-full h-full rounded-[3vh] flex flex-col items-center justify-start p-[1vw]">
 								<img src="/imgs/img3.webp" className="pb-[2vh]" alt="" />
 								<h2 className="galindo text-center text-[4vh] text-[#C79713]">
-									Fun!
+									Have Fun!
 								</h2>
 								<p className="outfit text-[2.25vh] text-center text-[#C79713]">
 									August 29!! Have fun during the event: make friends, enjoy the
@@ -237,37 +245,44 @@ const TemplatePage = () => {
 						</div>
 					</div>
 
-					{/* Highlight cards */}
-					<div className="w-[85vw] md:w-[77.5vw] my-[8vh] flex flex-col gap-[3vh]">
-						{socialHighlights.map((highlight, index) => (
-							<div
-								key={highlight.title}
-								className={`grid grid-cols-1 md:grid-cols-2 gap-[2vh] md:gap-[2vw] ${
-									index % 2 === 1 ? "md:[&>div:first-child]:order-2" : ""
-								}`}
-							>
+					{/* Highlight polaroids */}
+					<div className="w-[85vw] md:w-[80vw] my-[9vh] flex flex-col items-center">
+						<h2 className="galindo text-[5vh] md:text-[6vh] text-[#D77393] text-center leading-tight mb-[6vh] max-w-[80%]">
+							Make Real Memories from a Sunbeam Social
+						</h2>
+
+						<div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-[6vh] md:gap-[4vw]">
+							{socialHighlights.map((highlight) => (
 								<div
-									className={`w-full rounded-[2vh] border-[0.5vh] bg-[#FBF6E7] px-[6vw] md:px-[2.5vw] py-[3.5vh] text-center flex flex-col items-center justify-center shadow-[0_10px_24px_rgba(14,56,122,0.12)] ${highlight.accentClasses}`}
+									key={highlight.title}
+									className={`relative bg-white rounded-[1vh] drop-shadow-lg shadow-neutral-700 p-[1.4vh] pb-[3vh] w-[62vw] sm:w-[42vw] md:w-[21vw] transition-transform duration-300 ${highlight.rotateClass}`}
 								>
-									<p className="outfit text-[1.9vh] md:text-[2vh] uppercase tracking-[0.18em] text-[#0E387A]">
-										Why you'll love it
-									</p>
-									<h3 className="galindo text-[4vh] md:text-[4.5vh] leading-tight mt-[1vh]">
-										{highlight.title}
-									</h3>
-									<p className="outfit text-[2.2vh] md:text-[2.35vh] text-[#0E387A] mt-[1.5vh] leading-[1.3]">
-										{highlight.description}
-									</p>
-								</div>
-								<div className="w-full rounded-[2vh] border-[0.5vh] border-[#2E599C] overflow-hidden shadow-[0_10px_24px_rgba(14,56,122,0.15)]">
-									<img
-										src={highlight.image}
-										alt={`${highlight.title} at Sunbeam Social`}
-										className="w-full h-full object-cover min-h-[20vh] md:min-h-[26vh]"
+									{/* washi tape */}
+									<span
+										className={`absolute -top-[1.4vh] left-1/2 -translate-x-1/2 -rotate-6 w-[9vh] h-[2.4vh] rounded-[0.3vh] opacity-90 shadow-sm ${highlight.tapeClass}`}
 									/>
+
+									<div className="aspect-[4/5] w-full overflow-hidden rounded-[0.4vh]">
+										<img
+											src={highlight.image}
+											alt={`${highlight.title} at Sunbeam Social`}
+											className="w-full h-full object-cover"
+										/>
+									</div>
+
+									<div className="text-center mt-[1.6vh] px-[0.5vh]">
+										<h3
+											className={`galindo text-[2.7vh] md:text-[3vh] leading-tight ${highlight.textClass}`}
+										>
+											{highlight.title}
+										</h3>
+										<p className="outfit text-[1.7vh] md:text-[1.8vh] text-[#0E387A]/80 mt-[0.6vh] leading-snug">
+											{highlight.description}
+										</p>
+									</div>
 								</div>
-							</div>
-						))}
+							))}
+						</div>
 					</div>
 
 					{/* CTA */}
@@ -288,54 +303,38 @@ const TemplatePage = () => {
 			</div>
 
 			{/* Schedule */}
-			<div className="relative min-h-[130vh] items-center justify-center w-full flex flex-col pt-[0vh] z-5">
+			<div className="relative w-full flex flex-col items-center py-[9vh] z-5 overflow-hidden">
 				<img
 					src="/imgs/boardwalk2.webp"
-					className="z-0 absolute w-full h-[130vh] top-0 left-0"
+					className="absolute inset-0 z-0 w-full h-full object-cover"
 					alt=""
 				/>
-				<div className="z-5 relative">
-					<h1 className="galindo text-[9vh] text-center text-[#72BFDA] stroke-text blue-outlined-text mb-[1vh]">
+				<div className="relative z-5 flex flex-col items-center w-[88vw] md:w-[52.5vw]">
+					<h1 className="galindo text-[5.5vh] md:text-[9vh] text-center text-[#72BFDA] blue-outlined-text mb-[0.25vh]">
 						Schedule
 					</h1>
-				</div>
-				<div className="flex flex-col items-center justify-center w-[86vw] md:w-[80vw] max-w-[1100px] mx-auto mt-[1vh] relative z-5">
-					<div className="w-full rounded-[3vh] border-[0.5vh] border-[#0e387a] bg-[#f1fbff89] p-[2vh] md:p-[2.5vh] shadow-[0_12px_28px_rgba(14,56,122,0.2)]">
-						<div className="flex items-center justify-between mb-[1.5vh] px-[1vw]">
-							<p className="outfit text-[#0e387a] text-[2.1vh] md:text-[2.3vh] font-semibold">
-								Event timeline
-							</p>
-							<p className="outfit text-[#2E599C] text-[1.8vh] md:text-[2vh]">
-								Subject to local updates
-							</p>
-						</div>
-						<div className="flex flex-col gap-[1vh]">
-							{schedule.map((item, index) => (
-								<div
-									className="flex flex-col md:flex-row gap-[1vh] items-stretch justify-center w-full"
-									key={index}
-								>
-									<div
-										className={`bg-[#c0e5f2] border-[0.25vh] border-[#0e387a] rounded-[1.25vh] md:rounded-[1.5vh] md:w-[22%] items-center justify-center flex px-[2vw] py-[1.75vh] md:py-[2.2vh] ${
-											index === 0 ? "md:rounded-tl-[3vh]" : ""
-										} ${index === schedule.length - 1 ? "md:rounded-bl-[3vh]" : ""}`}
-									>
-										<p className="text-[#0e387a] text-[2.7vh] md:text-[3.2vh] font-semibold">
-											{item.time}
-										</p>
-									</div>
-									<div
-										className={`bg-[#e2f5fb] border-[0.25vh] border-[#0e387a] rounded-[1.25vh] md:rounded-[1.5vh] md:w-[78%] items-center justify-center flex px-[5vw] md:px-[2vw] py-[1.75vh] md:py-[2.2vh] ${
-											index === 0 ? "md:rounded-tr-[3vh]" : ""
-										} ${index === schedule.length - 1 ? "md:rounded-br-[3vh]" : ""}`}
-									>
-										<p className="text-[#0e387a] text-[2.35vh] md:text-[2.8vh] font-semibold text-center md:text-left leading-[1.2]">
-											{item.event}
-										</p>
-									</div>
-								</div>
-							))}
-						</div>
+					<p className="outfit text-[#0E387A] text-[1.7vh] md:text-[2.5vh] text-center mb-[3vh]">
+						Here is what your Sunbeam might look like!
+					</p>
+
+					<div className="w-full bg-[#FBF6E7] border-[0.25vh] border-[#2E599C] rounded-[2vh] p-[1.8vh] md:p-[2.5vh]">
+						{schedule.map((item, index) => (
+							<div
+								key={index}
+								className={`flex flex-col md:flex-row md:items-center gap-[0.4vh] justify-between md:gap-[2.5vw] py-[1.2vh] ${
+									index !== schedule.length - 1
+										? "border-b-[0.15vh] border-[#2E599C33]"
+										: ""
+								}`}
+							>
+								<p className="outfit text-[#0E387A] text-[2.25vh] leading-snug">
+									{item.event}
+								</p>
+								<p className="galindo text-[#C54390] text-[2.5vh] shrink-0 md:w-[10vh]">
+									{item.time}
+								</p>
+							</div>
+						))}
 					</div>
 				</div>
 			</div>

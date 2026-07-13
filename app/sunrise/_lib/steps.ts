@@ -53,6 +53,7 @@ export const sunriseSteps: SunriseStep[] = [
 			"Add <main> for core content.",
 			"Add <footer> for closing text.",
 		],
+		screenshot: "/imgs/step3.png",
 	},
 	{
 		id: 4,
@@ -66,6 +67,7 @@ export const sunriseSteps: SunriseStep[] = [
 			"Use h2 for section title.",
 			"Use h3 for subsection title.",
 		],
+		screenshot: "/imgs/step4.png",
 	},
 	{
 		id: 5,
