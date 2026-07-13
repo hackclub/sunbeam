@@ -7,14 +7,16 @@ function ProgressBar({ currentStep }: { currentStep: number }) {
 	const percent = Math.round((currentStep / totalSteps) * 100);
 
 	return (
-		<div className="w-full rounded-2xl border border-[#0e387a33] bg-white/80 px-4 py-3">
+		<div className="w-[97.5%] mx-auto rounded-[1.6vh] border-[0.35vh] border-[#0e387a] bg-[#f1fbff] px-4 py-3 shadow-[0_8px_20px_rgba(14,56,122,0.2)]">
 			<div className="flex items-center justify-between mb-2">
-				<p className="outfit text-[17px] text-[#2e599c]">
+				<p className="outfit text-[17px] text-[#0e387a] font-semibold">
 					Step {currentStep} of {totalSteps}
 				</p>
-				<p className="outfit text-[17px] text-[#2e599c]">{percent}%</p>
+				<p className="outfit text-[17px] text-[#0e387a] font-semibold">
+					{percent}%
+				</p>
 			</div>
-			<div className="h-2.5 w-full rounded-full bg-[#d7e6ff] overflow-hidden">
+			<div className="h-2.5 w-full rounded-full bg-[#c0e5f2] border-[0.15vh] border-[#0e387a] overflow-hidden">
 				<div
 					className="h-full bg-[#359bbf] transition-all duration-500"
 					style={{ width: `${percent}%` }}
@@ -95,8 +97,8 @@ export default function SunriseStepPage({ step }: { step: SunriseStep }) {
 								</div>
 							)}
 
-							<div className="grid grid-cols-2 gap-[1.2vw] min-h-0">
-								<section className="rounded-xl bg-white/65 border border-[#0e387a33] px-4 py-3">
+							<div className="flex gap-[1.2vw] min-h-0">
+								<section className="rounded-xl bg-white/65 border border-[#0e387a33] px-4 py-3 w-[30%]">
 									<h2 className="galindo text-[clamp(1.2rem,1.7vw,1.6rem)] text-[#d88127] mb-2">
 										Quick checklist
 									</h2>
@@ -112,30 +114,55 @@ export default function SunriseStepPage({ step }: { step: SunriseStep }) {
 									</ul>
 								</section>
 
-								<section className="rounded-xl bg-[#0e1b35f0] border border-[#f7fbff66] px-4 py-3 min-h-0">
+								<section className="rounded-xl bg-[#0e1b35f0] border border-[#f7fbff66] px-4 py-3 min-h-0 flex flex-col w-[70%]">
 									<h2 className="galindo text-[clamp(1.2rem,1.7vw,1.6rem)] text-[#fee48b] mb-2">
-										Starter snippet
+										What it should look like
 									</h2>
-									{step.codeBlocks[0] ? (
-										<>
-											<p className="outfit text-[clamp(0.92rem,1.15vw,1.05rem)] text-[#cbe4ff] mb-2">
-												{step.codeBlocks[0].filename}
-											</p>
-											<pre className="outfit text-[clamp(0.78rem,0.98vw,0.95rem)] leading-tight text-[#eef6ff] whitespace-pre-wrap">
-												<code>{step.codeBlocks[0].code}</code>
-											</pre>
-										</>
+									{step.screenshot ? (
+										<div className="relative flex-1 min-h-0 rounded-lg overflow-hidden w-full">
+											<img
+												src={step.screenshot}
+												alt={`Preview of ${step.title}`}
+												className="object-contain min-w-[20vw]"
+											/>
+										</div>
 									) : (
-										<p className="outfit text-[clamp(0.98rem,1.2vw,1.08rem)] text-[#eef6ff]">
-											No new code here. Do your final checks and publish.
-										</p>
+										<div className="flex-1 min-h-0 rounded-lg border-2 border-dashed border-[#cbe4ff66] bg-[#0a1730] flex flex-col items-center justify-center gap-2 py-6">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 24 24"
+												fill="none"
+												className="w-[clamp(1.8rem,2.6vw,2.4rem)] h-auto text-[#cbe4ff99]"
+											>
+												<rect
+													x="3"
+													y="4"
+													width="18"
+													height="14"
+													rx="2"
+													stroke="currentColor"
+													strokeWidth="1.5"
+												/>
+												<circle cx="8.5" cy="9" r="1.5" fill="currentColor" />
+												<path
+													d="M3 15l5-4 4 3.5L17 9l4 4.5"
+													stroke="currentColor"
+													strokeWidth="1.5"
+												/>
+											</svg>
+											<p className="outfit text-[clamp(0.85rem,1.05vw,0.98rem)] text-[#cbe4ff99]">
+												Screenshot placeholder
+											</p>
+										</div>
 									)}
 								</section>
 							</div>
 
 							<div className="mt-auto flex items-center justify-center gap-[3vw]">
-								<Link
-									href={previousStep ? `/sunrise/${previousStep.slug}` : "/sunrise"}
+								{/* 	<Link
+									href={
+										previousStep ? `/sunrise/${previousStep.slug}` : "/sunrise"
+									}
 									className="hover:scale-105 transition-transform"
 								>
 									<Image
@@ -145,7 +172,7 @@ export default function SunriseStepPage({ step }: { step: SunriseStep }) {
 										alt="Back"
 										className="w-[13vw] min-w-[130px] h-auto"
 									/>
-								</Link>
+								</Link> */}
 
 								<Link
 									href={nextStep ? `/sunrise/${nextStep.slug}` : "/sunrise"}
