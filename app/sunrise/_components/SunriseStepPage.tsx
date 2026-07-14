@@ -102,11 +102,11 @@ export default function SunriseStepPage({ step }: { step: SunriseStep }) {
 									<h2 className="galindo text-[clamp(1.2rem,1.7vw,1.6rem)] text-[#d88127] mb-2">
 										Quick checklist
 									</h2>
-									<ul className="space-y-1">
+									<ul className="space-y-[1vh]">
 										{step.checklist.map((item) => (
 											<li
 												key={item}
-												className="outfit text-[clamp(0.95rem,1.2vw,1.08rem)] text-[#1f2a44] leading-tight"
+												className="outfit text-[2.25vh] text-[#1f2a44] leading-tight"
 											>
 												• {item}
 											</li>
@@ -115,9 +115,9 @@ export default function SunriseStepPage({ step }: { step: SunriseStep }) {
 								</section>
 
 								<section className="rounded-xl bg-[#0e1b35f0] border border-[#f7fbff66] px-4 py-3 min-h-0 flex flex-col w-[70%]">
-									<h2 className="galindo text-[clamp(1.2rem,1.7vw,1.6rem)] text-[#fee48b] mb-2">
+									{/* 	<h2 className="galindo text-[clamp(1.2rem,1.7vw,1.6rem)] text-[#fee48b] mb-2">
 										What it should look like
-									</h2>
+									</h2> */}
 									{step.screenshot ? (
 										<div className="relative flex-1 min-h-0 rounded-lg overflow-hidden w-full">
 											<img
