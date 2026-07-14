@@ -10,13 +10,15 @@ import MobileNavbar from "../../components/MobileNavbar";
 export default function OrganizersDashboard({ name, city }: { name?: string | null; city?: string | null }) {
   const daysUntilEvent = dayjs("2026-08-29").diff(dayjs(), "day");
   const checkInCallDates = ["2026-07-07T09:00:00", "2026-07-14T09:00:00"];
-  const soonestCheckIn = checkInCallDates
-    .filter((d) => dayjs(d).isAfter(dayjs()))
-    .reduce((a: string, b: string) => (dayjs(a).isBefore(dayjs(b)) ? a : b));
-  const daysUntilNextCheckIn = dayjs(soonestCheckIn).diff(dayjs(), "day");
-  const soonestCheckInMonth = dayjs(soonestCheckIn).format("MM");
-  const soonestCheckInDay = dayjs(soonestCheckIn).format("DD");
-  const soonestCheckInTime = dayjs(soonestCheckIn).format("h:mm A");
+  const upcomingCheckIns = checkInCallDates.filter((d) => dayjs(d).isAfter(dayjs()));
+  const soonestCheckIn =
+    upcomingCheckIns.length > 0
+      ? upcomingCheckIns.reduce((a: string, b: string) => (dayjs(a).isBefore(dayjs(b)) ? a : b))
+      : null;
+  const daysUntilNextCheckIn = soonestCheckIn ? dayjs(soonestCheckIn).diff(dayjs(), "day") : null;
+  const soonestCheckInMonth = soonestCheckIn ? dayjs(soonestCheckIn).format("MM") : null;
+  const soonestCheckInDay = soonestCheckIn ? dayjs(soonestCheckIn).format("DD") : null;
+  const soonestCheckInTime = soonestCheckIn ? dayjs(soonestCheckIn).format("h:mm A") : null;
 
   return (
     <div
@@ -58,7 +60,7 @@ export default function OrganizersDashboard({ name, city }: { name?: string | nu
               className="galindo text-pink-dark leading-none"
               style={{ fontSize: "clamp(2.5rem, 8vh, 7rem)" }}
             >
-              {daysUntilNextCheckIn}
+              {daysUntilNextCheckIn ?? "—"}
             </h1>
             <h3 className="galindo text-base 2xl:text-2xl mt-1 text-orange-dark leading-tight">
               days until the next check-in call
@@ -126,8 +128,7 @@ export default function OrganizersDashboard({ name, city }: { name?: string | nu
                 meeting platform (zoom?)
               </h3>
               <h3 className="text-pink-dark outfit lg:text-lg">
-                {soonestCheckInTime} EST - {soonestCheckInMonth}/
-                {soonestCheckInDay}
+                {soonestCheckIn ? `${soonestCheckInTime} EST - ${soonestCheckInMonth}/${soonestCheckInDay}` : "TBD"}
               </h3>
               <h3 className="text-blue-bright outfit lg:text-lg">
                 more details &#8680;
@@ -196,7 +197,7 @@ export default function OrganizersDashboard({ name, city }: { name?: string | nu
         {/* check-in countdown */}
         <div className="glassbox-white outline-2 outline-blue-dark/10 mx-0 my-3 p-6 rounded-2xl text-center duration-200">
           <h1 className="galindo text-[80px] text-pink-dark">
-            {daysUntilNextCheckIn}
+            {daysUntilNextCheckIn ?? "—"}
           </h1>
           <h3 className="galindo text-[24px] -mt-6 text-orange-dark leading-9">
             days until the next check-in call
@@ -219,7 +220,7 @@ export default function OrganizersDashboard({ name, city }: { name?: string | nu
               meeting platform (zoom?)
             </h3>
             <h3 className="text-pink-dark outfit text-base">
-              {soonestCheckInTime} EST - {soonestCheckInDay}
+              {soonestCheckIn ? `${soonestCheckInTime} EST - ${soonestCheckInDay}` : "TBD"}
             </h3>
             <h3 className="text-blue-bright outfit text-base">
               more details &#8680;
