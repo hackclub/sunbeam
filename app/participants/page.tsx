@@ -50,27 +50,18 @@ const schedule: ScheduleItem[] = [
 const socialHighlights = [
 	{
 		title: "Build",
-		description: "Turn an idea into something you’re proud of.",
-		image: "/imgs/img4.webp",
-		textClass: "text-[#C54390]",
-		tapeClass: "bg-[#C54390]",
-		rotateClass: "-rotate-3 hover:rotate-0",
+		description: "Turn an idea into something you're proud of.",
+		img: "/imgs/plate1.webp",
 	},
 	{
 		title: "Have Fun",
 		description: "Enjoy snacks, laughs, and a great day together.",
-		image: "/imgs/img5.webp",
-		textClass: "text-[#2E599C]",
-		tapeClass: "bg-[#2E599C]",
-		rotateClass: "rotate-2 hover:rotate-0",
+		img: "/imgs/plate2.jpg",
 	},
 	{
 		title: "Make Friends",
 		description: "Meet other girls who love creating and coding.",
-		image: "/imgs/img6.webp",
-		textClass: "text-[#C79713]",
-		tapeClass: "bg-[#C79713]",
-		rotateClass: "-rotate-2 hover:rotate-0",
+		img: "/imgs/plate3.png",
 	},
 ];
 
@@ -246,42 +237,39 @@ const TemplatePage = () => {
 					</div>
 
 					{/* Highlight polaroids */}
-					<div className="w-[85vw] md:w-[80vw] my-[9vh] flex flex-col items-center">
-						<h2 className="galindo text-[5vh] md:text-[6vh] text-[#D77393] text-center leading-tight mb-[6vh] max-w-[80%]">
-							Make Real Memories from a Sunbeam Social
-						</h2>
 
-						<div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-[6vh] md:gap-[4vw]">
-							{socialHighlights.map((highlight) => (
-								<div
-									key={highlight.title}
-									className={`relative bg-white rounded-[1vh] drop-shadow-lg shadow-neutral-700 p-[1.4vh] pb-[3vh] w-[62vw] sm:w-[42vw] md:w-[21vw] transition-transform duration-300 ${highlight.rotateClass}`}
-								>
-									{/* washi tape */}
-									<span
-										className={`absolute -top-[1.4vh] left-1/2 -translate-x-1/2 -rotate-6 w-[9vh] h-[2.4vh] rounded-[0.3vh] opacity-90 shadow-sm ${highlight.tapeClass}`}
-									/>
+					<div className="w-[77.5vw] my-[8vh] flex flex-col gap-[2vh]">
+						<div className="grid grid-cols-[6fr_4fr] gap-[2vw]">
+							<div className="w-full h-full text-center flex flex-col items-center justify-center">
+								<img src={socialHighlights[0].img} alt="" />
+							</div>
 
-									<div className="aspect-[4/5] w-full overflow-hidden rounded-[0.4vh]">
-										<img
-											src={highlight.image}
-											alt={`${highlight.title} at Sunbeam Social`}
-											className="w-full h-full object-cover"
-										/>
-									</div>
+							<img
+								src="/imgs/img4.webp"
+								alt=""
+								className="w-full h-full object-cover pb-[0vh] rounded-[1vh] rounded-b-[1vh]"
+							/>
+						</div>
+						<div className="grid grid-cols-[4fr_6fr] gap-[2vw]">
+							<img
+								src="/imgs/img5.webp"
+								alt=""
+								className="w-full h-full object-cover pb-[0vh] rounded-[1vh] rounded-b-[1vh]"
+							/>
+							<div className="w-full h-full text-center flex flex-col items-center justify-center">
+								<img src={socialHighlights[1].img} alt="" />
+							</div>
+						</div>
+						<div className="grid grid-cols-[6fr_4fr] gap-[2vw]">
+							<div className="w-full h-full text-center flex flex-col items-center justify-center">
+								<img src={socialHighlights[2].img} alt="" />
+							</div>
 
-									<div className="text-center mt-[1.6vh] px-[0.5vh]">
-										<h3
-											className={`galindo text-[2.7vh] md:text-[3vh] leading-tight ${highlight.textClass}`}
-										>
-											{highlight.title}
-										</h3>
-										<p className="outfit text-[1.7vh] md:text-[1.8vh] text-[#0E387A]/80 mt-[0.6vh] leading-snug">
-											{highlight.description}
-										</p>
-									</div>
-								</div>
-							))}
+							<img
+								src="/imgs/img6.webp"
+								alt=""
+								className="w-full h-full object-cover pb-[0vh] rounded-[1vh] rounded-b-[1vh]"
+							/>
 						</div>
 					</div>
 

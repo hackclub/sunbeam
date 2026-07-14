@@ -7,7 +7,7 @@ function ProgressBar({ currentStep }: { currentStep: number }) {
 	const percent = Math.round((currentStep / totalSteps) * 100);
 
 	return (
-		<div className="w-[97.5%] mx-auto rounded-[1.6vh] border-[0.35vh] border-[#0e387a] bg-[#f1fbff] px-4 py-3 shadow-[0_8px_20px_rgba(14,56,122,0.2)]">
+		<div className="w-[97.5%] mx-auto rounded-[1vh] border-[0.15vh] border-amber-400 bg-[#ffffff] px-4 py-3 shadow-[0_8px_20px_rgba(14,56,122,0.2)]">
 			<div className="flex items-center justify-between mb-2">
 				<p className="outfit text-[17px] text-[#0e387a] font-semibold">
 					Step {currentStep} of {totalSteps}
@@ -52,11 +52,11 @@ export default function SunriseStepPage({ step }: { step: SunriseStep }) {
 				width={356}
 				height={267}
 				alt=""
-				className="absolute z-0 pointer-events-none top-[9vh] right-[4vw] w-[13vw] h-auto max-w-[130px]"
+				className="absolute z-0 pointer-events-none top-[9vh] right-[2vw] w-[13vw] h-auto max-w-[130px]"
 			/>
 
-			<main className="relative z-10 h-full w-full px-[3vw] pt-[5.5vh] pb-[2vh]">
-				<div className="mx-auto h-full max-w-[1120px] flex flex-col gap-[1.6vh]">
+			<main className="relative z-10 h-full w-full px-[3vw] pt-[5vh] pb-[2vh]">
+				<div className="mx-auto h-full max-w-[80vw] flex flex-col gap-[1.6vh]">
 					<ProgressBar currentStep={step.id} />
 
 					<div className="relative flex-1 min-h-0">
