@@ -1,6 +1,7 @@
 // TemplatePage.tsx
 "use client";
 
+import Link from "next/link";
 import React, { useState } from "react";
 
 const participantFaqs = [
@@ -109,9 +110,10 @@ const socialHighlights = [
 
 const TemplatePage = () => {
 	const [openFaq, setOpenFaq] = useState<number | null>(null);
+	const [shirtFlipped, setShirtFlipped] = useState(false);
 
 	return (
-		<div className="relative">
+		<div className="relative bg-[url('/imgs/sandNoFade.webp')] bg-cover bg-center bg-no-repeat">
 			{/* ── HERO ── */}
 			<div className="relative min-h-[110vh] w-full">
 				<div className="absolute inset-0 h-[110vh] overflow-hidden">
@@ -167,9 +169,15 @@ const TemplatePage = () => {
 					<h3 className="outfit text-[#0E387A] text-center text-[1.5vh] md:text-[3vh]">
 						August 29th, 2026 || 20+ cities worldwide
 					</h3>
-					<h1 className="galindo text-[6.5vh] leading-[6.5vh] md:leading-[8vh] text-center gradient-text mt-[1.5vh]">
+					<div className="grid grid-cols-1 grid-rows-1">
+					<h1 className="row-start-1 col-start-1 galindo text-[6.5vh] leading-[6.5vh] md:leading-[8vh] text-center pink-outlined-text-drop-shadow mt-[1.5vh]">
 						No experience necessary - join today!
 					</h1>
+					<h1 className="row-start-1 col-start-1 galindo text-[6.5vh] leading-[6.5vh] md:leading-[8vh] text-center gradient-text mt-[1.5vh]">
+						No experience necessary - join today!
+					</h1>
+					</div>
+
 					<a
 						href="https://forms.hackclub.com/sunbeam-signup"
 						target="_blank"
@@ -304,25 +312,52 @@ const TemplatePage = () => {
 						</div>
 					</div>
 
-					{/* CTA */}
-					<h2 className="outfit text-[4vh] text-[#C54390] text-center w-[70vw] md:w-[60vw] leading-[7.5vh] my-[2vh] drop-shadow-sm">
-						Ready? Come enjoy the sunshine!
-					</h2>
-					<a
-						href="/apply"
-						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto mb-[5vh]"
+					{/* tshirt & link 2 map */}
+					<div className="bg-[url('/imgs/sandNoFade.webp')] p-4">
+						<h1 className="galindo text-5xl text-[#72BFDA] text-center justify-self-center">AND you can get this free t-shirt!</h1>
+						<div className="flex flex-row justify-center items-center">
+							<div
+								className="group w-12/32 -rotate-4 -mr-6 z-10 [perspective:1000px] cursor-pointer hover:scale-105 duration-200 transition-transform"
+								onClick={() => setShirtFlipped((f) => !f)}
+							>
+								<div
+									className={`relative w-full transition-transform duration-500 [transform-style:preserve-3d] ${
+										shirtFlipped
+											? "[transform:rotateY(180deg)]"
+											: "group-hover:[transform:rotateY(25deg)]"
+									}`}
+								>
+									<img
+										src="/imgs/tshirt_back.png"
+										className="w-full [backface-visibility:hidden]"
+										alt="t-shirt back"
+									/>
+									<img
+										src="/imgs/tshirt_front.png"
+										className="absolute inset-0 w-full [backface-visibility:hidden] [transform:rotateY(180deg)]"
+										alt="t-shirt front"
+									/>
+								</div>
+							</div>
+							<img src="/imgs/map.png" className="w-12/32 rotate-2 -ml-2 transition-transform duration-200 hover:scale-105 hover:rotate-4"/>
+						</div>
+					</div>
+
+					<div className="bg-[url('/imgs/sandNoFade.webp')] w-full justify-center items-center flex flex-col">
+					<Link
+						href="/map"
+						className="hover:scale-105 transition-all duration-200 pointer-events-auto cursor-pointer w-fit mx-auto -mt-[4vh] mb-[5vh] transform -rotate-3 hover:-rotate-5"
 					>
 						<img
-							src="/imgs/sign-up2.webp"
+							src="/imgs/surfboard_findsunbeam.png"
 							className="w-[40vw] md:w-[20vw] mx-auto"
 							alt="apply!"
 						/>
-					</a>
+					</Link>
+					</div>
+					
 				</div>
 			</div>
-
-			{/* tshirt & link to map */}
-
 
 			{/* Schedule */}
 			<div className="relative w-full overflow-hidden">
