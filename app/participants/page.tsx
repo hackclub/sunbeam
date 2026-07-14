@@ -79,14 +79,14 @@ type SponsorItem = {
 const cityName = "For Example City";
 
 const schedule: ScheduleItem[] = [
-	{ time: "10:00", event: "Opening Ceremony" },
-	{ time: "10:30", event: "Team Formation & Icebreakers" },
-	{ time: "11:00", event: "Workshop: Introduction to Coding" },
-	{ time: "12:30", event: "Lunch Break" },
-	{ time: "13:30", event: "Project Planning Session" },
-	{ time: "14:30", event: "Hands-on Coding Time" },
-	{ time: "16:00", event: "Workshop: Web Development Basics" },
-	{ time: "17:30", event: "Project Showcase & Closing Ceremony" },
+	{ time: "8:00 AM", event: "Opening Ceremony" },
+	{ time: "10:30 AM", event: "Workshop: Boba Drops" },
+	{ time: "11:30 AM", event: "Workshop: Godot" },
+	{ time: "12:30 PM", event: "Lunch!!!" },
+	{ time: "5:00 PM", event: "Karaoke" },
+	{ time: "6:00 PM", event: "Dinner + Demos" },
+	{time: "7:00 PM", event: "Closing Ceremony"},
+	{ time: "8:00 PM", event: "Go home :(" },
 ];
 
 const socialHighlights = [
@@ -322,49 +322,62 @@ const TemplatePage = () => {
 			</div>
 
 			{/* Schedule */}
-			<div className="relative mt-8 w-full flex flex-col items-center py-[9vh] z-5 overflow-hidden bg-[url('/imgs/planks2.webp')] bg-[1000px_auto] bg-repeat outline-2 outline-pink-dark/25 shadow-xl shadow-blue-dark/10">
-				{/* <img
-					src="/imgs/boardwalk2.webp"
-					className="absolute inset-0 z-0 w-full h-full object-cover"
+			<div className="relative w-full overflow-hidden">
+				<img
+					src="/imgs/sandNoFade.webp"
+					className="w-full object-cover absolute top-0 z-0"
 					alt=""
-				/> */}
-				<div className="relative z-5 flex flex-col items-center w-[88vw] md:w-[52.5vw]">
-					<h1 className="galindo text-[5.5vh] md:text-[9vh] text-center text-[#72BFDA] blue-outlined-text mb-[0.25vh]">
-						Schedule
-					</h1>
-					<p className="outfit text-[#0E387A] text-[1.7vh] md:text-[2.5vh] text-center mb-[3vh]">
-						Here is what your Sunbeam might look like!
-					</p>
+				/>
+				<img
+					src="/imgs/sandNoFade.webp"
+					className="w-full absolute top-[100vh] object-cover  z-0"
+					alt=""
+				/>
 
-					<div className="w-full bg-[#FBF6E7] border-[0.25vh] border-[#2E599C] rounded-[2vh] p-[1.8vh] md:p-[2.5vh]">
-						{schedule.map((item, index) => (
-							<div
-								key={index}
-								className={`flex flex-col md:flex-row md:items-center gap-[0.4vh] justify-between md:gap-[2.5vw] py-[1.2vh] ${
-									index !== schedule.length - 1
-										? "border-b-[0.15vh] border-[#2E599C33]"
-										: ""
-								}`}
-							>
-								<p className="outfit text-[#0E387A] text-[2.25vh] leading-snug">
-									{item.event}
-								</p>
-								<p className="galindo text-[#C54390] text-[2.5vh] shrink-0 md:w-[10vh]">
-									{item.time}
-								</p>
-							</div>
-						))}
+				<div className="relative mt-8 w-[80%] items-center justify-self-center flex flex-col py-[9vh] z-5 overflow-hidden bg-[url('/imgs/planks2.webp')] bg-[1000px_auto] bg-repeat outline-1 outline-blue-dark/65 shadow-xl shadow-blue-dark/10">
+					{/* <img
+						src="/imgs/boardwalk2.webp"
+						className="absolute inset-0 z-0 w-full h-full object-cover"
+						alt=""
+					/> */}
+					<div className="relative z-5 flex flex-col items-center w-[88vw] md:w-[52.5vw]">
+						<h1 className="galindo text-[5.5vh] md:text-[9vh] text-center text-[#72BFDA] blue-outlined-text mb-[0.25vh]">
+							Schedule
+						</h1>
+						<p className="outfit text-[#0E387A] text-[1.7vh] md:text-[2.5vh] text-center mb-[3vh]">
+							Here is what your Sunbeam might look like!
+						</p>
+
+						<div className="w-full bg-[#FBF6E7] border-[0.25vh] border-[#2E599C] rounded-[2vh] p-[1.8vh] md:p-[2.5vh]">
+							{schedule.map((item, index) => (
+								<div
+									key={index}
+									className={`flex flex-col md:flex-row md:items-center gap-[0.4vh] justify-between md:gap-[2.5vw] py-[1.2vh] ${
+										index !== schedule.length - 1
+											? "border-b-[0.15vh] border-[#2E599C33]"
+											: ""
+									}`}
+								>
+									<p className="outfit text-[#0E387A] text-[2.25vh] leading-snug min-w-0">
+										{item.event}
+									</p>
+									<p className="galindo text-[#C54390] text-[2.5vh] shrink-0 whitespace-nowrap">
+										{item.time}
+									</p>
+								</div>
+							))}
+						</div>
 					</div>
 				</div>
 			</div>
 
 			{/* FAQ */}
-			<div className="relative min-h-[120vh] items-center justify-center w-full mt-[5vh] flex flex-col pt-[0vh] z-3">
-				<img
-					src="/imgs/sand.webp"
+			<div className="bg-[url('/imgs/sandNoFade.webp')] relative min-h-[120vh] items-center justify-center w-full flex flex-col pt-[5vh] pb-[17.5vh] z-3 overflow-hidden">
+				{/* <img
+					src="/imgs/sandNoFade.webp"
 					className="w-full absolute top-[-10vh] z-0"
 					alt=""
-				/>
+				/> */}
 				<img
 					src="/imgs/sunbeam-photo.webp"
 					className="absolute top-0 h-full w-[80vw] left-[10vw] object-cover z-5"
@@ -421,6 +434,9 @@ const TemplatePage = () => {
 					</div>
 				</div>
 			</div>
+
+			{/* Sand spacer before footer */}
+			<div className="w-full h-[12.5vh] bg-[url('/imgs/sandNoFade.webp')] z-3" />
 
 			{/* ── SPONSOR ── */}
 			{/* <div className="relative min-h-screen w-full pt-[10vh] pb-[8vh] flex flex-col items-center z-3">
@@ -503,7 +519,7 @@ const TemplatePage = () => {
 			{/* </div> */}
 
 			{/* ── FOOTER ── */}
-			<div className="relative min-h-[80vh] w-full mt-[17.5vh] flex flex-col pt-[23vh] z-10">
+			<div className="relative min-h-[80vh] w-full flex flex-col pt-[23vh] z-10">
 				<div className="absolute inset-0 overflow-hidden">
 					<img
 						src="/imgs/water2.webp"
