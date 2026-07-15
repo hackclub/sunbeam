@@ -8,17 +8,32 @@ import MobileNavbar from "../../components/MobileNavbar";
 
 
 export default function OrganizersDashboard({ name, city }: { name?: string | null; city?: string | null }) {
-  const daysUntilEvent = dayjs("2026-08-29").diff(dayjs(), "day");
-  const checkInCallDates = ["2026-07-07T09:00:00", "2026-07-14T09:00:00"];
+  const EVENT_DATE = dayjs("2026-08-29");
+  const daysUntilEvent = EVENT_DATE.diff(dayjs(), "day");
+
+  const checkInCallDates: string[] = [];
+  for (
+    let sat = dayjs("2026-07-18T20:00:00");
+    sat.isBefore(EVENT_DATE, "day");
+    sat = sat.add(7, "day")
+  ) {
+    checkInCallDates.push(sat.format("YYYY-MM-DDTHH:mm:ss"));
+    checkInCallDates.push(sat.add(12, "hour").format("YYYY-MM-DDTHH:mm:ss"));
+  }
+
   const upcomingCheckIns = checkInCallDates.filter((d) => dayjs(d).isAfter(dayjs()));
   const soonestCheckIn =
     upcomingCheckIns.length > 0
       ? upcomingCheckIns.reduce((a: string, b: string) => (dayjs(a).isBefore(dayjs(b)) ? a : b))
       : null;
   const daysUntilNextCheckIn = soonestCheckIn ? dayjs(soonestCheckIn).diff(dayjs(), "day") : null;
-  const soonestCheckInMonth = soonestCheckIn ? dayjs(soonestCheckIn).format("MM") : null;
-  const soonestCheckInDay = soonestCheckIn ? dayjs(soonestCheckIn).format("DD") : null;
-  const soonestCheckInTime = soonestCheckIn ? dayjs(soonestCheckIn).format("h:mm A") : null;
+
+
+  const soonestIndex = soonestCheckIn ? checkInCallDates.indexOf(soonestCheckIn) : -1;
+  const pairStart = soonestIndex === -1 ? -1 : soonestIndex - (soonestIndex % 2);
+  const currentCheckInPair =
+    pairStart === -1 ? [] : checkInCallDates.slice(pairStart, pairStart + 2);
+  const checkInCallLabels = currentCheckInPair.map((d) => dayjs(d).format("M/D h:mm A"));
 
   return (
     <div
@@ -119,7 +134,7 @@ export default function OrganizersDashboard({ name, city }: { name?: string | nu
             </div>
             <div className="glassbox-white flex flex-col p-6 rounded-b-2xl text-center shrink-0">
               <a
-                href="placeholder"
+                href="https://hack.club/z-join?id=6yxd2"
                 className="galindo text-xl 2xl:text-3xl text-orange-dark underline hover:decoration-wavy"
               >
                 Check-in Call Link
@@ -127,9 +142,15 @@ export default function OrganizersDashboard({ name, city }: { name?: string | nu
               <h3 className="text-pink-dark outfit lg:text-lg">
                 meeting platform (zoom?)
               </h3>
-              <h3 className="text-pink-dark outfit lg:text-lg">
-                {soonestCheckIn ? `${soonestCheckInTime} EST - ${soonestCheckInMonth}/${soonestCheckInDay}` : "TBD"}
-              </h3>
+              {checkInCallLabels.length > 0 ? (
+                checkInCallLabels.map((label) => (
+                  <h3 key={label} className="text-pink-dark outfit lg:text-lg">
+                    {label} EST
+                  </h3>
+                ))
+              ) : (
+                <h3 className="text-pink-dark outfit lg:text-lg">TBD</h3>
+              )}
               <h3 className="text-blue-bright outfit lg:text-lg">
                 more details &#8680;
               </h3>
@@ -219,9 +240,15 @@ export default function OrganizersDashboard({ name, city }: { name?: string | nu
             <h3 className="text-pink-dark outfit text-base">
               meeting platform (zoom?)
             </h3>
-            <h3 className="text-pink-dark outfit text-base">
-              {soonestCheckIn ? `${soonestCheckInTime} EST - ${soonestCheckInDay}` : "TBD"}
-            </h3>
+            {checkInCallLabels.length > 0 ? (
+              checkInCallLabels.map((label) => (
+                <h3 key={label} className="text-pink-dark outfit text-base">
+                  {label} EST
+                </h3>
+              ))
+            ) : (
+              <h3 className="text-pink-dark outfit text-base">TBD</h3>
+            )}
             <h3 className="text-blue-bright outfit text-base">
               more details &#8680;
             </h3>

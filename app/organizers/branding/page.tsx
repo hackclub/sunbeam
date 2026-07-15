@@ -47,7 +47,7 @@ export default function OrganizerDocs() {
           </div>
           <div className="glassbox-white flex flex-col p-6 rounded-b-2xl text-center shrink-0">
             <a
-              href="placeholder"
+              href="https://www.figma.com/design/bTsFUtw4RYbye05kjAw99Y/Sunbeam-Brand-Kit?node-id=0-1&t=xPHxsC9RDqnIbXdT-1"
               className="galindo text-xl 2xl:text-3xl text-orange-dark underline hover:decoration-wavy"
             >
               Instragram Post Templates Link
