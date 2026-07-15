@@ -6,7 +6,7 @@ import MobileNavbar from "../../../components/MobileNavbar";
 export default function OrganizerDocs() {
   return (
     <div
-      className="flex min-h-screen lg:overflow-hidden"
+      className="flex min-h-screen"
       style={{
         backgroundImage: "url('/imgs/sand.webp')",
         backgroundSize: "cover",
