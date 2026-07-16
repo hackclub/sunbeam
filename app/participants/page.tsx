@@ -86,7 +86,7 @@ const schedule: ScheduleItem[] = [
 	{ time: "12:30 PM", event: "Lunch!!!" },
 	{ time: "5:00 PM", event: "Karaoke" },
 	{ time: "6:00 PM", event: "Dinner + Demos" },
-	{time: "7:00 PM", event: "Closing Ceremony"},
+	{ time: "7:00 PM", event: "Closing Ceremony" },
 	{ time: "8:00 PM", event: "Go home :(" },
 ];
 
@@ -170,12 +170,12 @@ const TemplatePage = () => {
 						August 29th, 2026 || 20+ cities worldwide
 					</h3>
 					<div className="grid grid-cols-1 grid-rows-1">
-					<h1 className="row-start-1 col-start-1 galindo text-[6.5vh] leading-[6.5vh] md:leading-[8vh] text-center pink-outlined-text-drop-shadow mt-[1.5vh]">
-						No experience necessary - join today!
-					</h1>
-					<h1 className="row-start-1 col-start-1 galindo text-[6.5vh] leading-[6.5vh] md:leading-[8vh] text-center gradient-text mt-[1.5vh]">
-						No experience necessary - join today!
-					</h1>
+						<h1 className="row-start-1 col-start-1 galindo text-[6.5vh] leading-[6.5vh] md:leading-[8vh] text-center pink-outlined-text-drop-shadow mt-[1.5vh]">
+							No experience necessary - join today!
+						</h1>
+						<h1 className="row-start-1 col-start-1 galindo text-[6.5vh] leading-[6.5vh] md:leading-[8vh] text-center gradient-text mt-[1.5vh]">
+							No experience necessary - join today!
+						</h1>
 					</div>
 
 					<a
@@ -292,29 +292,52 @@ const TemplatePage = () => {
 					<div className="m-12">
 						<div className="flex flex-row flex-wrap m-4 gap-4 justify-center items-center">
 							<div className="flex flex-row items-center gap-8">
-								<img src="/imgs/plate1.webp" alt="build your project!" className="h-[30vh]" />
+								<img
+									src="/imgs/plate1.webp"
+									alt="build your project!"
+									className="h-[30vh]"
+								/>
 								<div className=" pt-4 pb-8 px-4 border-2 bg-white border-blue-dark/50 shadow-sm shadow-blue-dark/50">
-									<img src="/imgs/img4.png" className="h-[30vh] border-1 border-blue-dark/50"/>
+									<img
+										src="/imgs/img4.png"
+										className="h-[30vh] border-1 border-blue-dark/50"
+									/>
 								</div>
 							</div>
 							<div className="flex flex-row-reverse items-center gap-12">
-								<img src="/imgs/plate2.png" alt="show it off!" className="h-[30vh]" />
+								<img
+									src="/imgs/plate2.png"
+									alt="show it off!"
+									className="h-[30vh]"
+								/>
 								<div className=" pt-4 pb-12 px-4 border-2 bg-white border-blue-dark/50 shadow-sm shadow-blue-dark/50">
-									<img src="/imgs/img5.png" className="h-[30vh] border-1 border-blue-dark/50"/>
+									<img
+										src="/imgs/img5.png"
+										className="h-[30vh] border-1 border-blue-dark/50"
+									/>
 								</div>
 							</div>
-						<div className="flex flex-row items-center gap-8">
-								<img src="/imgs/plate3.png" alt="get prizes!" className="h-[30vh]" />
+							<div className="flex flex-row items-center gap-8">
+								<img
+									src="/imgs/plate3.png"
+									alt="get prizes!"
+									className="h-[30vh]"
+								/>
 								<div className=" pt-4 pb-8 px-4 border-2 bg-white border-blue-dark/50 shadow-sm shadow-blue-dark/50">
-									<img src="/imgs/img6.webp" className="h-[30vh] border-1 border-blue-dark/50"/>
+									<img
+										src="/imgs/img6.webp"
+										className="h-[30vh] border-1 border-blue-dark/50"
+									/>
 								</div>
-							</div>							
+							</div>
 						</div>
 					</div>
 
 					{/* tshirt & link 2 map */}
 					<div className="bg-[url('/imgs/sandNoFade.webp')] p-4">
-						<h1 className="galindo text-5xl text-[#72BFDA] text-center justify-self-center">AND you can get this free t-shirt!</h1>
+						<h1 className="galindo text-5xl text-[#72BFDA] text-center justify-self-center">
+							AND you can get this free t-shirt!
+						</h1>
 						<div className="flex flex-row justify-center items-center">
 							<div
 								className="group w-12/32 -rotate-4 -mr-6 z-10 [perspective:1000px] cursor-pointer hover:scale-105 duration-200 transition-transform"
@@ -339,23 +362,27 @@ const TemplatePage = () => {
 									/>
 								</div>
 							</div>
-							<img src="/imgs/map.png" className="w-12/32 rotate-2 -ml-2 transition-transform duration-200 hover:scale-105 hover:rotate-4"/>
+							<Link href="/map" className="w-12/32 -ml-2">
+								<img
+									src="/imgs/map.png"
+									className="w-full rotate-2 transition-transform duration-200 hover:scale-105 hover:rotate-4 cursor-pointer"
+								/>
+							</Link>
 						</div>
 					</div>
 
 					<div className="bg-[url('/imgs/sandNoFade.webp')] w-full justify-center items-center flex flex-col">
-					<Link
-						href="/map"
-						className="hover:scale-105 transition-all duration-200 pointer-events-auto cursor-pointer w-fit mx-auto -mt-[4vh] mb-[5vh] transform -rotate-3 hover:-rotate-5"
-					>
-						<img
-							src="/imgs/surfboard_findsunbeam.png"
-							className="w-[40vw] md:w-[20vw] mx-auto"
-							alt="apply!"
-						/>
-					</Link>
+						<Link
+							href="/map"
+							className="hover:scale-105 transition-all duration-200 pointer-events-auto cursor-pointer w-fit mx-auto -mt-[4vh] mb-[5vh] transform -rotate-3 hover:-rotate-5"
+						>
+							<img
+								src="/imgs/surfboard_findsunbeam.png"
+								className="w-[40vw] md:w-[20vw] mx-auto"
+								alt="apply!"
+							/>
+						</Link>
 					</div>
-					
 				</div>
 			</div>
 
@@ -380,12 +407,12 @@ const TemplatePage = () => {
 					/> */}
 					<div className="relative z-5 flex flex-col items-center w-[92%] md:w-[65vw]">
 						<div className="grid grid-rows-1 grid-flow-col">
-						<h1 className="row-start-1 col-start-1 galindo text-5xl md:text-6xl text-center text-[#72BFDA] pink-outlined-text-drop-shadow mb-[0.25vh]">
-							Example Schedule
-						</h1>
-						<h1 className="row-start-1 col-start-1 galindo text-5xl md:text-6xl text-center text-[#72BFDA] pink-outlined-text-sm mb-[0.25vh]">
-							Example Schedule
-						</h1>
+							<h1 className="row-start-1 col-start-1 galindo text-5xl md:text-6xl text-center text-[#72BFDA] pink-outlined-text-drop-shadow mb-[0.25vh]">
+								Example Schedule
+							</h1>
+							<h1 className="row-start-1 col-start-1 galindo text-5xl md:text-6xl text-center text-[#72BFDA] pink-outlined-text-sm mb-[0.25vh]">
+								Example Schedule
+							</h1>
 						</div>
 
 						<p className="outfit text-[#0E387A] text-[1.7vh] md:text-[2.5vh] text-center mb-[3vh]">

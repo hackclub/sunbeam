@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         destination: "/organizers/docs/quickstart",
         permanent: true,
       },
+      {
+        source: "/",
+        destination: "/participants",
+        permanent: false,
+      },
     ];
   },
 };

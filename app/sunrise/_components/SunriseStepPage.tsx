@@ -2,6 +2,40 @@ import Image from "next/image";
 import Link from "next/link";
 import { sunriseSteps, type SunriseStep } from "../_lib/steps";
 
+const URL_REGEX =
+	/(https?:\/\/[^\s]+)|((?:[a-z0-9-]+\.){2,}[a-z]{2,}(?:\/[^\s]*)?)/gi;
+
+function linkifyChecklistItem(text: string) {
+	const parts: React.ReactNode[] = [];
+	let lastIndex = 0;
+	let match: RegExpExecArray | null;
+
+	URL_REGEX.lastIndex = 0;
+	while ((match = URL_REGEX.exec(text)) !== null) {
+		if (match.index > lastIndex) {
+			parts.push(text.slice(lastIndex, match.index));
+		}
+		const url = match[0];
+		const href = url.startsWith("http") ? url : `https://${url}`;
+		parts.push(
+			<a
+				key={match.index}
+				href={href}
+				target="_blank"
+				rel="noopener noreferrer"
+				className="underline text-[#0e387a] hover:text-[#d88127]"
+			>
+				{url}
+			</a>,
+		);
+		lastIndex = match.index + url.length;
+	}
+	if (lastIndex < text.length) {
+		parts.push(text.slice(lastIndex));
+	}
+	return parts;
+}
+
 function ProgressBar({ currentStep }: { currentStep: number }) {
 	const totalSteps = sunriseSteps.length;
 	const percent = Math.round((currentStep / totalSteps) * 100);
@@ -108,7 +142,7 @@ export default function SunriseStepPage({ step }: { step: SunriseStep }) {
 												key={item}
 												className="outfit text-[2.25vh] text-[#1f2a44] leading-tight"
 											>
-												• {item}
+												• {linkifyChecklistItem(item)}
 											</li>
 										))}
 									</ul>
