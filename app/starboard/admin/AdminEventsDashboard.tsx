@@ -80,7 +80,14 @@ export default function AdminEventsDashboard() {
 	});
 
 	return (
-		<div className="min-h-screen bg-[#fdf6e3] outfit p-6">
+		<div
+			className="min-h-screen outfit p-6"
+			style={{
+				backgroundImage: "url('/imgs/sand.webp')",
+				backgroundSize: "cover",
+				backgroundPosition: "center",
+			}}
+		>
 			<h1 className="galindo text-blue-dark text-lg mb-4">starboard admin</h1>
 
 			<div className="flex gap-6 items-start">

@@ -2,7 +2,14 @@ import Link from "next/link";
 
 export default function StarboardPage() {
 	return (
-		<div className="min-h-screen bg-[#fdf6e3] outfit flex flex-col items-center justify-center gap-8 p-6">
+		<div
+			className="min-h-screen outfit flex flex-col items-center justify-center gap-8 p-6"
+			style={{
+				backgroundImage: "url('/imgs/sand.webp')",
+				backgroundSize: "cover",
+				backgroundPosition: "center",
+			}}
+		>
 			<h1 className="galindo text-blue-dark text-2xl">starboard</h1>
 
 			<Link

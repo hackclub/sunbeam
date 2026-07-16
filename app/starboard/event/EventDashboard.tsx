@@ -396,7 +396,14 @@ export default function EventDashboard({
 	const canEditVenue = roles.includes("admin") || roles.some((r) => r.startsWith("person of contact"));
 
 	return (
-		<div className="min-h-screen bg-[#fdf6e3] outfit flex flex-col items-center gap-4 py-10 px-4">
+		<div
+			className="min-h-screen outfit flex flex-col items-center gap-4 py-10 px-4"
+			style={{
+				backgroundImage: "url('/imgs/sand.webp')",
+				backgroundSize: "cover",
+				backgroundPosition: "center",
+			}}
+		>
 			<h1 className="galindo text-blue-dark text-2xl">{heading}</h1>
 
 			<div className="flex flex-col items-center gap-1">
