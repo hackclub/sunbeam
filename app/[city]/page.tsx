@@ -1,11 +1,51 @@
-// TemplatePage.tsx
-import React from "react";
-import config from "./config.json";
+import { notFound } from "next/navigation";
 
-const TemplatePage = () => {
-	const { cityName, schedule, sponsors } = config;
+type ScheduleItem = { time: string; event: string };
+type Sponsor = { name: string; logo: string };
 
-	return (
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ city: string }>;
+}) {
+  const { city } = await params;
+  const cityParam = city.replace(/-/g, " ");
+
+  let cityName = cityParam;
+  let schedule: ScheduleItem[] = [];
+  let sponsors: Sponsor[] = [];
+  let loadError = false;
+
+  // notFound() throws internally, so the fetch/status check must stay outside
+  // any try/catch here — otherwise a real 404 gets swallowed as a generic error.
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3000"}/api/get-city-details?city=${encodeURIComponent(cityParam)}`,
+    { cache: "no-store" }
+  ).catch((err) => {
+    console.error(`[city page] failed to reach get-city-details for "${cityParam}":`, err);
+    return null;
+  });
+
+  if (res === null) {
+    loadError = true;
+  } else if (res.status === 404) {
+    notFound();
+  } else if (!res.ok) {
+    console.error(`[city page] get-city-details responded with status ${res.status} for "${cityParam}"`);
+    loadError = true;
+  } else {
+    try {
+      const data = await res.json();
+      cityName = data.city ?? cityParam;
+      schedule = Array.isArray(data.schedule) ? data.schedule : [];
+      sponsors = Array.isArray(data.sponsors) ? data.sponsors : [];
+    } catch (err) {
+      console.error(`[city page] failed to parse details for "${cityParam}":`, err);
+      loadError = true;
+    }
+  }
+
+  return (
 		<div className="relative">
 			{/* ── HERO ── */}
 			<div className="relative min-h-[110vh] w-full">
@@ -36,13 +76,11 @@ const TemplatePage = () => {
 					<div className="relative w-[80vw] mx-auto flex flex-col md:flex-row mt-[5vh] mb-[1vh]">
 						<img
 							src="/imgs/logo.svg"
-							className="w-[80vw] md:w-[44vw] mx-auto md:mx-0 md:absolute md:bottom-[-6vh] md:left-0 mb-[3vh] md:mb-0"
+							className="w-[80vw] md:w-[49vw] absolute bottom-[-10vh] md:bottom-[-6vh] left-0 md:left-[5vw]"
 							alt="Sunbeam"
 						/>
-						{/* Spacer so video sits fully to the right of the logo (desktop only) */}
-						<div className="hidden md:block md:w-[44vw] shrink-0" />
 						{/* Launch video */}
-						<div className="w-full md:w-[36vw] h-[25vh] md:h-[40vh] md:ml-auto rounded-sm overflow-hidden">
+						<div className="w-[70vw] md:w-[45vw] h-[30vh] md:h-[40vh] ml-auto rounded-sm overflow-hidden">
 							<iframe
 								src="https://www.youtube.com/embed/Ufmk9QW-XAs"
 								title="Sunbeam Social launch video"
@@ -66,7 +104,7 @@ const TemplatePage = () => {
 						No experience necessary - join today!
 					</h1>
 					<a
-						href="/sign-up"
+						href="https://forms.hackclub.com/sunbeam-signup"
 						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
 					>
 						<img
@@ -80,48 +118,8 @@ const TemplatePage = () => {
 
 			{/* ── HOW-TO ── */}
 			<div className="relative min-h-screen w-full pt-[26vh] flex flex-col items-center">
-				{/* sand on a laptop */}
-				<img
-					src="/imgs/sand.webp"
-					className="w-full absolute top-0 z-0"
-					alt=""
-				/>
-				<img
-					src="/imgs/sand.webp"
-					className="w-full absolute top-[100vh] z-0"
-					alt=""
-				/>
-				{/* sand on a phone */}
-				<img
-					src="/imgs/sand.webp"
-					className="w-full absolute md:hidden top-0 z-0"
-					alt=""
-				/>
-				<img
-					src="/imgs/sand.webp"
-					className="w-full absolute md:hidden top-[60vh] z-0"
-					alt=""
-				/>
-				<img
-					src="/imgs/sand.webp"
-					className="w-full absolute md:hidden top-[120vh] z-0"
-					alt=""
-				/>
-				<img
-					src="/imgs/sand.webp"
-					className="w-full absolute md:hidden top-[180vh] z-0"
-					alt=""
-				/>
-				<img
-					src="/imgs/sand.webp"
-					className="w-full absolute md:hidden top-[240vh] z-0"
-					alt=""
-				/>
-				<img
-					src="/imgs/sand.webp"
-					className="w-full absolute md:hidden top-[300vh] z-0"
-					alt=""
-				/>
+				{/* sand background, tiled to always cover the section regardless of content height */}
+				<div className="absolute inset-0 z-0 bg-repeat-y bg-[length:100%_auto] bg-[url('/imgs/sand.webp')]" />
 				<img
 					src="/imgs/ray1.webp"
 					className="absolute top-[20vh] right-[6vw] z-5 w-[17.5vw]"
@@ -183,14 +181,14 @@ const TemplatePage = () => {
 							/>
 
 							<img
-								src="/imgs/img4.webp"
+								src="/imgs/img4.png"
 								alt=""
 								className="w-full h-full object-cover pb-[1vh]"
 							/>
 						</div>
 						<div className="grid grid-cols-[4fr_6fr] gap-[3vw]">
 							<img
-								src="/imgs/img5.webp"
+								src="/imgs/img5.png"
 								alt=""
 								className="w-full h-full object-cover pb-[1vh]"
 							/>
@@ -220,7 +218,9 @@ const TemplatePage = () => {
 						Ready? Come enjoy the sunshine!
 					</h2>
 					<a
-						href="/apply"
+						href="https://forms.hackclub.com/sunbeam-signup"
+						target="_blank"
+						rel="noopener noreferrer"
 						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
 					>
 						<img
@@ -233,135 +233,109 @@ const TemplatePage = () => {
 			</div>
 
 			{/* Schedule */}
-			<div className="relative min-h-[130vh] items-center justify-center w-full mt-[5vh] flex flex-col pt-[0vh] z-5">
-				<img
-					src="/imgs/boardwalk2.webp"
-					className="z-0 absolute w-full h-[130vh] top-0 left-0"
-					alt=""
-				/>
-				<div className="z-5 relative">
-					<h1 className="galindo text-[9vh] leading-[9vh] md:leading-[8vh] text-center text-[#72BFDA] stroke-text mb-[1vh]">
-						Schedule
-					</h1>
-				</div>
-				<div className="flex flex-col items-center justify-center w-[80vw] mx-auto mt-[2vh] gap-[1vh] relative z-5">
-					{schedule.map((item: any, index: any) => (
-						<div
-							className={`flex gap-[1vh] items-center justify-center w-full`}
-							key={index}
-						>
-							<div
-								className={`bg-[#c0e5f2] border-[0.2vh] border-[#0e387a] rounded-[0.75vh] w-1/5 items-center justify-center flex py-[2.5vh] ${
-									index === 0 ? "rounded-tl-[5vh]" : ""
-								}
+			{(loadError || schedule.length > 0) && (
+				<div className="relative min-h-[130vh] items-center justify-center w-full pt-[5vh] flex flex-col z-5">
+					<div className="absolute inset-0 z-0 overflow-hidden">
+						<img
+							src="/imgs/boardwalk2.webp"
+							className="w-full h-full object-cover"
+							alt=""
+						/>
+					</div>
+					<div className="z-5 relative">
+						<h1 className="galindo text-[9vh] leading-[9vh] md:leading-[8vh] text-center text-[#72BFDA] stroke-text mb-[1vh]">
+							Schedule
+						</h1>
+					</div>
+					<div className="flex flex-col items-center justify-center w-[80vw] mx-auto mt-[2vh] gap-[1vh] relative z-5">
+						{loadError ? (
+							<p className="outfit text-[#0e387a] text-[2.5vh] text-center bg-[#c0e5f2] border-[0.2vh] border-[#0e387a] rounded-[1.5vh] w-full py-[3vh]">
+								We couldn&apos;t load the schedule right now. Please check back
+								later.
+							</p>
+						) : (
+							schedule.map((item: ScheduleItem, index: number) => (
+								<div
+									className={`flex gap-[1vh] items-center justify-center w-full`}
+									key={index}
+								>
+									<div
+										className={`bg-[#c0e5f2] border-[0.2vh] border-[#0e387a] rounded-[0.75vh] w-1/5 items-center justify-center flex py-[2.5vh] ${
+											index === 0 ? "rounded-tl-[5vh]" : ""
+										}
                 ${index === schedule.length - 1 ? "rounded-bl-[5vh]" : ""}
                 `}
-							>
-								<p className="text-[#0e387a] text-[3.5vh] font-semibold">
-									{item.time}
-								</p>
-							</div>
-							<div
-								className={`bg-[#c0e5f2] border-[0.2vh] border-[#0e387a] rounded-[0.75vh] w-4/5 items-center justify-center flex py-[2.5vh] ${
-									index === 0 ? "rounded-tr-[5vh]" : ""
-								}
+									>
+										<p className="text-[#0e387a] text-[3.5vh] font-semibold">
+											{item.time}
+										</p>
+									</div>
+									<div
+										className={`bg-[#c0e5f2] border-[0.2vh] border-[#0e387a] rounded-[0.75vh] w-4/5 items-center justify-center flex py-[2.5vh] ${
+											index === 0 ? "rounded-tr-[5vh]" : ""
+										}
                 ${index === schedule.length - 1 ? "rounded-br-[5vh]" : ""}
                 `}
-							>
-								<p className="text-[#0e387a] text-[3.5vh] font-semibold">
-									{item.event}
-								</p>
-							</div>
-						</div>
-					))}
-				</div>
-			</div>
-
-			{/* ── SPONSOR ── */}
-			<div className="relative min-h-screen w-full pt-[10vh] pb-[8vh] flex flex-col items-center z-3">
-				{/* sand on a laptop */}
-				<img
-					src="/imgs/sand.webp"
-					className="w-full absolute top-[-10vh] z-0"
-					alt=""
-				/>
-
-				{/* sand on a phone */}
-				<img
-					src="/imgs/sand.webp"
-					className="w-full absolute md:hidden top-0 z-0"
-					alt=""
-				/>
-				<img
-					src="/imgs/sand.webp"
-					className="w-full absolute md:hidden top-[60vh] z-0"
-					alt=""
-				/>
-				<img
-					src="/imgs/sand.webp"
-					className="w-full absolute md:hidden top-[120vh] z-0"
-					alt=""
-				/>
-				<img
-					src="/imgs/sand.webp"
-					className="w-full absolute md:hidden top-[180vh] z-0"
-					alt=""
-				/>
-				<img
-					src="/imgs/sand.webp"
-					className="w-full absolute md:hidden top-[240vh] z-0"
-					alt=""
-				/>
-				<img
-					src="/imgs/sand.webp"
-					className="w-full absolute md:hidden top-[300vh] z-0"
-					alt=""
-				/>
-				<img
-					src="/imgs/sand.webp"
-					className="w-full absolute md:hidden top-[360vh] z-0"
-					alt=""
-				/>
-				<img
-					src="/imgs/sand.webp"
-					className="w-full absolute md:hidden top-[420vh] z-0"
-					alt=""
-				/>
-
-				<div className="flex flex-col relative z-5 items-center justify-center">
-					<h2 className="galindo text-[6.5vh] text-[#D88127] text-center w-[80vw] md:w-[80vw] leading-[7.5vh] mb-[1vh]">
-						Thank you to our Sponsors!
-					</h2>
-					<div className="grid grid-cols-4 w-[90vw] gap-[3vw] mt-[3vh]">
-						{sponsors.map((sponsor, index) => (
-							<div
-								className="aspect-[1] w-full relative flex flex-col items-center justify-center"
-								key={index}
-							>
-								<img
-									src={`/imgs/${index % 2 === 0 ? "star1" : "star2"}.webp`}
-									className="w-full absolute top-0 left-0 z-0"
-									alt=""
-								/>
-								<div className="flex flex-col relative z-5 items-center justify-center w-[80%] mx-auto">
-									<img
-										src={sponsor.logo}
-										alt={sponsor.name}
-										className="w-[45%]"
-									/>
-									<p className="text-[#0E387A] stroke-text-idk font-semibold galindo text-[3vh] leading-[3vh] text-center w-[80%] mx-auto">
-										{sponsor.name}
-									</p>
+									>
+										<p className="text-[#0e387a] text-[3.5vh] font-semibold">
+											{item.event}
+										</p>
+									</div>
 								</div>
-							</div>
-						))}
+							))
+						)}
 					</div>
 				</div>
-			</div>
+			)}
+
+			{/* ── SPONSOR ── */}
+			{(loadError || sponsors.length > 0) && (
+				<div className="relative min-h-screen w-full pt-[5vh] flex flex-col items-center z-3">
+					{/* sand background, tiled to always cover the section regardless of content height */}
+					<div className="absolute inset-0 z-0 bg-repeat-y bg-[length:100%_auto] bg-[url('/imgs/sand.webp')]" />
+
+					<div className="flex flex-col relative z-5 items-center justify-center">
+						<h2 className="galindo text-[6.5vh] text-[#D88127] text-center w-[80vw] md:w-[80vw] leading-[7.5vh] mb-[1vh]">
+							Thank you to our Sponsors!
+						</h2>
+						{loadError ? (
+							<p className="outfit text-[#D88127] text-[2.5vh] text-center w-[80vw] md:w-[60vw] mt-[3vh]">
+								We couldn&apos;t load the sponsor list right now. Please check
+								back later.
+							</p>
+						) : (
+							<div className="grid grid-cols-4 w-[90vw] gap-[3vw] mt-[3vh]">
+								{sponsors.map((sponsor: Sponsor, index: number) => (
+									<div
+										className="aspect-[1] w-full relative flex flex-col items-center justify-center"
+										key={index}
+									>
+										<img
+											src={`/imgs/${index % 2 === 0 ? "star1" : "star2"}.webp`}
+											className="w-full absolute top-0 left-0 z-0"
+											alt=""
+										/>
+										<div className="flex flex-col relative z-5 items-center justify-center w-[80%] mx-auto">
+											<img
+												src={sponsor.logo}
+												alt={sponsor.name}
+												className="w-[45%]"
+											/>
+											<p className="text-[#0E387A] stroke-text-idk font-semibold galindo text-[3vh] leading-[3vh] text-center w-[80%] mx-auto">
+												{sponsor.name}
+											</p>
+										</div>
+									</div>
+								))}
+							</div>
+						)}
+					</div>
+				</div>
+			)}
 
 			{/* ── FOOTER ── */}
-			<div className="relative min-h-[80vh] w-full mt-[17.5vh] flex flex-col pt-[23vh] z-10">
-				<div className="absolute inset-0 h-[80vh] overflow-hidden">
+			<div className="relative min-h-[80vh] w-full pt-[40.5vh] flex flex-col z-10">
+				<div className="absolute inset-0 overflow-hidden">
 					<img
 						src="/imgs/water.webp"
 						className="w-full h-full object-cover object-bottom rotate-180"
@@ -445,5 +419,3 @@ const TemplatePage = () => {
 		</div>
 	);
 };
-
-export default TemplatePage;
