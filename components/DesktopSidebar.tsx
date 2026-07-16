@@ -41,6 +41,7 @@ export default function DesktopSidebar() {
           text="Branding & Social Media"
         />
         <SidebarItem href="/organizers/contact-hq" text="Contact HQ" />
+        <SidebarItem href="/sunrise" text="Sunrise" />
       </div>
       <button
         onClick={() => setSidebarClosed(!sidebarClosed)}
