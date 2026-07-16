@@ -101,7 +101,7 @@ export default function OrganizersDashboard({ name, city }: { name?: string | nu
               </a>
 
               <a
-                href="/organizers/your-event"
+                href="/starboard"
                 className="relative flex items-center justify-center mx-auto mt-4 shrink-0 w-40 2xl:w-56 aspect-[925/446] bg-[url('/imgs/guide/surfboard-yellow.webp')] bg-contain bg-no-repeat bg-center galindo text-blue-dark text-sm 2xl:text-lg duration-200 hover:scale-105"
               >
                 Your Event
