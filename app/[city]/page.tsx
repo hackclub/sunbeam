@@ -299,7 +299,7 @@ export default async function Page({
       <div className="w-full h-[12.5vh] bg-[url('/imgs/sandNoFade.webp')] z-3" />
 
       {/* ── SPONSOR ── */}
-      {(loadError || sponsors.length > 0) && (
+      {sponsors.length > 0 && (
         <div className="relative min-h-screen w-full pt-[10vh] pb-[8vh] flex flex-col items-center z-3 overflow-hidden">
           <img
             src="/imgs/sand.webp"
@@ -311,37 +311,30 @@ export default async function Page({
             <h2 className="galindo text-[6.5vh] text-[#D88127] text-center w-[80vw] md:w-[80vw] leading-[7.5vh] mb-[1vh]">
               Thank you to our Sponsors!
             </h2>
-            {loadError ? (
-              <p className="outfit text-[#D88127] text-[2.5vh] text-center w-[80vw] md:w-[60vw] mt-[3vh]">
-                We couldn&apos;t load the sponsor list right now. Please check
-                back later.
-              </p>
-            ) : (
-              <div className="grid grid-cols-4 w-[90vw] gap-[3vw] mt-[3vh]">
-                {sponsors.map((sponsor: Sponsor, index: number) => (
-                  <div
-                    className="aspect-[1] w-full relative flex flex-col items-center justify-center"
-                    key={index}
-                  >
+            <div className="grid grid-cols-4 w-[90vw] gap-[3vw] mt-[3vh]">
+              {sponsors.map((sponsor: Sponsor, index: number) => (
+                <div
+                  className="aspect-[1] w-full relative flex flex-col items-center justify-center"
+                  key={index}
+                >
+                  <img
+                    src={`/imgs/${index % 2 === 0 ? "star1" : "star2"}.webp`}
+                    className="w-full absolute top-0 left-0 z-0"
+                    alt=""
+                  />
+                  <div className="flex flex-col relative z-5 items-center justify-center w-[80%] mx-auto">
                     <img
-                      src={`/imgs/${index % 2 === 0 ? "star1" : "star2"}.webp`}
-                      className="w-full absolute top-0 left-0 z-0"
-                      alt=""
+                      src={sponsor.logo}
+                      alt={sponsor.name}
+                      className="w-[45%]"
                     />
-                    <div className="flex flex-col relative z-5 items-center justify-center w-[80%] mx-auto">
-                      <img
-                        src={sponsor.logo}
-                        alt={sponsor.name}
-                        className="w-[45%]"
-                      />
-                      <p className="text-[#0E387A] stroke-text-idk font-semibold galindo text-[3vh] leading-[3vh] text-center w-[80%] mx-auto">
-                        {sponsor.name}
-                      </p>
-                    </div>
+                    <p className="text-[#0E387A] stroke-text-idk font-semibold galindo text-[3vh] leading-[3vh] text-center w-[80%] mx-auto">
+                      {sponsor.name}
+                    </p>
                   </div>
-                ))}
-              </div>
-            )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )}
