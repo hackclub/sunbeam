@@ -11,6 +11,9 @@ const CARDS = {
     title: "Venue Email Template",
     content: (
       <div>
+        <p>
+          <strong>Subject:</strong> Requesting Space for High School Social Coding Event for Girls by Girls
+        </p>
         <p>Hi [name],</p>
         <br />
         <p>
