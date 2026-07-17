@@ -399,13 +399,13 @@ const TemplatePage = () => {
 					alt=""
 				/>
 
-				<div className="relative mt-8 mb-8 w-[80%] items-center justify-self-center flex flex-col py-[9vh] -pt-[2vh] z-5 overflow-hidden waterbg outline-2 rounded-2xl outline-blue-bright shadow-xl shadow-blue-dark/10">
+				<div className="relative mt-8 mb-8 mx-auto w-[70%] items-center flex flex-col py-[9vh] -pt-[2vh] z-5 overflow-hidden waterbg outline-2 rounded-2xl outline-blue-bright shadow-xl shadow-blue-dark/10">
 					{/* <img
 						src="/imgs/boardwalk2.webp"
 						className="absolute inset-0 z-0 w-full h-full object-cover"
 						alt=""
 					/> */}
-					<div className="relative z-5 flex flex-col items-center w-[92%] md:w-[65vw]">
+					<div className="relative z-5 flex flex-col items-center w-[92%]">
 						<div className="grid grid-rows-1 grid-flow-col">
 							<h1 className="row-start-1 col-start-1 galindo text-5xl md:text-6xl text-center text-[#72BFDA] pink-outlined-text-drop-shadow mb-[0.25vh]">
 								Example Schedule
@@ -415,24 +415,24 @@ const TemplatePage = () => {
 							</h1>
 						</div>
 
-						<p className="outfit text-[#0E387A] text-[1.7vh] md:text-[2.5vh] text-center mb-[3vh]">
+						<p className="outfit text-[#0E387A] text-[1.4vh] md:text-[1.8vh] text-center mb-[2vh]">
 							Here's what your Sunbeam could look like!
 						</p>
 
-						<div className="w-full bg-[#FBF6E7cF] border-[0.2vh] border-[#2E599C] rounded-[2vh] p-[2.5vh] md:p-[3.5vh]">
+						<div className="w-full bg-[#FBF6E7cF] border-[0.2vh] border-[#2E599C] rounded-[2vh] p-[2vh] md:p-[2.5vh]">
 							{schedule.map((item, index) => (
 								<div
 									key={index}
-									className={`flex flex-col md:flex-row md:items-center gap-[0.4vh] justify-between md:gap-[2.5vw] py-[1.8vh] ${
+									className={`flex flex-col md:flex-row md:items-center gap-[0.4vh] justify-between md:gap-[2.5vw] py-[1.2vh] ${
 										index !== schedule.length - 1
 											? "border-b-[0.15vh] border-[#2E599C33]"
 											: ""
 									}`}
 								>
-									<p className="outfit text-[#0E387A] text-[2.5vh] leading-snug min-w-0">
+									<p className="outfit text-[#0E387A] text-[1.8vh] leading-snug min-w-0">
 										{item.event}
 									</p>
-									<p className="galindo text-[#C54390] text-[2.75vh] shrink-0 whitespace-nowrap">
+									<p className="galindo text-[#C54390] text-[2vh] shrink-0 whitespace-nowrap">
 										{item.time}
 									</p>
 								</div>
