@@ -140,7 +140,7 @@ export default function OrganizersDashboard({ name, city }: { name?: string | nu
                 Check-in Call Link
               </a>
               <h3 className="text-pink-dark outfit lg:text-lg">
-                meeting platform (zoom?)
+                meeting platform (zoom)
               </h3>
               {checkInCallLabels.length > 0 ? (
                 checkInCallLabels.map((label) => (
@@ -151,9 +151,6 @@ export default function OrganizersDashboard({ name, city }: { name?: string | nu
               ) : (
                 <h3 className="text-pink-dark outfit lg:text-lg">TBD</h3>
               )}
-              <h3 className="text-blue-bright outfit lg:text-lg">
-                more details &#8680;
-              </h3>
             </div>
           </div>
         </div>
