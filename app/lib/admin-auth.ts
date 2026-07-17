@@ -21,7 +21,10 @@ export async function getAdminEmails(): Promise<string[]> {
 
 export async function requireAdmin(): Promise<Response | null> {
   const cookieStore = await cookies();
-  const token = cookieStore.get("hca_admin_token")?.value;
+  // hca_admin_token: the dedicated /admin sign-in flow. hca_token: the general HCA sign-in
+  // (e.g. the unified /starboard login) — accepted too so admins recognized via that flow
+  // can still hit admin-gated endpoints.
+  const token = cookieStore.get("hca_admin_token")?.value ?? cookieStore.get("hca_token")?.value;
   if (!token) {
     return Response.json({ error: "Unauthorized" }, { status: 401 });
   }

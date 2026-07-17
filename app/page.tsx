@@ -1,318 +1,375 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import Link from "next/link";
+import FaqAccordion from "../components/FaqAccordion";
+import TshirtMapTeaser from "../components/TshirtMapTeaser";
+
+type ScheduleItem = {
+	time: string;
+	event: string;
+};
+
+const schedule: ScheduleItem[] = [
+	{ time: "8:00 AM", event: "Opening Ceremony" },
+	{ time: "10:30 AM", event: "Workshop: Build your own website using HTML and CSS!" },
+	{ time: "11:30 AM", event: "Workshop: Make your own game in Godot!" },
+	{ time: "12:30 PM", event: "Lunch!!!" },
+	{ time: "5:00 PM", event: "Karaoke" },
+	{ time: "6:00 PM", event: "Dinner + Demos" },
+	{time: "7:00 PM", event: "Closing Ceremony"},
+	{ time: "8:00 PM", event: "Go home :(" },
+];
+
+const Home = () => {
 	return (
-		<div className="relative">
+		<div className="relative bg-[url('/imgs/sandNoFade.webp')] bg-cover bg-center bg-no-repeat">
 			{/* ── HERO ── */}
 			<div className="relative min-h-[110vh] w-full">
-				<div className="absolute inset-0 h-[120vh] overflow-hidden">
-					<Image
+				<div className="absolute inset-0 h-[110vh] overflow-hidden">
+					<img
 						src="/imgs/water.webp"
-						fill
+						className="w-full h-full object-cover object-bottom"
 						alt=""
-						className="object-cover object-bottom"
-						priority
-						sizes="100vw"
 					/>
 				</div>
+
 				{/* Shark */}
-				<Image
+				<img
 					src="/imgs/shark1.webp"
-					width={359}
-					height={442}
+					className="absolute top-[-2vh] left-[2.5vw] z-10 w-[30vw] md:w-[17.5vw]"
 					alt=""
-					className="absolute top-[-2vh] left-[2.5vw] z-10 w-[30vw] md:w-[17.5vw] h-auto"
-					sizes="(max-width: 768px) 30vw, 17.5vw"
 				/>
+
 				{/* Foam wave */}
-				<Image
+				<img
 					src="/imgs/foam-fixed.png"
-					width={1727}
-					height={428}
+					className="hidden md:block md:absolute bottom-[-20vh] left-0 z-5 w-full"
 					alt=""
-					className="hidden md:block md:absolute bottom-[-20vh] left-0 z-5 w-full h-auto"
-					sizes="100vw"
 				/>
-				{/* Foam Mobile */}
-				<div className="relative">
-					<div className="md:hidden absolute inset-0 z-1 overflow-hidden pointer-events-none translate-y-[10vh]">
-						<Image
-							src="/imgs/foam-fixed.png"
-							width={1727}
-							height={428}
-							alt="foam"
-							className="absolute md:hidden bottom-[0] left-0 z-50 w-full h-auto"
+
+				<div className="flex flex-col relative z-5">
+					{/* Logo + video */}
+					<div className="relative w-[80vw] mx-auto flex flex-col md:flex-row mt-[5vh] mb-[1vh]">
+						<img
+							src="/imgs/logo.svg"
+							className="w-[80vw] md:w-[44vw] mx-auto md:mx-0 md:absolute md:bottom-[-6vh] md:left-0 mb-[3vh] md:mb-0"
+							alt="Sunbeam"
 						/>
-					</div>
-
-					<div className="flex flex-col relative z-10">
-						{/* Logo + video */}
-						<div className="relative w-[80vw] mx-auto flex flex-col md:flex-row mt-[5vh] mb-[4vh] md:mb-[9vh]">
-							<Image
-								src="/imgs/logo.svg"
-								width={858}
-								height={308}
-								alt="Sunbeam"
-								className="w-[80vw] md:w-[44vw] mx-auto md:mx-0 md:absolute md:bottom-[-6vh] md:left-0 h-auto mb-[3vh] md:mb-0"
-								sizes="(max-width: 768px) 80vw, 44vw"
+						{/* Spacer so video sits fully to the right of the logo (desktop only) */}
+						<div className="hidden md:block md:w-[44vw] shrink-0" />
+						{/* Launch video */}
+						<div className="w-full md:w-[36vw] h-[25vh] md:h-[40vh] md:ml-auto rounded-sm overflow-hidden">
+							<iframe
+								src="https://www.youtube.com/embed/Ufmk9QW-XAs"
+								title="Sunbeam Social launch video"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowFullScreen
+								className="w-full h-full"
 							/>
-							{/* Spacer so video sits fully to the right of the logo (desktop only) */}
-							<div className="hidden md:block md:w-[44vw] shrink-0" />
-							{/* Launch video */}
-							<div className="w-full md:w-[36vw] h-[25vh] md:h-[40vh] md:ml-auto rounded-sm overflow-hidden">
-								<iframe
-									src="https://www.youtube.com/embed/Ufmk9QW-XAs"
-									title="Sunbeam Social launch video"
-									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-									allowFullScreen
-									className="w-full h-full"
-								/>
-							</div>
 						</div>
-
-						<h2 className="galindo text-[3vh] px-[5vw] md:px-0 md:text-[4.5vh] text-[#2E599C] text-center">
-							A social coding event for girls 13-18 around the world
-						</h2>
-						<h3 className="outfit text-[#0E387A] text-center text-[1.75vh] md:text-[3vh]">
-							August 29th, 2026 || 20+ cities worldwide
-						</h3>
-						<h1 className="galindo text-[6.5vh] leading-[6.5vh] md:leading-[8vh] text-center gradient-text mt-[1.5vh]">
-							Organize a Sunbeam Social in your city!
-						</h1>
-						<a
-							href="/apply"
-							className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
-						>
-							<Image
-								src="/imgs/apply.webp"
-								width={523}
-								height={210}
-								alt="apply!"
-								className="w-[65vw] md:w-[25vw] h-auto mx-auto"
-								sizes="(max-width: 768px) 65vw, 25vw"
-							/>
-						</a>
-						<p className="outfit text-[#2E599C]/70 text-center text-[16px] md:text-[1.75vh] italic mt-[1.5vh] tracking-wide">
-							by reem, lola, jenny, afia, yanella, safia, and kat
-						</p>
 					</div>
+					{/* <h1 className="galindo text-[5vh] leading-[5vh] md:leading-[8vh] text-center gradient-text mt-[1vh]">
+						A social coding event for girls 13-18 around the world
+					</h1> */}
+
+					<h2 className="galindo text-[3vh] px-[5vw] md:px-0 md:text-[4.5vh] text-[#2E599C] text-center mt-[7vh]">
+						A social coding event for girls 13-18 around the world
+					</h2>
+					<h3 className="outfit text-[#0E387A] text-center text-[1.5vh] md:text-[3vh]">
+						August 29th, 2026 || 20+ cities worldwide
+					</h3>
+					<div className="grid grid-cols-1 grid-rows-1">
+					<h1 className="row-start-1 col-start-1 galindo text-[6.5vh] leading-[6.5vh] md:leading-[8vh] text-center pink-outlined-text-drop-shadow mt-[1.5vh]">
+						No experience necessary - join today!
+					</h1>
+					<h1 className="row-start-1 col-start-1 galindo text-[6.5vh] leading-[6.5vh] md:leading-[8vh] text-center gradient-text mt-[1.5vh]">
+						No experience necessary - join today!
+					</h1>
+					</div>
+
+					<a
+						href="https://forms.hackclub.com/sunbeam-signup"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
+					>
+						<img
+							src="/imgs/sign-up.webp"
+							className="w-[65vw] md:w-[25vw] mx-auto"
+							alt="apply!"
+						/>
+					</a>
 				</div>
 			</div>
 
 			{/* ── HOW-TO ── */}
-			<div className="relative min-h-screen w-full pt-[26vh] pb-[18vh] flex flex-col items-center z-0">
-				{/* sand background — single element, tiled via CSS */}
-				<div
-					className="absolute inset-0 z-0 pointer-events-none"
-					style={{
-						backgroundImage: "url('/imgs/sand.webp')",
-						backgroundRepeat: "no-repeat",
-						backgroundSize: "cover",
-						backgroundPosition: "center top",
-					}}
-				/>
-				<Image
-					src="/imgs/ray1.webp"
-					width={356}
-					height={267}
+			<div className="relative min-h-screen w-full pt-[26vh] flex flex-col items-center bg-[url('/imgs/sandNoFade.webp')] bg-cover bg-center">
+				{/* sand transition from the foam above */}
+				<img
+					src="/imgs/sand.webp"
+					className="w-full absolute top-0 z-0"
 					alt=""
-					className="absolute top-[115vh] right-[6vw] z-5 w-[17.5vw] h-auto hidden md:block"
 				/>
-
-				{/* What is Sunbeam Social */}
-				<div className="flex flex-col relative z-5 items-center justify-center w-full">
-					<h2 className="galindo text-[5.5vh] md:text-[6.5vh] text-[#D77393] text-center leading-tight mb-0">
-						What is a Sunbeam Social?
-					</h2>
-					<div className="relative w-[95vw] md:w-[62vw] mt-0 mb-[1vh] md:mb-[1.5vh] flex flex-col items-center justify-center">
-						<Image
-							src="/imgs/sunbeam-photo.webp"
-							width={1434}
-							height={1172}
-							alt=""
-							className="w-full h-[60vh] md:h-auto rounded-2xl"
-							style={{ transform: "rotate(-1.57deg)" }}
-							sizes="(max-width: 768px) 92vw, 82vw"
-						/>
-						<div
-							className="absolute rounded-[32px] backdrop-blur-md bg-white/25 flex items-center justify-center top-[50%] -translate-y-[50%] left-[6vw] w-[82vw] md:w-[50vw] mx-auto"
-							style={{
-								/* 	top: "18.7%",
-								left: "14%",
-								right: "13.3%",
-								bottom: "12.2%", */
-								boxShadow: "0 8px 16px rgba(14, 56, 122, 0.5)",
-							}}
-						>
-							<p className="outfit font-semibold text-[#0E387A] text-center text-[3.5vw] md:text-[1.8vw] leading-snug px-[8%] py-[3%]">
-								Sunbeam is a day-long hangout where girls can make projects
-								together, chat with other girls, learn to code from scratch, and
-								enjoy delicious food.
-								<br />
-								<br />
-								We want every Sunbeam Social to have a friendly, chill, and
-								supportive environment that helps even complete beginners make
-								something they&apos;re proud of.&nbsp;
-								<br />
-								<br />
-								This event is more of a SOCIAL coding get together than a
-								hackathon!!!
-							</p>
-						</div>
-					</div>
-				</div>
+				<img
+					src="/imgs/ray1.webp"
+					className="absolute top-[20vh] right-[6vw] z-5 w-[17.5vw]"
+					alt=""
+				/>
 
 				<div className="flex flex-col relative z-5 items-center justify-center">
 					<h2 className="galindo text-[6.5vh] text-[#D88127] text-center w-[80vw] md:w-[50vw] leading-[7.5vh] mb-[1vh]">
-						How do you organize a Sunbeam Social?
+						What do you do at a Sunbeam Social?
 					</h2>
 
 					{/* Three cards */}
-					{/* Three cards */}
-					<div className="w-[90vw] md:w-[77.5vw] flex flex-col md:flex-row items-start justify-center gap-6 md:gap-[3vw] my-[4vh]">
-						<div className="w-full h-auto rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-2 md:p-[0.75vw]">
-							<div className="border-[1vh] border-[#C54390] w-full h-auto rounded-[3vh] flex flex-col items-center justify-start p-4 md:p-[1vw]">
-								<div className="w-full aspect-[1/1] relative mb-[2vh]">
-									<Image
-										src="/imgs/img1.webp"
-										fill
-										alt=""
-										sizes="(max-width: 768px) 90vw, 23vw"
-										className="object-cover rounded-lg"
-									/>
-								</div>
-								<h2 className="galindo text-center text-[6vw] md:text-[4vh] text-[#C54390]">
-									APPLY!
+					<div className="w-[77.5vw] flex flex-col md:flex-row items-center justify-center gap-[3vw] my-[4vh]">
+						<div className="w-full h-[67.5vh] rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-[0.75vw]">
+							<div className="border-[1vh] border-[#C54390] w-full h-full rounded-[3vh] flex flex-col items-center justify-start p-[1vw]">
+								<img src="/imgs/img1.webp" className="pb-[2vh]" alt="" />
+								<h2 className="galindo text-center text-[4vh] text-[#C54390]">
+									SIGN UP
 								</h2>
 								<p className="outfit text-[2.25vh] text-center text-[#C54390]">
-									Apply to <span className="underline">organize</span> a Sunbeam
-									using our form. Experience helps but isn&apos;t necessary!
+									Sign up for a Sunbeam social in your area with the link below!
 								</p>
 							</div>
 						</div>
-						<div className="w-full h-auto rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-2 md:p-[0.75vw]">
-							<div className="border-[1vh] border-[#2E599C] w-full h-auto rounded-[3vh] flex flex-col items-center justify-start p-4 md:p-[1vw]">
-								<div className="w-full aspect-[1/1] relative mb-[2vh]">
-									<Image
-										src="/imgs/img2.webp"
-										fill
-										alt=""
-										sizes="(max-width: 768px) 90vw, 23vw"
-										className="object-cover rounded-lg"
-									/>
-								</div>
-								<h2 className="galindo text-center text-[6vw] md:text-[4vh] text-[#2E599C]">
-									PLAN!
+						<div className="w-full h-[75vh] rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-[0.75vw]">
+							<div className="border-[1vh] border-[#2E599C] w-full h-full rounded-[3vh] flex flex-col items-center justify-start p-[1vw]">
+								<img src="/imgs/img2.webp" className="pb-[2vh]" alt="" />
+								<h2 className="galindo text-center text-[4vh] text-[#2E599C]">
+									TEAM
 								</h2>
 								<p className="outfit text-[2.25vh] text-center text-[#2E599C]">
-									Plan for <span className="underline">venue</span>,{" "}
-									<span className="underline">budget</span> and{" "}
-									<span className="underline">get</span> girls to sign up! Stock
-									up on food, drinks, and prizes.
+									Join a team of 1-3 people. Come in with your friends or meet
+									new friends at the social! No experience is needed - everyone
+									is welcome!
 								</p>
 							</div>
 						</div>
-						<div className="w-full h-auto rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-2 md:p-[0.75vw]">
-							<div className="border-[1vh] border-[#C79713] w-full h-auto rounded-[3vh] flex flex-col items-center justify-start p-4 md:p-[1vw]">
-								<div className="w-full aspect-[1/1] relative mb-[2vh]">
-									<Image
-										src="/imgs/img3.webp"
-										fill
-										alt=""
-										sizes="(max-width: 768px) 90vw, 23vw"
-										className="object-cover rounded-lg"
-									/>
-								</div>
-								<h2 className="galindo text-center text-[6vw] md:text-[4vh] text-[#C79713]">
-									EVENT!
+						<div className="w-full h-[70vh] rounded-[3.5vh] border border-neutral-400 drop-shadow-sm bg-neutral-50 p-[0.75vw]">
+							<div className="border-[1vh] border-[#C79713] w-full h-full rounded-[3vh] flex flex-col items-center justify-start p-[1vw]">
+								<img src="/imgs/img3.webp" className="pb-[2vh]" alt="" />
+								<h2 className="galindo text-center text-[4vh] text-[#C79713]">
+									FUN!
 								</h2>
 								<p className="outfit text-[2.25vh] text-center text-[#C79713]">
-									August 29!! Have fun during your event and make friends with
-									fellow organizers &amp; participants.
+									August 29!! Have fun during the event: make friends, enjoy the
+									food/drinks, and learn from workshops!
 								</p>
 							</div>
 						</div>
 					</div>
 
-					{/* Guide surfboard */}
-					<a
-						href="/organizer-auth"
-						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
-					>
-						<Image
-							src="/imgs/org-portal.webp"
-							width={795}
-							height={291}
-							alt="Organizer Portal >>>>"
-							className="w-[80vw] md:w-[35vw] h-auto mx-auto"
-						/>
-					</a>
+					{/* tshirt & link 2 map */}
+					<TshirtMapTeaser />
 
-					{/* CTA */}
-					<h2 className="outfit text-[6vh] text-[#C54390] text-center w-[70vw] md:w-[60vw] leading-[7.5vh] my-[4vh] drop-shadow-sm">
-						Ready? Let the sun beam in your city!
-					</h2>
-					<p
-						className="outfit text-[#2E599C]"
-						style={{ fontSize: "2.0vw", fontWeight: 540, lineHeight: 1.4 }}
+					{/* license plates */}
+					<div className="m-12">
+						<div className="flex flex-row flex-wrap m-4 gap-4 justify-center items-center">
+							<div className="flex flex-row items-center gap-8">
+								<img src="/imgs/plate1.webp" alt="build your project!" className="h-[30vh]" />
+								<div className="pt-4 pb-8 px-4 border-2 bg-white border-blue-dark/50 shadow-sm shadow-blue-dark/50 transition-transform duration-300 hover:scale-105 hover:-rotate-2">
+									<img src="/imgs/img-build.jpg" className="h-[30vh] border-1 border-blue-dark/50"/>
+								</div>
+							</div>
+							<div className="flex flex-row-reverse items-center gap-12">
+								<img src="/imgs/plate2.png" alt="show it off!" className="h-[30vh]" />
+								<div className="pt-4 pb-12 px-4 border-2 bg-white border-blue-dark/50 shadow-sm shadow-blue-dark/50 transition-transform duration-300 hover:scale-105 hover:rotate-2">
+									<img src="/imgs/img-showitoff.jpg" className="h-[30vh] w-[34vh] object-cover object-top border-1 border-blue-dark/50"/>
+								</div>
+							</div>
+						<div className="flex flex-row items-center gap-8">
+								<img src="/imgs/plate3.png" alt="get prizes!" className="h-[30vh]" />
+								<div className="pt-4 pb-8 px-4 border-2 bg-white border-blue-dark/50 shadow-sm shadow-blue-dark/50 transition-transform duration-300 hover:scale-105 hover:-rotate-2">
+									<img src="/imgs/img-trophies.jpg" className="h-[30vh] w-[34vh] object-cover border-1 border-blue-dark/50"/>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div className="bg-[url('/imgs/sandNoFade.webp')] w-full justify-center items-center flex flex-col">
+					<Link
+						href="/map"
+						className="hover:scale-105 transition-all duration-200 pointer-events-auto cursor-pointer w-fit mx-auto -mt-[4vh] mb-[5vh] transform -rotate-3 hover:-rotate-5"
 					>
-						Deadline to apply to be an organizer is July 13th.
-					</p>
-					<a
-						href="/apply"
-						className="hover:scale-105 transition-all cursor-pointer w-fit mx-auto"
-					>
-						<Image
-							src="/imgs/apply.webp"
-							width={523}
-							height={210}
+						<img
+							src="/imgs/surfboard_findsunbeam.png"
+							className="w-[40vw] md:w-[20vw] mx-auto"
 							alt="apply!"
-							className="w-[60vw] md:w-[25vw] h-auto mx-auto"
 						/>
-					</a>
+					</Link>
+					</div>
+					
 				</div>
 			</div>
 
-			{/* ── FOOTER ── */}
-			<div className="relative min-h-[80vh] w-full flex flex-col pt-[23vh]">
-				<div className="absolute inset-0 h-[80vh] overflow-hidden">
-					<Image
-						src="/imgs/water2.webp"
-						fill
+			{/* Schedule */}
+			<div className="relative w-full overflow-hidden">
+				<img
+					src="/imgs/sandNoFade.webp"
+					className="w-full object-cover absolute top-0 z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sandNoFade.webp"
+					className="w-full absolute top-[100vh] object-cover  z-0"
+					alt=""
+				/>
+
+				<div className="relative mt-8 mb-8 w-[80%] items-center justify-self-center flex flex-col py-[9vh] -pt-[2vh] z-5 overflow-hidden waterbg outline-2 rounded-2xl outline-blue-bright shadow-xl shadow-blue-dark/10">
+					{/* <img
+						src="/imgs/boardwalk2.webp"
+						className="absolute inset-0 z-0 w-full h-full object-cover"
 						alt=""
-						className="object-cover object-top"
-						sizes="100vw"
+					/> */}
+					<div className="relative z-5 flex flex-col items-center w-[92%] md:w-[65vw]">
+						<div className="grid grid-rows-1 grid-flow-col">
+						<h1 className="row-start-1 col-start-1 galindo text-5xl md:text-6xl text-center text-[#72BFDA] pink-outlined-text-drop-shadow mb-[0.25vh]">
+							Example Schedule
+						</h1>
+						<h1 className="row-start-1 col-start-1 galindo text-5xl md:text-6xl text-center text-[#72BFDA] pink-outlined-text-sm mb-[0.25vh]">
+							Example Schedule
+						</h1>
+						</div>
+
+						<p className="outfit text-[#0E387A] text-[1.7vh] md:text-[2.5vh] text-center mb-[3vh]">
+							Here's what your Sunbeam could look like!
+						</p>
+
+						<div className="w-full bg-[#FBF6E7cF] border-[0.2vh] border-[#2E599C] rounded-[2vh] p-[2.5vh] md:p-[3.5vh]">
+							{schedule.map((item, index) => (
+								<div
+									key={index}
+									className={`flex flex-col md:flex-row md:items-center gap-[0.4vh] justify-between md:gap-[2.5vw] py-[1.8vh] ${
+										index !== schedule.length - 1
+											? "border-b-[0.15vh] border-[#2E599C33]"
+											: ""
+									}`}
+								>
+									<p className="outfit text-[#0E387A] text-[2.5vh] leading-snug min-w-0">
+										{item.event}
+									</p>
+									<p className="galindo text-[#C54390] text-[2.75vh] shrink-0 whitespace-nowrap">
+										{item.time}
+									</p>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{/* FAQ */}
+			<FaqAccordion />
+
+			{/* Sand spacer before footer */}
+			<div className="w-full h-[12.5vh] bg-[url('/imgs/sandNoFade.webp')] z-3" />
+
+			{/* ── SPONSOR ── */}
+			{/* <div className="relative min-h-screen w-full pt-[10vh] pb-[8vh] flex flex-col items-center z-3">
+				<img
+					src="/imgs/sand.webp"
+					className="w-full absolute top-[-10vh] z-0"
+					alt=""
+				/>
+
+				<img
+					src="/imgs/sand.webp"
+					className="w-full absolute md:hidden top-0 z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sand.webp"
+					className="w-full absolute md:hidden top-[60vh] z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sand.webp"
+					className="w-full absolute md:hidden top-[120vh] z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sand.webp"
+					className="w-full absolute md:hidden top-[180vh] z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sand.webp"
+					className="w-full absolute md:hidden top-[240vh] z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sand.webp"
+					className="w-full absolute md:hidden top-[300vh] z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sand.webp"
+					className="w-full absolute md:hidden top-[360vh] z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sand.webp"
+					className="w-full absolute md:hidden top-[420vh] z-0"
+					alt=""
+				/> */}
+
+			{/* <div className="flex flex-col relative z-5 items-center justify-center">
+					<h2 className="galindo text-[6.5vh] text-[#D88127] text-center w-[80vw] md:w-[80vw] leading-[7.5vh] mb-[1vh]">
+						Thank you to our Sponsors!
+					</h2>
+					<div className="grid grid-cols-4 w-[90vw] gap-[3vw] mt-[3vh]">
+						{sponsors.map((sponsor, index) => (
+							<div
+								className="aspect-[1] w-full relative flex flex-col items-center justify-center"
+								key={index}
+							>
+								<img
+									src={`/imgs/${index % 2 === 0 ? "star1" : "star2"}.webp`}
+									className="w-full absolute top-0 left-0 z-0"
+									alt=""
+								/>
+								<div className="flex flex-col relative z-5 items-center justify-center w-[80%] mx-auto">
+									<img
+										src={sponsor.logo}
+										alt={sponsor.name}
+										className="w-[45%]"
+									/>
+									<p className="text-[#0E387A] stroke-text-idk font-semibold galindo text-[3vh] leading-[3vh] text-center w-[80%] mx-auto">
+										{sponsor.name}
+									</p>
+								</div>
+							</div>
+						))}
+					</div>
+				</div> */}
+			{/* </div> */}
+
+			{/* ── FOOTER ── */}
+			<div className="relative min-h-[80vh] w-full flex flex-col pt-[23vh] z-10">
+				<div className="absolute inset-0 overflow-hidden">
+					<img
+						src="/imgs/water2.webp"
+						className="w-full h-full object-cover object-top"
+						alt=""
 					/>
 				</div>
-				<Image
+				<img
 					src="/imgs/foam-fixed2.png"
-					width={376}
-					height={297}
-					className="hidden md:block md:absolute top-[-19vh] left-0 z-5 w-full"
 					alt=""
+					className="hidden md:block md:absolute top-[-15vh] left-0 z-10 w-full"
 				/>
-				{/* Foam Mobile */}
-
-				<Image
-					src="/imgs/foam-fixed2.png"
-					width={376}
-					height={297}
-					className="black md:hidden absolute top-[-4vh] left-0 z-5 w-full"
-					alt=""
-				/>
-
-				<Image
+				<img
 					src="/imgs/ray2.webp"
-					width={376}
-					height={297}
+					className="hidden md:absolute bottom-[2vh] right-0 z-5 w-[20vw]"
 					alt=""
-					className="absolute bottom-[2vh] right-0 z-5 w-[20vw] h-auto hidden md:block"
 				/>
 
 				<div className="relative z-5 flex flex-col">
 					{/* Footer headline */}
 					<h3 className="outfit text-[#FBF6E7]/90 font-semibold text-[5.5vh] text-center">
-						made with <b className="text-[#eeb3c8]">♡</b> by{" "}
+						made with <b className="text-[#FFC7DA]">♡</b> by{" "}
 						<a
 							href="https://athena.hackclub.com"
 							target="_blank"
@@ -323,6 +380,7 @@ export default function Home() {
 						</a>{" "}
 						Team
 					</h3>
+
 					{/* Nav + description */}
 					<div className="flex flex-col md:flex-row gap-[8vw] mt-[6vh] px-[5.3%]">
 						{/* Left nav */}
@@ -351,31 +409,17 @@ export default function Home() {
 
 						{/* Right description */}
 						<p className="outfit text-black/60 md:text-[#FAF0D3] text-[2.75vw] md:text-[1.5vw] leading-relaxed max-w-[80vw] md:max-w-[60vw]">
-							Hack Club is a 501(c)(3) nonprofit and network of 130k+ technical
-							teenagers. We believe you learn best by building, so we&apos;re
-							creating community and providing grants so you can make awesome
-							projects.
+							Hack Club is a 501(c)(3) nonprofit and network of 60k+ technical
+							high schoolers. We believe you learn best by building so
+							we&apos;re creating community and providing grants so you can make
+							awesome projects. In the past few years, we&apos;ve partnered with
+							GitHub to run&nbsp;Summer of Making, hosted the&nbsp;world&apos;s
+							longest hackathon on land, and ran&nbsp;Canada&apos;s largest high
+							school hackathon.
 							<br />
-							Previously, we&apos;ve organized the largest all-girls high school
-							hackathon{" "}
-							<a
-								href="https://parthenon.hackclub.com/"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="underline"
-							>
-								Parthenon
-							</a>
-							, game-jam simultaneously in 200+ cities called{" "}
-							<a
-								href="https://campfire.hackclub.com/"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="underline"
-							>
-								Campfire
-							</a>
-							, and many more.
+							<br />
+							At Hack Club, students are building real projects every single
+							day.
 						</p>
 					</div>
 
@@ -387,4 +431,6 @@ export default function Home() {
 			</div>
 		</div>
 	);
-}
+};
+
+export default Home;
