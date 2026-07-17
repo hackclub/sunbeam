@@ -12,7 +12,7 @@ const CARDS = {
     content: (
       <div>
         <p>
-          <strong>Subject:</strong> Requesting Space for High School Social Coding Event for Girls by Girls
+          <strong>Subject:</strong> Requesting Space for High School Social Coding Event for Girls by Girls <br/>
         </p>
         <p>Hi [name],</p>
         <br />
