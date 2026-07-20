@@ -1,26 +1,117 @@
+// TemplatePage.tsx
 "use client";
 
 import Link from "next/link";
-import FaqAccordion from "../components/FaqAccordion";
-import TshirtMapTeaser from "../components/TshirtMapTeaser";
+import React, { useState } from "react";
+
+const participantFaqs = [
+	{
+		question: "I've never coded before, can I still join?",
+		answer:
+			"Of course! Sunbeam socials are a relaxed and supportive space for all girls with different skill levels. Workshops will help you learn everything you need.",
+	},
+	{
+		question: "How much does it cost to attend?",
+		answer:
+			"Nothing. Sunbeam socials are free for participants, and we provide food, drinks, merch, and prizes.",
+	},
+	{
+		question: "What should I bring?",
+		answer:
+			"Bring a laptop or iPad and anything else you like to code with, such as a charger, mouse, keyboard, or notepad.",
+	},
+	{
+		question: "Who can join?",
+		answer:
+			"Any girl-identifying individual aged 13-18 (inclusive) can sign up for their local Sunbeam social.",
+	},
+	{
+		question: "What is Hack Club?",
+		answer:
+			"Hack Club is a US-based charity that operates all around the world to get more young people involved in tech and coding. They've run events on an island, partnered with NASA, and hosted the world's largest all-girls high school hackathon!",
+	},
+	{
+		question: "What is Sunbeam?",
+		answer:
+			"Sunbeam is a series of social coding events, for girls by girls, running simultaneously in 20+ cities around the world!",
+	},
+	{
+		question: "Do I need to know anyone before I go?",
+		answer:
+			"No, you'll get to know everyone on the day of, but don't hesitate to chat to other girls in the Slack channels and bring your in-person friends along too!",
+	},
+	{
+		question: "How do I join the Slack channels?",
+		answer: (
+			<>
+				Click{" "}
+				<a
+					href="https://slack.hackclub.com/"
+					style={{ textDecoration: "underline" }}
+				>
+					HERE
+				</a>{" "}
+				and join the sunbeam channels.
+			</>
+		),
+	},
+	{
+		question: "What if I have allergies/dietary restrictions?",
+		answer:
+			"One you sign up, you'll receive a check-in form where you'll be able to let the organizers know about any health concerns and dietary requirements. We'll make sure to provide food options for everyone.",
+	},
+	{
+		question: "Are we getting prizes?",
+		answer:
+			"You'll get a custom t-shirt, [company]-recognized certificate, and a bunch of other free merch just for attending! Each social will also have peer-voted winners which will get extra prizes for best project/nicest graphics/funniest ideas too!",
+	},
+];
 
 type ScheduleItem = {
 	time: string;
 	event: string;
 };
 
+type SponsorItem = {
+	name: string;
+	logo: string;
+};
+
+const cityName = "For Example City";
+
 const schedule: ScheduleItem[] = [
 	{ time: "8:00 AM", event: "Opening Ceremony" },
-	{ time: "10:30 AM", event: "Workshop: Build your own website using HTML and CSS!" },
-	{ time: "11:30 AM", event: "Workshop: Make your own game in Godot!" },
+	{ time: "10:30 AM", event: "Workshop: Boba Drops" },
+	{ time: "11:30 AM", event: "Workshop: Godot" },
 	{ time: "12:30 PM", event: "Lunch!!!" },
 	{ time: "5:00 PM", event: "Karaoke" },
 	{ time: "6:00 PM", event: "Dinner + Demos" },
-	{time: "7:00 PM", event: "Closing Ceremony"},
+	{ time: "7:00 PM", event: "Closing Ceremony" },
 	{ time: "8:00 PM", event: "Go home :(" },
 ];
 
-const Home = () => {
+const socialHighlights = [
+	{
+		title: "Build",
+		description: "Turn an idea into something you're proud of.",
+		img: "/imgs/plate1.webp",
+	},
+	{
+		title: "Have Fun",
+		description: "Enjoy snacks, laughs, and a great day together.",
+		img: "/imgs/plate2.png",
+	},
+	{
+		title: "Make Friends",
+		description: "Meet other girls who love creating and coding.",
+		img: "/imgs/plate3.png",
+	},
+];
+
+const TemplatePage = () => {
+	const [openFaq, setOpenFaq] = useState<number | null>(null);
+	const [shirtFlipped, setShirtFlipped] = useState(false);
+
 	return (
 		<div className="relative bg-[url('/imgs/sandNoFade.webp')] bg-cover bg-center bg-no-repeat">
 			{/* ── HERO ── */}
@@ -79,12 +170,12 @@ const Home = () => {
 						August 29th, 2026 || 20+ cities worldwide
 					</h3>
 					<div className="grid grid-cols-1 grid-rows-1">
-					<h1 className="row-start-1 col-start-1 galindo text-[6.5vh] leading-[6.5vh] md:leading-[8vh] text-center pink-outlined-text-drop-shadow mt-[1.5vh]">
-						No experience necessary - join today!
-					</h1>
-					<h1 className="row-start-1 col-start-1 galindo text-[6.5vh] leading-[6.5vh] md:leading-[8vh] text-center gradient-text mt-[1.5vh]">
-						No experience necessary - join today!
-					</h1>
+						<h1 className="row-start-1 col-start-1 galindo text-[6.5vh] leading-[6.5vh] md:leading-[8vh] text-center pink-outlined-text-drop-shadow mt-[1.5vh]">
+							No experience necessary - join today!
+						</h1>
+						<h1 className="row-start-1 col-start-1 galindo text-[6.5vh] leading-[6.5vh] md:leading-[8vh] text-center gradient-text mt-[1.5vh]">
+							No experience necessary - join today!
+						</h1>
 					</div>
 
 					<a
@@ -103,11 +194,47 @@ const Home = () => {
 			</div>
 
 			{/* ── HOW-TO ── */}
-			<div className="relative min-h-screen w-full pt-[26vh] flex flex-col items-center bg-[url('/imgs/sandNoFade.webp')] bg-cover bg-center">
-				{/* sand transition from the foam above */}
+			<div className="relative min-h-screen w-full pt-[26vh] flex flex-col items-center">
+				{/* sand on a laptop */}
 				<img
 					src="/imgs/sand.webp"
 					className="w-full absolute top-0 z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sand.webp"
+					className="w-full absolute top-[100vh] z-0"
+					alt=""
+				/>
+				{/* sand on a phone */}
+				<img
+					src="/imgs/sand.webp"
+					className="w-full absolute md:hidden top-0 z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sand.webp"
+					className="w-full absolute md:hidden top-[60vh] z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sand.webp"
+					className="w-full absolute md:hidden top-[120vh] z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sand.webp"
+					className="w-full absolute md:hidden top-[180vh] z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sand.webp"
+					className="w-full absolute md:hidden top-[240vh] z-0"
+					alt=""
+				/>
+				<img
+					src="/imgs/sand.webp"
+					className="w-full absolute md:hidden top-[300vh] z-0"
 					alt=""
 				/>
 				<img
@@ -161,46 +288,101 @@ const Home = () => {
 						</div>
 					</div>
 
-					{/* tshirt & link 2 map */}
-					<TshirtMapTeaser />
-
 					{/* license plates */}
 					<div className="m-12">
 						<div className="flex flex-row flex-wrap m-4 gap-4 justify-center items-center">
 							<div className="flex flex-row items-center gap-8">
-								<img src="/imgs/plate1.webp" alt="build your project!" className="h-[30vh]" />
-								<div className="pt-4 pb-8 px-4 border-2 bg-white border-blue-dark/50 shadow-sm shadow-blue-dark/50 transition-transform duration-300 hover:scale-105 hover:-rotate-2">
-									<img src="/imgs/img-build.jpg" className="h-[30vh] border-1 border-blue-dark/50"/>
+								<img
+									src="/imgs/plate1.webp"
+									alt="build your project!"
+									className="h-[30vh]"
+								/>
+								<div className=" pt-4 pb-8 px-4 border-2 bg-white border-blue-dark/50 shadow-sm shadow-blue-dark/50">
+									<img
+										src="/imgs/img4.png"
+										className="h-[30vh] border-1 border-blue-dark/50"
+									/>
 								</div>
 							</div>
 							<div className="flex flex-row-reverse items-center gap-12">
-								<img src="/imgs/plate2.png" alt="show it off!" className="h-[30vh]" />
-								<div className="pt-4 pb-12 px-4 border-2 bg-white border-blue-dark/50 shadow-sm shadow-blue-dark/50 transition-transform duration-300 hover:scale-105 hover:rotate-2">
-									<img src="/imgs/img-showitoff.jpg" className="h-[30vh] w-[34vh] object-cover object-top border-1 border-blue-dark/50"/>
+								<img
+									src="/imgs/plate2.png"
+									alt="show it off!"
+									className="h-[30vh]"
+								/>
+								<div className=" pt-4 pb-12 px-4 border-2 bg-white border-blue-dark/50 shadow-sm shadow-blue-dark/50">
+									<img
+										src="/imgs/img5.png"
+										className="h-[30vh] border-1 border-blue-dark/50"
+									/>
 								</div>
 							</div>
-						<div className="flex flex-row items-center gap-8">
-								<img src="/imgs/plate3.png" alt="get prizes!" className="h-[30vh]" />
-								<div className="pt-4 pb-8 px-4 border-2 bg-white border-blue-dark/50 shadow-sm shadow-blue-dark/50 transition-transform duration-300 hover:scale-105 hover:-rotate-2">
-									<img src="/imgs/img-trophies.jpg" className="h-[30vh] w-[34vh] object-cover border-1 border-blue-dark/50"/>
+							<div className="flex flex-row items-center gap-8">
+								<img
+									src="/imgs/plate3.png"
+									alt="get prizes!"
+									className="h-[30vh]"
+								/>
+								<div className=" pt-4 pb-8 px-4 border-2 bg-white border-blue-dark/50 shadow-sm shadow-blue-dark/50">
+									<img
+										src="/imgs/img6.webp"
+										className="h-[30vh] border-1 border-blue-dark/50"
+									/>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					<div className="bg-[url('/imgs/sandNoFade.webp')] w-full justify-center items-center flex flex-col">
-					<Link
-						href="/map"
-						className="hover:scale-105 transition-all duration-200 pointer-events-auto cursor-pointer w-fit mx-auto -mt-[4vh] mb-[5vh] transform -rotate-3 hover:-rotate-5"
-					>
-						<img
-							src="/imgs/surfboard_findsunbeam.png"
-							className="w-[40vw] md:w-[20vw] mx-auto"
-							alt="apply!"
-						/>
-					</Link>
+					{/* tshirt & link 2 map */}
+					<div className="bg-[url('/imgs/sandNoFade.webp')] p-4">
+						<h1 className="galindo text-5xl text-[#72BFDA] text-center justify-self-center">
+							AND you can get this free t-shirt!
+						</h1>
+						<div className="flex flex-row justify-center items-center">
+							<div
+								className="group w-12/32 -rotate-4 -mr-6 z-10 [perspective:1000px] cursor-pointer hover:scale-105 duration-200 transition-transform"
+								onClick={() => setShirtFlipped((f) => !f)}
+							>
+								<div
+									className={`relative w-full transition-transform duration-500 [transform-style:preserve-3d] ${
+										shirtFlipped
+											? "[transform:rotateY(180deg)]"
+											: "group-hover:[transform:rotateY(25deg)]"
+									}`}
+								>
+									<img
+										src="/imgs/tshirt_back.png"
+										className="w-full [backface-visibility:hidden]"
+										alt="t-shirt back"
+									/>
+									<img
+										src="/imgs/tshirt_front.png"
+										className="absolute inset-0 w-full [backface-visibility:hidden] [transform:rotateY(180deg)]"
+										alt="t-shirt front"
+									/>
+								</div>
+							</div>
+							<Link href="/map" className="w-12/32 -ml-2">
+								<img
+									src="/imgs/map.png"
+									className="w-full rotate-2 transition-transform duration-200 hover:scale-105 hover:rotate-4 cursor-pointer"
+								/>
+							</Link>
+						</div>
 					</div>
-					
+
+					<div className="bg-[url('/imgs/sandNoFade.webp')] w-full justify-center items-center flex flex-col">
+						<Link
+							href="/map"
+							className="hover:scale-105 transition-all duration-200 pointer-events-auto cursor-pointer w-fit mx-auto -mt-[4vh] mb-[5vh] transform -rotate-3 hover:-rotate-5"
+						>
+							<img
+								src="/imgs/surfboard_findsunbeam.png"
+								className="w-[40vw] md:w-[20vw] mx-auto"
+								alt="apply!"
+							/>
+						</Link>
+					</div>
 				</div>
 			</div>
 
@@ -225,12 +407,12 @@ const Home = () => {
 					/> */}
 					<div className="relative z-5 flex flex-col items-center w-[92%]">
 						<div className="grid grid-rows-1 grid-flow-col">
-						<h1 className="row-start-1 col-start-1 galindo text-5xl md:text-6xl text-center text-[#72BFDA] pink-outlined-text-drop-shadow mb-[0.25vh]">
-							Example Schedule
-						</h1>
-						<h1 className="row-start-1 col-start-1 galindo text-5xl md:text-6xl text-center text-[#72BFDA] pink-outlined-text-sm mb-[0.25vh]">
-							Example Schedule
-						</h1>
+							<h1 className="row-start-1 col-start-1 galindo text-5xl md:text-6xl text-center text-[#72BFDA] pink-outlined-text-drop-shadow mb-[0.25vh]">
+								Example Schedule
+							</h1>
+							<h1 className="row-start-1 col-start-1 galindo text-5xl md:text-6xl text-center text-[#72BFDA] pink-outlined-text-sm mb-[0.25vh]">
+								Example Schedule
+							</h1>
 						</div>
 
 						<p className="outfit text-[#0E387A] text-[1.4vh] md:text-[1.8vh] text-center mb-[2vh]">
@@ -261,7 +443,68 @@ const Home = () => {
 			</div>
 
 			{/* FAQ */}
-			<FaqAccordion />
+			<div className="bg-[url('/imgs/sandNoFade.webp')] relative min-h-[120vh] items-center justify-center w-full flex flex-col pt-[5vh] pb-[17.5vh] z-3 overflow-hidden">
+				{/* <img
+					src="/imgs/sandNoFade.webp"
+					className="w-full absolute top-[-10vh] z-0"
+					alt=""
+				/> */}
+				<img
+					src="/imgs/sunbeam-photo.webp"
+					className="absolute top-0 h-full w-[80vw] left-[10vw] object-cover z-5"
+					alt=""
+				/>
+
+				<div className="w-[60vw] my-[8vh] flex flex-col items-center relative z-10">
+					<h2 className="galindo text-[7vh] text-[#bdd3f7] blue-outlined-text drop-shadow-md drop-shadow-neutral-200 text-center leading-[6.5vh] mb-[3vh]">
+						FAQ
+					</h2>
+					<div className="w-full bg-[#FBF6E7] border-[0.25vh] border-[#2E599C] rounded-[2vh] p-[2vh] md:p-[2.5vh]">
+						{participantFaqs.map((faq, index) => {
+							const isOpen = openFaq === index;
+							return (
+								<div
+									key={faq.question}
+									className={`py-[1.5vh] ${
+										index !== participantFaqs.length - 1
+											? "border-b-[0.15vh] border-[#2E599C33]"
+											: ""
+									}`}
+								>
+									<button
+										type="button"
+										onClick={() => setOpenFaq(isOpen ? null : index)}
+										aria-expanded={isOpen}
+										className="w-full flex items-center justify-between gap-[2vw] text-left cursor-pointer"
+									>
+										<h3 className="galindo text-[#C54390] text-[3vh] leading-[3.5vh]">
+											{faq.question}
+										</h3>
+										<span
+											className={`galindo text-[#C54390] text-[3vh] leading-[3.5vh] shrink-0 transition-transform duration-300 ${
+												isOpen ? "rotate-180" : ""
+											}`}
+										>
+											▾
+										</span>
+									</button>
+									<div
+										className={`grid overflow-hidden transition-all duration-300 ease-in-out ${
+											isOpen
+												? "grid-rows-[1fr] opacity-100 mt-[1vh]"
+												: "grid-rows-[0fr] opacity-0"
+										}`}
+									>
+										<p className="outfit text-[#0E387A] text-[2.25vh] leading-[3vh] overflow-hidden">
+											{faq.answer}
+										</p>
+									</div>
+								</div>
+							);
+						})}
+					</div>
+				</div>
+			</div>
 
 			{/* Sand spacer before footer */}
 			<div className="w-full h-[12.5vh] bg-[url('/imgs/sandNoFade.webp')] z-3" />
@@ -433,4 +676,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default TemplatePage;
