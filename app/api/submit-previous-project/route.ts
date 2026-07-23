@@ -1,3 +1,8 @@
+import {
+	isScreenshotUpload,
+	uploadScreenshotAttachment,
+} from "@/app/lib/sunrise-airtable";
+
 export async function POST(request: Request) {
 	const body = await request.json();
 
@@ -22,10 +27,6 @@ export async function POST(request: Request) {
 
 	if (body.github_username) {
 		fields["GitHub Username"] = body.github_username;
-	}
-
-	if (body.screenshot_url) {
-		fields.Screenshot = [{ url: body.screenshot_url }];
 	}
 
 	if (body.birthday) {
@@ -67,6 +68,24 @@ export async function POST(request: Request) {
 			{ error: "Failed to submit project" },
 			{ status: 500 },
 		);
+	}
+
+	const created = await res.json();
+	const recordId: string | undefined = created?.id;
+
+	if (recordId && isScreenshotUpload(body.screenshot)) {
+		const uploaded = await uploadScreenshotAttachment({
+			baseId,
+			recordId,
+			pat: airtablePat,
+			screenshot: body.screenshot,
+		});
+		if (!uploaded) {
+			return Response.json(
+				{ error: "Project saved, but the screenshot failed to upload" },
+				{ status: 502 },
+			);
+		}
 	}
 
 	return Response.json({ ok: true });
