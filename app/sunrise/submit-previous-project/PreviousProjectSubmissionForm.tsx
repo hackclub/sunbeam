@@ -17,6 +17,7 @@ export default function PreviousProjectSubmissionForm({
 		project_description: "",
 		project_link: "",
 		github_repo: "",
+		github_username: "",
 		email: profile.email,
 		first_name: profile.firstName,
 		last_name: profile.lastName,
@@ -86,6 +87,7 @@ export default function PreviousProjectSubmissionForm({
 					project_description: formData.project_description,
 					project_link: formData.project_link,
 					github_repo: formData.github_repo,
+					github_username: formData.github_username,
 					first_name: formData.first_name,
 					last_name: formData.last_name,
 					screenshot,
@@ -111,6 +113,7 @@ export default function PreviousProjectSubmissionForm({
 				project_description: "",
 				project_link: "",
 				github_repo: "",
+				github_username: "",
 				email: profile.email,
 				first_name: profile.firstName,
 				last_name: profile.lastName,
@@ -304,6 +307,21 @@ export default function PreviousProjectSubmissionForm({
 
 										<div>
 											<label className="outfit text-[0.95rem] text-[#0e387a] font-semibold block mb-[0.5vh]">
+												GitHub Username
+											</label>
+											<input
+												type="text"
+												name="github_username"
+												value={formData.github_username}
+												required
+												onChange={handleInputChange}
+												className="w-full px-[1vh] py-[0.8vh] border border-[#0e387a33] bg-white/60 backdrop-blur-sm rounded-md focus:outline-none focus:ring-2 focus:ring-[#359bbf]"
+												placeholder="github username"
+											/>
+										</div>
+
+										<div>
+											<label className="outfit text-[0.95rem] text-[#0e387a] font-semibold block mb-[0.5vh]">
 												Screenshot
 											</label>
 											<input
@@ -441,7 +459,11 @@ export default function PreviousProjectSubmissionForm({
 										>
 											{loading ? "Submitting..." : "Submit Project"}
 										</button> */}
-										<a className="hover:scale-105 transition-transform mb-[2vh] mx-auto w-[50%] block cursor-pointer">
+										<button
+											type="submit"
+											disabled={loading}
+											className="hover:scale-105 transition-transform mb-[2vh] mx-auto w-[50%] block cursor-pointer"
+										>
 											<Image
 												src="/imgs/surfboard_submit.webp"
 												width={200}
@@ -449,7 +471,7 @@ export default function PreviousProjectSubmissionForm({
 												alt="Sign in with Hack Club"
 												className="w-full h-auto"
 											/>
-										</a>
+										</button>
 									</form>
 								</>
 							)}

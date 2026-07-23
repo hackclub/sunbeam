@@ -20,6 +20,10 @@ export async function POST(request: Request) {
 		fields["Code URL"] = body.github_repo;
 	}
 
+	if (body.github_username) {
+		fields["GitHub Username"] = body.github_username;
+	}
+
 	if (body.screenshot_url) {
 		fields.Screenshot = [{ url: body.screenshot_url }];
 	}

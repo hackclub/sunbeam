@@ -20,6 +20,10 @@ export async function POST(request: Request) {
 		fields["Github URL"] = body.github_repo;
 	}
 
+	if (body.github_username) {
+		fields["GitHub Username"] = body.github_username;
+	}
+
 	if (body.screenshot_url) {
 		fields.Screenshot = [{ url: body.screenshot_url }];
 	}
@@ -38,29 +42,31 @@ export async function POST(request: Request) {
 	const airtablePat = process.env.SUNRISE_AIRTABLE_PAT;
 
 	if (!baseId || !tableId || !airtablePat) {
-		console.error("[submit-previous-project] Sunrise Airtable configuration is missing");
+		console.error(
+			"[submit-previous-project] Sunrise Airtable configuration is missing",
+		);
 		return Response.json(
 			{ error: "Project submissions are not configured yet" },
-			{ status: 500 }
+			{ status: 500 },
 		);
 	}
 
-	const res = await fetch(
-		`https://api.airtable.com/v0/${baseId}/${tableId}`,
-		{
-			method: "POST",
-			headers: {
-				Authorization: `Bearer ${airtablePat}`,
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({ fields }),
-		}
-	);
+	const res = await fetch(`https://api.airtable.com/v0/${baseId}/${tableId}`, {
+		method: "POST",
+		headers: {
+			Authorization: `Bearer ${airtablePat}`,
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({ fields }),
+	});
 
 	if (!res.ok) {
 		const err = await res.text();
 		console.error("[submit-previous-project] Airtable error:", err);
-		return Response.json({ error: "Failed to submit project" }, { status: 500 });
+		return Response.json(
+			{ error: "Failed to submit project" },
+			{ status: 500 },
+		);
 	}
 
 	return Response.json({ ok: true });

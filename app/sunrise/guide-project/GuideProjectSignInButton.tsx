@@ -33,14 +33,17 @@ export default function GuideProjectSignInButton({
 					sizes="95vw"
 				/>
 				<div className="relative z-10 w-[82%] mx-auto pt-[5vh] pb-[6vh] flex flex-col items-center gap-[3vh]">
-					<h1 className="galindo pink-outlined-text text-center text-[3.36vw] mb-[2vh]">
+					<h1 className="galindo pink-outlined-text text-center text-[3.36vw] mb-[0vh]">
 						Sign in with Hack Club to submit your guide project!
 					</h1>
+					<p className="blue-outlined-text text-[5vh]">
+						Make sure to customize it before submitting!
+					</p>
 
 					<a
 						href={authUrl}
 						className="hover:scale-105 transition-transform mt-[2vh]"
-						style={{ width: "28vw", display: "block" }}
+						style={{ width: "20vw", display: "block" }}
 					>
 						<Image
 							src="/imgs/surfboard_next2.webp"

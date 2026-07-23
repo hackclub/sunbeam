@@ -17,6 +17,7 @@ export default function GuideProjectSubmissionForm({
 		project_description: "",
 		project_link: "",
 		github_repo: "",
+		github_username: "",
 		email: profile.email,
 		first_name: profile.firstName,
 		last_name: profile.lastName,
@@ -86,6 +87,7 @@ export default function GuideProjectSubmissionForm({
 					project_description: formData.project_description,
 					project_link: formData.project_link,
 					github_repo: formData.github_repo,
+					github_username: formData.github_username,
 					first_name: formData.first_name,
 					last_name: formData.last_name,
 					screenshot,
@@ -122,6 +124,7 @@ export default function GuideProjectSubmissionForm({
 				country: profile.country,
 				birthday: profile.birthday,
 				override_hours_spent: "",
+				github_username: "",
 			});
 			setScreenshotFile(null);
 			if (screenshotInputRef.current) screenshotInputRef.current.value = "";
@@ -299,6 +302,21 @@ export default function GuideProjectSubmissionForm({
 												onChange={handleInputChange}
 												className="w-full px-[1vh] py-[0.8vh] border border-[#0e387a33] bg-white/60 backdrop-blur-sm rounded-md focus:outline-none focus:ring-2 focus:ring-[#359bbf]"
 												placeholder="https://github.com/username/repo"
+											/>
+										</div>
+
+										<div>
+											<label className="outfit text-[0.95rem] text-[#0e387a] font-semibold block mb-[0.5vh]">
+												GitHub Username
+											</label>
+											<input
+												type="text"
+												name="github_username"
+												value={formData.github_username}
+												required
+												onChange={handleInputChange}
+												className="w-full px-[1vh] py-[0.8vh] border border-[#0e387a33] bg-white/60 backdrop-blur-sm rounded-md focus:outline-none focus:ring-2 focus:ring-[#359bbf]"
+												placeholder="github username"
 											/>
 										</div>
 
