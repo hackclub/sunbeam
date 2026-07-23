@@ -99,6 +99,12 @@ const Home = () => {
 							alt="apply!"
 						/>
 					</a>
+					<p className="outfit text-[#0E387A] text-center text-[2vh] md:text-[2.5vh] font-semibold mt-[1.5vh]">
+						read the{" "}
+						<Link href="/parents-guide" className="underline hover:text-[#2E599C]">
+							parents guide
+						</Link>
+					</p>
 				</div>
 			</div>
 
