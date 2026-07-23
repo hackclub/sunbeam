@@ -209,7 +209,11 @@ export default function SunriseStepPage({ step }: { step: SunriseStep }) {
 								</Link> */}
 
 								<Link
-									href={nextStep ? `/sunrise/${nextStep.slug}` : "/sunrise"}
+									href={
+										nextStep
+											? `/sunrise/${nextStep.slug}`
+											: "/sunrise/guide-project"
+									}
 									className="hover:scale-105 transition-transform"
 								>
 									<Image
