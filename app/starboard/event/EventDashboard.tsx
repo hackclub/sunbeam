@@ -6,7 +6,15 @@ import dayjs from "dayjs";
 
 type ScheduleItem = { time: string; event: string };
 type Sponsor = { name: string; logo: string };
-type AddressResult = { displayName: string; latitude: number; longitude: number };
+type AddressResult = {
+	label: string;
+	displayName: string;
+	city: string | null;
+	state: string | null;
+	country: string | null;
+	latitude: number;
+	longitude: number;
+};
 
 type EventRecord = {
 	id: string;
@@ -17,6 +25,8 @@ type EventRecord = {
 		sponsors?: string;
 		schedule?: string;
 		venue?: string;
+		venue_latitude?: number;
+		venue_longitude?: number;
 	};
 };
 
@@ -151,15 +161,24 @@ function SponsorsEditor({ initialSponsors, eventId }: { initialSponsors: Sponsor
 
 function VenueEditor({
 	initialVenue,
+	initialLatitude,
+	initialLongitude,
 	eventId,
 	canEdit,
 }: {
 	initialVenue?: string;
+	initialLatitude?: number;
+	initialLongitude?: number;
 	eventId?: string;
 	canEdit: boolean;
 }) {
 	const [query, setQuery] = useState(initialVenue ?? "");
 	const [savedVenue, setSavedVenue] = useState(initialVenue ?? "");
+	const [savedCoords, setSavedCoords] = useState<{ lat: number; lng: number } | null>(
+		typeof initialLatitude === "number" && typeof initialLongitude === "number"
+			? { lat: initialLatitude, lng: initialLongitude }
+			: null
+	);
 	const [results, setResults] = useState<AddressResult[]>([]);
 	const [open, setOpen] = useState(false);
 	const [loading, setLoading] = useState(false);
@@ -178,7 +197,10 @@ function VenueEditor({
 		const controller = new AbortController();
 		const timer = setTimeout(async () => {
 			try {
-				const res = await fetch(`/api/geocode?q=${encodeURIComponent(q)}`, { signal: controller.signal });
+				const idParam = eventId ? `&id=${encodeURIComponent(eventId)}` : "";
+				const res = await fetch(`/api/geocode-address?q=${encodeURIComponent(q)}${idParam}`, {
+					signal: controller.signal,
+				});
 				if (!res.ok) throw new Error();
 				const { results } = await res.json();
 				setResults(results ?? []);
@@ -214,10 +236,16 @@ function VenueEditor({
 			const res = await fetch("/api/update-event-venue", {
 				method: "PATCH",
 				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ id: eventId, venue: address.displayName }),
+				body: JSON.stringify({
+					id: eventId,
+					venue: address.displayName,
+					latitude: address.latitude,
+					longitude: address.longitude,
+				}),
 			});
 			if (!res.ok) throw new Error();
 			setSavedVenue(address.displayName);
+			setSavedCoords({ lat: address.latitude, lng: address.longitude });
 		} catch (err) {
 			console.error("[starboard/event] update-event-venue failed:", err);
 		} finally {
@@ -254,9 +282,10 @@ function VenueEditor({
 								key={`${r.latitude},${r.longitude},${i}`}
 								type="button"
 								onClick={() => selectAddress(r)}
-								className="block w-full text-left px-2 py-1.5 hover:bg-blue-dark/5 text-[11px] text-blue-dark border-b border-blue-dark/10 last:border-b-0"
+								className="block w-full text-left px-2 py-1.5 hover:bg-blue-dark/5 border-b border-blue-dark/10 last:border-b-0"
 							>
-								{r.displayName}
+								<span className="block text-[11px] font-semibold text-blue-dark">{r.label}</span>
+								<span className="block text-[10px] text-blue-dark/60 truncate">{r.displayName}</span>
 							</button>
 						))}
 						{results.length === 0 && !loading && (
@@ -270,7 +299,10 @@ function VenueEditor({
 				{loading && <span className="text-blue-dark/60">Searching...</span>}
 				{!loading && saving && <span className="text-blue-dark/60">Saving...</span>}
 				{!loading && !saving && savedVenue && (
-					<span className="text-green-700 font-semibold">✓ {savedVenue}</span>
+					<span className="text-green-700 font-semibold">
+						✓ {savedVenue}
+						{savedCoords ? ` (${savedCoords.lat.toFixed(4)}, ${savedCoords.lng.toFixed(4)})` : ""}
+					</span>
 				)}
 			</div>
 		</div>
@@ -545,6 +577,8 @@ export default function EventDashboard({
 								<VenueEditor
 									key={`${record.id}-venue`}
 									initialVenue={record.fields.venue}
+									initialLatitude={record.fields.venue_latitude}
+									initialLongitude={record.fields.venue_longitude}
 									eventId={eventId}
 									canEdit={canEditVenue}
 								/>
