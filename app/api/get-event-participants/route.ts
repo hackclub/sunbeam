@@ -7,6 +7,8 @@ type Participant = {
   email: string | null;
   city: string | null;
   country: string | null;
+  phoneNumber: string | null;
+  howHeard: string | null;
 };
 
 function toParticipant(fields: Record<string, unknown>): Participant {
@@ -20,6 +22,8 @@ function toParticipant(fields: Record<string, unknown>): Participant {
     email: (fields.email as string | undefined) ?? null,
     city: (fields.city as string | undefined) ?? null,
     country: (fields.country as string | undefined) ?? null,
+    phoneNumber: (fields.phone_number as string | undefined) ?? null,
+    howHeard: (fields.how_they_heard_abt as string | undefined) ?? null,
   };
 }
 

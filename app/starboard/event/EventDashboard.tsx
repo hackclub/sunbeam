@@ -33,7 +33,14 @@ type EventRecord = {
 
 type Person = { name: string | null; email: string };
 
-type Participant = { name: string | null; email: string | null; city: string | null; country: string | null };
+type Participant = {
+	name: string | null;
+	email: string | null;
+	city: string | null;
+	country: string | null;
+	phoneNumber: string | null;
+	howHeard: string | null;
+};
 
 type EventResponse = {
 	record: EventRecord | null;
@@ -532,6 +539,8 @@ function ParticipantsPanel({ eventId }: { eventId?: string }) {
 							<tr className="text-[10px] uppercase tracking-wide text-blue-dark/40">
 								<th className="py-2 pr-4 font-bold border-b border-blue-dark/10">Name</th>
 								<th className="py-2 pr-4 font-bold border-b border-blue-dark/10">Email</th>
+								<th className="py-2 pr-4 font-bold border-b border-blue-dark/10">Phone Number</th>
+								<th className="py-2 pr-4 font-bold border-b border-blue-dark/10">How They Heard About Sunbeam</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -539,6 +548,8 @@ function ParticipantsPanel({ eventId }: { eventId?: string }) {
 								<tr key={`${p.email ?? "participant"}-${i}`}>
 									<td className="py-2 pr-4 text-blue-dark border-b border-blue-dark/5">{p.name || "—"}</td>
 									<td className="py-2 pr-4 text-blue-dark border-b border-blue-dark/5">{p.email || "—"}</td>
+									<td className="py-2 pr-4 text-blue-dark border-b border-blue-dark/5">{p.phoneNumber || "—"}</td>
+									<td className="py-2 pr-4 text-blue-dark border-b border-blue-dark/5">{p.howHeard || "—"}</td>
 								</tr>
 							))}
 						</tbody>
