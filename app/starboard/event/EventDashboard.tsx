@@ -40,6 +40,7 @@ type Participant = {
 	country: string | null;
 	phoneNumber: string | null;
 	howHeard: string | null;
+	laptopConfirmed: boolean;
 };
 
 type EventResponse = {
@@ -541,6 +542,7 @@ function ParticipantsPanel({ eventId }: { eventId?: string }) {
 								<th className="py-2 pr-4 font-bold border-b border-blue-dark/10">Email</th>
 								<th className="py-2 pr-4 font-bold border-b border-blue-dark/10">Phone Number</th>
 								<th className="py-2 pr-4 font-bold border-b border-blue-dark/10">How They Heard About Sunbeam</th>
+								<th className="py-2 pr-4 font-bold border-b border-blue-dark/10">Confirmed Laptop</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -550,6 +552,7 @@ function ParticipantsPanel({ eventId }: { eventId?: string }) {
 									<td className="py-2 pr-4 text-blue-dark border-b border-blue-dark/5">{p.email || "—"}</td>
 									<td className="py-2 pr-4 text-blue-dark border-b border-blue-dark/5">{p.phoneNumber || "—"}</td>
 									<td className="py-2 pr-4 text-blue-dark border-b border-blue-dark/5">{p.howHeard || "—"}</td>
+									<td className="py-2 pr-4 text-blue-dark border-b border-blue-dark/5">{p.laptopConfirmed ? "Yes" : "No"}</td>
 								</tr>
 							))}
 						</tbody>

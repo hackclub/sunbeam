@@ -9,6 +9,7 @@ type Participant = {
   country: string | null;
   phoneNumber: string | null;
   howHeard: string | null;
+  laptopConfirmed: boolean;
 };
 
 function toParticipant(fields: Record<string, unknown>): Participant {
@@ -24,6 +25,7 @@ function toParticipant(fields: Record<string, unknown>): Participant {
     country: (fields.country as string | undefined) ?? null,
     phoneNumber: (fields.phone_number as string | undefined) ?? null,
     howHeard: (fields.how_they_heard_abt as string | undefined) ?? null,
+    laptopConfirmed: Boolean(fields.laptop_confirmed),
   };
 }
 
