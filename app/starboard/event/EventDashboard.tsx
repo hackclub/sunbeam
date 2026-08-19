@@ -52,6 +52,7 @@ type EventResponse = {
 	expectedAttendees?: number | null;
 	signupsCount?: number;
 	venueConfirmed?: boolean;
+	signupsOff?: boolean;
 };
 
 function parseSchedule(raw: string | undefined): ScheduleItem[] {
@@ -378,6 +379,63 @@ function VenueEditor({
 				)}
 			</div>
 		</div>
+	);
+}
+
+function SignupsToggle({
+	initialOff,
+	eventId,
+	canEdit,
+}: {
+	initialOff: boolean;
+	eventId?: string;
+	canEdit: boolean;
+}) {
+	const [off, setOff] = useState(initialOff);
+	const [saving, setSaving] = useState(false);
+
+	async function toggle() {
+		const next = !off;
+		setSaving(true);
+		setOff(next);
+		try {
+			const res = await fetch("/api/update-event-signups", {
+				method: "PATCH",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ id: eventId, signupsOff: next }),
+			});
+			if (!res.ok) throw new Error();
+		} catch (err) {
+			console.error("[starboard/event] update-event-signups failed:", err);
+			setOff(!next);
+		} finally {
+			setSaving(false);
+		}
+	}
+
+	if (!canEdit) {
+		return (
+			<span
+				className={`text-xs font-semibold px-2 py-1 rounded-full w-fit ${
+					off ? "bg-pink-bright/20 text-pink-dark" : "bg-green-100 text-green-700"
+				}`}
+			>
+				{off ? "signups closed" : "signups open"}
+			</span>
+		);
+	}
+
+	return (
+		<button
+			type="button"
+			onClick={toggle}
+			disabled={saving}
+			className={`galindo px-4 py-2 rounded-full text-xs hover:opacity-90 transition-opacity disabled:opacity-60 w-fit ${
+				off ? "bg-green-700 text-white" : "bg-pink-dark text-white"
+			}`}
+		>
+			{saving ? "Saving..." : off ? "Re-open signups" : "Disable signups"}
+		</button>
 	);
 }
 
@@ -866,13 +924,21 @@ export default function EventDashboard({
 									</div>
 								)}
 
-								<button
-									type="button"
-									onClick={copySignupLink}
-									className="bg-blue-dark text-white galindo px-4 py-2 rounded-full text-xs hover:opacity-90 transition-opacity w-fit"
-								>
-									{copied ? "Copied!" : "Copy link to signup form"}
-								</button>
+								<div className="flex flex-wrap items-center gap-2">
+									<button
+										type="button"
+										onClick={copySignupLink}
+										className="bg-blue-dark text-white galindo px-4 py-2 rounded-full text-xs hover:opacity-90 transition-opacity w-fit"
+									>
+										{copied ? "Copied!" : "Copy link to signup form"}
+									</button>
+									<SignupsToggle
+										key={`${record.id}-signups`}
+										initialOff={data?.signupsOff ?? false}
+										eventId={eventId}
+										canEdit={canEditVenue}
+									/>
+								</div>
 							</div>
 
 							<div className="glassbox-white rounded-2xl p-6 flex flex-col gap-4">
