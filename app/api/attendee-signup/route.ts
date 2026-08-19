@@ -10,6 +10,7 @@ export async function POST(request: Request) {
 		pronouns: body.pronouns || "",
 		date_of_birth: body.date_of_birth || "",
 		city: body.host_city || "",
+		verification_token: crypto.randomUUID(),
 	};
 
 	const res = await fetch(
