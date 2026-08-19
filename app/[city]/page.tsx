@@ -29,7 +29,11 @@ export default async function Page({
   let latitude: number | null = null;
   let longitude: number | null = null;
   let loadError = false;
-  const contactEmail = `sunbeam-${city.toLowerCase()}@events.hackclub.com`;
+  // "new-york-city" gets a shorter contact address than the auto-generated slug.
+  const contactEmail =
+    city.toLowerCase() === "new-york-city"
+      ? "sunbeam-nyc@events.hackclub.com"
+      : `sunbeam-${city.toLowerCase()}@events.hackclub.com`;
 
   // notFound() throws internally, so the fetch/status check must stay outside
   // any try/catch here — otherwise a real 404 gets swallowed as a generic error.
