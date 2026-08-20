@@ -58,6 +58,7 @@ export async function GET(request: Request) {
 
     const participants = individuals
       .filter((r) => (r.fields.type as string | undefined) === "participant")
+      .filter((r) => !r.fields.disqualified)
       .filter((r) => {
         const directEventIds = (r.fields.event_info as string[] | undefined) ?? [];
         if (directEventIds.includes(targetId)) return true;
