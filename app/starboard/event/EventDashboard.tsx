@@ -564,17 +564,31 @@ function ParticipantsPanel({ eventId }: { eventId?: string }) {
 					Participants{status === "ok" ? ` (${participants.length})` : ""}
 				</h2>
 				{status === "ok" && participants.length > 0 && (
-					<a
-						href={
-							eventId
-								? `/api/download-event-participants?id=${encodeURIComponent(eventId)}`
-								: "/api/download-event-participants"
-						}
-						download
-						className="bg-blue-dark text-white galindo px-3 py-1.5 rounded-full text-xs hover:opacity-90 transition-opacity w-fit"
-					>
-						Download CSV
-					</a>
+					<div className="flex items-center gap-2">
+						<a
+							href={
+								eventId
+									? `/api/download-event-participants?id=${encodeURIComponent(eventId)}`
+									: "/api/download-event-participants"
+							}
+							download
+							className="bg-blue-dark text-white galindo px-3 py-1.5 rounded-full text-xs hover:opacity-90 transition-opacity w-fit"
+						>
+							Download CSV
+						</a>
+						<a
+							href={
+								eventId
+									? `/api/download-event-participants-attend?id=${encodeURIComponent(eventId)}`
+									: "/api/download-event-participants-attend"
+							}
+							download
+							title="Formatted for Attend's bulk participant import"
+							className="bg-white text-blue-dark border-2 border-blue-dark galindo px-3 py-1.5 rounded-full text-xs hover:opacity-90 transition-opacity w-fit"
+						>
+							Download CSV (Attend format)
+						</a>
+					</div>
 				)}
 			</div>
 
