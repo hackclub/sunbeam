@@ -33,7 +33,15 @@ type EventRecord = {
 
 type Person = { name: string | null; email: string };
 
-type Participant = { name: string | null; email: string | null; city: string | null; country: string | null };
+type Participant = {
+	name: string | null;
+	email: string | null;
+	city: string | null;
+	country: string | null;
+	phoneNumber: string | null;
+	howHeard: string | null;
+	laptopConfirmed: boolean;
+};
 
 type EventResponse = {
 	record: EventRecord | null;
@@ -44,6 +52,7 @@ type EventResponse = {
 	expectedAttendees?: number | null;
 	signupsCount?: number;
 	venueConfirmed?: boolean;
+	signupsOff?: boolean;
 };
 
 function parseSchedule(raw: string | undefined): ScheduleItem[] {
@@ -373,6 +382,63 @@ function VenueEditor({
 	);
 }
 
+function SignupsToggle({
+	initialOff,
+	eventId,
+	canEdit,
+}: {
+	initialOff: boolean;
+	eventId?: string;
+	canEdit: boolean;
+}) {
+	const [off, setOff] = useState(initialOff);
+	const [saving, setSaving] = useState(false);
+
+	async function toggle() {
+		const next = !off;
+		setSaving(true);
+		setOff(next);
+		try {
+			const res = await fetch("/api/update-event-signups", {
+				method: "PATCH",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ id: eventId, signupsOff: next }),
+			});
+			if (!res.ok) throw new Error();
+		} catch (err) {
+			console.error("[starboard/event] update-event-signups failed:", err);
+			setOff(!next);
+		} finally {
+			setSaving(false);
+		}
+	}
+
+	if (!canEdit) {
+		return (
+			<span
+				className={`text-xs font-semibold px-2 py-1 rounded-full w-fit ${
+					off ? "bg-pink-bright/20 text-pink-dark" : "bg-green-100 text-green-700"
+				}`}
+			>
+				{off ? "signups closed" : "signups open"}
+			</span>
+		);
+	}
+
+	return (
+		<button
+			type="button"
+			onClick={toggle}
+			disabled={saving}
+			className={`galindo px-4 py-2 rounded-full text-xs hover:opacity-90 transition-opacity disabled:opacity-60 w-fit ${
+				off ? "bg-green-700 text-white" : "bg-pink-dark text-white"
+			}`}
+		>
+			{saving ? "Saving..." : off ? "Re-open signups" : "Disable signups"}
+		</button>
+	);
+}
+
 function ScheduleEditor({ initialSchedule, eventId }: { initialSchedule: ScheduleItem[]; eventId?: string }) {
 	const [items, setItems] = useState<ScheduleItem[]>(initialSchedule);
 	const [saving, setSaving] = useState(false);
@@ -498,17 +564,31 @@ function ParticipantsPanel({ eventId }: { eventId?: string }) {
 					Participants{status === "ok" ? ` (${participants.length})` : ""}
 				</h2>
 				{status === "ok" && participants.length > 0 && (
-					<a
-						href={
-							eventId
-								? `/api/download-event-participants?id=${encodeURIComponent(eventId)}`
-								: "/api/download-event-participants"
-						}
-						download
-						className="bg-blue-dark text-white galindo px-3 py-1.5 rounded-full text-xs hover:opacity-90 transition-opacity w-fit"
-					>
-						Download CSV
-					</a>
+					<div className="flex items-center gap-2">
+						<a
+							href={
+								eventId
+									? `/api/download-event-participants?id=${encodeURIComponent(eventId)}`
+									: "/api/download-event-participants"
+							}
+							download
+							className="bg-blue-dark text-white galindo px-3 py-1.5 rounded-full text-xs hover:opacity-90 transition-opacity w-fit"
+						>
+							Download CSV
+						</a>
+						<a
+							href={
+								eventId
+									? `/api/download-event-participants-attend?id=${encodeURIComponent(eventId)}`
+									: "/api/download-event-participants-attend"
+							}
+							download
+							title="Formatted for Attend's bulk participant import"
+							className="bg-white text-blue-dark border-2 border-blue-dark galindo px-3 py-1.5 rounded-full text-xs hover:opacity-90 transition-opacity w-fit"
+						>
+							Download CSV (Attend format)
+						</a>
+					</div>
 				)}
 			</div>
 
@@ -532,6 +612,9 @@ function ParticipantsPanel({ eventId }: { eventId?: string }) {
 							<tr className="text-[10px] uppercase tracking-wide text-blue-dark/40">
 								<th className="py-2 pr-4 font-bold border-b border-blue-dark/10">Name</th>
 								<th className="py-2 pr-4 font-bold border-b border-blue-dark/10">Email</th>
+								<th className="py-2 pr-4 font-bold border-b border-blue-dark/10">Phone Number</th>
+								<th className="py-2 pr-4 font-bold border-b border-blue-dark/10">How They Heard About Sunbeam</th>
+								<th className="py-2 pr-4 font-bold border-b border-blue-dark/10">Confirmed Laptop</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -539,6 +622,9 @@ function ParticipantsPanel({ eventId }: { eventId?: string }) {
 								<tr key={`${p.email ?? "participant"}-${i}`}>
 									<td className="py-2 pr-4 text-blue-dark border-b border-blue-dark/5">{p.name || "—"}</td>
 									<td className="py-2 pr-4 text-blue-dark border-b border-blue-dark/5">{p.email || "—"}</td>
+									<td className="py-2 pr-4 text-blue-dark border-b border-blue-dark/5">{p.phoneNumber || "—"}</td>
+									<td className="py-2 pr-4 text-blue-dark border-b border-blue-dark/5">{p.howHeard || "—"}</td>
+									<td className="py-2 pr-4 text-blue-dark border-b border-blue-dark/5">{p.laptopConfirmed ? "Yes" : "No"}</td>
 								</tr>
 							))}
 						</tbody>
@@ -852,13 +938,21 @@ export default function EventDashboard({
 									</div>
 								)}
 
-								<button
-									type="button"
-									onClick={copySignupLink}
-									className="bg-blue-dark text-white galindo px-4 py-2 rounded-full text-xs hover:opacity-90 transition-opacity w-fit"
-								>
-									{copied ? "Copied!" : "Copy link to signup form"}
-								</button>
+								<div className="flex flex-wrap items-center gap-2">
+									<button
+										type="button"
+										onClick={copySignupLink}
+										className="bg-blue-dark text-white galindo px-4 py-2 rounded-full text-xs hover:opacity-90 transition-opacity w-fit"
+									>
+										{copied ? "Copied!" : "Copy link to signup form"}
+									</button>
+									<SignupsToggle
+										key={`${record.id}-signups`}
+										initialOff={data?.signupsOff ?? false}
+										eventId={eventId}
+										canEdit={canEditVenue}
+									/>
+								</div>
 							</div>
 
 							<div className="glassbox-white rounded-2xl p-6 flex flex-col gap-4">

@@ -19,6 +19,11 @@ const nextConfig: NextConfig = {
         destination: "/organizers/:path*",
         permanent: true,
       },
+      {
+        source: "/nyc",
+        destination: "/new-york-city",
+        permanent: true,
+      },
     ];
   },
 };

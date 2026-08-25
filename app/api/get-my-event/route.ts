@@ -10,6 +10,7 @@ type OrgFields = {
   first_name?: string;
   country?: string;
   expected_attendee_count?: number;
+  signups_off?: boolean;
 };
 
 function toPerson(id: string, orgById: Map<string, OrgFields>) {
@@ -42,6 +43,11 @@ function buildEventPayload(
   const signupsCount = (record?.fields.signups_count as number | undefined) ?? 0;
   const venueConfirmed = Boolean((record?.fields.venue as string | undefined)?.trim());
 
+  // `signups_off` lives on the event's point-of-contact record (falling back to the first
+  // organizer), not on event_info itself — there's one POC per event in practice.
+  const [signupsOffRecordId] = pocIds.length ? pocIds : organizerIds;
+  const signupsOff = Boolean(orgById.get(signupsOffRecordId ?? "")?.signups_off);
+
   return {
     city: city ?? (record?.fields.City as string | undefined) ?? null,
     country,
@@ -53,6 +59,7 @@ function buildEventPayload(
     expectedAttendees,
     signupsCount,
     venueConfirmed,
+    signupsOff,
   };
 }
 

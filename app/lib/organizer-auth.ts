@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import { fetchAllAirtableRecords } from "@/app/lib/airtable";
 
 export type OrganizerRole =
-  | { ok: true; email: string; city: string; roles: string[]; eventInfoIds: string[] }
+  | { ok: true; email: string; city: string; roles: string[]; eventInfoIds: string[]; recordId: string }
   | { ok: false; response: Response };
 
 export async function getOrganizerRole(): Promise<OrganizerRole> {
@@ -56,7 +56,7 @@ export async function getOrganizerRole(): Promise<OrganizerRole> {
     roles.push("nda-signed");
   }
 
-  return { ok: true, email, city, roles, eventInfoIds: fields.event_info ?? [] };
+  return { ok: true, email, city, roles, eventInfoIds: fields.event_info ?? [], recordId: match.id };
 }
 
 async function getApprovedOrganizerEmails(): Promise<string[]> {

@@ -7,6 +7,9 @@ type Participant = {
   email: string | null;
   city: string | null;
   country: string | null;
+  phoneNumber: string | null;
+  howHeard: string | null;
+  laptopConfirmed: boolean;
 };
 
 function toParticipant(fields: Record<string, unknown>): Participant {
@@ -20,6 +23,9 @@ function toParticipant(fields: Record<string, unknown>): Participant {
     email: (fields.email as string | undefined) ?? null,
     city: (fields.city as string | undefined) ?? null,
     country: (fields.country as string | undefined) ?? null,
+    phoneNumber: (fields.phone_number as string | undefined) ?? null,
+    howHeard: (fields.how_they_heard_abt as string | undefined) ?? null,
+    laptopConfirmed: Boolean(fields.laptop_confirmed),
   };
 }
 
@@ -66,6 +72,7 @@ export async function GET(request: Request) {
 
     const participants = individuals
       .filter((r) => (r.fields.type as string | undefined) === "participant")
+      .filter((r) => !r.fields.disqualified)
       .filter((r) => {
         const directEventIds = (r.fields.event_info as string[] | undefined) ?? [];
         if (directEventIds.includes(targetId)) return true;

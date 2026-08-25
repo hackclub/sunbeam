@@ -12,13 +12,13 @@ function Section({
 		<div style={{ padding: "0 7.2%", marginBottom: "4vh" }}>
 			<h2
 				className="galindo"
-				style={{ fontSize: "2vw", color: "#359BBF", marginBottom: "1.5vh" }}
+				style={{ fontSize: "clamp(20px, 2vw, 32px)", color: "#359BBF", marginBottom: "1.5vh" }}
 			>
 				{title}
 			</h2>
 			<div
 				className="outfit"
-				style={{ fontSize: "1.15vw", color: "#0E387A", lineHeight: 1.7 }}
+				style={{ fontSize: "clamp(15px, 1.15vw, 19px)", color: "#0E387A", lineHeight: 1.7 }}
 			>
 				{children}
 			</div>
@@ -45,7 +45,7 @@ export default function ParentsGuide() {
 						position: "absolute",
 						top: 10,
 						left: 20,
-						fontSize: "2.5vw",
+						fontSize: "clamp(18px, 2.5vw, 32px)",
 						color: "#D88127",
 						lineHeight: 1.2,
 					}}
@@ -56,7 +56,7 @@ export default function ParentsGuide() {
 					<img
 						src="/imgs/sunbeam.webp"
 						alt="Sunbeam"
-						style={{ width: "12vw", maxWidth: "160px" }}
+						style={{ width: "12vw", minWidth: "60px", maxWidth: "160px" }}
 					/>
 				</Link>
 			</div>
@@ -65,7 +65,7 @@ export default function ParentsGuide() {
 			<div className="text-center pt-[6vh] pb-[10vh]">
 				<p
 					className="galindo"
-					style={{ fontSize: "2.91vw", color: "#359BBF", lineHeight: 1.2 }}
+					style={{ fontSize: "clamp(28px, 2.91vw, 46px)", color: "#359BBF", lineHeight: 1.2 }}
 				>
 					Parents Guide
 				</p>
@@ -366,10 +366,10 @@ export default function ParentsGuide() {
 					download
 					className="galindo inline-block"
 					style={{
-						fontSize: "1.2vw",
+						fontSize: "clamp(15px, 1.2vw, 19px)",
 						color: "#FBF6E7",
 						backgroundColor: "#359BBF",
-						padding: "1.2vh 2.5vw",
+						padding: "1.2vh clamp(20px, 2.5vw, 40px)",
 						borderRadius: "999px",
 						textDecoration: "none",
 					}}
