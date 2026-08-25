@@ -22,6 +22,7 @@ function toPerson(id: string, orgById: Map<string, OrgFields>) {
 function buildEventPayload(
   record: AirtableRecord | null,
   orgRecords: AirtableRecord[],
+  individuals: AirtableRecord[],
   city: string | null,
   roles: string[]
 ) {
@@ -40,7 +41,22 @@ function buildEventPayload(
     .filter((n): n is number => typeof n === "number");
   const expectedAttendees = expectedAttendeeCounts.length ? Math.max(...expectedAttendeeCounts) : null;
 
-  const signupsCount = (record?.fields.signups_count as number | undefined) ?? 0;
+  // signups_count is a raw Airtable rollup that includes disqualified rows and "organizer"-type
+  // entries — count real signups (participants/volunteers/referral-only, not disqualified)
+  // ourselves, same as GET /api/get-all-events.
+  const eventByOrgId = new Map(
+    orgRecords.map((r) => [r.id, (r.fields.event_info as string[] | undefined)?.[0] ?? null])
+  );
+  const signupsCount = record
+    ? individuals.filter((r) => {
+        const type = r.fields.type as string | undefined;
+        if (type === "organizer" || r.fields.disqualified) return false;
+        const directEventIds = (r.fields.event_info as string[] | undefined) ?? [];
+        if (directEventIds.includes(record.id)) return true;
+        const refEventIds = (r.fields.ref_event as string[] | undefined) ?? [];
+        return refEventIds.some((orgId) => eventByOrgId.get(orgId) === record.id);
+      }).length
+    : 0;
   const venueConfirmed = Boolean((record?.fields.venue as string | undefined)?.trim());
 
   // `signups_off` lives on the event's point-of-contact record (falling back to the first
@@ -75,13 +91,14 @@ export async function GET(request: Request) {
     if (denied) return denied;
 
     try {
-      const [events, orgRecords] = await Promise.all([
+      const [events, orgRecords, individuals] = await Promise.all([
         fetchAllAirtableRecords(process.env.AIRTABLE_EVENT_INFO_ID!),
         fetchAllAirtableRecords(process.env.AIRTABLE_ORG_SIGNUP_TABLE_ID!),
+        fetchAllAirtableRecords(process.env.AIRTABLE_ATTENDEE_TABLE_ID!),
       ]);
       const record = events.find((e) => e.id === requestedId) ?? null;
 
-      return Response.json(buildEventPayload(record, orgRecords, null, ["admin"]));
+      return Response.json(buildEventPayload(record, orgRecords, individuals, null, ["admin"]));
     } catch (err) {
       console.error("[get-my-event] Airtable error:", err);
       return Response.json({ error: "Failed to fetch event" }, { status: 500 });
@@ -92,13 +109,14 @@ export async function GET(request: Request) {
   if (!role.ok) return role.response;
 
   try {
-    const [events, orgRecords] = await Promise.all([
+    const [events, orgRecords, individuals] = await Promise.all([
       fetchAllAirtableRecords(process.env.AIRTABLE_EVENT_INFO_ID!),
       fetchAllAirtableRecords(process.env.AIRTABLE_ORG_SIGNUP_TABLE_ID!),
+      fetchAllAirtableRecords(process.env.AIRTABLE_ATTENDEE_TABLE_ID!),
     ]);
     const record = events.find((e) => role.eventInfoIds.includes(e.id)) ?? null;
 
-    return Response.json(buildEventPayload(record, orgRecords, role.city, role.roles));
+    return Response.json(buildEventPayload(record, orgRecords, individuals, role.city, role.roles));
   } catch (err) {
     console.error("[get-my-event] Airtable error:", err);
     return Response.json({ error: "Failed to fetch event" }, { status: 500 });
