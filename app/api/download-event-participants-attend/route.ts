@@ -1,6 +1,6 @@
 import { requireAdmin } from "@/app/lib/admin-auth";
 import { getOrganizerRole } from "@/app/lib/organizer-auth";
-import { fetchAllAirtableRecords } from "@/app/lib/airtable";
+import { fetchEventAttendees, fetchEventOrgRecords } from "@/app/lib/event-attendees";
 
 // Matches the header row Attend's bulk participant importer expects
 // (participant_import_template.csv). Columns Airtable doesn't track
@@ -156,36 +156,18 @@ export async function GET(request: Request) {
   }
 
   try {
-    const [individuals, orgRecords] = await Promise.all([
-      fetchAllAirtableRecords(process.env.AIRTABLE_ATTENDEE_TABLE_ID!),
-      fetchAllAirtableRecords(process.env.AIRTABLE_ORG_SIGNUP_TABLE_ID!),
-    ]);
-
-    // individual_signup.event_info is the direct link, but an external Airtable automation
-    // populates it from ref_event -> _organizer_signup.event_info and has occasionally dropped
-    // records — fall back to that path for any row where the direct link is still empty.
-    const eventByOrgId = new Map(
-      orgRecords.map((r) => [r.id, (r.fields.event_info as string[] | undefined)?.[0] ?? null])
-    );
+    const { individuals, orgIds } = await fetchEventAttendees(targetId, "participant");
 
     // Organizers of this event who also separately filled out the participant signup
     // form (same email) shouldn't be invited to their own event as an attendee.
+    const orgRecords = await fetchEventOrgRecords(orgIds);
     const organizerEmails = new Set(
       orgRecords
-        .filter((r) => eventByOrgId.get(r.id) === targetId)
         .map((r) => (r.fields.email as string | undefined)?.toLowerCase())
         .filter((email): email is string => Boolean(email))
     );
 
     const rows = individuals
-      .filter((r) => (r.fields.type as string | undefined) === "participant")
-      .filter((r) => !r.fields.disqualified)
-      .filter((r) => {
-        const directEventIds = (r.fields.event_info as string[] | undefined) ?? [];
-        if (directEventIds.includes(targetId)) return true;
-        const refEventIds = (r.fields.ref_event as string[] | undefined) ?? [];
-        return refEventIds.some((orgId) => eventByOrgId.get(orgId) === targetId);
-      })
       .filter((r) => {
         const email = (r.fields.email as string | undefined)?.trim();
         return Boolean(email) && !organizerEmails.has(email!.toLowerCase());
