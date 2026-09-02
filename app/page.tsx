@@ -104,6 +104,22 @@ const Home = () => {
 						<Link href="/parents-guide" className="underline hover:text-[#2E599C]">
 							parents guide
 						</Link>
+						{" · "}
+						<Link
+							href="/sunbeam-global"
+							className="underline hover:text-[#2E599C]"
+						>
+							Sunbeam Global
+						</Link>
+						{": "}
+						<a
+							href="https://forms.hackclub.com/t/xeSuQVhKnAus"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="underline hover:text-[#2E599C]"
+						>
+							submit your project
+						</a>
 					</p>
 				</div>
 			</div>
