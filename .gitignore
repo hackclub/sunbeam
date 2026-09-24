@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# local Airtable disk cache (production reads from the mounted volume instead)
+/.airtable-cache/
+
 # production
 /build
 
