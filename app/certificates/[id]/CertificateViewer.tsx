@@ -202,14 +202,19 @@ export default function CertificateViewer({ id, fullName, version }: { id: strin
           style={{ height: `${CARD_HEIGHT_PERCENT}%` }}
         />
       </model-viewer>
-      {status === "ready" && (
-        <p
-          className="outfit pointer-events-none absolute inset-x-0 bottom-2 text-center text-sm text-white/60 md:bottom-auto md:top-[var(--card-anchor)]"
-          style={belowCard("0.75rem")}
-        >
-          drag to spin it around
-        </p>
-      )}
+      {/* The certificate's details are already server-rendered; this covers the 3D model and its
+          textures loading behind the flat poster. aria-live so screen readers hear the change. */}
+      <p
+        aria-live="polite"
+        className={`outfit pointer-events-none absolute inset-x-0 bottom-2 text-center text-sm text-white/60 md:bottom-auto md:top-[var(--card-anchor)] ${
+          status === "loading" ? "animate-pulse" : ""
+        }`}
+        style={belowCard("0.75rem")}
+      >
+        {status === "loading" && "Loading certificate…"}
+        {status === "ready" && "drag to spin it around"}
+        {status === "error" && "Couldn't load the 3D certificate, so here's the flat version"}
+      </p>
     </div>
   );
 }
