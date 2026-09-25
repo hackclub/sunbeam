@@ -20,9 +20,9 @@ const MODEL_SRC = "/certificate/certificate_base_thicker.gltf";
 const FRONT_MATERIAL_NAME = "certificate";
 const BACK_MATERIAL_NAME = "back";
 // Idle sway so the foil catches the light before anyone touches it; stops on first drag.
-const SWAY_THETA_DEG = 22;
-const SWAY_PHI_DEG = 6;
-const SWAY_PERIOD_MS = 7000;
+const SWAY_THETA_DEG = 10;
+const SWAY_PHI_DEG = 3;
+const SWAY_PERIOD_MS = 18000;
 
 // How close the camera starts, as a % of the distance that fits the whole model in view
 // (model-viewer's default is 105%). Lower = the certificate starts bigger. The viewer box is
@@ -53,7 +53,7 @@ export default function CertificateViewer({ id, fullName, version }: { id: strin
     const sway = (startedAt: number) => {
       const tick = (now: number) => {
         const t = ((now - startedAt) / SWAY_PERIOD_MS) * Math.PI * 2;
-        viewer.cameraOrbit = `${Math.sin(t) * SWAY_THETA_DEG}deg ${75 + Math.cos(t * 2) * SWAY_PHI_DEG}deg ${radius}`;
+        viewer.cameraOrbit = `${Math.sin(t) * SWAY_THETA_DEG}deg ${75 + Math.cos(t) * SWAY_PHI_DEG}deg ${radius}`;
         swayFrame = requestAnimationFrame(tick);
       };
       swayFrame = requestAnimationFrame(tick);
