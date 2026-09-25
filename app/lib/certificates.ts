@@ -69,7 +69,16 @@ export const getCertificateById = cache(async (id: string): Promise<Certificate 
   const record = data.records?.[0];
   if (!record) return null;
 
-  const fields = record.fields as { first_name?: string; last_name?: string; event_slug?: string; city?: string };
+  const fields = record.fields as {
+    first_name?: string;
+    last_name?: string;
+    event_slug?: string;
+    city?: string;
+    "Loops - sunbeamPreferredName"?: string;
+  };
+  // The certificate shows the participant's cleaned-up preferred name; first_name is only a
+  // fallback for a record whose preferred name was never filled in.
+  const preferredName = (fields["Loops - sunbeamPreferredName"] ?? "").trim();
   const eventSlug = (fields.event_slug ?? "").trim().toLowerCase();
   // The event's display name is stored on the certificate itself (backfilled from
   // event_info.City), so this is a single Airtable call; the event_info lookup is only a
@@ -78,7 +87,7 @@ export const getCertificateById = cache(async (id: string): Promise<Certificate 
 
   return {
     id,
-    firstName: (fields.first_name ?? "").trim(),
+    firstName: preferredName || (fields.first_name ?? "").trim(),
     lastName: (fields.last_name ?? "").trim(),
     eventSlug,
     eventName: storedCity || (eventSlug ? await eventNameForSlug(eventSlug) : ""),
