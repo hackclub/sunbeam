@@ -1,6 +1,6 @@
 import { requireAdmin } from "@/app/lib/admin-auth";
 import { getOrganizerRole } from "@/app/lib/organizer-auth";
-import { fetchEventAttendees } from "@/app/lib/event-attendees";
+import { fetchAllAirtableRecords } from "@/app/lib/airtable";
 
 function csvField(value: string): string {
   if (/[",\n]/.test(value)) {
@@ -44,14 +44,33 @@ export async function GET(request: Request) {
   }
 
   try {
-    const { individuals } = await fetchEventAttendees(targetId, "participant");
+    const [individuals, orgRecords] = await Promise.all([
+      fetchAllAirtableRecords(process.env.AIRTABLE_ATTENDEE_TABLE_ID!),
+      fetchAllAirtableRecords(process.env.AIRTABLE_ORG_SIGNUP_TABLE_ID!),
+    ]);
 
-    const participants = individuals.map((r) => {
-      const preferred = r.fields.preferred_name as string | undefined;
-      const first = r.fields.first_name as string | undefined;
-      const email = r.fields.email as string | undefined;
-      return { firstName: preferred || first || "", email: email ?? "" };
-    });
+    // individual_signup.event_info is the direct link, but an external Airtable automation
+    // populates it from ref_event -> _organizer_signup.event_info and has occasionally dropped
+    // records — fall back to that path for any row where the direct link is still empty.
+    const eventByOrgId = new Map(
+      orgRecords.map((r) => [r.id, (r.fields.event_info as string[] | undefined)?.[0] ?? null])
+    );
+
+    const participants = individuals
+      .filter((r) => (r.fields.type as string | undefined) === "participant")
+      .filter((r) => !r.fields.disqualified)
+      .filter((r) => {
+        const directEventIds = (r.fields.event_info as string[] | undefined) ?? [];
+        if (directEventIds.includes(targetId)) return true;
+        const refEventIds = (r.fields.ref_event as string[] | undefined) ?? [];
+        return refEventIds.some((orgId) => eventByOrgId.get(orgId) === targetId);
+      })
+      .map((r) => {
+        const preferred = r.fields.preferred_name as string | undefined;
+        const first = r.fields.first_name as string | undefined;
+        const email = r.fields.email as string | undefined;
+        return { firstName: preferred || first || "", email: email ?? "" };
+      });
 
     const rows = [
       "Preferred First Name,Email",

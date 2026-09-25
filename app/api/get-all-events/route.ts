@@ -1,5 +1,5 @@
 import { requireAdmin } from "@/app/lib/admin-auth";
-import { fetchAllAirtableRecords, fetchAirtableRecordsByIds } from "@/app/lib/airtable";
+import { fetchAllAirtableRecords } from "@/app/lib/airtable";
 
 type OrgFields = {
   email?: string;
@@ -19,20 +19,11 @@ export async function GET(request: Request) {
   if (denied) return denied;
 
   try {
-    const [events, individuals] = await Promise.all([
+    const [events, individuals, orgRecords] = await Promise.all([
       fetchAllAirtableRecords(process.env.AIRTABLE_EVENT_INFO_ID!),
       fetchAllAirtableRecords(process.env.AIRTABLE_ATTENDEE_TABLE_ID!),
+      fetchAllAirtableRecords(process.env.AIRTABLE_ORG_SIGNUP_TABLE_ID!),
     ]);
-
-    // Only resolve the organizer/poc records actually linked from event_info, instead of
-    // pulling the entire (much larger) organizer signup table. This still covers the
-    // ref_event fallback below: an organizer's event_info is the reciprocal of
-    // event_info.organizer, so any organizer with an event is in this set.
-    const linkedOrgIds = events.flatMap((event) => {
-      const fields = event.fields as { organizer?: string[]; poc?: string[] };
-      return [...(fields.organizer ?? []), ...(fields.poc ?? [])];
-    });
-    const orgRecords = await fetchAirtableRecordsByIds(process.env.AIRTABLE_ORG_SIGNUP_TABLE_ID!, linkedOrgIds);
 
     const orgById = new Map(orgRecords.map((r) => [r.id, r.fields as OrgFields]));
 

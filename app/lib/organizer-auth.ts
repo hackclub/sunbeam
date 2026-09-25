@@ -1,6 +1,6 @@
 import "server-only";
 import { cookies } from "next/headers";
-import { fetchAirtableRecordsByFormula } from "@/app/lib/airtable";
+import { fetchAllAirtableRecords } from "@/app/lib/airtable";
 
 export type OrganizerRole =
   | { ok: true; email: string; city: string; roles: string[]; eventInfoIds: string[]; recordId: string }
@@ -26,12 +26,11 @@ export async function getOrganizerRole(): Promise<OrganizerRole> {
     return { ok: false, response: Response.json({ error: "Unauthorized" }, { status: 401 }) };
   }
 
-  const escapedEmail = email.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
-  const records = await fetchAirtableRecordsByFormula(
-    process.env.AIRTABLE_ORG_SIGNUP_TABLE_ID!,
-    `AND({approve_as_org} = "approved", LOWER({email}) = "${escapedEmail}")`
-  );
-  const [match] = records;
+  const records = await fetchAllAirtableRecords(process.env.AIRTABLE_ORG_SIGNUP_TABLE_ID!);
+  const match = records.find((r) => {
+    const fields = r.fields as { email?: string; approve_as_org?: string };
+    return fields.approve_as_org === "approved" && fields.email?.toLowerCase() === email;
+  });
 
   if (!match) {
     return { ok: false, response: Response.json({ error: "Forbidden" }, { status: 403 }) };
