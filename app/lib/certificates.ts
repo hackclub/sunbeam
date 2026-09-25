@@ -50,9 +50,8 @@ async function eventNameForSlug(slug: string) {
 }
 
 // Looks the certificate up directly in Airtable by its public `id` field (not the Airtable
-// record id). Deliberately not served from the disk cache in ./airtable, because certificate
-// ids can be regenerated in Airtable and a stale disk copy would 404 the new ones. Wrapped in
-// cache() so the page and generateMetadata share one lookup per request. Returns null if not found.
+// record id), cached for 5 minutes so regenerated ids show up soon after. Wrapped in cache() so
+// the page and generateMetadata share one lookup per request. Returns null if not found.
 export const getCertificateById = cache(async (id: string): Promise<Certificate | null> => {
   if (!CERTIFICATE_ID_PATTERN.test(id)) return null;
 
@@ -70,14 +69,18 @@ export const getCertificateById = cache(async (id: string): Promise<Certificate 
   const record = data.records?.[0];
   if (!record) return null;
 
-  const fields = record.fields as { first_name?: string; last_name?: string; event_slug?: string };
+  const fields = record.fields as { first_name?: string; last_name?: string; event_slug?: string; city?: string };
   const eventSlug = (fields.event_slug ?? "").trim().toLowerCase();
+  // The event's display name is stored on the certificate itself (backfilled from
+  // event_info.City), so this is a single Airtable call; the event_info lookup is only a
+  // fallback for a record whose `city` was never filled in.
+  const storedCity = (fields.city ?? "").trim();
 
   return {
     id,
     firstName: (fields.first_name ?? "").trim(),
     lastName: (fields.last_name ?? "").trim(),
     eventSlug,
-    eventName: eventSlug ? await eventNameForSlug(eventSlug) : "",
+    eventName: storedCity || (eventSlug ? await eventNameForSlug(eventSlug) : ""),
   };
 });
