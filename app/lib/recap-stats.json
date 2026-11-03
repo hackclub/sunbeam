@@ -1,0 +1,402 @@
+{
+  "generatedAt": "2026-10-27T14:56:43.360Z",
+  "eventDate": "2026-08-29",
+  "totals": {
+    "attendees": 1554,
+    "signups": 4734,
+    "cities": 36,
+    "countries": 14,
+    "organizers": 176,
+    "volunteers": 157,
+    "projects": 495,
+    "shippers": 939,
+    "hours": 4960
+  },
+  "feedback": {
+    "responses": 725,
+    "averageScore": 8.8,
+    "npsScore": 61,
+    "madeFriendPct": 88,
+    "proudPct": 96,
+    "organizerResponses": 73,
+    "organizerAverageScore": 8.7
+  },
+  "ages": [
+    {
+      "age": 13,
+      "count": 122
+    },
+    {
+      "age": 14,
+      "count": 215
+    },
+    {
+      "age": 15,
+      "count": 295
+    },
+    {
+      "age": 16,
+      "count": 354
+    },
+    {
+      "age": 17,
+      "count": 353
+    },
+    {
+      "age": 18,
+      "count": 215
+    }
+  ],
+  "heardAbout": [
+    {
+      "source": "Friends & family",
+      "count": 1606
+    },
+    {
+      "source": "School",
+      "count": 1357
+    },
+    {
+      "source": "Instagram",
+      "count": 641
+    },
+    {
+      "source": "Other social media",
+      "count": 384
+    },
+    {
+      "source": "Hack Club",
+      "count": 191
+    },
+    {
+      "source": "Other",
+      "count": 581
+    }
+  ],
+  "cities": [
+    {
+      "city": "Karachi Division",
+      "country": "Pakistan",
+      "attendees": 545,
+      "projects": 112,
+      "slug": "karachi-division",
+      "lat": 24.8546842,
+      "lng": 67.0207055
+    },
+    {
+      "city": "Jakarta",
+      "country": "Indonesia",
+      "attendees": 105,
+      "projects": 33,
+      "slug": "jakarta",
+      "lat": -6.1754049,
+      "lng": 106.827168
+    },
+    {
+      "city": "Islamabad",
+      "country": "Pakistan",
+      "attendees": 84,
+      "projects": 24,
+      "slug": "islamabad",
+      "lat": 33.6938118,
+      "lng": 73.0651511
+    },
+    {
+      "city": "Bengaluru",
+      "country": "India",
+      "attendees": 80,
+      "projects": 20,
+      "slug": "bengaluru",
+      "lat": 12.9767936,
+      "lng": 77.590082
+    },
+    {
+      "city": "Delhi",
+      "country": "India",
+      "attendees": 68,
+      "projects": 35,
+      "slug": "delhi",
+      "lat": 28.70406,
+      "lng": 77.102493
+    },
+    {
+      "city": "Penang",
+      "country": "Malaysia",
+      "attendees": 56,
+      "projects": 17,
+      "slug": "penang",
+      "lat": 5.4065013,
+      "lng": 100.2559077
+    },
+    {
+      "city": "Casablanca",
+      "country": "Morocco",
+      "attendees": 53,
+      "projects": 6,
+      "slug": "casablanca",
+      "lat": 33.573109,
+      "lng": -7.589843
+    },
+    {
+      "city": "Lahore",
+      "country": "Pakistan",
+      "attendees": 47,
+      "projects": 28,
+      "slug": "lahore",
+      "lat": 31.4846233,
+      "lng": 74.2971085
+    },
+    {
+      "city": "Auckland",
+      "country": "New Zealand",
+      "attendees": 42,
+      "projects": 17,
+      "slug": "auckland",
+      "lat": -36.848461,
+      "lng": 174.763336
+    },
+    {
+      "city": "Toronto",
+      "country": "Canada",
+      "attendees": 38,
+      "projects": 16,
+      "slug": "toronto",
+      "lat": 43.849138,
+      "lng": -79.3239578
+    },
+    {
+      "city": "Dubai",
+      "country": "United Arab Emirates",
+      "attendees": 35,
+      "projects": 11,
+      "slug": "dubai",
+      "lat": 25.0742823,
+      "lng": 55.1885387
+    },
+    {
+      "city": "Sydney",
+      "country": "Australia",
+      "attendees": 35,
+      "projects": 8,
+      "slug": "sydney",
+      "lat": -33.8698439,
+      "lng": 151.2082848
+    },
+    {
+      "city": "New York City",
+      "country": "United States",
+      "attendees": 35,
+      "projects": 4,
+      "slug": "new-york-city",
+      "lat": 40.712776,
+      "lng": -74.005974
+    },
+    {
+      "city": "Ottawa",
+      "country": "Canada",
+      "attendees": 32,
+      "projects": 14,
+      "slug": "ottawa",
+      "lat": 45.421532,
+      "lng": -75.697189
+    },
+    {
+      "city": "San Francisco",
+      "country": "United States",
+      "attendees": 32,
+      "projects": 13,
+      "slug": "san-francisco",
+      "lat": 37.774929,
+      "lng": -122.419418
+    },
+    {
+      "city": "Dhaka",
+      "country": "Bangladesh",
+      "attendees": 30,
+      "projects": 12,
+      "slug": "dhaka",
+      "lat": 23.810331,
+      "lng": 90.412521
+    },
+    {
+      "city": "Dallas",
+      "country": "United States",
+      "attendees": 24,
+      "projects": 8,
+      "slug": "dallas",
+      "lat": 32.776665,
+      "lng": -96.796989
+    },
+    {
+      "city": "Miami",
+      "country": "United States",
+      "attendees": 20,
+      "projects": 9,
+      "slug": "miami",
+      "lat": 25.761681,
+      "lng": -80.191788
+    },
+    {
+      "city": "Boston",
+      "country": "United States",
+      "attendees": 20,
+      "projects": 7,
+      "slug": "boston",
+      "lat": 42.360081,
+      "lng": -71.058884
+    },
+    {
+      "city": "Winnipeg",
+      "country": "Canada",
+      "attendees": 19,
+      "projects": 7,
+      "slug": "winnipeg",
+      "lat": 49.895138,
+      "lng": -97.138374
+    },
+    {
+      "city": "London",
+      "country": "United Kingdom",
+      "attendees": 18,
+      "projects": 7,
+      "slug": "london",
+      "lat": 51.507351,
+      "lng": -0.127758
+    },
+    {
+      "city": "Atlanta",
+      "country": "United States",
+      "attendees": 18,
+      "projects": 6,
+      "slug": "atlanta",
+      "lat": 33.748997,
+      "lng": -84.387985
+    },
+    {
+      "city": "Managua",
+      "country": "Nicaragua",
+      "attendees": 17,
+      "projects": 12,
+      "slug": "managua",
+      "lat": 12.114993,
+      "lng": -86.236176
+    },
+    {
+      "city": "Los Angeles",
+      "country": "United States",
+      "attendees": 15,
+      "projects": 7,
+      "slug": "los-angeles",
+      "lat": 34.052235,
+      "lng": -118.243683
+    },
+    {
+      "city": "Austin",
+      "country": "United States",
+      "attendees": 14,
+      "projects": 5,
+      "slug": "austin",
+      "lat": 30.3,
+      "lng": -97.743057
+    },
+    {
+      "city": "Columbus",
+      "country": "United States",
+      "attendees": 11,
+      "projects": 10,
+      "slug": "columbus",
+      "lat": 39.9622601,
+      "lng": -83.0007065
+    },
+    {
+      "city": "Chicago",
+      "country": "United States",
+      "attendees": 11,
+      "projects": 8,
+      "slug": "chicago",
+      "lat": 41.878113,
+      "lng": -87.629799
+    },
+    {
+      "city": "Philadelphia",
+      "country": "United States",
+      "attendees": 10,
+      "projects": 2,
+      "slug": "philadelphia",
+      "lat": 39.952583,
+      "lng": -75.165222
+    },
+    {
+      "city": "Sacramento",
+      "country": "United States",
+      "attendees": 9,
+      "projects": 4,
+      "slug": "sacramento",
+      "lat": 38.581573,
+      "lng": -121.4944
+    },
+    {
+      "city": "Houston",
+      "country": "United States",
+      "attendees": 9,
+      "projects": 3,
+      "slug": "houston",
+      "lat": 29.760427,
+      "lng": -95.369804
+    },
+    {
+      "city": "DC",
+      "country": "United States",
+      "attendees": 7,
+      "projects": 4,
+      "slug": "dc",
+      "lat": 38.907192,
+      "lng": -77.036873
+    },
+    {
+      "city": "Charlotte",
+      "country": "United States",
+      "attendees": 6,
+      "projects": 3,
+      "slug": "charlotte",
+      "lat": 35.996653,
+      "lng": -78.9018053
+    },
+    {
+      "city": "Hong Kong",
+      "country": "Hong Kong",
+      "attendees": 5,
+      "projects": 5,
+      "slug": "hong-kong",
+      "lat": 22.396427,
+      "lng": 114.109497
+    },
+    {
+      "city": "Seattle",
+      "country": "United States",
+      "attendees": 4,
+      "projects": 8,
+      "slug": "seattle",
+      "lat": 47.6038321,
+      "lng": -122.330062
+    },
+    {
+      "city": "Burlington",
+      "country": "United States",
+      "attendees": 0,
+      "projects": 5,
+      "slug": "burlington",
+      "lat": 44.5059077,
+      "lng": -73.2448281
+    },
+    {
+      "city": "Tampa",
+      "country": "United States",
+      "attendees": 0,
+      "projects": 5,
+      "slug": "tampa",
+      "lat": 27.950575,
+      "lng": -82.457176
+    }
+  ]
+}
