@@ -75,10 +75,15 @@ export default function PocMap() {
         popup.appendChild(name);
 
         if (poc.city_slug) {
-          const email = document.createElement("p");
-          email.className = "text-sm text-pink-dark font-semibold";
-          email.textContent = `sunbeam-${poc.city_slug}@events.hackclub.com`;
-          popup.appendChild(email);
+          const contact = document.createElement("p");
+          contact.className = "text-sm text-blue-dark whitespace-nowrap";
+          contact.style.margin = "0";
+          contact.innerHTML = `
+            Website: <a href="https://sunbeam.hackclub.com/${poc.city_slug}" target="_blank" rel="noopener noreferrer" class="font-semibold !text-pink-dark underline">sunbeam.hackclub.com/${poc.city_slug}</a>
+            <br>
+            Email: <a href="mailto:sunbeam-${poc.city_slug}@events.hackclub.com" class="font-semibold !text-pink-dark underline">sunbeam-${poc.city_slug}@events.hackclub.com</a>
+          `;
+          popup.appendChild(contact);
         }
 
         marker.bindPopup(popup);
